@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { TabsPageRoutingModule } from './tabs.router.module';
 
-import { TabsPage } from './tabs.page';
+import { TabsComponent } from './tabs.component';
 import { ExploreViewModule } from './explore-view/explore-view.module';
 import { MapViewModule } from './map-view/map-view.module';
 
@@ -16,8 +16,8 @@ import { MapViewModule } from './map-view/map-view.module';
     FormsModule,
     TabsPageRoutingModule,
     ExploreViewModule,
-    MapViewModule
+    MapViewModule,
   ],
-  declarations: [TabsPage]
+  declarations: [TabsComponent],
 })
 export class TabsPageModule {}

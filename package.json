@@ -5,11 +5,16 @@
   "homepage": "https://utrechttimemachine.nl/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ionic serve",
+    "build": "ionic build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "private": true,
   "dependencies": {
@@ -53,7 +58,12 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "tslint-angular": "^3.0.2",
+    "husky": "^3.0.9",
+    "prettier": "npm:@btmills/prettier@^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "A prototype mobile Time Machine."
 }
