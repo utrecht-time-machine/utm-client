@@ -1,0 +1,14 @@
+#content-slider ion-card {
+  max-width: 500px;
+
+  img {
+    margin: 0 auto;
+    /* TODO: Max height for card image */
+  }
+}
+
+.story-play-button {
+  position: fixed;
+  right: 16px;
+  margin-top: 20px;
+}

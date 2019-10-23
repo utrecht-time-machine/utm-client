@@ -1,3 +1,118 @@
-<p>
-  explore-view works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Story View
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  
+</ion-content> -->
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary">
+      <ion-icon name="play"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>Authors</ion-label>
+      <ion-select [interfaceOptions]="authorSelectionOptions" multiple value="authors" interface="action-sheet">
+        <ion-select-option value="utrecht-archive">Utrecht Archive</ion-select-option>
+        <ion-select-option value="utrecht-university">Utrecht University</ion-select-option>
+        <ion-select-option value="gilde-utrecht">Gilde Utrecht</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-slides
+          [options]="contentSliderOptions"
+          (ionSlideDidChange)="slideContentChanged()"
+          id="content-slider"
+        >
+          <ion-slide *ngFor="let slide of slides">
+            <ion-card>
+              <img
+                src="/assets/img/{{ slide.fileName }}"
+                alt="{{ slide.title }}"
+              />
+              <ion-card-header>
+                <ion-card-subtitle>{{ slide.type }}</ion-card-subtitle>
+                <ion-card-title>{{ slide.title }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{ slide.description }}
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label> Authors </ion-label>
+        </ion-item-divider>
+        <ion-button size="small" expand="block" (click)="addAuthor()"
+          >Add Author</ion-button
+        >
+
+        <ion-chip
+          *ngFor="let author of authors"
+          outline
+          color="{{ author.color }}"
+          #author.id
+        >
+          <ion-icon name="{{ author.icon }}"></ion-icon>
+          <ion-label>{{ author.name }}</ion-label>
+          <ion-icon
+            (click)="removeAuthor(author.id)"
+            name="close-circle"
+          ></ion-icon>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-Xs="12" sizeMd="6">
+        <ion-item-divider>
+          <ion-label> Time Range </ion-label>
+        </ion-item-divider>
+        <ion-range
+          id="time-range"
+          dual-knobs
+          pin
+          min="1900"
+          max="2019"
+          value="2019"
+          steps="1"
+          snaps
+          color="dark"
+        >
+          <ion-icon slot="start" size="small" name="time"></ion-icon>
+          <ion-icon slot="end" name="time"></ion-icon>
+        </ion-range>
+      </ion-col>
+      <ion-col size-Xs="12" sizeMd="6">
+        <ion-item-divider>
+          <ion-label> Area </ion-label>
+        </ion-item-divider>
+        <ion-range
+          id="area-range"
+          pin
+          min="0"
+          max="100"
+          value="50"
+          color="secondary"
+        >
+          <ion-icon slot="start" size="small" name="locate"></ion-icon>
+          <ion-icon slot="end" name="locate"></ion-icon>
+        </ion-range>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
