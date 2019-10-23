@@ -2,6 +2,7 @@
   "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock",
   "@type": "https://utrechttimemachine.nl/ontology/story",
   "title": "Thinking about the Thinker on a Rock",
+  "lang": "nl-NL",
   "description": "Ever considered what our dearest bunny friend has to think about our square? We have arranged an exclusive interview, just for you.",
   "featured-image": "https://upload.wikimedia.org/wikipedia/commons/4/45/Utrecht_Thinker_On_A_Rock_%282002%29.jpg",
   "authors": [
