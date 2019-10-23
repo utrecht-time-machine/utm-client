@@ -4,6 +4,14 @@
 
 export const environment = {
   production: false,
+
+  // Map-related parameters
+  initialZoom: 15,
+  maxZoom: 19,
+  minZoom: 6,
+  defaultCenter: { lng: 5.11867, lat: 52.09328 }, // Neude, Utrecht
+  mapboxToken:
+    'pk.eyJ1IjoiZWR1c2hpZnRzIiwiYSI6ImNrMjNidGN0NTAyaW4zZHA5dDBnaDR0bXkifQ.z0gAOXzO4aB124GsVP2rOg',
 };
 
 /*
