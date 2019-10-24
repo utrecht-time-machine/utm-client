@@ -155,7 +155,7 @@ export class MapViewComponent implements OnInit {
           }, 500);
           setTimeout(() => {
             this.map.resize();
-          }, 1000);
+          }, 2000);
         }
       }
     });
