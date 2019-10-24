@@ -4,7 +4,7 @@ import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
-import { Feature, Point } from 'geojson';
+import { Feature, GeoJsonObject, Point } from 'geojson';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
@@ -46,9 +46,11 @@ export class MapViewComponent implements OnInit {
 
   playerPosition: BehaviorSubject<GeolocationPosition>;
   playerPositionMarker: Marker;
+  playerPositionRadius: BehaviorSubject<number>;
 
   constructor(private router: Router, private http: HttpClient) {
-    this.playerPosition = new BehaviorSubject(null);
+    this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
+    this.playerPositionRadius = new BehaviorSubject<number>(0);
 
     this.startRefreshListener();
   }
@@ -205,6 +207,7 @@ export class MapViewComponent implements OnInit {
       this.addStations();
 
       this.watchPlayerPosition();
+      this.watchPlayerPositionRadius();
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -237,6 +240,9 @@ export class MapViewComponent implements OnInit {
         return;
       }
 
+      // TODO: remove this randomizer; only for debugging purposes
+      this.playerPositionRadius.next(Math.random() * 15 + 5);
+
       const mainMarker = document.createElement('div');
       mainMarker.className = 'mapboxgl-user-location-dot';
 
@@ -246,13 +252,56 @@ export class MapViewComponent implements OnInit {
       );
 
       if (!this.playerPositionMarker) {
+        // Create the first radius object here
+        const playerPositionRadiusRaw: any = createGeoJSONCircle(
+          `player-position-radius`,
+          currentPlayerPosition,
+          this.playerPositionRadius.getValue(),
+          24,
+          'blue',
+          0.2
+        );
+
         this.playerPositionMarker = new Marker(mainMarker, {})
           .setLngLat(currentPlayerPosition)
           .addTo(this.map);
+        this.map.addLayer(playerPositionRadiusRaw);
       } else {
         this.playerPositionMarker.setLngLat(currentPlayerPosition);
+        this.updatePlayerPositionRadius();
       }
     });
+  }
+
+  watchPlayerPositionRadius() {
+    this.playerPositionRadius.subscribe(playerPositionRadius => {
+      if (!playerPositionRadius || !this.playerPositionMarker) {
+        return;
+      }
+      this.updatePlayerPositionRadius();
+    });
+  }
+
+  updatePlayerPositionRadius() {
+    const playerPosition = this.playerPosition.getValue();
+    const playerPositionCoords: LngLat = new LngLat(
+      playerPosition.coords.longitude,
+      playerPosition.coords.latitude
+    );
+
+    const playerPositionRadiusRaw: any = createGeoJSONCircle(
+      `player-position-radius`,
+      playerPositionCoords,
+      this.playerPositionRadius.getValue(),
+      24,
+      'blue',
+      0.2
+    );
+    // @ts-ignore
+    this.map
+      .getSource('player-position-radius')
+      // @ts-ignore
+      .setData(playerPositionRadiusRaw.source.data);
   }
 
   /**
@@ -348,4 +397,70 @@ export class MapViewComponent implements OnInit {
       this.map.addLayer(customLayer, 'building 3D');
     }
   }
+}
+
+/**
+ * Returns a geojson object describing a polygonal circle that can be projected on the map.
+ * Adapted from: https://stackoverflow.com/a/39006388
+ *
+ * @param id
+ * @param center
+ * @param radiusInMeter
+ * @param points
+ * @param color
+ * @param opacity
+ * @returns geojson
+ */
+function createGeoJSONCircle(
+  id,
+  center,
+  radiusInMeter,
+  points,
+  color,
+  opacity
+) {
+  if (!points) {
+    points = 64;
+  }
+
+  const coords = {
+    latitude: center.lat,
+    longitude: center.lng,
+  };
+
+  const km = radiusInMeter / 1000;
+
+  const ret = [];
+  const distanceX = km / (111.32 * Math.cos((coords.latitude * Math.PI) / 180));
+  const distanceY = km / 110.574;
+
+  let theta, x, y;
+  for (let i = 0; i < points; i++) {
+    theta = (i / points) * (2 * Math.PI);
+    x = distanceX * Math.cos(theta);
+    y = distanceY * Math.sin(theta);
+
+    ret.push([coords.longitude + x, coords.latitude + y]);
+  }
+  ret.push(ret[0]);
+
+  return {
+    id: id,
+    type: 'fill',
+    source: {
+      type: 'geojson',
+      data: {
+        type: 'Feature',
+        geometry: {
+          type: 'Polygon',
+          coordinates: [ret],
+        },
+      },
+    },
+    layout: {},
+    paint: {
+      'fill-color': color,
+      'fill-opacity': opacity,
+    },
+  };
 }
