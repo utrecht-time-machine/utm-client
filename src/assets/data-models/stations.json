@@ -4,6 +4,21 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/265260840",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1181785, 52.0931279]
+    },
+    "properties": {
+      "title": "Former post office",
+      "description": "Will soon be part of the public library Utrecht."
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
     "id": "https://www.openstreetmap.org/node/1806563574",
     "geometry": {
       "type": "Point",
