@@ -3,7 +3,7 @@ import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LngLat, MercatorCoordinate } from 'mapbox-gl';
+import { LngLat, LngLatBounds, MercatorCoordinate } from 'mapbox-gl';
 import { Feature, Point } from 'geojson';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
@@ -57,7 +57,7 @@ export class MapViewComponent implements OnInit {
         station.geometry.coordinates[0],
         station.geometry.coordinates[1]
       ),
-      0
+      coneHeight / 2
     );
     const modelRotate = [Math.PI / 2, 0, 0];
     // @ts-ignore
@@ -162,6 +162,17 @@ export class MapViewComponent implements OnInit {
   }
 
   initMap() {
+    const mapBounds: LngLatBounds = new LngLatBounds(
+      new LngLat(
+        environment.defaultCenter.lng - environment.mapBoundsOffset,
+        environment.defaultCenter.lat - environment.mapBoundsOffset
+      ), // Southwest coordinates
+      new LngLat(
+        environment.defaultCenter.lng + environment.mapBoundsOffset,
+        environment.defaultCenter.lat + environment.mapBoundsOffset
+      ) // Northeast coordinates
+    );
+
     (mapboxgl as any).accessToken = environment.mapboxToken;
     this.map = new mapboxgl.Map({
       container: this.mapboxContainer.nativeElement,
@@ -171,6 +182,7 @@ export class MapViewComponent implements OnInit {
       pitch: 45,
       maxZoom: environment.maxZoom,
       minZoom: environment.minZoom,
+      maxBounds: mapBounds,
     });
 
     // use the Mapbox GL JS map canvas for three.js
