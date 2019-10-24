@@ -1,5 +1,7 @@
 {
   "name": "utm-client",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
