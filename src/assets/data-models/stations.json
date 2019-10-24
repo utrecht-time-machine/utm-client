@@ -26,7 +26,13 @@
     },
     "properties": {
       "title": "Thinker on Rock",
-      "description": "Thinker on a Rock is a bronze sculpture by Barry Flanagan."
+      "description": "Thinker on a Rock is a bronze sculpture by Barry Flanagan.",
+      "3d-model": {
+        "url": "./assets/3d-models/thinker-on-a-rock-nga-sculpture-garden-1.stl",
+        "scale": 0.1,
+        "rotate": [0, 0, -2.51327],
+        "altitude": 0
+      }
     }
   }
 ]
