@@ -7,7 +7,7 @@ export const environment = {
 
   // Map-related parameters
   initialZoom: 16.2,
-  maxZoom: 19,
+  maxZoom: 23,
   minZoom: 6,
   defaultCenter: { lng: 5.11867, lat: 52.09328 }, // Neude, Utrecht
   mapboxToken:
