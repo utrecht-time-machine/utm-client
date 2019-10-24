@@ -3,10 +3,14 @@ import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LngLat, LngLatBounds, MercatorCoordinate } from 'mapbox-gl';
+import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
 import { Feature, Point } from 'geojson';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { Plugins, GeolocationPosition } from '@capacitor/core';
+import { BehaviorSubject } from 'rxjs';
+
+const { Geolocation } = Plugins;
 
 interface Custom3dModel {
   url: string;
@@ -40,7 +44,12 @@ export class MapViewComponent implements OnInit {
   camera: THREE.Camera;
   renderer: THREE.Renderer;
 
+  playerPosition: BehaviorSubject<GeolocationPosition>;
+  playerPositionMarker: Marker;
+
   constructor(private router: Router, private http: HttpClient) {
+    this.playerPosition = new BehaviorSubject(null);
+
     this.startRefreshListener();
   }
 
@@ -194,10 +203,55 @@ export class MapViewComponent implements OnInit {
 
     this.map.on('load', () => {
       this.addStations();
+
+      this.watchPlayerPosition();
+
       this.map.addControl(
-        new mapboxgl.NavigationControl({ visualizePitch: true }),
+        new mapboxgl.NavigationControl({
+          // @ts-ignore
+          visualizePitch: true,
+        }),
         'bottom-right'
       );
+    });
+  }
+
+  watchPlayerPosition() {
+    // TODO: subscription management
+    Geolocation.watchPosition(
+      {
+        enableHighAccuracy: true,
+      },
+      (position, err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        this.playerPosition.next(position);
+      }
+    );
+
+    // TODO: subscription management
+    this.playerPosition.subscribe((playerPosition: GeolocationPosition) => {
+      if (!playerPosition) {
+        return;
+      }
+
+      const mainMarker = document.createElement('div');
+      mainMarker.className = 'mapboxgl-user-location-dot';
+
+      const currentPlayerPosition: LngLat = new LngLat(
+        playerPosition.coords.longitude,
+        playerPosition.coords.latitude
+      );
+
+      if (!this.playerPositionMarker) {
+        this.playerPositionMarker = new Marker(mainMarker, {})
+          .setLngLat(currentPlayerPosition)
+          .addTo(this.map);
+      } else {
+        this.playerPositionMarker.setLngLat(currentPlayerPosition);
+      }
     });
   }
 
@@ -290,6 +344,7 @@ export class MapViewComponent implements OnInit {
         },
       };
       this.map.triggerRepaint();
+      // @ts-ignore
       this.map.addLayer(customLayer, 'building 3D');
     }
   }
