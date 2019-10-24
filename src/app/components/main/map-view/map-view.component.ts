@@ -192,7 +192,13 @@ export class MapViewComponent implements OnInit {
       antialias: true,
     });
 
-    this.addStations();
+    this.map.on('load', () => {
+      this.addStations();
+      this.map.addControl(
+        new mapboxgl.NavigationControl({ visualizePitch: true }),
+        'bottom-right'
+      );
+    });
   }
 
   /**
@@ -284,16 +290,7 @@ export class MapViewComponent implements OnInit {
         },
       };
       this.map.triggerRepaint();
-
-      if (this.map.loaded()) {
-        // @ts-ignore
-        this.map.addLayer(customLayer, 'building 3D');
-      } else {
-        this.map.on('load', () => {
-          // @ts-ignore
-          this.map.addLayer(customLayer, 'building 3D');
-        });
-      }
+      this.map.addLayer(customLayer, 'building 3D');
     }
   }
 }
