@@ -17,30 +17,9 @@ export class StoryViewComponent implements OnInit {
     header: 'Authors',
   };
 
-  authors: any = true;
+  allAuthors: any = true;
+  selectedAuthors: any = true;
   stories: any = true;
-
-  addAuthor() {
-    // TODO: Pick manually
-    const randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-    const sampleAuthor = {
-      name: 'Utrecht Archive',
-      icon: 'business',
-      color: 'secondary',
-      id: randomId,
-    };
-    this.authors.push(sampleAuthor);
-  }
-
-  removeAuthor(authorId: Element) {
-    // Find the author to remove
-    this.authors.forEach(function(author, index, object) {
-      if (author.id === authorId) {
-        // Remove from author list
-        object.splice(index, 1);
-      }
-    });
-  }
 
   slideContentChanged() {
     console.log('Slide content change');
@@ -50,8 +29,9 @@ export class StoryViewComponent implements OnInit {
     const authors = await this.http
       .get('assets/data-models/authors.json')
       .toPromise();
-    this.authors = authors;
-    console.log(this.authors);
+    this.allAuthors = authors;
+    this.selectedAuthors = authors;
+    console.log(this.allAuthors);
   }
 
   async loadStories() {
@@ -67,5 +47,18 @@ export class StoryViewComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.loadAuthors();
     this.loadStories();
+  }
+
+  selectedAuthorsChanged(newAuthorIds) {
+    // Clear the selected authors
+    this.selectedAuthors = [];
+
+    this.allAuthors.forEach(function(author) {
+      // For each newly selected id...
+      if (newAuthorIds.includes(author['@id'])) {
+        // ... Add it to the list of selected authors
+        this.selectedAuthors.push(author);
+      }
+    }, this);
   }
 }
