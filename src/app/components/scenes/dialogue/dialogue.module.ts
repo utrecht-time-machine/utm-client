@@ -4,7 +4,8 @@ import { DialogueComponent } from './dialogue.component';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations: [DialogueComponent, IonicModule],
-  imports: [CommonModule],
+  declarations: [DialogueComponent],
+  imports: [CommonModule, IonicModule],
+  exports: [DialogueComponent],
 })
 export class DialogueModule {}
