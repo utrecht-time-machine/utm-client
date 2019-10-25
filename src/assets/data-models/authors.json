@@ -2,6 +2,13 @@
   {
     "@id": "https://utrechttimemachine.nl/authors/UU",
     "name": "Utrecht University",
-    "logo": "https://www.uu.nl/sites/all/themes/uubasetheme/images/logo-nl.svg"
+    "logo": "https://www.uu.nl/sites/all/themes/uubasetheme/images/logo-nl.svg",
+    "color": "secondary"
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/authors/HUA",
+    "name": "The Utrecht Archives",
+    "logo": "https://www.uu.nl/sites/all/themes/uubasetheme/images/logo-nl.svg",
+    "color": "primary"
   }
 ]

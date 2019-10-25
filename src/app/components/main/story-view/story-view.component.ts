@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'utm-explore-view',
@@ -17,12 +18,12 @@ export class StoryViewComponent implements OnInit {
   };
 
   authors: any = true;
-  slides: any = true;
+  stories: any = true;
 
   addAuthor() {
     // TODO: Pick manually
-    var randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-    var sampleAuthor = {
+    const randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    const sampleAuthor = {
       name: 'Utrecht Archive',
       icon: 'business',
       color: 'secondary',
@@ -32,8 +33,10 @@ export class StoryViewComponent implements OnInit {
   }
 
   removeAuthor(authorId: Element) {
+    // Find the author to remove
     this.authors.forEach(function(author, index, object) {
-      if (author.id == authorId) {
+      if (author.id === authorId) {
+        // Remove from author list
         object.splice(index, 1);
       }
     });
@@ -43,48 +46,26 @@ export class StoryViewComponent implements OnInit {
     console.log('Slide content change');
   }
 
+  async loadAuthors() {
+    const authors = await this.http
+      .get('assets/data-models/authors.json')
+      .toPromise();
+    this.authors = authors;
+    console.log(this.authors);
+  }
+
+  async loadStories() {
+    const story = await this.http
+      .get('assets/data-models/story.json')
+      .toPromise();
+    this.stories = [story, story, story];
+    console.log(this.stories);
+  }
+
   ngOnInit() {}
 
-  constructor() {
-    // TODO: Read author data from JSON
-    this.authors = [
-      {
-        name: 'Utrecht Archive',
-        icon: 'business',
-        color: 'secondary',
-        id: 'utrecht-archive',
-      },
-      {
-        name: 'Utrecht University',
-        icon: 'business',
-        color: 'primary',
-        id: 'utrecht-university',
-      },
-      { name: 'Gilde Utrecht', icon: 'person', id: 'gilde-utrecht' },
-    ];
-
-    // TODO: Read slides content from JSON
-    // TODO: Add actual content
-    this.slides = [
-      {
-        fileName: '2019100000_neude_de-beurs/featured.jpg',
-        title: 'De Beurs',
-        type: 'Building',
-        description: 'De vier markante rode panden aan de Neude.',
-      },
-      {
-        fileName: '2019100000_neude_thinker-on-a-rock/featured.jpg',
-        title: 'Thinker on a Rock',
-        type: 'Statue',
-        description:
-          'Thinker on a Rock (a cross between Bugs Bunny and The Thinker by Rodin), by sculptor Barry Flanagan has been located here. It frequently receives carrots to nibble on as well as a scarf in winter.',
-      },
-      {
-        fileName: '2019100000_neude_drogisterij-woortman/featured.jpg',
-        title: 'Drogisterij Woortman',
-        type: 'Building',
-        description: 'Dé authentieke drogisterij van Utrecht sinds 1851.',
-      },
-    ];
+  constructor(private http: HttpClient) {
+    this.loadAuthors();
+    this.loadStories();
   }
 }
