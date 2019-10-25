@@ -1,3 +1,14 @@
-<p>
-  dialogue works!
-</p>
+<ion-content class="ion-padding">
+  <div *ngIf="storyScene">
+    <markdown [data]="storyScene.body"></markdown>
+    <ion-button
+      *ngFor="let answer of storyScene.answers"
+      (click)="next(answer.id)"
+    >
+      <markdown [data]="answer.label"></markdown>
+    </ion-button>
+  </div>
+  <div *ngIf="!storyScene?.answers.length">
+    <ion-button (click)="returnToStories()">Return to Stories.</ion-button>
+  </div>
+</ion-content>
