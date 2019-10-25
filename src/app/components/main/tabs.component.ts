@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoriesService } from '../../services/stories.service';
 
 @Component({
   selector: 'utm-tabs',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.component.scss'],
 })
 export class TabsComponent {
-  constructor() {}
+  constructor(public stories: StoriesService) {}
 }
