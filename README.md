@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/90af5981-f014-4620-9743-fba3609e4627/deploy-status)](https://app.netlify.com/sites/thirsty-darwin-e12ee0/deploys) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+_Live version available [here](https://app.livingpasts.com/)._
+
 # Utrecht Time Machine: Client Application
 
 This repository contains a prototype mobile [Time Machine](https://www.timemachine.eu/) by the contributors of the [Utrecht Time Machine](http://utrechttimemachine.nl/).
