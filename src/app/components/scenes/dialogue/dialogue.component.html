@@ -1,3 +1,18 @@
-<p>
-  dialogue works!
-</p>
+<ion-content class="ion-padding">
+  <div id="story-scene-wrapper" *ngIf="storyScene">
+    <ion-img *ngIf="storyScene.image" [src]="storyScene.image"></ion-img>
+    <markdown [data]="storyScene.body"></markdown>
+    <ion-button
+      color="dark"
+      *ngFor="let answer of storyScene.answers"
+      (click)="next(answer.id)"
+    >
+      <markdown [data]="answer.label"></markdown>
+    </ion-button>
+    <div *ngIf="!storyScene?.answers.length">
+      <ion-button color="dark" (click)="returnToStories()"
+        >Return to Stories.</ion-button
+      >
+    </div>
+  </div>
+</ion-content>

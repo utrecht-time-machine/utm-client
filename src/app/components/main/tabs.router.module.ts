@@ -4,6 +4,7 @@ import { TabsComponent } from './tabs.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { StoryViewComponent } from './story-view/story-view.component';
 import { ArticleComponent } from '../scenes/article/article.component';
+import { DialogueComponent } from '../scenes/dialogue/dialogue.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'map', component: MapViewComponent },
       { path: 'story', component: StoryViewComponent },
       { path: 'article', component: ArticleComponent },
+      { path: 'dialogue', component: DialogueComponent },
       { path: '', redirectTo: '/map', pathMatch: 'full' },
     ],
   },
