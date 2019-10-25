@@ -204,6 +204,7 @@ export class MapViewComponent implements OnInit {
     });
 
     this.map.on('load', () => {
+      this.map.resize(); // May otherwise not display in full on first load
       this.startMapResizeListener();
       this.addStations();
 
