@@ -21,12 +21,8 @@
     <!-- Story slides -->
     <ion-row>
       <ion-col>
-        <ion-slides
-          [options]="contentSliderOptions"
-          (ionSlideDidChange)="slideContentChanged()"
-          id="content-slider"
-        >
-          <ion-slide *ngFor="let story of stories | async">
+        <ion-slides [options]="contentSliderOptions" id="content-slider">
+          <ion-slide *ngFor="let story of stories.selected | async">
             <ion-card>
               <img
                 src="{{ story['featured-image'] }}"
@@ -65,7 +61,7 @@
               (ionChange)="selectedAuthorsChanged($event.target.value)"
             >
               <ion-select-option
-                *ngFor="let author of allAuthors | async"
+                *ngFor="let author of authors.selected | async"
                 [value]="author['@id']"
                 selected
               >
@@ -77,7 +73,7 @@
 
         <!-- Author icons -->
         <ion-chip
-          *ngFor="let author of selectedAuthors | async"
+          *ngFor="let author of authors.selected | async"
           outline
           color="{{ author['color'] }}"
           id="{{ author['@id'] }}"
