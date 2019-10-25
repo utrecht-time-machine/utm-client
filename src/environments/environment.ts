@@ -13,6 +13,7 @@ export const environment = {
   mapboxToken:
     'pk.eyJ1IjoiZWR1c2hpZnRzIiwiYSI6ImNrMjNidGN0NTAyaW4zZHA5dDBnaDR0bXkifQ.z0gAOXzO4aB124GsVP2rOg',
   mapBoundsOffset: 0.025,
+  defaultPlayerPositionRadius: 25,
 };
 
 /*

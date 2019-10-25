@@ -50,7 +50,9 @@ export class MapViewComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) {
     this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
-    this.playerPositionRadius = new BehaviorSubject<number>(0);
+    this.playerPositionRadius = new BehaviorSubject<number>(
+      environment.defaultPlayerPositionRadius
+    );
 
     this.startRefreshListener();
   }
@@ -239,9 +241,6 @@ export class MapViewComponent implements OnInit {
       if (!playerPosition) {
         return;
       }
-
-      // TODO: remove this randomizer; only for debugging purposes
-      this.playerPositionRadius.next(Math.random() * 15 + 5);
 
       const mainMarker = document.createElement('div');
       mainMarker.className = 'mapboxgl-user-location-dot';
