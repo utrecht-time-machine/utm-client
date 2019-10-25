@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { replaceAll } from '../helpers/string.helper';
 
 export interface StoryNode {
   title: string;
@@ -81,11 +82,21 @@ export class StoryPlayerService {
       }
 
       // Set image
-      image = body.match(/\[img\].*?\[\/img\]/g); // TODO: fix this
-      body = body.replace(/\[img\].*?\[\/img\]/g, '');
+      const foundImages = body.match(/\[img\].*?\[\/img\]/g);
+      if (foundImages) {
+        image = replaceAll(foundImages[0], /\[\/?img]/, '');
+        // TODO: place other images as well, in-line
+        body = body.replace(/\[img\].*?\[\/img\]/g, '');
+      }
 
       // Set audio
-      audio = body.match(/\[audio\].*?\[\/audio\]/g); // TODO: fix this
+      const foundAudios = body.match(/\[audio\].*?\[\/audio\]/g);
+      if (foundAudios) {
+        audio = replaceAll(foundAudios[0], /\[\/?audio]/, '');
+        // TODO: place other audio as well, in-line
+        body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
+      }
+
       body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
 
       // console.log(answers); // DEBUG
@@ -116,11 +127,8 @@ function cleanupAnswerString(rawAnswerString: string) {
 }
 
 function markdownify(text: string): string {
-  return text
-    .replace(/\[i]\s?/g, '_')
-    .replace(/\s?\[\/i]/g, '_')
-    .replace(/\[b]\s?/g, '**')
-    .replace(/\s?\[\/b]/g, '**')
-    .replace(/\[u]\s?/g, '**') // underlines not supported, using bold instead
-    .replace(/\s?\[\/u]/g, '**');
+  text = replaceAll(text, /\[\/?i]\s?/g, '_');
+  text = replaceAll(text, /\[\/?b]\s?/g, '**');
+  text = replaceAll(text, /\[\/?u]\s?/g, '**'); // underlines not supported, using bold instead
+  return text;
 }
