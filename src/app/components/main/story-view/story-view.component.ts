@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'utm-explore-view',
@@ -17,48 +18,50 @@ export class StoryViewComponent implements OnInit {
     header: 'Authors',
   };
 
-  allAuthors: any = true;
-  selectedAuthors: any = true;
-  stories: any = true;
+  allAuthors: BehaviorSubject<any[]>;
+  selectedAuthors: BehaviorSubject<any[]>;
+  stories: BehaviorSubject<any[]>;
 
   slideContentChanged() {
     console.log('Slide content change');
   }
 
   async loadAuthors() {
-    const authors = await this.http
+    const authors: any = await this.http
       .get('assets/data-models/authors.json')
       .toPromise();
-    this.allAuthors = authors;
-    this.selectedAuthors = authors;
-    console.log(this.allAuthors);
+    this.allAuthors.next(authors);
+    this.selectedAuthors.next(authors);
   }
 
   async loadStories() {
     const story = await this.http
       .get('assets/data-models/story.json')
       .toPromise();
-    this.stories = [story, story, story];
-    console.log(this.stories);
+    this.stories.next([story, story, story]);
   }
 
   ngOnInit() {}
 
   constructor(private http: HttpClient) {
+    this.allAuthors = new BehaviorSubject<any[]>([]);
+    this.selectedAuthors = new BehaviorSubject<any[]>([]);
+    this.stories = new BehaviorSubject<any[]>([]);
+
     this.loadAuthors();
     this.loadStories();
   }
 
   selectedAuthorsChanged(newAuthorIds) {
-    // Clear the selected authors
-    this.selectedAuthors = [];
+    const authors = this.allAuthors.getValue();
 
-    this.allAuthors.forEach(function(author) {
+    authors.forEach(author => {
       // For each newly selected id...
       if (newAuthorIds.includes(author['@id'])) {
         // ... Add it to the list of selected authors
-        this.selectedAuthors.push(author);
+        authors.push(author);
       }
-    }, this);
+    });
+    this.selectedAuthors.next(authors);
   }
 }
