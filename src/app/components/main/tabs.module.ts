@@ -18,7 +18,6 @@ import { ArticleModule } from '../scenes/article/article.module';
     TabsPageRoutingModule,
     StoryViewModule,
     MapViewModule,
-    ArticleModule,
   ],
   declarations: [TabsComponent],
 })

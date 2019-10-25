@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { StoryViewComponent } from './story-view.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { DialogueModule } from '../../scenes/dialogue/dialogue.module';
 
 @NgModule({
   declarations: [StoryViewComponent],
-  imports: [CommonModule, IonicModule, FormsModule, DialogueModule],
+  imports: [CommonModule, IonicModule, FormsModule],
 })
 export class StoryViewModule {}
