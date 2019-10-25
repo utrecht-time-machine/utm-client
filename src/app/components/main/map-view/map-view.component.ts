@@ -4,7 +4,7 @@ import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
-import { Feature, GeoJsonObject, Point } from 'geojson';
+import { Feature, Point } from 'geojson';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
