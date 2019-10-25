@@ -53,8 +53,6 @@ export class MapViewComponent implements OnInit {
     this.playerPositionRadius = new BehaviorSubject<number>(
       environment.defaultPlayerPositionRadius
     );
-
-    this.startRefreshListener();
   }
 
   static generateDefaultMesh(
@@ -154,7 +152,7 @@ export class MapViewComponent implements OnInit {
     }
   }
 
-  startRefreshListener() {
+  startMapResizeListener() {
     // When page is loaded, resize map.
     this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
@@ -168,7 +166,7 @@ export class MapViewComponent implements OnInit {
           }, 500);
           setTimeout(() => {
             this.map.resize();
-          }, 2000);
+          }, 1000);
         }
       }
     });
@@ -206,6 +204,7 @@ export class MapViewComponent implements OnInit {
     });
 
     this.map.on('load', () => {
+      this.startMapResizeListener();
       this.addStations();
 
       this.watchPlayerPosition();
