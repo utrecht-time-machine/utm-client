@@ -128,8 +128,12 @@ function cleanupAnswerString(rawAnswerString: string) {
 }
 
 function markdownify(text: string): string {
-  text = replaceAll(text, /\[\/?i]\s?/g, '_');
-  text = replaceAll(text, /\[\/?b]\s?/g, '**');
-  text = replaceAll(text, /\[\/?u]\s?/g, '**'); // underlines not supported, using bold instead
+  text = replaceAll(text, /\[i]\s?/g, '_');
+  text = replaceAll(text, /\s?\[\/i]/g, '_');
+
+  // underlines not supported, using bold instead
+  text = replaceAll(text, /\[[ub]]\s?/g, '**');
+  text = replaceAll(text, /\s?\[\/[ub]]/g, '**');
+
   return text;
 }
