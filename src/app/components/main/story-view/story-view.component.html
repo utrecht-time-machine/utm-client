@@ -16,18 +16,9 @@
       <ion-icon name="play"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <!-- <ion-list>
-    <ion-item>
-      <ion-label>Authors</ion-label>
-      <ion-select [interfaceOptions]="authorSelectionOptions" multiple value="authors" interface="action-sheet">
-        <ion-select-option value="utrecht-archive">Utrecht Archive</ion-select-option>
-        <ion-select-option value="utrecht-university">Utrecht University</ion-select-option>
-        <ion-select-option value="gilde-utrecht">Gilde Utrecht</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list> -->
 
   <ion-grid>
+    <!-- Story slides -->
     <ion-row>
       <ion-col>
         <ion-slides
@@ -35,52 +26,75 @@
           (ionSlideDidChange)="slideContentChanged()"
           id="content-slider"
         >
-          <ion-slide *ngFor="let slide of slides">
+          <ion-slide *ngFor="let story of stories">
             <ion-card>
               <img
-                src="/assets/img/{{ slide.fileName }}"
-                alt="{{ slide.title }}"
+                src="{{ story['featured-image'] }}"
+                alt="{{ story['title'] }}"
               />
               <ion-card-header>
-                <ion-card-subtitle>{{ slide.type }}</ion-card-subtitle>
-                <ion-card-title>{{ slide.title }}</ion-card-title>
+                <ion-card-title>{{ story['title'] }}</ion-card-title>
+                <ion-card-subtitle
+                  >{{ story['time-period']['start'] }} -
+                  {{ story['time-period']['end'] }}</ion-card-subtitle
+                >
               </ion-card-header>
               <ion-card-content>
-                {{ slide.description }}
+                {{ story['description'] }}
               </ion-card-content>
             </ion-card>
           </ion-slide>
         </ion-slides>
       </ion-col>
     </ion-row>
+    <!-- Authors -->
     <ion-row>
       <ion-col>
         <ion-item-divider>
-          <ion-label> Authors </ion-label>
+          <ion-label> Authors</ion-label>
         </ion-item-divider>
-        <ion-button size="small" expand="block" (click)="addAuthor()"
-          >Add Author</ion-button
-        >
 
+        <!-- Author selection -->
+        <ion-list>
+          <ion-item>
+            <ion-label>Authors</ion-label>
+            <ion-select
+              multiple
+              [interfaceOptions]="authorSelectionOptions"
+              placeholder="Select authors..."
+              (ionChange)="selectedAuthorsChanged($event.target.value)"
+            >
+              <ion-select-option
+                *ngFor="let author of allAuthors"
+                [value]="author['@id']"
+                selected
+              >
+                {{ author['name'] }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <!-- Author icons -->
         <ion-chip
-          *ngFor="let author of authors"
+          *ngFor="let author of selectedAuthors"
           outline
-          color="{{ author.color }}"
-          #author.id
+          color="{{ author['color'] }}"
+          id="{{ author['@id'] }}"
         >
-          <ion-icon name="{{ author.icon }}"></ion-icon>
-          <ion-label>{{ author.name }}</ion-label>
-          <ion-icon
-            (click)="removeAuthor(author.id)"
-            name="close-circle"
-          ></ion-icon>
+          <ion-img
+            [src]="author['logo']"
+            class="author-logo-img ion-padding-end"
+          ></ion-img>
+          <ion-label>{{ author['name'] }}</ion-label>
         </ion-chip>
       </ion-col>
     </ion-row>
     <ion-row>
+      <!-- Time Range -->
       <ion-col size-Xs="12" sizeMd="6">
         <ion-item-divider>
-          <ion-label> Time Range </ion-label>
+          <ion-label> Time Range</ion-label>
         </ion-item-divider>
         <ion-range
           id="time-range"
@@ -97,9 +111,11 @@
           <ion-icon slot="end" name="time"></ion-icon>
         </ion-range>
       </ion-col>
+
+      <!-- Area Range -->
       <ion-col size-Xs="12" sizeMd="6">
         <ion-item-divider>
-          <ion-label> Area </ion-label>
+          <ion-label> Area</ion-label>
         </ion-item-divider>
         <ion-range
           id="area-range"

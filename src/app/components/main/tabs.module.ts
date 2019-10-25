@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsComponent } from './tabs.component';
-import { ExploreViewModule } from './explore-view/explore-view.module';
+import { StoryViewModule } from './story-view/story-view.module';
 import { MapViewModule } from './map-view/map-view.module';
 import { ArticleModule } from '../scenes/article/article.module';
 
@@ -16,7 +16,7 @@ import { ArticleModule } from '../scenes/article/article.module';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    ExploreViewModule,
+    StoryViewModule,
     MapViewModule,
     ArticleModule,
   ],
