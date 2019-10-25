@@ -61,7 +61,7 @@
               (ionChange)="selectedAuthorsChanged($event.target.value)"
             >
               <ion-select-option
-                *ngFor="let author of authors.selected | async"
+                *ngFor="let author of authors.all | async"
                 [value]="author['@id']"
                 selected
               >

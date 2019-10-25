@@ -25,14 +25,15 @@ export class AuthorsService {
 
   selectAuthors(newAuthorIds: string[]) {
     const authors = this.all.getValue();
+    const selectedAuthors = [];
 
     authors.forEach(author => {
       // For each newly selected id...
       if (newAuthorIds.includes(author['@id'])) {
         // ... Add it to the list of selected authors
-        authors.push(author);
+        selectedAuthors.push(author);
       }
     });
-    this.selected.next(authors);
+    this.selected.next(selectedAuthors);
   }
 }
