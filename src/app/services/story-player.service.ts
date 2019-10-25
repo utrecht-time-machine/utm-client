@@ -48,7 +48,8 @@ export class StoryPlayerService {
   private parse(yarnRaw: any[]) {
     this.storyNodes = {};
 
-    for (const [index, rawNode] of yarnRaw.entries()) {
+    for (let index = 0; index < yarnRaw.length; index++) {
+      const rawNode = yarnRaw[0];
       let body = markdownify(rawNode.body);
       const answers: Answer[] = [];
       let image: string = null;
