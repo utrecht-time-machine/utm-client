@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'utm-explore-view',
-  templateUrl: './explore-view.component.html',
-  styleUrls: ['./explore-view.component.scss'],
+  templateUrl: './story-view.component.html',
+  styleUrls: ['./story-view.component.scss'],
 })
-export class ExploreViewComponent implements OnInit {
+export class StoryViewComponent implements OnInit {
   contentSliderOptions = {
     initialSlide: 0,
     speed: 400,

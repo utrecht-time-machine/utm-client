@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExploreViewComponent } from './explore-view.component';
+import { StoryViewComponent } from './story-view.component';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations: [ExploreViewComponent],
+  declarations: [StoryViewComponent],
   imports: [CommonModule, IonicModule],
 })
-export class ExploreViewModule {}
+export class StoryViewModule {}

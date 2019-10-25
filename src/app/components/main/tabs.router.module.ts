@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsComponent } from './tabs.component';
 import { MapViewComponent } from './map-view/map-view.component';
-import { ExploreViewComponent } from './explore-view/explore-view.component';
+import { StoryViewComponent } from './story-view/story-view.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
     component: TabsComponent,
     children: [
       { path: 'map', component: MapViewComponent },
-      { path: 'explore', component: ExploreViewComponent },
+      { path: 'story', component: StoryViewComponent },
       { path: '', redirectTo: '/map', pathMatch: 'full' },
     ],
   },
