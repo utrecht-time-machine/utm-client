@@ -49,7 +49,7 @@ export class StoryPlayerService {
     this.storyNodes = {};
 
     for (let index = 0; index < yarnRaw.length; index++) {
-      const rawNode = yarnRaw[0];
+      const rawNode = yarnRaw[index];
       let body = markdownify(rawNode.body);
       const answers: Answer[] = [];
       let image: string = null;
@@ -104,7 +104,7 @@ export class StoryPlayerService {
       // console.log(body); // DEBUG
 
       this.storyNodes[rawNode.title] = {
-        title: rawNode.title,
+        title: rawNode.title.trim(),
         tags: rawNode.tags,
         body: body,
         answers: answers,
