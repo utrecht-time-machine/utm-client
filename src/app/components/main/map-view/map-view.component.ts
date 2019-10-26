@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
 import { Feature, Point } from 'geojson';
 import * as THREE from 'three';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -55,9 +55,9 @@ export class MapViewComponent implements OnInit {
     );
   }
 
-  static generateDefaultMesh(
+  static generateDefaultWaypoint(
     station
-  ): { mesh: THREE.Mesh; meshTransform: ModelTransform } {
+  ): { scene: THREE.Scene; meshTransform: ModelTransform } {
     const coneHeight = 6;
     const geometry = new THREE.ConeGeometry(2, coneHeight, 3);
     const material = new THREE.MeshBasicMaterial({ color: 0x9d1f1f });
@@ -74,8 +74,10 @@ export class MapViewComponent implements OnInit {
     // @ts-ignore
     const modelScale = modelOrigin.meterInMercatorCoordinateUnits();
 
+    const mesh = new THREE.Mesh(geometry, material);
+
     return {
-      mesh: new THREE.Mesh(geometry, material),
+      scene: new THREE.Scene().add(mesh),
       meshTransform: this.generateMeshTransform(
         modelOrigin,
         modelRotate,
@@ -84,21 +86,20 @@ export class MapViewComponent implements OnInit {
     };
   }
 
-  static async generateCustomMesh(
+  static async generateCustomWaypoint(
     station: Feature<Point>
-  ): Promise<{ mesh: THREE.Mesh; meshTransform: ModelTransform }> {
-    const loader = new STLLoader();
+  ): Promise<{ scene: THREE.Scene; meshTransform: ModelTransform }> {
+    const loader = new GLTFLoader();
     const meshProperties: Custom3dModel = station.properties['3d-model'];
     return new Promise((resolve, reject) => {
       loader.load(
         meshProperties.url,
-        geometry => {
-          geometry.scale(
-            meshProperties.scale,
-            meshProperties.scale,
-            meshProperties.scale
-          );
-          const material = new THREE.MeshLambertMaterial({ color: 0x353a37 });
+        gltf => {
+          // rescale if scale value provided
+          const scale = station.properties['3d-model'].scale;
+          if (scale) {
+            gltf.scene.scale.set(scale, scale, scale);
+          }
 
           // parameters to ensure the model is georeferenced correctly on the map
           const modelOrigin: MercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
@@ -112,8 +113,10 @@ export class MapViewComponent implements OnInit {
           // @ts-ignore
           const modelScale = modelOrigin.meterInMercatorCoordinateUnits();
 
+          MapViewComponent.addDefaultLightingToScene(gltf.scene);
+
           resolve({
-            mesh: new THREE.Mesh(geometry, material),
+            scene: gltf.scene,
             meshTransform: this.generateMeshTransform(
               modelOrigin,
               modelRotate,
@@ -127,6 +130,26 @@ export class MapViewComponent implements OnInit {
         }
       );
     });
+  }
+
+  static addDefaultLightingToScene(scene: THREE.Scene) {
+    const hemisphereLight = new THREE.HemisphereLight(0xa5b0fb, 0xfbf2da, 1);
+    scene.add(hemisphereLight);
+
+    const ambientLight = new THREE.AmbientLight(0xfbf2da, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.3);
+    directionalLight1.position.set(500, 1000, 200).normalize();
+    scene.add(directionalLight1);
+
+    // DEBUG
+    // const helper = new THREE.DirectionalLightHelper( directionalLight1, 5, 0x000000 );
+    // currentScene.add( helper );
+
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight2.position.set(200, 300, -200).normalize();
+    scene.add(directionalLight2);
   }
 
   static generateMeshTransform(
@@ -316,33 +339,23 @@ export class MapViewComponent implements OnInit {
     // rather than rendered once with multiple cone objects.
     for (const station of stations) {
       // Generate new scene for each station, as each needs a unique transformation
-      this.scene[station.id] = new THREE.Scene();
-      const currentScene = this.scene[station.id];
       const currentCamera = this.camera;
 
-      // create two three.js lights to illuminate the model
-      const directionalLight = new THREE.DirectionalLight(0xffffff);
-      directionalLight.position.set(0, -70, 100).normalize();
-      currentScene.add(directionalLight);
-
-      const directionalLight2 = new THREE.DirectionalLight(0xffffff);
-      directionalLight2.position.set(0, 300, 50).normalize();
-      currentScene.add(directionalLight2);
-
-      // Add mesh
-      let mesh: THREE.Mesh;
+      // Create scene to hold map object
+      let currentScene: THREE.Scene;
       let modelTransform;
+      let waypointResult;
       if (station.properties['3d-model']) {
-        const meshResult = await MapViewComponent.generateCustomMesh(station);
-        mesh = meshResult.mesh;
-        modelTransform = meshResult.meshTransform;
+        // custom waypoint
+        waypointResult = await MapViewComponent.generateCustomWaypoint(station);
       } else {
-        const meshResult = MapViewComponent.generateDefaultMesh(station);
-        mesh = meshResult.mesh;
-        modelTransform = meshResult.meshTransform;
+        // default waypoint
+        waypointResult = MapViewComponent.generateDefaultWaypoint(station);
       }
+      currentScene = waypointResult.scene;
+      modelTransform = waypointResult.meshTransform;
 
-      currentScene.add(mesh);
+      this.scene[station.id] = currentScene;
 
       // @ts-ignore
       this.renderer.autoClear = false;
