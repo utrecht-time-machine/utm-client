@@ -7,3 +7,7 @@
 The original file was reduced in size by significantly lowering the polycount and was then exporting to gltf. The pedestal was added to the original model.
 
 Retrieved from https://www.myminifactory.com/object/3d-print-thinker-on-a-rock-nga-sculpture-garden-3322
+
+# public-restroom-neude
+
+A model created by Stan Nuijten, as part of the Living Pasts course in 2019. Based on [blueprints at the Utrecht Archives](https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969/media/d4819b8e-5f87-4c3f-d2fb-3479e448afa9).

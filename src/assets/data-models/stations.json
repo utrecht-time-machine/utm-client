@@ -29,8 +29,29 @@
       "description": "Thinker on a Rock is a bronze sculpture by Barry Flanagan.",
       "3d-model": {
         "url": "./assets/3d-models/thinker-on-a-rock-neude.gltf",
+        "scale": 0.5,
+        "rotate": -110,
+        "altitude": 0
+      }
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/retiradegebouw-neude",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.118476, 52.093505]
+    },
+    "properties": {
+      "title": "Former public restroom",
+      "description": "Also called the 'retirade gebouw' in Dutch.",
+      "3d-model": {
+        "url": "./assets/3d-models/public-restroom-neude.gltf",
         "scale": 1,
-        "rotate": [1.571, -1.8, 0],
+        "rotate": 0,
         "altitude": 0
       }
     }

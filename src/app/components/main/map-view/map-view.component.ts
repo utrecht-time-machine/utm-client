@@ -9,13 +9,14 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
+import { MeshLambertMaterial } from 'three';
 
 const { Geolocation } = Plugins;
 
 interface Custom3dModel {
   url: string;
   scale: number;
-  rotate: number[];
+  rotate: number; // in degrees
   altitude: number;
 }
 
@@ -38,6 +39,10 @@ interface ModelTransform {
   styleUrls: ['./map-view.component.scss'],
 })
 export class MapViewComponent implements OnInit {
+  static defaultMaterial: MeshLambertMaterial = new THREE.MeshLambertMaterial({
+    color: 0xfbefcf,
+  });
+
   @ViewChild('mapboxContainer', { static: true }) mapboxContainer: ElementRef;
   map: mapboxgl.Map;
   scene: Record<string, THREE.Scene> = {};
@@ -95,11 +100,41 @@ export class MapViewComponent implements OnInit {
       loader.load(
         meshProperties.url,
         gltf => {
-          // rescale if scale value provided
+          // Change transform in individual items in scene
+          // This allows the assumption that all /scenes/ have the same orientation and scale,
+          // e.g., to add lighting from the same direction.
           const scale = station.properties['3d-model'].scale;
-          if (scale) {
-            gltf.scene.scale.set(scale, scale, scale);
+          const rotate = station.properties['3d-model'].rotate;
+          for (const sceneItem of gltf.scene.children) {
+            // only look at direct children
+            // console.log(sceneItem); // DEBUG
+            if (
+              sceneItem.type === 'Mesh'
+              || sceneItem.type === 'Group'
+              || sceneItem.type === 'Object3D'
+            ) {
+              if (scale) {
+                sceneItem.scale.set(scale, scale, scale);
+              }
+              if (rotate) {
+                sceneItem.rotateY(THREE.Math.degToRad(meshProperties.rotate));
+              }
+            }
+            // Also remove any lighting, if left in the model.
+            if (sceneItem.type.toLowerCase().includes('light')) {
+              gltf.scene.remove(sceneItem);
+            }
           }
+
+          // Set default material // TODO: if meaningful material data is available, it should not overwrite
+          gltf.scene.traverse(node => {
+            // Traverse all children
+            // @ts-ignore // if exists, then equals mesh
+            if (node.isMesh) {
+              // @ts-ignore // If mesh, should always have material set
+              node.material = this.defaultMaterial;
+            }
+          });
 
           // parameters to ensure the model is georeferenced correctly on the map
           const modelOrigin: MercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
@@ -109,7 +144,7 @@ export class MapViewComponent implements OnInit {
             ),
             0
           );
-          const modelRotate = meshProperties.rotate;
+          const modelRotate = [Math.PI / 2, 0, 0];
           // @ts-ignore
           const modelScale = modelOrigin.meterInMercatorCoordinateUnits();
 
@@ -133,23 +168,31 @@ export class MapViewComponent implements OnInit {
   }
 
   static addDefaultLightingToScene(scene: THREE.Scene) {
-    const hemisphereLight = new THREE.HemisphereLight(0xa5b0fb, 0xfbf2da, 1);
+    const baseLightIntensity = 1.1;
+
+    const pointLight = new THREE.PointLight(0xffffff, 0.1 * baseLightIntensity);
+    pointLight.position.set(-10, 4, -10);
+    scene.add(pointLight);
+
+    const hemisphereLight = new THREE.HemisphereLight(
+      0xffffff,
+      0xfbf2da,
+      0.3 * baseLightIntensity
+    );
     scene.add(hemisphereLight);
 
-    const ambientLight = new THREE.AmbientLight(0xfbf2da, 0.5);
-    scene.add(ambientLight);
-
-    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.3);
+    const directionalLight1 = new THREE.DirectionalLight(
+      0xffffff,
+      0.6 * baseLightIntensity
+    );
     directionalLight1.position.set(500, 1000, 200).normalize();
     scene.add(directionalLight1);
 
     // DEBUG
-    // const helper = new THREE.DirectionalLightHelper( directionalLight1, 5, 0x000000 );
-    // currentScene.add( helper );
-
-    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight2.position.set(200, 300, -200).normalize();
-    scene.add(directionalLight2);
+    // const pointLightHelper =  new THREE.PointLightHelper(pointLight);
+    // scene.add(pointLightHelper);
+    // const helper = new THREE.DirectionalLightHelper(directionalLight1, 5, 0x000000);
+    // scene.add(helper);
   }
 
   static generateMeshTransform(
