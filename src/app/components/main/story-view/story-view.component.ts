@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { AuthorsService } from '../../../services/authors.service';
 import { StoriesService } from '../../../services/stories.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'utm-explore-view',
@@ -22,13 +23,22 @@ export class StoryViewComponent implements OnInit {
     header: 'Authors',
   };
 
-  constructor(public authors: AuthorsService, public stories: StoriesService) {}
+  constructor(
+    public authors: AuthorsService,
+    public stories: StoriesService,
+    private route: Router
+  ) {}
 
   ngOnInit() {}
+
+  startStory() {
+    this.route.navigate(['/article', { story: 'neude_thinker-on-a-rock' }]);
+  }
 
   openAuthorSelectionPopup() {
     this.authorSelect.open();
   }
+
   selectedAuthorsChanged(newAuthorIds: string[]) {
     this.authors.selectAuthors(newAuthorIds);
   }
