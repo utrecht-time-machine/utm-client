@@ -9,14 +9,23 @@ import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
-import { Feature, Point } from 'geojson';
+import {
+  GeoJSONSourceRaw,
+  LngLat,
+  LngLatBounds,
+  Marker,
+  MercatorCoordinate,
+} from 'mapbox-gl';
+import { Feature, Point, Polygon } from 'geojson';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 import { MeshLambertMaterial } from 'three';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { StationsService } from '../../../services/stations.service';
+import { StoriesService } from '../../../services/stories.service';
+import { Story } from '../../../models/story.model';
 
 const { Geolocation } = Plugins;
 
@@ -65,6 +74,7 @@ export class MapViewComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private stations: StationsService,
+    private stories: StoriesService,
     private angularRenderer: Renderer2
   ) {
     this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
@@ -353,6 +363,22 @@ export class MapViewComponent implements OnInit {
         this.playerPositionMarker.setLngLat(currentPlayerPosition);
         this.updatePlayerPositionRadius();
       }
+
+      // Update selection of stories
+      // Note that this can be much optimised, especially given a specialised back-end
+      const selectedStories: Story[][] = [];
+      for (const station of this.stations.all.getValue()) {
+        const source = this.playerPositionRadiusLayer
+          .source as GeoJSONSourceRaw;
+        const polygon: Feature<Polygon> = source.data as Feature<Polygon>;
+
+        // If point in radius, add stories of that station to selection
+        if (booleanPointInPolygon(station, polygon)) {
+          // Add all stories with that station
+          selectedStories.push(this.stories.getAllWithStation(station));
+        }
+      }
+      this.stories.setSelectedStations(mergeDedupe(selectedStories));
     });
   }
 
@@ -533,4 +559,10 @@ function createGeoJSONCircle(
       'fill-opacity': opacity,
     },
   };
+}
+
+// Provided by https://stackoverflow.com/a/27664971
+// Merges multiple arrays while removing duplicates
+function mergeDedupe(arr: any[][]): any[] {
+  return [...new Set([].concat(...arr))];
 }
