@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'utm-article',
@@ -8,19 +9,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArticleComponent implements OnInit {
   markdown = `Loading Markdown...`;
+  storyUrl = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.storyUrl = this.route.snapshot.queryParamMap.get('story');
     this.loadArticle();
   }
 
   async loadArticle() {
     // Retrieve a sample story
-    const data = await this.http
-      .get('assets/data-models/stories.json')
+    // TODO: Check if this has serious security consequences
+    const markdown = await this.http
+      .get('assets/data-models/stories/' + this.storyUrl + '.md', {
+        responseType: 'text',
+      })
       .toPromise();
+
     // Update the current markdown code for this article
-    this.markdown = data['seq'][0]['content'];
+    this.markdown = markdown;
   }
 }

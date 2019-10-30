@@ -2,10 +2,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Thinking about the Thinker on a Rock",
-    "lang": "nl",
-    "description": "Ever considered what our dearest bunny friend has to think about our square? We have arranged an exclusive interview, just for you.",
-    "featured-image": "https://upload.wikimedia.org/wikipedia/commons/4/45/Utrecht_Thinker_On_A_Rock_%282002%29.jpg",
+    "title": "Thinker on a Rock",
+    "description": "In 1997 this statue was bought by the municipality of Utrecht. Utrecht citizens however were not very happy with the new purchase...",
+    "featured-image": "/assets/img/2019100000_neude_thinker-on-a-rock/featured.png",
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/UU"
@@ -24,7 +23,7 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock#1997",
         "content-type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "# Siquis arma nec flatibus quoque\n\n## Adacta fortia quem corruit inplet poterit buxoque\n\nLorem markdownum terga Phoebeos Iphide ait. Indigenae uni tantum dixerat esse\nfontis, sic futuri aetatis oculos spectandique. Asper quinque quidve praesens\nerat Euryte meo inscriptum communem quae, vera vultus, in abiit vocamus. Quisque\ntota magis, impete rore gemitus mihi gemitus quem neque dis, imagine per.\nFractis inrita potest: cantibus: hac saeva *fugam fecit*.\n\n1. Putares per\n2. Sanguine vincla diximus\n3. In nos vides\n4. Dei divellere et Phoebus Elide orbum recumbis\n5. Aquarum in levi graves vacuas\n6. Alis viri\n\n[Mentita](http://terrae.net/res-utque) locumque, pontum hunc est Aethalion boum,\nubi quo, ut passus vetustas. Quos iudex theatris labori, unum post votisque\nquaerant: coniunx iussi ducebas, quarto. Quae sidera, petii tela: mea duritiem\nnarrat. Sub timendo haustis naufraga albaque tuas qua est vulnus appellat!\n\nIamque et tyranno! Manu dea nec cingentibus usque radiantia numina, tu omnia\naevo haberet temeraria. Unum est, per spatium insula sic coniuge hospes\nviolentia Amphitryoniadae defendere. Generoso misit salientia conticuere\ncommemorare Iovem carbasa! Et quoque in figuram ripa erat, genialiter\n[urbis](http://www.nostris-captas.net/iussasustinet).\n"
+        "content": "neude_thinker-on-a-rock"
       },
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock#2000",
@@ -35,6 +34,34 @@
         "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock#2015",
         "content-type": "https://utrechttimemachine.nl/scene-types/article",
         "content": "# Siquis arma nec flatibus quoque\n\n## Adacta fortia quem corruit inplet poterit buxoque\n\nLorem markdownum terga Phoebeos Iphide ait. Indigenae uni tantum dixerat esse\nfontis, sic futuri aetatis oculos spectandique. Asper quinque quidve praesens\nerat Euryte meo inscriptum communem quae, vera vultus, in abiit vocamus. Quisque\ntota magis, impete rore gemitus mihi gemitus quem neque dis, imagine per.\nFractis inrita potest: cantibus: hac saeva *fugam fecit*.\n\n1. Putares per\n2. Sanguine vincla diximus\n3. In nos vides\n4. Dei divellere et Phoebus Elide orbum recumbis\n5. Aquarum in levi graves vacuas\n6. Alis viri\n\n[Mentita](http://terrae.net/res-utque) locumque, pontum hunc est Aethalion boum,\nubi quo, ut passus vetustas. Quos iudex theatris labori, unum post votisque\nquaerant: coniunx iussi ducebas, quarto. Quae sidera, petii tela: mea duritiem\nnarrat. Sub timendo haustis naufraga albaque tuas qua est vulnus appellat!\n\nIamque et tyranno! Manu dea nec cingentibus usque radiantia numina, tu omnia\naevo haberet temeraria. Unum est, per spatium insula sic coniuge hospes\nviolentia Amphitryoniadae defendere. Generoso misit salientia conticuere\ncommemorare Iovem carbasa! Et quoque in figuram ripa erat, genialiter\n[urbis](http://www.nostris-captas.net/iussasustinet).\n"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100001_neude_smell_public_restroom",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Public restroom, on the corner of the old post office",
+    "description": "Yes, that's right. On the Neude stood a public restroom with facilities for men and women. What happened to it? And what happened in it?",
+    "featured-image": "/assets/img/2019100001_neude_smell_public_restroom/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
+      }
+    ],
+    "time-period": {
+      "start": "1898",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100001_neude_smell_public_restroom#2019",
+        "content-type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_smell_public_restroom"
       }
     ]
   }
