@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
@@ -53,7 +59,11 @@ export class MapViewComponent implements OnInit {
   playerPositionMarker: Marker;
   playerPositionRadius: BehaviorSubject<number>;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private angularRenderer: Renderer2
+  ) {
     this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
     this.playerPositionRadius = new BehaviorSubject<number>(
       environment.defaultPlayerPositionRadius
@@ -271,6 +281,11 @@ export class MapViewComponent implements OnInit {
 
     this.map.on('load', () => {
       this.map.resize(); // May otherwise not display in full on first load
+      this.angularRenderer.setStyle(
+        this.mapboxContainer.nativeElement,
+        'opacity',
+        1
+      );
       this.startMapResizeListener();
       this.addStations();
 
