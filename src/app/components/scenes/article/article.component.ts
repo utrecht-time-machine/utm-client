@@ -8,14 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
-  markdown = `Loading Markdown...`;
+  markdown = `Loading Article...`;
   storyUrl = '';
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.storyUrl = this.route.snapshot.queryParamMap.get('story');
-    this.loadArticle();
+    this.storyUrl = this.route.snapshot.paramMap.get('story');
+
+    // Make sure story URL is set
+    if (this.storyUrl != null) {
+      this.loadArticle();
+    }
   }
 
   async loadArticle() {
