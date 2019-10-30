@@ -1,15 +1,31 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LngLat, LngLatBounds, Marker, MercatorCoordinate } from 'mapbox-gl';
-import { Feature, Point } from 'geojson';
+import {
+  GeoJSONSourceRaw,
+  LngLat,
+  LngLatBounds,
+  Marker,
+  MercatorCoordinate,
+} from 'mapbox-gl';
+import { Feature, Point, Polygon } from 'geojson';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 import { MeshLambertMaterial } from 'three';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import { StationsService } from '../../../services/stations.service';
+import { StoriesService } from '../../../services/stories.service';
+import { Story } from '../../../models/story.model';
 
 const { Geolocation } = Plugins;
 
@@ -52,8 +68,15 @@ export class MapViewComponent implements OnInit {
   playerPosition: BehaviorSubject<GeolocationPosition>;
   playerPositionMarker: Marker;
   playerPositionRadius: BehaviorSubject<number>;
+  playerPositionRadiusLayer: mapboxgl.Layer;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private stations: StationsService,
+    private stories: StoriesService,
+    private angularRenderer: Renderer2
+  ) {
     this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
     this.playerPositionRadius = new BehaviorSubject<number>(
       environment.defaultPlayerPositionRadius
@@ -271,6 +294,11 @@ export class MapViewComponent implements OnInit {
 
     this.map.on('load', () => {
       this.map.resize(); // May otherwise not display in full on first load
+      this.angularRenderer.setStyle(
+        this.mapboxContainer.nativeElement,
+        'opacity',
+        1
+      );
       this.startMapResizeListener();
       this.addStations();
 
@@ -318,7 +346,7 @@ export class MapViewComponent implements OnInit {
 
       if (!this.playerPositionMarker) {
         // Create the first radius object here
-        const playerPositionRadiusRaw: any = createGeoJSONCircle(
+        this.playerPositionRadiusLayer = createGeoJSONCircle(
           `player-position-radius`,
           currentPlayerPosition,
           this.playerPositionRadius.getValue(),
@@ -330,11 +358,27 @@ export class MapViewComponent implements OnInit {
         this.playerPositionMarker = new Marker(mainMarker, {})
           .setLngLat(currentPlayerPosition)
           .addTo(this.map);
-        this.map.addLayer(playerPositionRadiusRaw);
+        this.map.addLayer(this.playerPositionRadiusLayer);
       } else {
         this.playerPositionMarker.setLngLat(currentPlayerPosition);
         this.updatePlayerPositionRadius();
       }
+
+      // Update selection of stories
+      // Note that this can be much optimised, especially given a specialised back-end
+      const selectedStories: Story[][] = [];
+      for (const station of this.stations.all.getValue()) {
+        const source = this.playerPositionRadiusLayer
+          .source as GeoJSONSourceRaw;
+        const polygon: Feature<Polygon> = source.data as Feature<Polygon>;
+
+        // If point in radius, add stories of that station to selection
+        if (booleanPointInPolygon(station, polygon)) {
+          // Add all stories with that station
+          selectedStories.push(this.stories.getAllWithStation(station));
+        }
+      }
+      this.stories.setSelectedStations(mergeDedupe(selectedStories));
     });
   }
 
@@ -354,7 +398,7 @@ export class MapViewComponent implements OnInit {
       playerPosition.coords.latitude
     );
 
-    const playerPositionRadiusRaw: any = createGeoJSONCircle(
+    this.playerPositionRadiusLayer = createGeoJSONCircle(
       `player-position-radius`,
       playerPositionCoords,
       this.playerPositionRadius.getValue(),
@@ -366,7 +410,7 @@ export class MapViewComponent implements OnInit {
     this.map
       .getSource('player-position-radius')
       // @ts-ignore
-      .setData(playerPositionRadiusRaw.source.data);
+      .setData(this.playerPositionRadiusLayer.source.data);
   }
 
   /**
@@ -374,13 +418,9 @@ export class MapViewComponent implements OnInit {
    * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
    */
   async addStations() {
-    const stations = await this.http
-      .get<Feature<Point>[]>('./assets/data-models/stations.json')
-      .toPromise();
-
     // NOTE: Due to the for-loop, the scene is rendered multiple times with the same cone object,
     // rather than rendered once with multiple cone objects.
-    for (const station of stations) {
+    for (const station of this.stations.all.getValue()) {
       // Generate new scene for each station, as each needs a unique transformation
       const currentCamera = this.camera;
 
@@ -473,7 +513,7 @@ function createGeoJSONCircle(
   points,
   color,
   opacity
-) {
+): mapboxgl.Layer {
   if (!points) {
     points = 64;
   }
@@ -510,6 +550,7 @@ function createGeoJSONCircle(
           type: 'Polygon',
           coordinates: [ret],
         },
+        properties: [],
       },
     },
     layout: {},
@@ -518,4 +559,11 @@ function createGeoJSONCircle(
       'fill-opacity': opacity,
     },
   };
+}
+
+// Provided by https://stackoverflow.com/a/27664971
+// Merges multiple arrays while removing duplicates
+// To make it compile AOT, the Array.from is needed (see https://stackoverflow.com/a/33464709).
+function mergeDedupe(arr: any[][]): any[] {
+  return [...Array.from(new Set([].concat(...arr)))];
 }
