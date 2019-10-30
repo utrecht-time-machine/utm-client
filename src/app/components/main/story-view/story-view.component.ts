@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { AuthorsService } from '../../../services/authors.service';
@@ -10,6 +10,8 @@ import { StoriesService } from '../../../services/stories.service';
   styleUrls: ['./story-view.component.scss'],
 })
 export class StoryViewComponent implements OnInit {
+  @ViewChild('authorSelect', { static: true }) authorSelect: any;
+
   contentSliderOptions = {
     initialSlide: 0,
     speed: 400,
@@ -24,6 +26,9 @@ export class StoryViewComponent implements OnInit {
 
   ngOnInit() {}
 
+  openAuthorSelectionPopup() {
+    this.authorSelect.open();
+  }
   selectedAuthorsChanged(newAuthorIds: string[]) {
     this.authors.selectAuthors(newAuthorIds);
   }

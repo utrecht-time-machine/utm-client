@@ -18,7 +18,7 @@ export class ArticleComponent implements OnInit {
   async loadArticle() {
     // Retrieve a sample story
     const data = await this.http
-      .get('assets/data-models/story.json')
+      .get('assets/data-models/stories.json')
       .toPromise();
     // Update the current markdown code for this article
     this.markdown = data['seq'][0]['content'];

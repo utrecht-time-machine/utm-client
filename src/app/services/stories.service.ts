@@ -17,7 +17,7 @@ export class StoriesService {
 
   async update() {
     const stories: any = await this.http
-      .get('assets/data-models/story.json')
+      .get('assets/data-models/stories.json')
       .toPromise();
     this.all.next(stories);
     this.selected.next([stories[0], stories[0], stories[0]]); // TODO: Replace later with proper functionality

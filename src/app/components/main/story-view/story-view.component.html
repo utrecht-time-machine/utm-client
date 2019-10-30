@@ -49,33 +49,33 @@
         <ion-item-divider>
           <ion-label> Authors</ion-label>
         </ion-item-divider>
-
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-margin-horizontal">
         <!-- Author selection -->
-        <ion-list>
-          <ion-item>
-            <ion-label>Authors</ion-label>
-            <ion-select
-              multiple
-              [interfaceOptions]="authorSelectionOptions"
-              placeholder="Select authors..."
-              (ionChange)="selectedAuthorsChanged($event.target.value)"
-            >
-              <ion-select-option
-                *ngFor="let author of authors.all | async"
-                [value]="author['@id']"
-                selected
-              >
-                {{ author['name'] }}
-              </ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
+        <ion-select
+          multiple
+          [interfaceOptions]="authorSelectionOptions"
+          placeholder="Select authors..."
+          (ionChange)="selectedAuthorsChanged($event.target.value)"
+          [hidden]="true"
+          #authorSelect
+        >
+          <ion-select-option
+            *ngFor="let author of authors.all | async"
+            [value]="author['@id']"
+            selected
+          >
+            {{ author['name'] }}
+          </ion-select-option>
+        </ion-select>
 
         <!-- Author icons -->
         <ion-chip
           *ngFor="let author of authors.selected | async"
           outline
-          color="{{ author['color'] }}"
+          color="primary"
           id="{{ author['@id'] }}"
         >
           <ion-img
@@ -84,8 +84,20 @@
           ></ion-img>
           <ion-label>{{ author['name'] }}</ion-label>
         </ion-chip>
+
+        <!-- Author selection -->
+        <ion-button
+          expand="block"
+          (click)="openAuthorSelectionPopup()"
+          class="ion-margin-top"
+          id="author-select-btn"
+        >
+          Select authors
+        </ion-button>
       </ion-col>
     </ion-row>
+
+    <!-- Range selectors -->
     <ion-row>
       <!-- Time Range -->
       <ion-col size-Xs="12" sizeMd="6">

@@ -7,12 +7,19 @@
   }
 }
 
+// Position the story play button
 .story-play-button {
   position: fixed;
   right: 16px;
   margin-top: 20px;
 }
 
+// Scale down small author logos
 .author-logo-img {
   max-width: 40px;
+}
+
+// Align author selection button with the author chips
+#author-select-btn {
+  margin-bottom: 13px;
 }
