@@ -489,7 +489,7 @@ function createGeoJSONCircle(
   points,
   color,
   opacity
-) {
+): mapboxgl.Layer {
   if (!points) {
     points = 64;
   }
@@ -526,6 +526,7 @@ function createGeoJSONCircle(
           type: 'Polygon',
           coordinates: [ret],
         },
+        properties: [],
       },
     },
     layout: {},
