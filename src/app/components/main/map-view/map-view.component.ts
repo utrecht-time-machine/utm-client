@@ -16,6 +16,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Plugins, GeolocationPosition } from '@capacitor/core';
 import { BehaviorSubject } from 'rxjs';
 import { MeshLambertMaterial } from 'three';
+import { StationsService } from '../../../services/stations.service';
 
 const { Geolocation } = Plugins;
 
@@ -63,6 +64,7 @@ export class MapViewComponent implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
+    private stations: StationsService,
     private angularRenderer: Renderer2
   ) {
     this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
@@ -390,13 +392,9 @@ export class MapViewComponent implements OnInit {
    * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
    */
   async addStations() {
-    const stations = await this.http
-      .get<Feature<Point>[]>('./assets/data-models/stations.json')
-      .toPromise();
-
     // NOTE: Due to the for-loop, the scene is rendered multiple times with the same cone object,
     // rather than rendered once with multiple cone objects.
-    for (const station of stations) {
+    for (const station of this.stations.all.getValue()) {
       // Generate new scene for each station, as each needs a unique transformation
       const currentCamera = this.camera;
 
