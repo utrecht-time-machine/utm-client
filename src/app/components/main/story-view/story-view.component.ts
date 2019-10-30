@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class StoryViewComponent implements OnInit {
   @ViewChild('authorSelect', { static: true }) authorSelect: any;
+  @ViewChild('contentSlider', { static: false }) contentSlider: any;
 
   contentSliderOptions = {
     initialSlide: 0,
-    speed: 400,
     autoHeight: true,
   };
 
@@ -31,8 +31,19 @@ export class StoryViewComponent implements OnInit {
 
   ngOnInit() {}
 
+  async slideChanged() {
+    const storyIndex = await this.contentSlider.getActiveIndex();
+    const story = this.stories.selected.value[storyIndex];
+    this.stories.setCurrentlyViewedStory(story);
+  }
+
   startStory() {
-    this.route.navigate(['/article', { story: 'neude_thinker-on-a-rock' }]);
+    // TODO: Implement actual sequence logic here
+    // TODO: Select the right url based on the content type here
+    this.route.navigate([
+      '/article',
+      { story: this.stories.currentlyViewed.value.seq[0].content },
+    ]);
   }
 
   openAuthorSelectionPopup() {

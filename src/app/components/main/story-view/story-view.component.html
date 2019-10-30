@@ -21,7 +21,12 @@
     <!-- Story slides -->
     <ion-row>
       <ion-col>
-        <ion-slides [options]="contentSliderOptions" id="content-slider">
+        <ion-slides
+          [options]="contentSliderOptions"
+          (ionSlideDidChange)="slideChanged()"
+          id="content-slider"
+          #contentSlider
+        >
           <ion-slide *ngFor="let story of stories.selected | async">
             <ion-card>
               <img

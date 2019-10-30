@@ -10,10 +10,12 @@ import { Feature, Point } from 'geojson';
 export class StoriesService {
   all: BehaviorSubject<Story[]>;
   selected: BehaviorSubject<Story[]>;
+  currentlyViewed: BehaviorSubject<Story>;
 
   constructor(private http: HttpClient) {
     this.all = new BehaviorSubject<any[]>([]);
     this.selected = new BehaviorSubject<any[]>([]);
+    this.currentlyViewed = new BehaviorSubject<Story>(null);
     this.update();
   }
 
@@ -23,6 +25,7 @@ export class StoriesService {
       .toPromise();
     this.all.next(stories);
     this.selected.next([]); // Reset, in case the current selection contains deleted items
+    this.currentlyViewed.next(null);
   }
 
   // Note that currently only point features are supported. TODO: extend this.
@@ -32,6 +35,10 @@ export class StoriesService {
         return pickedStation.id === station['@id'];
       });
     });
+  }
+
+  setCurrentlyViewedStory(storyViewed: Story) {
+    this.currentlyViewed.next(storyViewed);
   }
 
   setSelectedStations(selectedStories: Story[]) {
