@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Story } from '../models/story.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoriesService {
-  all: BehaviorSubject<any[]>;
-  selected: BehaviorSubject<any[]>;
+  all: BehaviorSubject<Story[]>;
+  selected: BehaviorSubject<Story[]>;
 
   constructor(private http: HttpClient) {
     this.all = new BehaviorSubject<any[]>([]);
