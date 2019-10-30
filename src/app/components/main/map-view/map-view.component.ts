@@ -563,6 +563,7 @@ function createGeoJSONCircle(
 
 // Provided by https://stackoverflow.com/a/27664971
 // Merges multiple arrays while removing duplicates
+// To make it compile AOT, the Array.from is needed (see https://stackoverflow.com/a/33464709).
 function mergeDedupe(arr: any[][]): any[] {
-  return [...new Set([].concat(...arr))];
+  return [...Array.from(new Set([].concat(...arr)))];
 }
