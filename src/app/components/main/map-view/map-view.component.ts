@@ -58,6 +58,7 @@ export class MapViewComponent implements OnInit {
   playerPosition: BehaviorSubject<GeolocationPosition>;
   playerPositionMarker: Marker;
   playerPositionRadius: BehaviorSubject<number>;
+  playerPositionRadiusLayer: mapboxgl.Layer;
 
   constructor(
     private router: Router,
@@ -333,7 +334,7 @@ export class MapViewComponent implements OnInit {
 
       if (!this.playerPositionMarker) {
         // Create the first radius object here
-        const playerPositionRadiusRaw: any = createGeoJSONCircle(
+        this.playerPositionRadiusLayer = createGeoJSONCircle(
           `player-position-radius`,
           currentPlayerPosition,
           this.playerPositionRadius.getValue(),
@@ -345,7 +346,7 @@ export class MapViewComponent implements OnInit {
         this.playerPositionMarker = new Marker(mainMarker, {})
           .setLngLat(currentPlayerPosition)
           .addTo(this.map);
-        this.map.addLayer(playerPositionRadiusRaw);
+        this.map.addLayer(this.playerPositionRadiusLayer);
       } else {
         this.playerPositionMarker.setLngLat(currentPlayerPosition);
         this.updatePlayerPositionRadius();
@@ -369,7 +370,7 @@ export class MapViewComponent implements OnInit {
       playerPosition.coords.latitude
     );
 
-    const playerPositionRadiusRaw: any = createGeoJSONCircle(
+    this.playerPositionRadiusLayer = createGeoJSONCircle(
       `player-position-radius`,
       playerPositionCoords,
       this.playerPositionRadius.getValue(),
@@ -381,7 +382,7 @@ export class MapViewComponent implements OnInit {
     this.map
       .getSource('player-position-radius')
       // @ts-ignore
-      .setData(playerPositionRadiusRaw.source.data);
+      .setData(this.playerPositionRadiusLayer.source.data);
   }
 
   /**
@@ -488,7 +489,7 @@ function createGeoJSONCircle(
   points,
   color,
   opacity
-) {
+): mapboxgl.Layer {
   if (!points) {
     points = 64;
   }
@@ -525,6 +526,7 @@ function createGeoJSONCircle(
           type: 'Polygon',
           coordinates: [ret],
         },
+        properties: [],
       },
     },
     layout: {},
