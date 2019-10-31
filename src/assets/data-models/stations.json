@@ -85,5 +85,20 @@
       "title": "De Beurs",
       "description": ""
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/scaffold",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.118852, 52.092969]
+    },
+    "properties": {
+      "title": "Scaffold",
+      "description": "A scaffold stood on the square approximately here around 1661."
+    }
   }
 ]
