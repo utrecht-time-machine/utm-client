@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
@@ -9,26 +10,21 @@ import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {
-  GeoJSONSourceRaw,
-  LngLat,
-  LngLatBounds,
-  Marker,
-  MercatorCoordinate,
-} from 'mapbox-gl';
+import { LngLat, LngLatBounds, MercatorCoordinate } from 'mapbox-gl';
 import { Feature, Point, Polygon } from 'geojson';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { Plugins, GeolocationPosition } from '@capacitor/core';
-import { BehaviorSubject } from 'rxjs';
 import { MeshLambertMaterial } from 'three';
-import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { StationsService } from '../../../services/stations.service';
 import { StoriesService } from '../../../services/stories.service';
-import { Story } from '../../../models/story.model';
 import { MapTouchPitcherHelper } from '../../../helpers/map-touch-pitcher.helper';
-
-const { Geolocation } = Plugins;
+import { GeolocationWatcherHelper } from '../../../helpers/geolocation-watcher.helper';
+import { Story } from '../../../models/story.model';
+import { GeoJSONSourceRaw } from 'mapbox-gl';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import { mergeDedupe } from '../../../helpers/merge-array-dedupe.helper';
+import { GeolocationPosition } from '@capacitor/core';
+import { Subscription } from 'rxjs';
 
 interface Custom3dModel {
   url: string;
@@ -55,7 +51,7 @@ interface ModelTransform {
   templateUrl: './map-view.component.html',
   styleUrls: ['./map-view.component.scss'],
 })
-export class MapViewComponent implements OnInit {
+export class MapViewComponent implements OnInit, OnDestroy {
   static defaultMaterial: MeshLambertMaterial = new THREE.MeshLambertMaterial({
     color: 0xfbefcf,
   });
@@ -66,10 +62,8 @@ export class MapViewComponent implements OnInit {
   camera: THREE.Camera;
   renderer: THREE.Renderer;
 
-  playerPosition: BehaviorSubject<GeolocationPosition>;
-  playerPositionMarker: Marker;
-  playerPositionRadius: BehaviorSubject<number>;
-  playerPositionRadiusLayer: mapboxgl.Layer;
+  geolocationWatcherSub: Subscription;
+  routerEventSub: Subscription;
 
   constructor(
     private router: Router,
@@ -77,12 +71,7 @@ export class MapViewComponent implements OnInit {
     private stations: StationsService,
     private stories: StoriesService,
     private angularRenderer: Renderer2
-  ) {
-    this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
-    this.playerPositionRadius = new BehaviorSubject<number>(
-      environment.defaultPlayerPositionRadius
-    );
-  }
+  ) {}
 
   static generateDefaultWaypoint(
     station
@@ -244,7 +233,7 @@ export class MapViewComponent implements OnInit {
 
   startMapResizeListener() {
     // When page is loaded, resize map.
-    this.router.events.subscribe((event: RouterEvent) => {
+    this.routerEventSub = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/map') {
           // Execute multiple times, to ensure fast and slower devices get correct experience
@@ -303,9 +292,6 @@ export class MapViewComponent implements OnInit {
       this.startMapResizeListener();
       this.addStations();
 
-      this.watchPlayerPosition();
-      this.watchPlayerPositionRadius();
-
       this.map.addControl(
         new mapboxgl.NavigationControl({
           // @ts-ignore
@@ -313,109 +299,35 @@ export class MapViewComponent implements OnInit {
         }),
         'bottom-right'
       );
-    });
 
-    // Listen to pitch touch gestures
-    const mapTouchPitcher = new MapTouchPitcherHelper(this.map);
-    mapTouchPitcher.enable();
-  }
+      // Listen to pitch touch gestures
+      const mapTouchPitcher = new MapTouchPitcherHelper(this.map);
+      mapTouchPitcher.enable();
 
-  watchPlayerPosition() {
-    // TODO: subscription management
-    Geolocation.watchPosition(
-      {
-        enableHighAccuracy: true,
-      },
-      (position, err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        this.playerPosition.next(position);
-      }
-    );
+      // Listen to user movement events
+      const geolocationWatcher = new GeolocationWatcherHelper(this.map);
+      geolocationWatcher.enable();
 
-    // TODO: subscription management
-    this.playerPosition.subscribe((playerPosition: GeolocationPosition) => {
-      if (!playerPosition) {
-        return;
-      }
-
-      const mainMarker = document.createElement('div');
-      mainMarker.className = 'mapboxgl-user-location-dot';
-
-      const currentPlayerPosition: LngLat = new LngLat(
-        playerPosition.coords.longitude,
-        playerPosition.coords.latitude
-      );
-
-      if (!this.playerPositionMarker) {
-        // Create the first radius object here
-        this.playerPositionRadiusLayer = createGeoJSONCircle(
-          `player-position-radius`,
-          currentPlayerPosition,
-          this.playerPositionRadius.getValue(),
-          24,
-          'blue',
-          0.2
-        );
-
-        this.playerPositionMarker = new Marker(mainMarker, {})
-          .setLngLat(currentPlayerPosition)
-          .addTo(this.map);
-        this.map.addLayer(this.playerPositionRadiusLayer);
-      } else {
-        this.playerPositionMarker.setLngLat(currentPlayerPosition);
-        this.updatePlayerPositionRadius();
-      }
-
-      // Update selection of stories
+      // Update selection of stories if radius changes
       // Note that this can be much optimised, especially given a specialised back-end
-      const selectedStories: Story[][] = [];
-      for (const station of this.stations.all.getValue()) {
-        const source = this.playerPositionRadiusLayer
-          .source as GeoJSONSourceRaw;
-        const polygon: Feature<Polygon> = source.data as Feature<Polygon>;
+      this.geolocationWatcherSub = geolocationWatcher.playerPosition.subscribe(
+        (playerPosition: GeolocationPosition) => {
+          const selectedStories: Story[][] = [];
+          for (const station of this.stations.all.getValue()) {
+            const source = geolocationWatcher.playerPositionRadiusLayer
+              .source as GeoJSONSourceRaw;
+            const polygon: Feature<Polygon> = source.data as Feature<Polygon>;
 
-        // If point in radius, add stories of that station to selection
-        if (booleanPointInPolygon(station, polygon)) {
-          // Add all stories with that station
-          selectedStories.push(this.stories.getAllWithStation(station));
+            // If point in radius, add stories of that station to selection
+            if (booleanPointInPolygon(station, polygon)) {
+              // Add all stories with that station
+              selectedStories.push(this.stories.getAllWithStation(station));
+            }
+          }
+          this.stories.setSelectedStations(mergeDedupe(selectedStories));
         }
-      }
-      this.stories.setSelectedStations(mergeDedupe(selectedStories));
+      );
     });
-  }
-
-  watchPlayerPositionRadius() {
-    this.playerPositionRadius.subscribe(playerPositionRadius => {
-      if (!playerPositionRadius || !this.playerPositionMarker) {
-        return;
-      }
-      this.updatePlayerPositionRadius();
-    });
-  }
-
-  updatePlayerPositionRadius() {
-    const playerPosition = this.playerPosition.getValue();
-    const playerPositionCoords: LngLat = new LngLat(
-      playerPosition.coords.longitude,
-      playerPosition.coords.latitude
-    );
-
-    this.playerPositionRadiusLayer = createGeoJSONCircle(
-      `player-position-radius`,
-      playerPositionCoords,
-      this.playerPositionRadius.getValue(),
-      24,
-      'blue',
-      0.2
-    );
-    // @ts-ignore
-    this.map
-      .getSource('player-position-radius')
-      // @ts-ignore
-      .setData(this.playerPositionRadiusLayer.source.data);
   }
 
   /**
@@ -497,78 +409,9 @@ export class MapViewComponent implements OnInit {
       this.map.addLayer(customLayer, 'building 3D');
     }
   }
-}
 
-/**
- * Returns a geojson object describing a polygonal circle that can be projected on the map.
- * Adapted from: https://stackoverflow.com/a/39006388
- *
- * @param id
- * @param center
- * @param radiusInMeter
- * @param points
- * @param color
- * @param opacity
- * @returns geojson
- */
-function createGeoJSONCircle(
-  id,
-  center,
-  radiusInMeter,
-  points,
-  color,
-  opacity
-): mapboxgl.Layer {
-  if (!points) {
-    points = 64;
+  ngOnDestroy() {
+    this.geolocationWatcherSub.unsubscribe();
+    this.routerEventSub.unsubscribe();
   }
-
-  const coords = {
-    latitude: center.lat,
-    longitude: center.lng,
-  };
-
-  const km = radiusInMeter / 1000;
-
-  const ret = [];
-  const distanceX = km / (111.32 * Math.cos((coords.latitude * Math.PI) / 180));
-  const distanceY = km / 110.574;
-
-  let theta, x, y;
-  for (let i = 0; i < points; i++) {
-    theta = (i / points) * (2 * Math.PI);
-    x = distanceX * Math.cos(theta);
-    y = distanceY * Math.sin(theta);
-
-    ret.push([coords.longitude + x, coords.latitude + y]);
-  }
-  ret.push(ret[0]);
-
-  return {
-    id: id,
-    type: 'fill',
-    source: {
-      type: 'geojson',
-      data: {
-        type: 'Feature',
-        geometry: {
-          type: 'Polygon',
-          coordinates: [ret],
-        },
-        properties: [],
-      },
-    },
-    layout: {},
-    paint: {
-      'fill-color': color,
-      'fill-opacity': opacity,
-    },
-  };
-}
-
-// Provided by https://stackoverflow.com/a/27664971
-// Merges multiple arrays while removing duplicates
-// To make it compile AOT, the Array.from is needed (see https://stackoverflow.com/a/33464709).
-function mergeDedupe(arr: any[][]): any[] {
-  return [...Array.from(new Set([].concat(...arr)))];
 }
