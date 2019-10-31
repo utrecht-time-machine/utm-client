@@ -180,7 +180,7 @@
         "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
-          "image": "https://proxy.archieven.nl/download/39/58233E35AE7A57BD87773805316E26F1"
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
         "color-scheme": "dark",
         "yarn": [
@@ -207,7 +207,7 @@
           {
             "title": "Can I see the pamphlet?",
             "tags": "",
-            "body": "*The paper boy shows you the pamphlet*\n\n[img]https://proxy.archieven.nl/download/39/261D0057A92A54CCAB9EA22374CF787E[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
+            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
             "position": {
               "x": 2355,
               "y": 351
