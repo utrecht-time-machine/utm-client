@@ -66,5 +66,34 @@
         "content": "neude_smell_public_restroom"
       }
     ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight_de-liefde-centraal-apotheek",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "De Liefde's Centraal Apotheek",
+    "lang": "nl",
+    "description": "When was the last time you went to a pharmacy as beautiful as this one? De Liefde's Centraal Apotheek used to be the cheapest and the best place to get your recipes and it was additionally the depot for all foreign and domestic medicine. Now, it is but a clothing store.",
+    "featured-image": "/assets/img/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709755460"
+      }
+    ],
+    "time-period": {
+      "start": "???",
+      "end": "???"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight_de-liefde-centraal-apotheek",
+        "content-type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_sight-de-liefde-centraal-apotheek"
+      }
+    ]
   }
 ]
