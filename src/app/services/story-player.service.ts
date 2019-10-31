@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { replaceAll } from '../helpers/string.helper';
+import { YarnItem } from '../models/yarn-item.model';
 
 export interface StoryNode {
   title: string;
   tags: string;
   body: string;
   answers: Answer[];
-  image: string; // URL
-  audio: string; // URL
+  featuredImage?: string; // URL
+  audio?: string; // URL
 }
 
 interface Answer {
@@ -40,12 +41,11 @@ export class StoryPlayerService {
     return this.currentStoryNode;
   }
 
-  async load(url: string) {
-    const yarnRaw: any = await this.http.get(url).toPromise();
-    this.parse(yarnRaw);
+  load(yarnRaw: YarnItem[]) {
+    this.parseYarn(yarnRaw);
   }
 
-  private parse(yarnRaw: any[]) {
+  private parseYarn(yarnRaw: YarnItem[]) {
     this.storyNodes = {};
 
     for (let index = 0; index < yarnRaw.length; index++) {
@@ -82,12 +82,13 @@ export class StoryPlayerService {
         }
       }
 
-      // Set image
+      // Convert images into markdown format
+      // TODO: implement featured image
       const foundImages = body.match(/\[img\].*?\[\/img\]/g);
       if (foundImages) {
         image = replaceAll(foundImages[0], /\[\/?img]/, '');
-        // TODO: place other images as well, in-line
-        body = body.replace(/\[img\].*?\[\/img\]/g, '');
+        // TODO: add alt text with description of image (available for archive pieces
+        body = body.replace(/\[img\].*?\[\/img\]/g, `![](${image})`);
       }
 
       // Set audio
@@ -108,8 +109,6 @@ export class StoryPlayerService {
         tags: rawNode.tags,
         body: body,
         answers: answers,
-        image: image, // URL
-        audio: audio, // URL
       };
     }
     // console.log(this.storyNodes); // DEBUG

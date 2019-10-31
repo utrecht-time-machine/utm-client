@@ -18,6 +18,9 @@ export interface ArticleSeq extends Seq {
 }
 export interface DialogueSeq extends Seq {
   'color-scheme'?: string;
+  background: {
+    image: string; // URL
+  };
   yarn: YarnItem[];
 }
 

@@ -1,11 +1,12 @@
-<ion-content class="ion-padding">
+<ion-content>
+  <div id="bg"></div>
   <div id="story-scene-wrapper" *ngIf="storyScene">
-    <ion-img *ngIf="storyScene.image" [src]="storyScene.image"></ion-img>
     <markdown [data]="storyScene.body"></markdown>
     <ion-button
       color="dark"
       *ngFor="let answer of storyScene.answers"
       (click)="next(answer.id)"
+      class="button-text-wrap"
     >
       <markdown [data]="answer.label"></markdown>
     </ion-button>
