@@ -18,7 +18,6 @@ export class StoryViewComponent implements OnInit {
 
   contentSliderOptions = {
     initialSlide: 0,
-    autoHeight: true,
   };
 
   authorSelectionOptions: any = {
