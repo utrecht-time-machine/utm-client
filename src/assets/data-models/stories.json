@@ -153,5 +153,34 @@
         "content": "neude_de-beurs-history"
       }
     ]
+  },
+  {
+    "@id": "http://histomap.eu/2016/08/19/de-zuivelmarkt-op-de-bakkerbrug/",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
+    "lang": "nl",
+    "description": "Dit tegeltableau laat de zuivelmarkt zien zoals die omstreeks 1820 op de Bakkerbrug werd gehouden.",
+    "featured-image": "/assets/data-models/stories/2019100005_tegeltableau-zuivelmarkt-bakkerbrug/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/Constructieve"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709275548"
+      }
+    ],
+    "time-period": {
+      "start": "???",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "http://histomap.eu/2016/08/19/de-zuivelmarkt-op-de-bakkerbrug/",
+        "@type": "https://utrechttimemachine.nl/scene-types/external",
+        "content": "http://histomap.eu/2016/08/19/de-zuivelmarkt-op-de-bakkerbrug/"
+      }
+    ]
   }
 ]

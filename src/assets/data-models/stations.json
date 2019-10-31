@@ -85,5 +85,20 @@
       "title": "De Beurs",
       "description": ""
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2709275548",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1175543, 52.0919491]
+    },
+    "properties": {
+      "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
+      "description": ""
+    }
   }
 ]

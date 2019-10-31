@@ -5,6 +5,7 @@ import { TimePeriod } from './time-period.model';
 export enum SeqType {
   Article = 'https://utrechttimemachine.nl/scene-types/article',
   Dialogue = 'https://utrechttimemachine.nl/scene-types/dialogue',
+  External = 'https://utrechttimemachine.nl/scene-types/external',
 }
 
 export interface Seq {
