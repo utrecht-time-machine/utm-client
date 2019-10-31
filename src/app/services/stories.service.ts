@@ -44,4 +44,8 @@ export class StoriesService {
   setSelectedStations(selectedStories: Story[]) {
     this.selected.next(selectedStories);
   }
+
+  selectAll() {
+    this.selected.next(this.all.getValue());
+  }
 }

@@ -4,13 +4,20 @@ import { LngLat, Marker } from 'mapbox-gl';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { createGeoJSONCircle } from './geojson-circle-generator.helper';
+import { GeoJSONSourceRaw } from 'mapbox-gl';
+import { Feature, Polygon } from 'geojson';
 
 const { Geolocation } = Plugins;
 
-export class GeolocationWatcherHelper {
-  public playerPosition: BehaviorSubject<GeolocationPosition>;
-  public playerPositionRadiusLayer: mapboxgl.Layer;
+export interface UserPosition {
+  position: GeolocationPosition;
+  radiusPolygon: Feature<Polygon>;
+}
 
+export class GeolocationWatcherHelper {
+  public playerPosition: BehaviorSubject<UserPosition>;
+
+  private playerPositionRadiusLayer: mapboxgl.Layer;
   private playerPositionMarker: Marker;
   private playerPositionRadius: number =
     environment.defaultPlayerPositionRadius;
@@ -19,21 +26,34 @@ export class GeolocationWatcherHelper {
   private readonly map: mapboxgl.Map;
 
   constructor(map: mapboxgl.Map) {
-    this.playerPosition = new BehaviorSubject<GeolocationPosition>(null);
+    this.playerPosition = new BehaviorSubject<UserPosition>(null);
     this.map = map;
-    this.subscribePlayerPosition();
   }
 
   public enable() {
-    this.watchPlayerPosition();
+    this.startPlayerWatch();
   }
 
   public disable() {
-    console.log(this.geoWatcherId);
-    Geolocation.clearWatch({ id: this.geoWatcherId });
+    this.stopPlayerWatch();
+
+    this.playerPositionMarker.remove();
+    this.playerPositionMarker = null;
+
+    this.map.removeLayer(this.playerPositionRadiusLayer.id);
+    this.map.removeSource(this.playerPositionRadiusLayer.id);
+    this.playerPositionRadiusLayer = null;
   }
 
-  private watchPlayerPosition() {
+  public setPlayerPositionRadius(radius: number) {
+    if (!this.playerPositionRadius || !this.playerPositionMarker) {
+      return;
+    }
+    this.playerPositionRadius = radius;
+    this.updatePlayerPositionRadius(this.playerPosition.getValue().position);
+  }
+
+  private startPlayerWatch() {
     this.geoWatcherId = Geolocation.watchPosition(
       {
         enableHighAccuracy: true,
@@ -43,61 +63,63 @@ export class GeolocationWatcherHelper {
           console.error(err);
           return;
         }
-        this.playerPosition.next(position);
+        this.visualisePlayerPosition(position);
+
+        // Get coordinates of radius
+        const source = this.playerPositionRadiusLayer
+          .source as GeoJSONSourceRaw;
+        const radiusPolygon: Feature<Polygon> = source.data as Feature<Polygon>;
+
+        this.playerPosition.next({
+          position: position,
+          radiusPolygon: radiusPolygon,
+        });
       }
     );
   }
 
-  private subscribePlayerPosition() {
-    // Never unsubscribed, as will never live longer than class itself.
-    this.playerPosition.subscribe((playerPosition: GeolocationPosition) => {
-      if (!playerPosition) {
-        return;
-      }
-
-      const mainMarker = document.createElement('div');
-      mainMarker.className = 'mapboxgl-user-location-dot';
-
-      const currentPlayerPosition: LngLat = new LngLat(
-        playerPosition.coords.longitude,
-        playerPosition.coords.latitude
-      );
-
-      if (!this.playerPositionMarker) {
-        // Create the first radius object here
-        this.playerPositionRadiusLayer = createGeoJSONCircle(
-          `player-position-radius`,
-          currentPlayerPosition,
-          this.playerPositionRadius,
-          24,
-          'blue',
-          0.2
-        );
-
-        this.playerPositionMarker = new Marker(mainMarker, {})
-          .setLngLat(currentPlayerPosition)
-          .addTo(this.map);
-        this.map.addLayer(this.playerPositionRadiusLayer);
-      } else {
-        this.playerPositionMarker.setLngLat(currentPlayerPosition);
-        this.updatePlayerPositionRadius();
-      }
-    });
+  private stopPlayerWatch() {
+    Geolocation.clearWatch({ id: this.geoWatcherId });
   }
 
-  setPlayerPositionRadius(radius: number) {
-    if (!this.playerPositionRadius || !this.playerPositionMarker) {
+  private visualisePlayerPosition(position: GeolocationPosition) {
+    if (!position) {
       return;
     }
-    this.playerPositionRadius = radius;
-    this.updatePlayerPositionRadius();
+
+    const mainMarker = document.createElement('div');
+    mainMarker.className = 'mapboxgl-user-location-dot';
+
+    const currentPlayerPosition: LngLat = new LngLat(
+      position.coords.longitude,
+      position.coords.latitude
+    );
+
+    if (!this.playerPositionMarker) {
+      // Create the first radius object here
+      this.playerPositionRadiusLayer = createGeoJSONCircle(
+        `player-position-radius`,
+        currentPlayerPosition,
+        this.playerPositionRadius,
+        24,
+        'blue',
+        0.2
+      );
+
+      this.playerPositionMarker = new Marker(mainMarker, {})
+        .setLngLat(currentPlayerPosition)
+        .addTo(this.map);
+      this.map.addLayer(this.playerPositionRadiusLayer);
+    } else {
+      this.playerPositionMarker.setLngLat(currentPlayerPosition);
+      this.updatePlayerPositionRadius(position);
+    }
   }
 
-  private updatePlayerPositionRadius() {
-    const playerPosition = this.playerPosition.getValue();
+  private updatePlayerPositionRadius(position: GeolocationPosition) {
     const playerPositionCoords: LngLat = new LngLat(
-      playerPosition.coords.longitude,
-      playerPosition.coords.latitude
+      position.coords.longitude,
+      position.coords.latitude
     );
 
     this.playerPositionRadiusLayer = createGeoJSONCircle(

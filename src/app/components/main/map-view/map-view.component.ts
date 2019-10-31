@@ -18,13 +18,15 @@ import { MeshLambertMaterial } from 'three';
 import { StationsService } from '../../../services/stations.service';
 import { StoriesService } from '../../../services/stories.service';
 import { MapTouchPitcherHelper } from '../../../helpers/map-touch-pitcher.helper';
-import { GeolocationWatcherHelper } from '../../../helpers/geolocation-watcher.helper';
+import {
+  GeolocationWatcherHelper,
+  UserPosition,
+} from '../../../helpers/geolocation-watcher.helper';
 import { Story } from '../../../models/story.model';
-import { GeoJSONSourceRaw } from 'mapbox-gl';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { mergeDedupe } from '../../../helpers/merge-array-dedupe.helper';
-import { GeolocationPosition } from '@capacitor/core';
 import { Subscription } from 'rxjs';
+import { ToastController } from '@ionic/angular';
 
 interface Custom3dModel {
   url: string;
@@ -46,6 +48,11 @@ interface ModelTransform {
   scale: number;
 }
 
+enum ExplorationMode {
+  Immersive,
+  Overview,
+}
+
 @Component({
   selector: 'utm-map-view',
   templateUrl: './map-view.component.html',
@@ -64,13 +71,17 @@ export class MapViewComponent implements OnInit, OnDestroy {
 
   geolocationWatcherSub: Subscription;
   routerEventSub: Subscription;
+  geolocationWatcher: GeolocationWatcherHelper;
+
+  currentExplorationMode: ExplorationMode = ExplorationMode.Immersive;
 
   constructor(
     private router: Router,
     private http: HttpClient,
     private stations: StationsService,
     private stories: StoriesService,
-    private angularRenderer: Renderer2
+    private angularRenderer: Renderer2,
+    private toast: ToastController
   ) {}
 
   static generateDefaultWaypoint(
@@ -305,21 +316,17 @@ export class MapViewComponent implements OnInit, OnDestroy {
       mapTouchPitcher.enable();
 
       // Listen to user movement events
-      const geolocationWatcher = new GeolocationWatcherHelper(this.map);
-      geolocationWatcher.enable();
+      this.geolocationWatcher = new GeolocationWatcherHelper(this.map);
+      this.geolocationWatcher.enable();
 
       // Update selection of stories if radius changes
       // Note that this can be much optimised, especially given a specialised back-end
-      this.geolocationWatcherSub = geolocationWatcher.playerPosition.subscribe(
-        (playerPosition: GeolocationPosition) => {
+      this.geolocationWatcherSub = this.geolocationWatcher.playerPosition.subscribe(
+        (userPosition: UserPosition) => {
           const selectedStories: Story[][] = [];
           for (const station of this.stations.all.getValue()) {
-            const source = geolocationWatcher.playerPositionRadiusLayer
-              .source as GeoJSONSourceRaw;
-            const polygon: Feature<Polygon> = source.data as Feature<Polygon>;
-
             // If point in radius, add stories of that station to selection
-            if (booleanPointInPolygon(station, polygon)) {
+            if (booleanPointInPolygon(station, userPosition.radiusPolygon)) {
               // Add all stories with that station
               selectedStories.push(this.stories.getAllWithStation(station));
             }
@@ -328,6 +335,50 @@ export class MapViewComponent implements OnInit, OnDestroy {
         }
       );
     });
+  }
+
+  async toggleExplorationMode() {
+    if (this.currentExplorationMode === ExplorationMode.Immersive) {
+      this.setExplorationMode(ExplorationMode.Overview);
+      const toast = await this.toast.create({
+        header: 'Overview mode enabled',
+        position: 'top',
+        message:
+          'You now have access to all stories without needing to be close to stations.',
+        duration: 3000,
+      });
+      toast.present();
+    } else {
+      this.setExplorationMode(ExplorationMode.Immersive);
+      const toast = await this.toast.create({
+        header: 'Immersive mode enabled',
+        position: 'top',
+        message:
+          'In order to experience stories, you need to explore the world and find them around you.',
+        duration: 3000,
+      });
+      toast.present();
+    }
+  }
+
+  private setExplorationMode(mode: ExplorationMode) {
+    switch (mode) {
+      case ExplorationMode.Immersive:
+        if (this.currentExplorationMode === ExplorationMode.Immersive) {
+          return;
+        }
+        this.geolocationWatcher.enable();
+        this.currentExplorationMode = ExplorationMode.Immersive;
+        break;
+      case ExplorationMode.Overview:
+        if (this.currentExplorationMode === ExplorationMode.Overview) {
+          return;
+        }
+        this.geolocationWatcher.disable();
+        this.stories.selectAll();
+        this.currentExplorationMode = ExplorationMode.Overview;
+        break;
+    }
   }
 
   /**
