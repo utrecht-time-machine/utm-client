@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { AuthorsService } from '../../../services/authors.service';
 import { StoriesService } from '../../../services/stories.service';
 import { Router } from '@angular/router';
 import { Story, SeqType } from '../../../models/story.model';
+import { Plugins } from '@capacitor/core';
+
+const { Browser } = Plugins;
 
 @Component({
   selector: 'utm-explore-view',
@@ -26,8 +28,7 @@ export class StoryViewComponent implements OnInit {
   constructor(
     public authors: AuthorsService,
     public stories: StoriesService,
-    private route: Router,
-    private iab: InAppBrowser
+    private route: Router
   ) {}
 
   ngOnInit() {}
@@ -53,7 +54,7 @@ export class StoryViewComponent implements OnInit {
         { storyId: story['@id'], seqId: firstSeqItem['@id'] },
       ]);
     } else if (firstSeqItem['@type'] === SeqType.External) {
-      this.iab.create(firstSeqItem['content']);
+      Browser.open({ url: firstSeqItem['content'] });
     } else {
       console.error('Unsupported story type', firstSeqItem['@type']);
     }
