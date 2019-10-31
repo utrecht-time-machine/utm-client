@@ -1,5 +1,8 @@
 :host {
-  background-color: #f5f2d8;
+  --dialogue-scene-bg: var(--ion-color-light);
+  --dialogue-scene-bg-contrast: var(--ion-color-light-contrast);
+  --dialogue-scene-bg-image: '';
+
   #story-scene-wrapper {
     padding: 20px;
     max-width: 800px;
@@ -8,5 +11,20 @@
     font-family: 'Playfair Displaya', serif;
     font-size: 1.1rem;
     line-height: 1.5rem;
+    color: var(--dialogue-scene-bg-contrast);
+  }
+  .button-text-wrap {
+    white-space: normal !important;
+    height: fit-content;
+  }
+  #bg {
+    background-color: var(--dialogue-scene-bg);
+    background-image: var(--dialogue-scene-bg-image);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    filter: brightness(0.3) contrast(1);
   }
 }

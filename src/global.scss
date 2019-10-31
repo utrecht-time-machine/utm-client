@@ -35,6 +35,13 @@
   margin: auto;
 }
 
+ion-button markdown p {
+  line-height: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
 markdown img,
 markdown p img {
   border-radius: 1px;

@@ -48,9 +48,10 @@ export class StoryViewComponent implements OnInit {
         { storyId: story['@id'], seqId: firstSeqItem['@id'] },
       ]);
     } else if (firstSeqItem['@type'] === SeqType.Dialogue) {
-      this.route.navigate(['/dialogue'], {
-        queryParams: { storyId: story['@id'], seqId: firstSeqItem['@id'] },
-      });
+      this.route.navigate([
+        '/dialogue',
+        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+      ]);
     } else if (firstSeqItem['@type'] === SeqType.External) {
       this.iab.create(firstSeqItem['content']);
     } else {

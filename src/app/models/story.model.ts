@@ -1,6 +1,7 @@
 import { AuthorId } from './author.model';
 import { StationId } from './station.model';
 import { TimePeriod } from './time-period.model';
+import { YarnItem } from './yarn-item.model';
 
 export enum SeqType {
   Article = 'https://utrechttimemachine.nl/scene-types/article',
@@ -15,6 +16,13 @@ export interface Seq {
 
 export interface ArticleSeq extends Seq {
   content: string; // contains URL to markdown file
+}
+export interface DialogueSeq extends Seq {
+  'color-scheme'?: string;
+  background: {
+    image: string; // URL
+  };
+  yarn: YarnItem[];
 }
 
 export interface Story {
