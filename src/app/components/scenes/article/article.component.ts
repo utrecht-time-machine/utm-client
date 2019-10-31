@@ -47,7 +47,6 @@ export class ArticleComponent implements OnInit {
       .subscribe(async () => {
         const myStory = this.stories.getByStoryId(this.storyId);
         this.seq = myStory.seq.find(seq => {
-          console.log(seq['@id'], this.seqId);
           return seq['@id'] === this.seqId;
         }) as ArticleSeq;
 
