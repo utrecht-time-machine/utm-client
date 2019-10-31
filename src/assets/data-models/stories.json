@@ -95,5 +95,63 @@
         "content": "neude_sight-de-liefde-centraal-apotheek"
       }
     ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100003_neude_hearing_de-beurs-cafe",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Hearing: De Beurs",
+    "lang": "nl",
+    "description": "De Beurs is but one of the café restaurants located at the Neude. Find out what could be heard at De Beurs over the years.",
+    "featured-image": "/assets/img/2019100003_neude_hearing_de-beurs-cafe/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/26780748"
+      }
+    ],
+    "time-period": {
+      "start": "1624",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100003_neude_hearing_de-beurs-cafe",
+        "content-type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_hearing_de-beurs-cafe"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100003_neude_hearing_de-beurs-cafe",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "De Beurs: A short timeline",
+    "lang": "nl",
+    "description": "Ever wondered about the history of De Beurs? Find about more what has happened to De Beurs since 1624.",
+    "featured-image": "/assets/img/2019100004_neude_de-beurs-history/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/26780748"
+      }
+    ],
+    "time-period": {
+      "start": "1624",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100004_neude_de-beurs-history",
+        "content-type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_de-beurs-history"
+      }
+    ]
   }
 ]

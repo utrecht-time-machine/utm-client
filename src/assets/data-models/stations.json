@@ -70,5 +70,20 @@
       "title": "De Liefde's Centraal Apotheek",
       "description": ""
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/26780748",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1190619, 52.092868]
+    },
+    "properties": {
+      "title": "De Beurs",
+      "description": ""
+    }
   }
 ]
