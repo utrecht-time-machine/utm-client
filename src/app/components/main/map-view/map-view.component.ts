@@ -462,7 +462,11 @@ export class MapViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.geolocationWatcherSub.unsubscribe();
-    this.routerEventSub.unsubscribe();
+    if (this.geolocationWatcherSub) {
+      this.geolocationWatcherSub.unsubscribe();
+    }
+    if (this.routerEventSub) {
+      this.routerEventSub.unsubscribe();
+    }
   }
 }
