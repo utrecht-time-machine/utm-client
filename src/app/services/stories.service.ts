@@ -45,4 +45,8 @@ export class StoriesService {
     this.selected.next(selectedStories);
     this.setCurrentlyViewedStory(selectedStories[0]);
   }
+
+  selectAll() {
+    this.selected.next(this.all.getValue());
+  }
 }
