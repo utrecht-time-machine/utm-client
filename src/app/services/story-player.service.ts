@@ -111,12 +111,11 @@ export class StoryPlayerService {
         image: image, // URL
         audio: audio, // URL
       };
-
-      if (index === 0) {
-        this.currentStoryNode = this.storyNodes[rawNode.title];
-      }
     }
     // console.log(this.storyNodes); // DEBUG
+
+    // Set to start node (magic title)
+    this.currentStoryNode = this.storyNodes['Start'];
   }
 }
 
