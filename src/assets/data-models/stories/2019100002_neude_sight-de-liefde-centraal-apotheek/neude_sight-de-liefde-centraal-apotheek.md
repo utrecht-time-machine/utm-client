@@ -4,13 +4,11 @@
 
 _By Anna Tchitcherine_
 
-[](https://sites.google.com/view/walkingtourneude/the-walking-tour/sight-de-liefdes-centraal-apotheek?authuser=0#h.p_5UFWAEDxIaA1)
-
 We will start our tour with one of the most central buildings of Neude-past: the pharmacy! It is the building that looks like it's straight out of a fairytale, with the arches and the overall asymmetrical look. Found it? When was the last time you went to a pharmacy as beautiful as this one? Of course, you can't actually buy medicine here anymore - the Revenge concept store moved here in 2001 (Revenge, 2019). However, the building is just the same as when the pharmacy was still up and running. Even the inscription is still right there: De Liefde's Centraal Apotheek (= De Liefde's Central Pharmacy) (Fig. 1).
 
 De Liefde's Centraal Apotheek used to be the cheapest and the best place to get your recipes and it was additionally the depot for all foreign and domestic medicine (Nichting, 1977, p. 87). Now, it is but a clothing store. However, the building's peculiar looks still make up a big part of the beautiful Neude landscape. Its building style, and the contrast that it offers with the modern clothing shop found inside today, explains why we have categorized it under 'sight'.
 
-![](https://lh5.googleusercontent.com/tqGU7cSSxqggYFj4HRBR97AtgK7_6HaF4y4r4vmZjl0uAHsm2pf_wbZRnoxKEvi_vy5NMDhK1KNYXZIss9MarbuyzPD6dk6pvZNn37RdYmpa-D934Uk=w572)
+[](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/apotheek_banner.jpg)
 
 **_Figure 1:_** Goosen, D. (2014). _Afbeelding van de tekst 'De Liefde's Centraal Apotheek', boven de etalageruit van kledingwinkel Revenge._. [Photograph] Het Utrechts Archief, Utrecht.
 
@@ -22,29 +20,28 @@ The development of this style was a reaction to the surge of neo-styles in the n
 
 In Utrecht and the Netherlands, the Jugendstil buildings were based on simple geometric forms and decorations. De Liefde's Centraal Apotheek is a good representation of these qualities. The most notable features are its overall asymmetry, the hexagonal turret on the top right and the horse-shoe shaped loggia that stretches over the second and the first floor of the building (Van Hulten et al, 1992, p. 33-34) (Fig. 2).
 
-![](https://lh5.googleusercontent.com/Tuhp1wuPibmv0O78ESt8bxjHQP7mv4FnIVRhWLY3aC8wl2KZ2Pr9SbJ3wvP2JZ3PQpqbrrm8lJqUvPIkC62Te8lJg5hPJ4_h3GdoZh5TfV4jJ5U-QB8D=w572)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/apotheek.jpg)
 
 **_Figure 2:_** Tchitcherine, A.E. (2019). De Liefde's Centraal Apotheek.
 
 **Johan de Liefde and his pharmacy** Johan de Liefde (1860-1923) was a publisher for 'Het Utrechtsch Nieuwschblad', who did anything and everything to promote the newspaper. For example, in the Spring of 1893 he let 'sandwichmen', people with huge advertising boards hanging from the shoulders, parade the Utrecht streets. Behind them, horses and wagons followed. On the latter, a miniature press stuck out. This spectacle was frowned upon by some Utrecht residents. At the same time, however, his hardworking nature was well-respected by many.
 
 In 1903, Johan went yet a step further in advertising his newspaper. On the 14th of March, he announced the Utrechtsch Nieuwschblad Ziekenfonds (Utrecht Newspaper Health Insurance Fund) which included De Liefde's Centraal Apotheek. The fund was meant for the unprivileged citizens of Utrecht, but also offered free medical help to its staff and to the ones subscribed to the newspaper. All the pills and drinks were temporarily located in the anteroom of Drift 23, the newspaper's headquarters, but the pharmacy moved to Voorstraat 6 in 1905 (Fig. 3). To promote the pharmacy, he published a beautiful calendar in 1905 which was offered to the subscribers to the newspaper (Fig. 4). After the First World War, De Liefde's Centraal Apotheek became independent under improved social legislation. However, its name would always remain tied to Johan de Liefde (De Jongh, 1993, p. 3-4).
-
-![](https://lh5.googleusercontent.com/Ro3wcS_7L9-FWJsM9jvRE8zx_SPiQogMqq8ec5kAHkgdmqqEkZ9-2XYVEfUErnv4x3Je5K3Rlhld1SJn0PM5h5qRLLyuyVFI8PtxAYkVcjKBdM-W10-e=w572)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/moesman_photo.jpg)
 
 **_Figure 3:_** Moesman, J.A. (1908). _Gezicht op de voorgevels van de huizen Voorstraat 4-8 te Utrecht._ [Photograph] Het Utrechts Archief, Utrecht.
 
-![](https://lh4.googleusercontent.com/a4wD9BGX9ooWB6KRVPK4s7ZSaUMCwQHwib-tg_8YW_wSAcvyOblHZ7CFrmbVlnT5gATqaU6qDLM5XWsHX5mikQoe2diXxdVbhsBdN4Ve-rUZ3-WJy3Un=w371)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/calendar.jpg)
 
 **_Figure 4:_** Liefde, J. (1905). _Kalender 1905 aangeboden aan de Abonne's van het UTRECHTSCH NIEUWSCHBLAD_. [Print] Het Utrechts Archief, Utrecht.
 
 Below, you will find some pictures that will help you visualize what De Liefde's Centraal Apotheek looked like before it was re-purposed. You can see the front desk on Figure 5, and the laboratory on Figure 6.
 
-![](https://lh4.googleusercontent.com/KUJy3d-3Tz-GnrXBe5WO8I0meDlL___R2AaI5-u33gzDT3KEhWxNXLz5N5aUGMhCyVQ70Mll4bUg4rRlbFPK-1sfr7VgAcVLJcOmIvshZWZ_rk2i14c=w572)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/interior.jpg)
 
 **_Figure 5:_** Interieur van Apotheek de Liefde (Voorstraat 6) te Utrecht: winkel. (1913). [Photograph] Het Utrechts Archief, Utrecht.
 
-![](https://lh3.googleusercontent.com/1CkmGLuirJvCr6B1qQqd1-FPPkt6f09M9WchICRxryt6zyi1YaLdhgGDIq8uFFHaoxRLQ0WZESKjZOhFY5747HQr2qli5lJo7Z5WhHL4bshIvrve_d4=w572)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/interior2.jpg)
 
 **_Figure 6:_** Interieur van Apotheek De Liefde (Voorstraat 6) te Utrecht: laboratorium. (1913). [Photograph] Het Utrechts Archief, Utrecht.
 
