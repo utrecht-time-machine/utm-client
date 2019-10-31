@@ -11,12 +11,6 @@
 </ion-content> -->
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" (click)="startStory()">
-      <ion-icon name="play"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
   <ion-grid>
     <!-- Story slides -->
     <ion-row>
@@ -27,8 +21,25 @@
           id="content-slider"
           #contentSlider
         >
-          <ion-slide *ngFor="let story of stories.selected | async">
+          <!-- No stories found in this area -->
+          <ion-slide *ngIf="stories.selected.value.length == 0">
             <ion-card>
+              <img
+                alt="No stories found in this area"
+                src="https://cdn.pixabay.com/photo/2017/03/07/13/02/question-mark-2123969_960_720.jpg"
+              />
+              <ion-card-header>
+                <ion-card-title>No stories found in this area</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Please use the Map view to find new stories around you. Stories
+                will be shown here when you get close enough to a marker.
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide *ngFor="let story of stories.selected | async">
+            <ion-card (click)="startStory()">
               <img
                 src="{{ story['featured-image'] }}"
                 alt="{{ story['title'] }}"

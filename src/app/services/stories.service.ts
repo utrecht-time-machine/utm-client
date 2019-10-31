@@ -43,5 +43,6 @@ export class StoriesService {
 
   setSelectedStations(selectedStories: Story[]) {
     this.selected.next(selectedStories);
+    this.setCurrentlyViewedStory(selectedStories[0]);
   }
 }
