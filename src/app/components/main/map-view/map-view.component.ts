@@ -26,6 +26,7 @@ import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { StationsService } from '../../../services/stations.service';
 import { StoriesService } from '../../../services/stories.service';
 import { Story } from '../../../models/story.model';
+import { MapTouchPitcherHelper } from '../../../helpers/map-touch-pitcher.helper';
 
 const { Geolocation } = Plugins;
 
@@ -313,6 +314,10 @@ export class MapViewComponent implements OnInit {
         'bottom-right'
       );
     });
+
+    // Listen to pitch touch gestures
+    const mapTouchPitcher = new MapTouchPitcherHelper(this.map);
+    mapTouchPitcher.enable();
   }
 
   watchPlayerPosition() {
