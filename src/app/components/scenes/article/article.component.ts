@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ArticleSeq } from '../../../models/story.model';
+import { StoriesService } from '../../../services/stories.service';
+import { trimStoryId } from '../../../helpers/string.helper';
+import { skipWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'utm-article',
@@ -8,30 +13,54 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
-  markdown = `Loading Article...`;
-  storyUrl = '';
+  markdown = 'Loading Article...';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  storyId: string;
+  seqId: string;
+  seq: ArticleSeq;
+
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private location: Location,
+    private stories: StoriesService
+  ) {}
 
   ngOnInit() {
-    this.storyUrl = this.route.snapshot.paramMap.get('story');
+    this.storyId = this.route.snapshot.paramMap.get('storyId');
+    this.seqId = this.route.snapshot.paramMap.get('seqId');
 
     // Make sure story URL is set
-    if (this.storyUrl != null) {
-      this.loadArticle();
+    if (!this.storyId || !this.seqId) {
+      // TODO: add toast with error
+      this.location.back();
+      return;
     }
+
+    this.loadArticle();
   }
 
-  async loadArticle() {
-    // Retrieve a sample story
-    // TODO: Check if this has serious security consequences
-    const markdown = await this.http
-      .get('assets/data-models/stories/' + this.storyUrl + '.md', {
-        responseType: 'text',
-      })
-      .toPromise();
+  loadArticle() {
+    // check if stories are already loaded; if not, await
+    this.stories.all
+      .pipe(skipWhile(val => val.length < 1))
+      .subscribe(async () => {
+        const myStory = this.stories.getByStoryId(this.storyId);
+        this.seq = myStory.seq.find(seq => {
+          console.log(seq['@id'], this.seqId);
+          return seq['@id'] === this.seqId;
+        }) as ArticleSeq;
 
-    // Update the current markdown code for this article
-    this.markdown = markdown;
+        this.markdown = await this.http
+          .get(
+            `assets/data-models/stories/${trimStoryId(myStory['@id'])}/${
+              this.seq.content
+            }.md`,
+            {
+              responseType: 'text',
+            }
+          )
+          .toPromise();
+      });
   }
 }

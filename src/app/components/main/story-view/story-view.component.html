@@ -39,7 +39,7 @@
           </ion-slide>
 
           <ion-slide *ngFor="let story of stories.selected | async">
-            <ion-card (click)="startStory()">
+            <ion-card (click)="startStory(story)">
               <img
                 src="{{ story['featured-image'] }}"
                 alt="{{ story['title'] }}"

@@ -1,6 +1,6 @@
 # De Beurs: Neude 37-39
 
-![De Beurs photo](/assets/img/2019100004_neude_de-beurs-history/featured.png)
+![De Beurs photo](/assets/data-models/stories/2019100004_neude_de-beurs-history/featured.png)
 
 It is **1624** when the name “t’Glindt” appears in the municipal register of Utrecht. It concerns the building on the corner and is the oldest building of the Beurs. If you look at the top of the building you are able to see a beautiful facing brick.
 

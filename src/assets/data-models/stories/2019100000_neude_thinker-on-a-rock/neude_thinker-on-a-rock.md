@@ -5,7 +5,7 @@ _By Stan Nuijten, David Struch and Brent van Dijken_
 ---
 
 ![Thinker on a Rock
-](/assets/img/2019100000_neude_thinker-on-a-rock/thinker-on-a-rock.png)
+](/assets/data-models/stories/2019100000_neude_thinker-on-a-rock/thinker-on-a-rock.png)
 
 It is the year **1997**, the statue you are looking at right now has been bought by the municipality of Utrecht. The inhabitants and the city council aren’t very happy with the new purchase. They want the inhabitants to participate in deciding which statue to place at the Neude. Two other works of art will be selected, they will compete against the “Thinker on a rock” in an official referendum. The “Thinker on a rock” will temporary be placed in the Centraal Museum.
 

@@ -37,6 +37,10 @@ export class StoriesService {
     });
   }
 
+  getByStoryId(id: string): Story {
+    return this.all.getValue().find(story => story['@id'] === id);
+  }
+
   setCurrentlyViewedStory(storyViewed: Story) {
     this.currentlyViewed.next(storyViewed);
   }

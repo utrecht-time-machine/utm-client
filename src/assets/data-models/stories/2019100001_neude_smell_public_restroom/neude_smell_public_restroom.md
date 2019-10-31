@@ -10,21 +10,21 @@ What did the 'sandwichmen' do when they had to pee while advertising Johan de Li
 
 According to the president of the World Toilet Organization - yes, this organization exists - people go six times a day to the toilet.<sup>1</sup> The question arises: Where to go, when you're not home?
 
-![](/assets/img/2019100001_neude_smell_public_restroom/dixie.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/dixie.jpg)
 
 If you turn your back to the pharmacy and look at the Neude, you'll see at the far right corner a tree that is cased by wooden planks. Next to it is a public urinal. It seems inconspicuous, but don't let this fool you. If you are unlucky and stand at a point where the wind blows, that descended from its direction, you'll notice it! This is also a reason why you'll see hardly anyone standing in a close radius from it. It's interesting how not only visual things attract us and guide our movements, but how scents too influence our movements through the city. In the past, a distinctive characteristic of cities were their stench: the sudden growth of the population in the cities and the lack of a proper sewage system led to an odour that often led to complaints (image 2, below).
 
-![](/assets/img/2019100001_neude_smell_public_restroom/complaints.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/complaints.jpg)
 
 **Health committee pleading for better sanitation! And less stink!**
 
 Image 2 shows a page out of the protocols from one of the meetings of the 'Utrechtsche gezondheidscommissie' from the 14 of April 1898.<sup>2</sup> Following the industrialization, that took off in the Netherlands in the second half of the 19th century, people didn't work anymore at home and were more mobile than ever! Not only men, but also women flooded into P. Smits' sulphuric acid factory or Ludwig Monds alkali factory to work for 10 to 14 hours a day for a low wage.<sup>3</sup> At the same time, discoveries in bacteriology, changed attitudes towards diseases. Diseases like Typhus and Diphteritis weren't considered anymore as a punishment for a person's sins, they were increasingly seen as consequence of bad housing and working conditions, in which germs could thrive. This brought about health movements that aimed at improving hygiene standards in the cities. The 'Utrechtsche gezondheidscommissie' was one of them. It was founded on the 8th of February in 1855. In their first year of existence, they already made an account on constructing urinals that were more efficient (image 3, below).
 
-![](/assets/img/2019100001_neude_smell_public_restroom/document.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/document.jpg)
 
 The founding of the Utrecht Health Committee was an outcome of a national health movement that advocated for health legislations and promoted of the Thorbecke health laws (1865). They were inspired by similar movements in Germany, Britain and France and found support in doctrinal liberalism. Thanks to these 'hygienists' the idea of a 'Public Health' was born. Nevertheless, their pleads were only remotely successful. According to historian E. S. Houwaart, the movement gathered momentum at the turn of the century, when a new generation came into existence, in which bacteriologists entered into an alliance with the radical liberals.<sup>4</sup> This is the time, in which F.J. Nieuwenhuis constructed the public restroom, that once stood on the Neude. Yes, that's right. On the Neude stood a public restroom with facilities for men and women. What happened to it? And what happened in it?
 
-![](/assets/img/2019100001_neude_smell_public_restroom/blueprint.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/blueprint.jpg)
 
 **The solution to the problem**
 
@@ -34,9 +34,9 @@ I don't have a straight answer to that. Only some ideas: Maybe public restrooms 
 
 Literature about F. J. Nieuwenhuis is focused on his accomplishment as director and architect and his quarrels with Dutch famous architect Pierre Cuypers.<sup>5</sup> Unfortunately, when it comes to his activities in the first Health Committee of Utrecht, the literature remains silent.
 
-![](/assets/img/2019100001_neude_smell_public_restroom/building.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/building.jpg)
 
-![](/assets/img/2019100001_neude_smell_public_restroom/nieuwenhuis.jpg)
+![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/nieuwenhuis.jpg)
 
 **The problems to the solution**
 

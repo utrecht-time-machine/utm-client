@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 import { AuthorsService } from '../../../services/authors.service';
 import { StoriesService } from '../../../services/stories.service';
 import { Router } from '@angular/router';
+import { Story, SeqType } from '../../../models/story.model';
 
 @Component({
   selector: 'utm-explore-view',
@@ -37,13 +36,22 @@ export class StoryViewComponent implements OnInit {
     this.stories.setCurrentlyViewedStory(story);
   }
 
-  startStory() {
+  startStory(story: Story) {
     // TODO: Implement actual sequence logic here
-    // TODO: Select the right url based on the content type here
-    this.route.navigate([
-      '/article',
-      { story: this.stories.currentlyViewed.value.seq[0].content },
-    ]);
+    // For now, only load first sequence item
+    const firstSeqItem = story.seq[0];
+    if (firstSeqItem['@type'] === SeqType.Article) {
+      this.route.navigate([
+        '/article',
+        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+      ]);
+    } else if (firstSeqItem['@type'] === SeqType.Dialogue) {
+      this.route.navigate(['/dialogue'], {
+        queryParams: { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+      });
+    } else {
+      console.error('Unsupported story type', firstSeqItem['@type']);
+    }
   }
 
   openAuthorSelectionPopup() {
