@@ -6,8 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
   <div id="article-scene-wrapper">
-    <markdown [data]="markdown"></markdown>
+    <div class="restrict-width">
+      <markdown [data]="markdown"></markdown>
+    </div>
   </div>
 </ion-content>

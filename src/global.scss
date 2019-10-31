@@ -29,3 +29,13 @@
 
 /* Import additional fonts */
 @import './assets/fonts/PlayfairDisplay/stylesheet.css';
+
+.restrict-width {
+  max-width: 800px;
+  margin: auto;
+}
+
+markdown img,
+markdown p img {
+  border-radius: 1px;
+}

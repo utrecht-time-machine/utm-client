@@ -1,12 +1,14 @@
 :host {
-  background-color: #f5f2d8;
   #article-scene-wrapper {
+    background-color: #f5f2d8;
+    min-height: 100%;
     padding: 20px;
-    max-width: 800px;
     position: relative;
-    margin: auto;
     font-family: 'Playfair Displaya', serif;
     font-size: 1.1rem;
     line-height: 1.5rem;
+    background-image: url('src/assets/img/subtle-patterns/paper_3.png');
+    background-blend-mode: lighten;
+    background-repeat: repeat;
   }
 }
