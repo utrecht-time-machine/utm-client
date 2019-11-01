@@ -60,7 +60,6 @@ export class DialogueComponent implements OnInit {
           }) as DialogueSeq;
 
           this.storyPlayer.load(this.seq.yarn);
-          console.log(this.seq);
           resolve();
         });
     });
