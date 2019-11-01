@@ -19,6 +19,7 @@ import { StationsService } from './stations.service';
 import { HttpClient } from '@angular/common/http';
 import { StoriesService } from './stories.service';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { skipWhile } from 'rxjs/operators';
 
 interface Custom3dModel {
   url: string;
@@ -286,8 +287,9 @@ export class MapService {
 
       // Update selection of stories if radius changes
       // Note that this can be much optimised, especially given a specialised back-end
-      this.geolocationWatcherSub = this.geolocationWatcher.playerPosition.subscribe(
-        (userPosition: UserPosition) => {
+      this.geolocationWatcherSub = this.geolocationWatcher.playerPosition
+        .pipe(skipWhile(userPosition => !userPosition))
+        .subscribe((userPosition: UserPosition) => {
           const selectedStories: Story[][] = [];
           for (const station of this.stations.all.getValue()) {
             // If point in radius, add stories of that station to selection
@@ -297,8 +299,7 @@ export class MapService {
             }
           }
           this.stories.setSelectedStations(mergeDedupe(selectedStories));
-        }
-      );
+        });
     });
   }
 
