@@ -4,7 +4,7 @@ import * as mapboxgl from 'mapbox-gl';
 import { LngLat, LngLatBounds, MercatorCoordinate } from 'mapbox-gl';
 import { Feature, Point } from 'geojson';
 import { MeshLambertMaterial } from 'three';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import {
   GeolocationWatcherHelper,
   UserPosition,
@@ -48,16 +48,18 @@ export class MapService {
     color: 0xfbefcf,
   });
 
+  isInit: BehaviorSubject<boolean>;
   mapContainer: HTMLElement;
-  elementRenderer: Renderer2;
 
-  map: mapboxgl.Map;
-  scene: Record<string, THREE.Scene> = {};
-  camera: THREE.Camera;
-  renderer: THREE.Renderer;
+  private elementRenderer: Renderer2;
 
-  geolocationWatcherSub: Subscription;
-  geolocationWatcher: GeolocationWatcherHelper;
+  private map: mapboxgl.Map;
+  private scene: Record<string, THREE.Scene> = {};
+  private camera: THREE.Camera;
+  private renderer: THREE.Renderer;
+
+  private geolocationWatcherSub: Subscription;
+  private geolocationWatcher: GeolocationWatcherHelper;
 
   constructor(
     private rendererFactory: RendererFactory2,
@@ -65,9 +67,11 @@ export class MapService {
     private router: Router,
     private http: HttpClient,
     private stories: StoriesService
-  ) {}
+  ) {
+    this.isInit = new BehaviorSubject<boolean>(null);
+  }
 
-  static generateDefaultWaypoint(
+  private static generateDefaultWaypoint(
     station
   ): { scene: THREE.Scene; meshTransform: ModelTransform } {
     const coneHeight = 6;
@@ -98,7 +102,7 @@ export class MapService {
     };
   }
 
-  static async generateCustomWaypoint(
+  private static async generateCustomWaypoint(
     station: Feature<Point>
   ): Promise<{ scene: THREE.Scene; meshTransform: ModelTransform }> {
     const loader = new GLTFLoader();
@@ -174,7 +178,7 @@ export class MapService {
     });
   }
 
-  static addDefaultLightingToScene(scene: THREE.Scene) {
+  private static addDefaultLightingToScene(scene: THREE.Scene) {
     const baseLightIntensity = 1.1;
 
     const pointLight = new THREE.PointLight(0xffffff, 0.1 * baseLightIntensity);
@@ -202,7 +206,7 @@ export class MapService {
     // scene.add(helper);
   }
 
-  static generateMeshTransform(
+  private static generateMeshTransform(
     modelAsMercatorCoordinate: MercatorCoordinate,
     modelRotate: number[],
     modelScale: number
@@ -219,79 +223,87 @@ export class MapService {
     };
   }
 
-  init(): Promise<HTMLElement> {
-    return new Promise((resolve, reject) => {
-      this.elementRenderer = this.rendererFactory.createRenderer(null, null);
-      this.mapContainer = this.elementRenderer.createElement('div');
+  init() {
+    if (this.isInit.getValue() !== null) {
+      console.error('You tried to reinitialise the map, which is not allowed.');
+      return;
+    }
+    this.isInit.next(false);
 
-      const mapBounds: LngLatBounds = new LngLatBounds(
-        new LngLat(
-          environment.defaultCenter.lng - environment.mapBoundsOffset,
-          environment.defaultCenter.lat - environment.mapBoundsOffset
-        ), // Southwest coordinates
-        new LngLat(
-          environment.defaultCenter.lng + environment.mapBoundsOffset,
-          environment.defaultCenter.lat + environment.mapBoundsOffset
-        ) // Northeast coordinates
+    this.elementRenderer = this.rendererFactory.createRenderer(null, null);
+    this.mapContainer = this.elementRenderer.createElement('div');
+
+    const mapBounds: LngLatBounds = new LngLatBounds(
+      new LngLat(
+        environment.defaultCenter.lng - environment.mapBoundsOffset,
+        environment.defaultCenter.lat - environment.mapBoundsOffset
+      ), // Southwest coordinates
+      new LngLat(
+        environment.defaultCenter.lng + environment.mapBoundsOffset,
+        environment.defaultCenter.lat + environment.mapBoundsOffset
+      ) // Northeast coordinates
+    );
+
+    (mapboxgl as any).accessToken = environment.mapboxToken;
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: 'mapbox://styles/edushifts/ck24sb7330d2h1cl78hj19tmw',
+      center: environment.defaultCenter,
+      zoom: environment.initialZoom,
+      pitch: 45,
+      maxZoom: environment.maxZoom,
+      minZoom: environment.minZoom,
+      maxBounds: mapBounds,
+    });
+
+    // use the Mapbox GL JS map canvas for three.js
+    this.camera = new THREE.Camera();
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: this.map.getCanvas(),
+      antialias: true,
+    });
+
+    this.map.on('load', () => {
+      this.isInit.next(true);
+
+      this.addStations();
+
+      this.map.addControl(
+        new mapboxgl.NavigationControl({
+          // @ts-ignore
+          visualizePitch: true,
+        }),
+        'bottom-right'
       );
 
-      (mapboxgl as any).accessToken = environment.mapboxToken;
-      this.map = new mapboxgl.Map({
-        container: this.mapContainer,
-        style: 'mapbox://styles/edushifts/ck24sb7330d2h1cl78hj19tmw',
-        center: environment.defaultCenter,
-        zoom: environment.initialZoom,
-        pitch: 45,
-        maxZoom: environment.maxZoom,
-        minZoom: environment.minZoom,
-        maxBounds: mapBounds,
-      });
+      // Listen to pitch touch gestures
+      const mapTouchPitcher = new MapTouchPitcherHelper(this.map);
+      mapTouchPitcher.enable();
 
-      // use the Mapbox GL JS map canvas for three.js
-      this.camera = new THREE.Camera();
-      this.renderer = new THREE.WebGLRenderer({
-        canvas: this.map.getCanvas(),
-        antialias: true,
-      });
+      // Listen to user movement events
+      this.geolocationWatcher = new GeolocationWatcherHelper(this.map);
+      this.geolocationWatcher.enable();
 
-      this.map.on('load', () => {
-        this.addStations();
-
-        this.map.addControl(
-          new mapboxgl.NavigationControl({
-            // @ts-ignore
-            visualizePitch: true,
-          }),
-          'bottom-right'
-        );
-
-        // Listen to pitch touch gestures
-        const mapTouchPitcher = new MapTouchPitcherHelper(this.map);
-        mapTouchPitcher.enable();
-
-        // Listen to user movement events
-        this.geolocationWatcher = new GeolocationWatcherHelper(this.map);
-        this.geolocationWatcher.enable();
-
-        // Update selection of stories if radius changes
-        // Note that this can be much optimised, especially given a specialised back-end
-        this.geolocationWatcherSub = this.geolocationWatcher.playerPosition.subscribe(
-          (userPosition: UserPosition) => {
-            const selectedStories: Story[][] = [];
-            for (const station of this.stations.all.getValue()) {
-              // If point in radius, add stories of that station to selection
-              if (booleanPointInPolygon(station, userPosition.radiusPolygon)) {
-                // Add all stories with that station
-                selectedStories.push(this.stories.getAllWithStation(station));
-              }
+      // Update selection of stories if radius changes
+      // Note that this can be much optimised, especially given a specialised back-end
+      this.geolocationWatcherSub = this.geolocationWatcher.playerPosition.subscribe(
+        (userPosition: UserPosition) => {
+          const selectedStories: Story[][] = [];
+          for (const station of this.stations.all.getValue()) {
+            // If point in radius, add stories of that station to selection
+            if (booleanPointInPolygon(station, userPosition.radiusPolygon)) {
+              // Add all stories with that station
+              selectedStories.push(this.stories.getAllWithStation(station));
             }
-            this.stories.setSelectedStations(mergeDedupe(selectedStories));
           }
-        );
-
-        resolve(this.mapContainer);
-      });
+          this.stories.setSelectedStations(mergeDedupe(selectedStories));
+        }
+      );
     });
+  }
+
+  bindTo(mapWrapper: HTMLElement) {
+    this.elementRenderer.appendChild(mapWrapper, this.mapContainer);
   }
 
   startGeolocation() {
@@ -309,7 +321,7 @@ export class MapService {
    * Displays stations as 3d cones on the map/
    * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
    */
-  async addStations() {
+  private async addStations() {
     // NOTE: Due to the for-loop, the scene is rendered multiple times with the same cone object,
     // rather than rendered once with multiple cone objects.
     for (const station of this.stations.all.getValue()) {

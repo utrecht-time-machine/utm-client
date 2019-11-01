@@ -12,6 +12,7 @@ import { StoriesService } from '../../../services/stories.service';
 import { Subscription } from 'rxjs';
 import { ToastController } from '@ionic/angular';
 import { MapService } from '../../../services/map.service';
+import { skipWhile } from 'rxjs/operators';
 
 enum ExplorationMode {
   Immersive,
@@ -43,20 +44,20 @@ export class MapViewComponent implements OnInit {
   async ngOnInit() {
     this.renderer.setStyle(this.mapboxContainer.nativeElement, 'opacity', 0);
 
-    let mapContainer;
-    if (!this.map.map) {
-      mapContainer = await this.map.init();
-    } else {
-      mapContainer = this.map.mapContainer;
-    }
-    this.renderer.appendChild(this.mapboxContainer.nativeElement, mapContainer);
-    this.map.resize(); // May otherwise not display in full on first load
+    this.map.isInit.pipe(skipWhile(isInit => !isInit)).subscribe(() => {
+      this.map.bindTo(this.mapboxContainer.nativeElement);
+      this.map.resize(); // May otherwise not display in full on first load
 
-    setTimeout(() => {
-      this.renderer.setStyle(this.mapboxContainer.nativeElement, 'opacity', 1);
-    }, 0);
+      setTimeout(() => {
+        this.renderer.setStyle(
+          this.mapboxContainer.nativeElement,
+          'opacity',
+          1
+        );
+      }, 0);
 
-    this.startMapResizeListener();
+      this.startMapResizeListener();
+    });
   }
 
   async toggleExplorationMode() {
