@@ -853,5 +853,34 @@
         "content": "neude_beatrix-de-rijke"
       }
     ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100011_neude_library-plans",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Op weg naar de Bibliotheek Neude",
+    "lang": "nl",
+    "description": "A (Dutch) mini documentary about the plans for the new Neude location of the Utrecht Library.",
+    "featured-image": "/assets/data-models/stories/2019100011_neude_library-plans/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/265260840"
+      }
+    ],
+    "time-period": {
+      "start": "2016",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100011_neude_library-plans",
+        "@type": "https://utrechttimemachine.nl/scene-types/external",
+        "content": "https://www.youtube.com/watch?v=1BviWnwj9T0"
+      }
+    ]
   }
 ]
