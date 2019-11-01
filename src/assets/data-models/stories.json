@@ -92,7 +92,8 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "neude_sight-de-liefde-centraal-apotheek"
+        "content": "neude_sight-de-liefde-centraal-apotheek",
+        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
       }
     ]
   },
@@ -150,7 +151,8 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100004_neude_de-beurs-history",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "neude_de-beurs-history"
+        "content": "neude_de-beurs-history",
+        "audio": "/assets/data-models/stories/2019100004_neude_de-beurs-history/de-beurs-audio-tour.mp3"
       }
     ]
   },

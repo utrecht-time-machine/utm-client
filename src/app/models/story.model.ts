@@ -16,6 +16,7 @@ export interface Seq {
 
 export interface ArticleSeq extends Seq {
   content: string; // contains URL to markdown file
+  audio: string; // url
 }
 export interface DialogueSeq extends Seq {
   'color-scheme'?: string;

@@ -30,6 +30,9 @@
 /* Import additional fonts */
 @import './assets/fonts/PlayfairDisplay/stylesheet.css';
 
+/* Import styling for material design; required for audio component */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 .restrict-width {
   max-width: 800px;
   margin: auto;

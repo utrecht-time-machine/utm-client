@@ -13,3 +13,10 @@
     </div>
   </div>
 </ion-content>
+
+<ion-footer>
+  <mat-basic-audio-player
+    *ngIf="this.seq && this.seq.audio"
+    [audioUrl]="this.seq.audio"
+  ></mat-basic-audio-player>
+</ion-footer>
