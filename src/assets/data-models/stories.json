@@ -716,5 +716,150 @@
         "content": "http://histomap.eu/2016/08/19/de-zuivelmarkt-op-de-bakkerbrug/"
       }
     ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100006_neude_taste_drogisterij-woortman",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Taste: Drogisterij Woortman",
+    "lang": "en",
+    "description": "Peek inside the window of Drogisterij Woortman to see what the mid-nineteenth century looked like. ",
+    "featured-image": "/assets/data-models/stories/2019100006_neude_taste_drogisterij-woortman/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280936"
+      }
+    ],
+    "time-period": {
+      "start": "1851",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100006_neude_taste_drogisterij-woortman",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_taste_drogisterij-woortman"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100007_neude_touch_missing-benches",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Touch: Missing Benches",
+    "lang": "en",
+    "description": "We invite you to become observants of the Neude yourself.",
+    "featured-image": "/assets/data-models/stories/2019100007_neude_touch_missing-benches/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/6497347541"
+      }
+    ],
+    "time-period": {
+      "start": "???",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100007_neude_touch_missing-benches",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_touch_missing-benches"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100008_neude_post-office",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Former Post Office",
+    "lang": "en",
+    "description": "What happened to it over the years?",
+    "featured-image": "/assets/data-models/stories/2019100008_neude_post-office/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/265260840"
+      }
+    ],
+    "time-period": {
+      "start": "1919",
+      "end": "2011"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100008_neude_post-office",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_post-office"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100009_neude_neudeflat",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Neudeflat",
+    "lang": "en",
+    "description": "What happened to it over the years?",
+    "featured-image": "/assets/data-models/stories/2019100009_neude_neudeflat/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/599516529"
+      }
+    ],
+    "time-period": {
+      "start": "1960",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100009_neude_neudeflat",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_neudeflat"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/2019100010_neude_beatrix-de-rijke",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Beatrix de Rijke",
+    "lang": "en",
+    "description": "Try to look for the commemorative stone.",
+    "featured-image": "/assets/data-models/stories/2019100010_neude_beatrix-de-rijke/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/599516529"
+      }
+    ],
+    "time-period": {
+      "start": "1421",
+      "end": "1468"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100010_neude_beatrix-de-rijke",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_beatrix-de-rijke"
+      }
+    ]
   }
 ]

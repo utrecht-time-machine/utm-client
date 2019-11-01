@@ -115,5 +115,50 @@
       "title": "Scaffold",
       "description": "A scaffold stood on the square approximately here around 1661."
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2709280936",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1190966, 52.0932116]
+    },
+    "properties": {
+      "title": "Drogisterij Woortman",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/6497347541",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1185978, 52.0932377]
+    },
+    "properties": {
+      "title": "Neude Center",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/599516529",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1179342, 52.0926323]
+    },
+    "properties": {
+      "title": "Neude Flat",
+      "description": ""
+    }
   }
 ]
