@@ -209,7 +209,7 @@
           {
             "title": "Can I see the pamphlet?",
             "tags": "",
-            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
+            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? | What happened? ]]\n",
             "position": {
               "x": 2355,
               "y": 351
@@ -223,16 +223,6 @@
             "position": {
               "x": 2963,
               "y": 234
-            },
-            "colorID": 0
-          },
-          {
-            "title": "It is very hard to read, could you tell me what happened?",
-            "tags": "",
-            "body": " [[ What happened?]]\n",
-            "position": {
-              "x": 2682,
-              "y": 361
             },
             "colorID": 0
           },
