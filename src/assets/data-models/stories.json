@@ -72,7 +72,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "De Liefde's Centraal Apotheek",
     "lang": "en",
-    "description": "When was the last time you went to a pharmacy as beautiful as this one? De Liefde's Centraal Apotheek used to be the cheapest and the best place to get your recipes and it was additionally the depot for all foreign and domestic medicine. Now, it is but a clothing store.",
+    "description": "When was the last time you went to a pharmacy as beautiful as this one? De Liefde's Centraal Apotheek used to be the cheapest and the best place to get your recipes. Now, it is but a clothing store.",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
     "authors": [
       {
@@ -182,7 +182,7 @@
         "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
-          "image": "https://proxy.archieven.nl/download/39/58233E35AE7A57BD87773805316E26F1"
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
         "color-scheme": "dark",
         "yarn": [
@@ -209,7 +209,7 @@
           {
             "title": "Can I see the pamphlet?",
             "tags": "",
-            "body": "*The paper boy shows you the pamphlet*\n\n[img]https://proxy.archieven.nl/download/39/261D0057A92A54CCAB9EA22374CF787E[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
+            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
             "position": {
               "x": 2355,
               "y": 351
