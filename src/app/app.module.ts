@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogueModule } from './components/scenes/dialogue/dialogue.module';
 import { ArticleModule } from './components/scenes/article/article.module';
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
 
 import 'hammerjs';
 
