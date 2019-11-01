@@ -4,7 +4,7 @@ _By Nayra Hammann_
 
 ---
 
-**To pee or not to pee?**
+## To pee or not to pee?
 
 What did the 'sandwichmen' do when they had to pee while advertising Johan de Liefde's newspaper? You may think this is a weird question to ask, but I will show you that the topic of public restrooms in cities is very interesting. It tackles upon many issues that mirror changing attitudes towards privacy, publicity, health and municipal policy.
 
@@ -16,7 +16,7 @@ If you turn your back to the pharmacy and look at the Neude, you'll see at the f
 
 ![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/complaints.jpg)
 
-**Health committee pleading for better sanitation! And less stink!**
+## Health committee pleading for better sanitation! And less stink!
 
 Image 2 shows a page out of the protocols from one of the meetings of the 'Utrechtsche gezondheidscommissie' from the 14 of April 1898.<sup>2</sup> Following the industrialization, that took off in the Netherlands in the second half of the 19th century, people didn't work anymore at home and were more mobile than ever! Not only men, but also women flooded into P. Smits' sulphuric acid factory or Ludwig Monds alkali factory to work for 10 to 14 hours a day for a low wage.<sup>3</sup> At the same time, discoveries in bacteriology, changed attitudes towards diseases. Diseases like Typhus and Diphteritis weren't considered anymore as a punishment for a person's sins, they were increasingly seen as consequence of bad housing and working conditions, in which germs could thrive. This brought about health movements that aimed at improving hygiene standards in the cities. The 'Utrechtsche gezondheidscommissie' was one of them. It was founded on the 8th of February in 1855. In their first year of existence, they already made an account on constructing urinals that were more efficient (image 3, below).
 
@@ -26,7 +26,7 @@ The founding of the Utrecht Health Committee was an outcome of a national health
 
 ![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/blueprint.jpg)
 
-**The solution to the problem**
+## The solution to the problem
 
 So, we found out, there was a solution for the 'sandwichmen'! In May 1898 Dutch architect Ferdinand Jacob Nieuwenhuis (1848-1919) drafted a plan for a public restroom (image 4, above). He called it 'Retirade Gebouw' which I learned the hard way is not a common term for public restroom. Interestingly, Nieuwenhuis was from 1890 onwards director of the municipal utilities. You can see that on the image above; it says \"De Director der Gemeentewerken\" above his signature. As director he was responsible for the construction of cementaries, school buildings and slaughter houses. According to the Dutch Wikipedia page, he worked on Utrecht's most famous buildings, the Domtower and the Academicgebouw, the latter you'll visit at least once over the course of your study. The 'retirade gebouw' is missing on the Wikipedia page. This revelation stroke me: how come that such a prestigious, important architect constructs a public restroom?
 
@@ -38,7 +38,7 @@ Literature about F. J. Nieuwenhuis is focused on his accomplishment as director 
 
 ![](/assets/data-models/stories/2019100001_neude_smell_public_restroom/nieuwenhuis.jpg)
 
-**The problems to the solution**
+## The problems to the solution
 
 Now that we know interesting things about the creator of this peculiar building, what about the users?
 
@@ -52,7 +52,7 @@ _About a month and a half ago the police received a complaint that public retali
 
 How does the saying go? \"What has been seen, cannot be un-seen.\" That would make a great title for the biography of one of these guards, don't you think?
 
-**Footnotes**
+### Footnotes
 
 1\. Jack Sim, president of the World Toilet Organization (WTO), URL: [http: //content.time.com/time/nation/article/0,8599,1648349,00.html](http://www.google.com/url?q=http%3A%2F%2Fcontent.time.com%2Ftime%2Fnation%2Farticle%2F0%2C8599%2C1648349%2C00.html&sa=D&sntz=1&usg=AFQjCNF7KnNK-J127NudNixY75g81euAig), last visited on: 20.09.2019. 2\. Utrechtsche gezondheidscommissie (1855-1902). _Notulen van de commissievergaderingen_ _1855-1902_, Het Utrechts Archief, Utrecht.
 
@@ -75,7 +75,7 @@ How does the saying go? \"What has been seen, cannot be un-seen.\" That would ma
 ]. (1938-04-07). [Newspaper
 ] Het Utrechts Nieuwschblad, Het Utrechts Archief, Utrecht.
 
-**Images**
+### Images
 
 1,
 2,
