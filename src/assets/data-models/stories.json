@@ -85,14 +85,15 @@
       }
     ],
     "time-period": {
-      "start": "???",
-      "end": "???"
+      "start": "1903",
+      "end": "2019"
     },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "neude_sight-de-liefde-centraal-apotheek"
+        "content": "neude_sight-de-liefde-centraal-apotheek",
+        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
       }
     ]
   },
@@ -150,7 +151,8 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100004_neude_de-beurs-history",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "neude_de-beurs-history"
+        "content": "neude_de-beurs-history",
+        "audio": "/assets/data-models/stories/2019100004_neude_de-beurs-history/de-beurs-audio-tour.mp3"
       }
     ]
   },
@@ -207,7 +209,7 @@
           {
             "title": "Can I see the pamphlet?",
             "tags": "",
-            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? ]]\n",
+            "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? | What happened? ]]\n",
             "position": {
               "x": 2355,
               "y": 351
@@ -221,16 +223,6 @@
             "position": {
               "x": 2963,
               "y": 234
-            },
-            "colorID": 0
-          },
-          {
-            "title": "It is very hard to read, could you tell me what happened?",
-            "tags": "",
-            "body": " [[ What happened?]]\n",
-            "position": {
-              "x": 2682,
-              "y": 361
             },
             "colorID": 0
           },
@@ -694,7 +686,7 @@
     "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
     "lang": "nl",
     "description": "Dit tegeltableau laat de zuivelmarkt zien zoals die omstreeks 1820 op de Bakkerbrug werd gehouden.",
-    "featured-image": "/assets/data-models/stories/2019100005_tegeltableau-zuivelmarkt-bakkerbrug/featured.jpg",
+    "featured-image": "/assets/data-models/stories/2019100006_tegeltableau-zuivelmarkt-bakkerbrug/featured.jpg",
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/Constructieve"

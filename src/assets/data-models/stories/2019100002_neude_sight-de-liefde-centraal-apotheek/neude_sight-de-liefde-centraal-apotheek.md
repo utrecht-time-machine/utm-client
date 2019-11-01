@@ -8,11 +8,11 @@ We will start our tour with one of the most central buildings of Neude-past: the
 
 De Liefde's Centraal Apotheek used to be the cheapest and the best place to get your recipes and it was additionally the depot for all foreign and domestic medicine (Nichting, 1977, p. 87). Now, it is but a clothing store. However, the building's peculiar looks still make up a big part of the beautiful Neude landscape. Its building style, and the contrast that it offers with the modern clothing shop found inside today, explains why we have categorized it under 'sight'.
 
-[](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/apotheek_banner.jpg)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/apotheek_banner.jpg)
 
 **_Figure 1:_** Goosen, D. (2014). _Afbeelding van de tekst 'De Liefde's Centraal Apotheek', boven de etalageruit van kledingwinkel Revenge._. [Photograph] Het Utrechts Archief, Utrecht.
 
-**Jugendstil**
+## Jugendstil
 
 Let's talk more about De Liefde's Centraal Apotheek's building style. The building was designed by architect R. Rijksen, The particular architectural style he used is called 'Art Nouveau' or 'Jugendstil' which comprised quite a short time frame (1890-1915) in architectural history. Still, 230 Jugendstil buildings exist in Utrecht (Van Hulten et al, 1992, p. 9) - De Liefde's Centraal Apotheek being the most well-known one (Van Hulten et al, 1992, p. 33).
 
@@ -24,14 +24,17 @@ In Utrecht and the Netherlands, the Jugendstil buildings were based on simple ge
 
 **_Figure 2:_** Tchitcherine, A.E. (2019). De Liefde's Centraal Apotheek.
 
-**Johan de Liefde and his pharmacy** Johan de Liefde (1860-1923) was a publisher for 'Het Utrechtsch Nieuwschblad', who did anything and everything to promote the newspaper. For example, in the Spring of 1893 he let 'sandwichmen', people with huge advertising boards hanging from the shoulders, parade the Utrecht streets. Behind them, horses and wagons followed. On the latter, a miniature press stuck out. This spectacle was frowned upon by some Utrecht residents. At the same time, however, his hardworking nature was well-respected by many.
+## Johan de Liefde and his pharmacy
+
+Johan de Liefde (1860-1923) was a publisher for 'Het Utrechtsch Nieuwschblad', who did anything and everything to promote the newspaper. For example, in the Spring of 1893 he let 'sandwichmen', people with huge advertising boards hanging from the shoulders, parade the Utrecht streets. Behind them, horses and wagons followed. On the latter, a miniature press stuck out. This spectacle was frowned upon by some Utrecht residents. At the same time, however, his hardworking nature was well-respected by many.
 
 In 1903, Johan went yet a step further in advertising his newspaper. On the 14th of March, he announced the Utrechtsch Nieuwschblad Ziekenfonds (Utrecht Newspaper Health Insurance Fund) which included De Liefde's Centraal Apotheek. The fund was meant for the unprivileged citizens of Utrecht, but also offered free medical help to its staff and to the ones subscribed to the newspaper. All the pills and drinks were temporarily located in the anteroom of Drift 23, the newspaper's headquarters, but the pharmacy moved to Voorstraat 6 in 1905 (Fig. 3). To promote the pharmacy, he published a beautiful calendar in 1905 which was offered to the subscribers to the newspaper (Fig. 4). After the First World War, De Liefde's Centraal Apotheek became independent under improved social legislation. However, its name would always remain tied to Johan de Liefde (De Jongh, 1993, p. 3-4).
+
 ![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/moesman_photo.jpg)
 
 **_Figure 3:_** Moesman, J.A. (1908). _Gezicht op de voorgevels van de huizen Voorstraat 4-8 te Utrecht._ [Photograph] Het Utrechts Archief, Utrecht.
 
-![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/calendar.jpg)
+![](/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/calendar.png)
 
 **_Figure 4:_** Liefde, J. (1905). _Kalender 1905 aangeboden aan de Abonne's van het UTRECHTSCH NIEUWSCHBLAD_. [Print] Het Utrechts Archief, Utrecht.
 
@@ -45,7 +48,9 @@ Below, you will find some pictures that will help you visualize what De Liefde's
 
 **_Figure 6:_** Interieur van Apotheek De Liefde (Voorstraat 6) te Utrecht: laboratorium. (1913). [Photograph] Het Utrechts Archief, Utrecht.
 
-**First aid** Whenever anyone got ill, or had injured themselves in twentieth-century Neude, the first place they were brought to was precisely De Liefde's Centraal Apotheek. There, they would receive first aid care before being sent home, or brought to the hospital. Reportedly, someone was even pronounced dead in the pharmacy (Het Utrechtsch Nieuwschblad, 1912). Het Utrechtsch Nieuwschblad was full of stories reporting incidents like people being run over or getting hit by trams (Het Utrechtsch Nieuwschblad, 1913; Het Utrechts Nieuwschblad 1913) (Appendix); accidents that would still be common in the busy Neude of today. It is funny how this same building that used to be of such central importance in twentieth-century people's lives now has a far less urgent function; shopping!
+## First aid
+
+Whenever anyone got ill, or had injured themselves in twentieth-century Neude, the first place they were brought to was precisely De Liefde's Centraal Apotheek. There, they would receive first aid care before being sent home, or brought to the hospital. Reportedly, someone was even pronounced dead in the pharmacy (Het Utrechtsch Nieuwschblad, 1912). Het Utrechtsch Nieuwschblad was full of stories reporting incidents like people being run over or getting hit by trams (Het Utrechtsch Nieuwschblad, 1913; Het Utrechts Nieuwschblad 1913) (Appendix); accidents that would still be common in the busy Neude of today. It is funny how this same building that used to be of such central importance in twentieth-century people's lives now has a far less urgent function; shopping!
 
 **Sources**
 

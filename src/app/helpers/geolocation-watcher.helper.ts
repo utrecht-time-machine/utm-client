@@ -37,12 +37,16 @@ export class GeolocationWatcherHelper {
   public disable() {
     this.stopPlayerWatch();
 
-    this.playerPositionMarker.remove();
-    this.playerPositionMarker = null;
+    if (this.playerPositionMarker) {
+      this.playerPositionMarker.remove();
+      this.playerPositionMarker = null;
+    }
 
-    this.map.removeLayer(this.playerPositionRadiusLayer.id);
-    this.map.removeSource(this.playerPositionRadiusLayer.id);
-    this.playerPositionRadiusLayer = null;
+    if (this.playerPositionRadiusLayer) {
+      this.map.removeLayer(this.playerPositionRadiusLayer.id);
+      this.map.removeSource(this.playerPositionRadiusLayer.id);
+      this.playerPositionRadiusLayer = null;
+    }
   }
 
   public setPlayerPositionRadius(radius: number) {

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DialogueModule } from './components/scenes/dialogue/dialogue.module';
 import { ArticleModule } from './components/scenes/article/article.module';
 
+import 'hammerjs';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +22,6 @@ import { ArticleModule } from './components/scenes/article/article.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-
     ArticleModule,
     DialogueModule,
   ],
