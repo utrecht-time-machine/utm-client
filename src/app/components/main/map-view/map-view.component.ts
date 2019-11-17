@@ -57,6 +57,11 @@ export class MapViewComponent implements OnInit {
       }, 0);
 
       this.startMapResizeListener();
+
+      // TEMPORARY HACK // TODO: replace
+      setTimeout(() => {
+        this.setExplorationMode(ExplorationMode.Overview); // TODO: move this to service
+      }, 500);
     });
   }
 
