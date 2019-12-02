@@ -63,7 +63,15 @@
     <ion-row>
       <ion-col>
         <ion-item-divider>
-          <ion-label> Authors</ion-label>
+          <ion-label>Authors</ion-label>
+          <div
+            [popper]="'As text'"
+            [popperTrigger]="'hover'"
+            [popperPlacement]="'top'"
+          >
+            <p class="bold">Pop</p>
+            <p class="thin">on the bottom</p>
+          </div>
         </ion-item-divider>
       </ion-col>
     </ion-row>
