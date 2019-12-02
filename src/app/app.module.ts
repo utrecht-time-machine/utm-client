@@ -13,6 +13,7 @@ import { DialogueModule } from './components/scenes/dialogue/dialogue.module';
 import { ArticleModule } from './components/scenes/article/article.module';
 
 import 'hammerjs';
+import { NgxPopperModule } from 'ngx-popper';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import 'hammerjs';
     HttpClientModule,
     ArticleModule,
     DialogueModule,
+    NgxPopperModule.forRoot({}),
   ],
   providers: [
     StatusBar,
