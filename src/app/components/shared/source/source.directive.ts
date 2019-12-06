@@ -66,14 +66,31 @@ export class SourceDirective implements OnInit, OnDestroy {
   }
 
   private setTooltipVisibility(visible: boolean) {
-    this.renderer.setStyle(
-      this.tooltipRef.location.nativeElement,
-      'display',
-      visible ? 'block' : 'none'
-    );
-  }
+    const tooltipElem = this.tooltipRef.location.nativeElement;
 
-  @HostListener('mouseenter') onMouseEnter(event: Event) {}
+    // Enable animation
+    this.renderer.addClass(tooltipElem, 'animated');
+    this.renderer.removeClass(tooltipElem, 'fadeIn');
+    this.renderer.removeClass(tooltipElem, 'fadeOut');
+
+    // Set fading speed (in seconds)
+    const fadeSpeed = 0.15;
+    this.renderer.setStyle(tooltipElem, 'animation-duration', fadeSpeed + 's');
+
+    // Start animation
+    this.renderer.addClass(tooltipElem, visible ? 'fadeIn' : 'fadeOut');
+
+    // Show/hide the tooltip
+    if (visible) {
+      // Show tooltip
+      this.renderer.setStyle(tooltipElem, 'display', 'block');
+    } else {
+      // Hide tooltip after fadeout
+      setTimeout(() => {
+        this.renderer.setStyle(tooltipElem, 'display', 'none');
+      }, fadeSpeed * 1000);
+    }
+  }
 
   @HostListener('click') onClick(event: Event) {
     if (this.tooltipPopper === undefined) {
