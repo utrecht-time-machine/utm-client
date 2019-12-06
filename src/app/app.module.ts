@@ -14,10 +14,12 @@ import { ArticleModule } from './components/scenes/article/article.module';
 
 import 'hammerjs';
 import { NgxPopperModule } from 'ngx-popper';
+import { SourceTooltipModule } from './components/shared/source/source-tooltip.module';
+import { SourceTooltipComponent } from './components/shared/source/source-tooltip.component';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [SourceTooltipComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -25,6 +27,7 @@ import { NgxPopperModule } from 'ngx-popper';
     HttpClientModule,
     ArticleModule,
     DialogueModule,
+    SourceTooltipModule,
     NgxPopperModule.forRoot({}),
   ],
   providers: [

@@ -33,11 +33,12 @@
               </ion-card-header>
               <ion-card-content>
                 Please use the Map view to find new stories around you. Stories
-                will be shown here when you get close enough to a marker.
+                will be shown here when you get close
+                <span utmSource="https://hetutrechtsarchief.nl/">enough</span>
+                to a marker.
               </ion-card-content>
             </ion-card>
           </ion-slide>
-
           <ion-slide *ngFor="let story of stories.selected | async">
             <ion-card (click)="startStory(story)">
               <img
@@ -64,14 +65,6 @@
       <ion-col>
         <ion-item-divider>
           <ion-label>Authors</ion-label>
-          <div
-            [popper]="'As text'"
-            [popperTrigger]="'hover'"
-            [popperPlacement]="'top'"
-          >
-            <p class="bold">Pop</p>
-            <p class="thin">on the bottom</p>
-          </div>
         </ion-item-divider>
       </ion-col>
     </ion-row>
