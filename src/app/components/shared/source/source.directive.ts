@@ -18,7 +18,10 @@ import { SourceTooltipComponent } from './source-tooltip.component';
   selector: '[utmSource]',
 })
 export class SourceDirective implements OnInit, OnDestroy {
-  @Input('utmSource') sourceUrl: string;
+  @Input() sourceUrl: string;
+  @Input() sourceAuthor: string;
+  @Input() sourceDate: string;
+
   tooltipRef: ComponentRef<SourceTooltipComponent>;
   tooltipPopper: Popper;
 
@@ -40,6 +43,8 @@ export class SourceDirective implements OnInit, OnDestroy {
 
     // Set the source for the tooltip
     this.tooltipRef.instance.source = this.sourceUrl;
+    this.tooltipRef.instance.author = this.sourceAuthor;
+    this.tooltipRef.instance.date = this.sourceDate;
 
     // Hide the tooltip
     this.setTooltipVisibility(false);

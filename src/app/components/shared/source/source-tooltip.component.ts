@@ -7,6 +7,8 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SourceTooltipComponent implements OnInit {
   @Input() source = '';
+  @Input() author = '';
+  @Input() date = '';
 
   constructor() {}
 
