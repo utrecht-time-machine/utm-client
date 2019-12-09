@@ -7,8 +7,13 @@
 
   <p *ngIf="!source && !author && !date"><b>Source: </b>Unknown.</p>
   <p *ngIf="source" class="source-tooltip-url">
-    <b>Source: </b> <a target="_blank" [href]="source">{{ source }}</a>
+    <b><ion-icon name="link"></ion-icon> Source: </b>
+    <a target="_blank" [href]="source">{{ source }}</a>
   </p>
-  <p *ngIf="author"><b>Author: </b> {{ author }}</p>
-  <p *ngIf="date"><b>Date: </b> {{ date }}</p>
+  <p *ngIf="author">
+    <b><ion-icon name="person"></ion-icon> Author: </b> {{ author }}
+  </p>
+  <p *ngIf="date">
+    <b><ion-icon name="calendar"></ion-icon> Date: </b> {{ date }}
+  </p>
 </div>
