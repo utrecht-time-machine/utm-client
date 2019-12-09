@@ -1,5 +1,17 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  ComponentFactory,
+  ComponentFactoryResolver,
+  ComponentRef,
+  Directive,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewContainerRef,
+} from '@angular/core';
 import { indexes } from '../../../helpers/string.helper';
+import { SourceTooltipComponent } from './source-tooltip/source-tooltip.component';
+import { SourceComponent } from './source-component/source.component';
 
 @Directive({
   selector: '[utmTextWithSources]',
@@ -12,7 +24,12 @@ export class TextWithSourcesDirective implements OnInit {
   sourceTagCloseIndices: number[];
   sourceTag = 'utm-source';
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private elRef: ElementRef,
+    private renderer: Renderer2,
+    private vc: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
   private underlineSource(elem: HTMLElement) {
     this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
@@ -55,18 +72,25 @@ export class TextWithSourcesDirective implements OnInit {
       this.renderer.appendChild(this.elRef.nativeElement, textElem);
 
       if (sourceTagIdx !== this.sourceElems.length) {
-        // Create this source element
-        const sourceElem: HTMLElement = this.renderer.createElement('span');
-        const sourceElemText = this.renderer.createText(
-          this.sourceElems[sourceTagIdx].textContent
+        // Create the source component factory
+        const sourceFactory: ComponentFactory<
+          SourceComponent
+        > = this.componentFactoryResolver.resolveComponentFactory(
+          SourceComponent
         );
-        this.renderer.appendChild(sourceElem, sourceElemText);
 
-        // Add the source element to the DOM
+        // Create the source component
+        const sourceText = this.sourceElems[sourceTagIdx].textContent;
+        const sourceTextElem = this.renderer.createText(sourceText);
+        const sourceComponent: ComponentRef<
+          SourceComponent
+        > = this.vc.createComponent(sourceFactory, 0, undefined, [
+          [sourceTextElem],
+        ]);
+
+        // Add source component to the DOM
+        const sourceElem: HTMLElement = sourceComponent.location.nativeElement;
         this.renderer.appendChild(this.elRef.nativeElement, sourceElem);
-
-        // Underline the source element
-        this.underlineSource(sourceElem);
       }
     }
   }

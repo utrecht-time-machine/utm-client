@@ -16,10 +16,12 @@ import 'hammerjs';
 import { NgxPopperModule } from 'ngx-popper';
 import { SourceTooltipModule } from './components/shared/source/source-tooltip/source-tooltip.module';
 import { SourceTooltipComponent } from './components/shared/source/source-tooltip/source-tooltip.component';
+import { SourceModule } from './components/shared/source/source-component/source.module';
+import { SourceComponent } from './components/shared/source/source-component/source.component';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [SourceTooltipComponent],
+  entryComponents: [SourceTooltipComponent, SourceComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -28,6 +30,7 @@ import { SourceTooltipComponent } from './components/shared/source/source-toolti
     ArticleModule,
     DialogueModule,
     SourceTooltipModule,
+    SourceModule,
     NgxPopperModule.forRoot({}),
   ],
   providers: [

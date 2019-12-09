@@ -1,7 +1,9 @@
 import {
+  AfterViewInit,
   ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
+  ContentChild,
   Directive,
   ElementRef,
   HostListener,
@@ -17,13 +19,14 @@ import { SourceTooltipComponent } from './source-tooltip/source-tooltip.componen
 @Directive({
   selector: '[utmSource]',
 })
-export class SourceDirective implements OnInit, OnDestroy {
+export class SourceDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input() sourceUrl: string;
   @Input() sourceAuthor: string;
   @Input() sourceDate: string;
 
-  tooltipRef: ComponentRef<SourceTooltipComponent>;
-  tooltipPopper: Popper;
+  public sourceContent: any;
+  private tooltipRef: ComponentRef<SourceTooltipComponent>;
+  private tooltipPopper: Popper;
 
   constructor(
     private elRef: ElementRef,
@@ -33,6 +36,7 @@ export class SourceDirective implements OnInit, OnDestroy {
   ) {}
 
   private createTooltipElem() {
+    // TODO: Perhaps instead of creating the tooltip element once, create and destroy every time on a new click, to ensure correct positioning on screen
     // Create tooltip based on tooltip component
     const tooltipFactory: ComponentFactory<
       SourceTooltipComponent
@@ -124,6 +128,10 @@ export class SourceDirective implements OnInit, OnDestroy {
       // Hide the tooltip
       this.setTooltipVisibility(false);
     }
+  }
+
+  ngAfterViewInit() {
+    this.sourceContent = this.elRef.nativeElement;
   }
 
   ngOnInit() {
