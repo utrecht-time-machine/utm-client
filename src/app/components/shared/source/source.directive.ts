@@ -12,7 +12,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import Popper from 'popper.js';
-import { SourceTooltipComponent } from './source-tooltip.component';
+import { SourceTooltipComponent } from './source-tooltip/source-tooltip.component';
 
 @Directive({
   selector: '[utmSource]',
@@ -132,7 +132,11 @@ export class SourceDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.tooltipRef.destroy();
-    this.tooltipPopper.destroy();
+    if (this.tooltipRef) {
+      this.tooltipRef.destroy();
+    }
+    if (this.tooltipPopper) {
+      this.tooltipPopper.destroy();
+    }
   }
 }

@@ -59,8 +59,7 @@
                   {{ story['time-period']['end'] }}</ion-card-subtitle
                 >
               </ion-card-header>
-              <ion-card-content>
-                {{ story['description'] }}
+              <ion-card-content [utmTextWithSources]="story['description']">
               </ion-card-content>
             </ion-card>
           </ion-slide>

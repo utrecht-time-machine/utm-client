@@ -14,8 +14,8 @@ import { ArticleModule } from './components/scenes/article/article.module';
 
 import 'hammerjs';
 import { NgxPopperModule } from 'ngx-popper';
-import { SourceTooltipModule } from './components/shared/source/source-tooltip.module';
-import { SourceTooltipComponent } from './components/shared/source/source-tooltip.component';
+import { SourceTooltipModule } from './components/shared/source/source-tooltip/source-tooltip.module';
+import { SourceTooltipComponent } from './components/shared/source/source-tooltip/source-tooltip.component';
 
 @NgModule({
   declarations: [AppComponent],
