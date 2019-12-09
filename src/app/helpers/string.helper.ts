@@ -7,7 +7,7 @@ export function trimStoryId(storyId: string) {
   return storyId.replace('https://utrechttimemachine.nl/stories/', '');
 }
 
-export function indexes(source: string, find: string) {
+export function indexes(source: string, find: string): number[] {
   if (!source) {
     return [];
   }
