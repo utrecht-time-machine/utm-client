@@ -24,8 +24,8 @@ export class SourceDirective implements OnInit, OnDestroy {
   @Input() sourceUrl: string;
   @Input() sourceAuthor: string;
   @Input() sourceDate: string;
+  @Input() container: HTMLElement;
 
-  // TODO: Use indices for the service here instead of the actual direct reference
   private tooltipRef: ComponentRef<SourceTooltipComponent>;
   private tooltipPopper: Popper;
 
@@ -76,8 +76,16 @@ export class SourceDirective implements OnInit, OnDestroy {
         this.tooltipRef.location.nativeElement,
         {
           placement: 'top',
+          modifiers: {
+            preventOverflow: {
+              enabled: true,
+              boundariesElement: this.container ? this.container : 'viewport',
+            },
+          },
         }
       );
+
+      this.tooltipPopper.enableEventListeners();
     }
 
     // Show tooltip
