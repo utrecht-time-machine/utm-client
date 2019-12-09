@@ -18,6 +18,17 @@ export class SourceTooltipService {
     }
   }
 
+  public hideTooltip(tooltip: ComponentRef<SourceTooltipComponent>) {
+    const tooltipIdx = this.tooltips.indexOf(tooltip);
+    if (tooltipIdx === -1) {
+      // Tooltip does not exist
+      return;
+    }
+
+    // Hide the tooltip
+    this.tooltips[tooltipIdx].instance.setVisibility(false);
+  }
+
   public showTooltip(tooltip: ComponentRef<SourceTooltipComponent>) {
     const tooltipIdx = this.tooltips.indexOf(tooltip);
     if (tooltipIdx === -1) {

@@ -18,6 +18,7 @@ import { SourceTooltipModule } from './components/shared/source/source-tooltip/s
 import { SourceTooltipComponent } from './components/shared/source/source-tooltip/source-tooltip.component';
 import { SourceModule } from './components/shared/source/source-component/source.module';
 import { SourceComponent } from './components/shared/source/source-component/source.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { SourceComponent } from './components/shared/source/source-component/sou
     SourceTooltipModule,
     SourceModule,
     NgxPopperModule.forRoot({}),
+    DeviceDetectorModule.forRoot(),
   ],
   providers: [
     StatusBar,

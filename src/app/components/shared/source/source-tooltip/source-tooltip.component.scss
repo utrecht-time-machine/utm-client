@@ -11,11 +11,14 @@
 
   text-align: left;
 
-  p.source-tooltip-url {
+  p {
     max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    &.source-tooltip-url {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 

@@ -1,9 +1,7 @@
 import {
-  AfterViewInit,
   ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
-  ContentChild,
   Directive,
   ElementRef,
   HostListener,
@@ -16,6 +14,7 @@ import {
 import Popper from 'popper.js';
 import { SourceTooltipComponent } from './source-tooltip/source-tooltip.component';
 import { SourceTooltipService } from '../../../services/source-tooltip.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Directive({
   selector: '[utmSource]',
@@ -28,16 +27,34 @@ export class SourceDirective implements OnInit, OnDestroy {
 
   private tooltipRef: ComponentRef<SourceTooltipComponent>;
   private tooltipPopper: Popper;
+  private timeBeforeHidingTooltip = 200; // ms
+  private tryToHideTooltipLoop: ReturnType<typeof setInterval>;
 
   constructor(
     private elRef: ElementRef,
     private renderer: Renderer2,
     private vc: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private tooltipService: SourceTooltipService
+    private tooltipService: SourceTooltipService,
+    private deviceService: DeviceDetectorService
   ) {}
 
-  private createTooltipElem() {
+  ngOnInit() {
+    this.createTooltipHtmlElem();
+    this.underlineSource();
+  }
+
+  ngOnDestroy() {
+    if (this.tooltipRef) {
+      this.tooltipService.removeTooltip(this.tooltipRef);
+      this.tooltipRef.destroy();
+    }
+    if (this.tooltipPopper) {
+      this.tooltipPopper.destroy();
+    }
+  }
+
+  private createTooltipHtmlElem() {
     // TODO: Perhaps instead of creating the tooltip element once, create and destroy every time on a new click, to ensure correct positioning on screen
     // Create tooltip based on tooltip component
     const tooltipFactory: ComponentFactory<
@@ -59,16 +76,8 @@ export class SourceDirective implements OnInit, OnDestroy {
     this.tooltipRef.instance.setVisibility(false, true);
   }
 
-  private underlineSource() {
-    const elem = this.elRef.nativeElement;
-    this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
-    this.renderer.setStyle(elem, 'text-decoration-style', 'dashed'); // solid, wavy, dotted, dashed, double
-    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
-    this.renderer.setStyle(elem, 'font-style', 'italic');
-    this.renderer.setStyle(elem, 'cursor', 'pointer');
-  }
-
-  @HostListener('click', ['$event']) onClick(event: Event) {
+  private createTooltipPopper() {
+    // TODO: Call this once on a lifecycle hook to prevent doing this check on every click
     if (this.tooltipPopper === undefined) {
       // Use Popper to place the tooltip in the right place relative to the source element
       this.tooltipPopper = new Popper(
@@ -87,34 +96,63 @@ export class SourceDirective implements OnInit, OnDestroy {
 
       this.tooltipPopper.enableEventListeners();
     }
+  }
 
-    // Show tooltip
+  private showTooltip() {
+    this.createTooltipPopper();
+    clearInterval(this.tryToHideTooltipLoop);
     this.tooltipService.showTooltip(this.tooltipRef);
+  }
+
+  private hideTooltip() {
+    this.tooltipService.hideTooltip(this.tooltipRef);
+  }
+
+  private underlineSource() {
+    const elem = this.elRef.nativeElement;
+    this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
+    this.renderer.setStyle(elem, 'text-decoration-style', 'dashed'); // solid, wavy, dotted, dashed, double
+    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
+    this.renderer.setStyle(elem, 'font-style', 'italic');
+    this.renderer.setStyle(elem, 'cursor', 'pointer');
+  }
+
+  @HostListener('mouseenter', ['$event']) onMouseEnter(event: Event) {
+    if (!this.deviceService.isDesktop()) {
+      // Only enable hover on desktop devices
+      return;
+    }
+
+    this.showTooltip();
+  }
+
+  @HostListener('mouseleave', ['$event']) onMouseLeave(event: Event) {
+    if (!this.deviceService.isDesktop()) {
+      // Only enable hover on desktop devices
+      return;
+    }
+
+    clearInterval(this.tryToHideTooltipLoop);
+    // Keep trying to hide the tooltip
+    this.tryToHideTooltipLoop = setInterval(() => {
+      if (!this.tooltipRef.instance.mouseIsOverElem) {
+        // Only hide the tooltip if the cursor is not on the element
+        this.hideTooltip();
+      }
+    }, this.timeBeforeHidingTooltip);
+  }
+
+  @HostListener('click', ['$event']) onClick(event: Event) {
+    this.showTooltip();
 
     event.stopPropagation();
   }
 
   @HostListener('document:click', ['$event']) onClickDocument(event: Event) {
-    const clickedSource = this.elRef.nativeElement.contains(event.target);
+    const clickedOnSource = this.elRef.nativeElement.contains(event.target);
 
-    if (!clickedSource) {
-      // Clicked outside the source, hide the tooltip
-      this.tooltipRef.instance.setVisibility(false);
-    }
-  }
-
-  ngOnInit() {
-    this.createTooltipElem();
-    this.underlineSource();
-  }
-
-  ngOnDestroy() {
-    if (this.tooltipRef) {
-      this.tooltipService.removeTooltip(this.tooltipRef);
-      this.tooltipRef.destroy();
-    }
-    if (this.tooltipPopper) {
-      this.tooltipPopper.destroy();
+    if (!clickedOnSource) {
+      this.hideTooltip();
     }
   }
 }
