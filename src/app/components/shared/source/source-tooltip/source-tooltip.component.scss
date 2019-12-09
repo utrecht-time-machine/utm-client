@@ -11,3 +11,17 @@
 
   text-align: left;
 }
+
+.close-source-tooltip-btn {
+  float: right;
+  cursor: pointer;
+  color: darkgrey;
+
+  &:hover {
+    color: grey;
+  }
+
+  &:active {
+    color: #404040;
+  }
+}

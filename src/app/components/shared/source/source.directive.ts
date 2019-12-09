@@ -19,12 +19,11 @@ import { SourceTooltipComponent } from './source-tooltip/source-tooltip.componen
 @Directive({
   selector: '[utmSource]',
 })
-export class SourceDirective implements OnInit, OnDestroy, AfterViewInit {
+export class SourceDirective implements OnInit, OnDestroy {
   @Input() sourceUrl: string;
   @Input() sourceAuthor: string;
   @Input() sourceDate: string;
 
-  public sourceContent: any;
   private tooltipRef: ComponentRef<SourceTooltipComponent>;
   private tooltipPopper: Popper;
 
@@ -51,57 +50,19 @@ export class SourceDirective implements OnInit, OnDestroy, AfterViewInit {
     this.tooltipRef.instance.date = this.sourceDate;
 
     // Hide the tooltip
-    this.setTooltipVisibility(false);
+    this.tooltipRef.instance.setVisibility(false, true);
   }
 
   private underlineSource() {
-    this.renderer.setStyle(
-      this.elRef.nativeElement,
-      'text-decoration-line',
-      'underline'
-    );
-    this.renderer.setStyle(
-      this.elRef.nativeElement,
-      'text-decoration-style',
-      'dashed'
-    ); // solid, wavy, dotted, dashed, double
-    this.renderer.setStyle(
-      this.elRef.nativeElement,
-      'text-decoration-color',
-      '#157dbf'
-    );
-    this.renderer.setStyle(this.elRef.nativeElement, 'font-style', 'italic');
-    this.renderer.setStyle(this.elRef.nativeElement, 'cursor', 'pointer');
+    const elem = this.elRef.nativeElement;
+    this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
+    this.renderer.setStyle(elem, 'text-decoration-style', 'dashed'); // solid, wavy, dotted, dashed, double
+    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
+    this.renderer.setStyle(elem, 'font-style', 'italic');
+    this.renderer.setStyle(elem, 'cursor', 'pointer');
   }
 
-  private setTooltipVisibility(visible: boolean) {
-    const tooltipElem = this.tooltipRef.location.nativeElement;
-
-    // Enable animation
-    this.renderer.addClass(tooltipElem, 'animated');
-    this.renderer.removeClass(tooltipElem, 'fadeIn');
-    this.renderer.removeClass(tooltipElem, 'fadeOut');
-
-    // Set fading speed (in seconds)
-    const fadeSpeed = 0.15;
-    this.renderer.setStyle(tooltipElem, 'animation-duration', fadeSpeed + 's');
-
-    // Start animation
-    this.renderer.addClass(tooltipElem, visible ? 'fadeIn' : 'fadeOut');
-
-    // Show/hide the tooltip
-    if (visible) {
-      // Show tooltip
-      this.renderer.setStyle(tooltipElem, 'display', 'block');
-    } else {
-      // Hide tooltip after fadeout
-      setTimeout(() => {
-        this.renderer.setStyle(tooltipElem, 'display', 'none');
-      }, fadeSpeed * 1000);
-    }
-  }
-
-  @HostListener('click') onClick(event: Event) {
+  @HostListener('click', ['$event']) onClick(event: Event) {
     if (this.tooltipPopper === undefined) {
       // Use Popper to place the tooltip in the right place relative to the source element
       this.tooltipPopper = new Popper(
@@ -114,24 +75,18 @@ export class SourceDirective implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // Show the tooltip
-    this.setTooltipVisibility(true);
+    this.tooltipRef.instance.setVisibility(true);
+
+    event.stopPropagation();
   }
 
-  @HostListener('document:click', ['$event.target']) onClickDocument(target) {
-    const clickedSource = this.elRef.nativeElement.contains(target);
-    const clickedTooltip = this.tooltipRef.location.nativeElement.contains(
-      target
-    );
+  @HostListener('document:click', ['$event']) onClickDocument(event: Event) {
+    const clickedSource = this.elRef.nativeElement.contains(event.target);
 
-    if (!clickedSource && !clickedTooltip) {
-      // Clicked outside both the source and the tooltip
-      // Hide the tooltip
-      this.setTooltipVisibility(false);
+    if (!clickedSource) {
+      // Clicked outside the source, hide the tooltip
+      this.tooltipRef.instance.setVisibility(false);
     }
-  }
-
-  ngAfterViewInit() {
-    this.sourceContent = this.elRef.nativeElement;
   }
 
   ngOnInit() {
