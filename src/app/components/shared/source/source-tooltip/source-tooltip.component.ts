@@ -5,7 +5,6 @@ import {
   Input,
   OnInit,
   Renderer2,
-  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({

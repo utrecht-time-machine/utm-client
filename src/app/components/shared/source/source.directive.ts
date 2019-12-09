@@ -15,6 +15,7 @@ import {
 } from '@angular/core';
 import Popper from 'popper.js';
 import { SourceTooltipComponent } from './source-tooltip/source-tooltip.component';
+import { SourceTooltipService } from '../../../services/source-tooltip.service';
 
 @Directive({
   selector: '[utmSource]',
@@ -24,6 +25,7 @@ export class SourceDirective implements OnInit, OnDestroy {
   @Input() sourceAuthor: string;
   @Input() sourceDate: string;
 
+  // TODO: Use indices for the service here instead of the actual direct reference
   private tooltipRef: ComponentRef<SourceTooltipComponent>;
   private tooltipPopper: Popper;
 
@@ -31,7 +33,8 @@ export class SourceDirective implements OnInit, OnDestroy {
     private elRef: ElementRef,
     private renderer: Renderer2,
     private vc: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private tooltipService: SourceTooltipService
   ) {}
 
   private createTooltipElem() {
@@ -43,6 +46,9 @@ export class SourceDirective implements OnInit, OnDestroy {
       SourceTooltipComponent
     );
     this.tooltipRef = this.vc.createComponent(tooltipFactory);
+
+    // Save the tooltip reference
+    this.tooltipService.addTooltip(this.tooltipRef);
 
     // Set the source for the tooltip
     this.tooltipRef.instance.source = this.sourceUrl;
@@ -74,8 +80,8 @@ export class SourceDirective implements OnInit, OnDestroy {
       );
     }
 
-    // Show the tooltip
-    this.tooltipRef.instance.setVisibility(true);
+    // Show tooltip
+    this.tooltipService.showTooltip(this.tooltipRef);
 
     event.stopPropagation();
   }
@@ -96,6 +102,7 @@ export class SourceDirective implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.tooltipRef) {
+      this.tooltipService.removeTooltip(this.tooltipRef);
       this.tooltipRef.destroy();
     }
     if (this.tooltipPopper) {

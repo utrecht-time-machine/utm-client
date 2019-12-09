@@ -145,7 +145,7 @@ export class TextWithSourcesDirective implements OnInit {
     return '</' + this.sourceTag + '>';
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const parsedSuccessfully = this.parseAsHtml();
     if (parsedSuccessfully) {
       this.createHtmlWithSources();
