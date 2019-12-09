@@ -10,12 +10,20 @@
   box-shadow: 0 4px 5px -4px rgba(0, 0, 0, 0.33);
 
   text-align: left;
+
+  p {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .close-source-tooltip-btn {
   float: right;
   cursor: pointer;
   color: darkgrey;
+  margin-left: 5px;
 
   &:hover {
     color: grey;

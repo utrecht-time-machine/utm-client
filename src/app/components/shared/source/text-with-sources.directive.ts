@@ -17,7 +17,7 @@ import { SourceComponent } from './source-component/source.component';
   selector: '[utmTextWithSources]',
 })
 export class TextWithSourcesDirective implements OnInit {
-  @Input() utmTextWithSources: string;
+  @Input('utmTextWithSources') plainTextWithSources: string;
 
   sourceElems: HTMLCollection;
   sourceTagOpenIndices: number[];
@@ -31,16 +31,8 @@ export class TextWithSourcesDirective implements OnInit {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
-  private underlineSource(elem: HTMLElement) {
-    this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
-    this.renderer.setStyle(elem, 'text-decoration-style', 'dashed'); // solid, wavy, dotted, dashed, double
-    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
-    this.renderer.setStyle(elem, 'font-style', 'italic');
-    this.renderer.setStyle(elem, 'cursor', 'pointer');
-  }
-
   createHtmlForFullText() {
-    const textElem = this.renderer.createText(this.utmTextWithSources);
+    const textElem = this.renderer.createText(this.plainTextWithSources);
     this.renderer.appendChild(this.elRef.nativeElement, textElem);
   }
 
@@ -59,7 +51,7 @@ export class TextWithSourcesDirective implements OnInit {
       }
 
       // If the final source tag has been handled, this text segment continues to the end
-      let textLength = this.utmTextWithSources.length - startIdx;
+      let textLength = this.plainTextWithSources.length - startIdx;
       if (sourceTagIdx !== this.sourceElems.length) {
         // There are still source tags to be processed
         // This text segment continues to the next source tag
@@ -67,7 +59,10 @@ export class TextWithSourcesDirective implements OnInit {
       }
 
       // Create the text content element
-      const textContent = this.utmTextWithSources.substr(startIdx, textLength);
+      const textContent = this.plainTextWithSources.substr(
+        startIdx,
+        textLength
+      );
       const textElem = this.renderer.createText(textContent);
       this.renderer.appendChild(this.elRef.nativeElement, textElem);
 
@@ -88,6 +83,17 @@ export class TextWithSourcesDirective implements OnInit {
           [sourceTextElem],
         ]);
 
+        // Set source details
+        sourceComponent.instance.sourceUrl = this.sourceElems[
+          sourceTagIdx
+        ].getAttribute('sourceUrl');
+        sourceComponent.instance.sourceAuthor = this.sourceElems[
+          sourceTagIdx
+        ].getAttribute('sourceAuthor');
+        sourceComponent.instance.sourceDate = this.sourceElems[
+          sourceTagIdx
+        ].getAttribute('sourceDate');
+
         // Add source component to the DOM
         const sourceElem: HTMLElement = sourceComponent.location.nativeElement;
         this.renderer.appendChild(this.elRef.nativeElement, sourceElem);
@@ -99,7 +105,7 @@ export class TextWithSourcesDirective implements OnInit {
     // Parse the text as HTML
     const htmlParser = new DOMParser();
     const parsedText: Document = htmlParser.parseFromString(
-      this.utmTextWithSources,
+      this.plainTextWithSources,
       'text/html'
     );
 
@@ -113,11 +119,11 @@ export class TextWithSourcesDirective implements OnInit {
 
     // Find the source tag indices
     this.sourceTagOpenIndices = indexes(
-      this.utmTextWithSources,
+      this.plainTextWithSources,
       '<' + this.sourceTag
     );
     this.sourceTagCloseIndices = indexes(
-      this.utmTextWithSources,
+      this.plainTextWithSources,
       this.getSourceClosingTag()
     );
 

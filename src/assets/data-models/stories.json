@@ -4,7 +4,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Thinker on a Rock",
     "lang": "en",
-    "description": "In 1997 this <utm-source sourceUrl=\"Test\">statue</utm-source> was bought by the municipality of <utm-source sourceUrl=\"'https://hetutrechtsarchief.nl/\">Utrecht</utm-source>. Utrecht citizens however were not very happy with the new purchase...",
+    "description": "In 1997 this <utm-source sourceUrl=\"https://en.wikipedia.org/wiki/Thinker_on_a_Rock\" sourceAuthor=\"Wikipedia\">statue</utm-source> was bought by the municipality of <utm-source sourceUrl=\"https://www.wikidata.org/wiki/Q803\" sourceAuthor=\"Wikidata\" sourceDate=\"December 9th 2019\">Utrecht</utm-source>. Utrecht citizens however were not very happy with the new purchase...",
     "featured-image": "/assets/data-models/stories/2019100000_neude_thinker-on-a-rock/featured.png",
     "authors": [
       {
