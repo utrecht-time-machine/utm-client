@@ -55,7 +55,6 @@ export class SourceDirective implements OnInit, OnDestroy {
   }
 
   private createTooltipHtmlElem() {
-    // TODO: Perhaps instead of creating the tooltip element once, create and destroy every time on a new click, to ensure correct positioning on screen
     // Create tooltip based on tooltip component
     const tooltipFactory: ComponentFactory<
       SourceTooltipComponent
@@ -77,35 +76,37 @@ export class SourceDirective implements OnInit, OnDestroy {
   }
 
   private createTooltipPopper() {
-    // TODO: Call this once on a lifecycle hook to prevent doing this check on every click
-    if (this.tooltipPopper === undefined) {
-      // Use Popper to place the tooltip in the right place relative to the source element
-      this.tooltipPopper = new Popper(
-        this.elRef.nativeElement,
-        this.tooltipRef.location.nativeElement,
-        {
-          placement: 'top',
-          modifiers: {
-            preventOverflow: {
-              enabled: true,
-              boundariesElement: this.container ? this.container : 'viewport',
-            },
+    // Use Popper to place the tooltip in the right place relative to the source element
+    this.tooltipPopper = new Popper(
+      this.elRef.nativeElement,
+      this.tooltipRef.location.nativeElement,
+      {
+        placement: 'top',
+        modifiers: {
+          preventOverflow: {
+            enabled: true,
+            boundariesElement: this.container ? this.container : 'viewport',
           },
-        }
-      );
+        },
+      }
+    );
 
-      this.tooltipPopper.enableEventListeners();
-    }
+    this.tooltipPopper.enableEventListeners();
   }
 
   private showTooltip() {
+    this.stopHidingTooltip();
     this.createTooltipPopper();
-    clearInterval(this.tryToHideTooltipLoop);
     this.tooltipService.showTooltip(this.tooltipRef);
+  }
+
+  private stopHidingTooltip() {
+    clearInterval(this.tryToHideTooltipLoop);
   }
 
   private hideTooltip() {
     this.tooltipService.hideTooltip(this.tooltipRef);
+    this.stopHidingTooltip();
   }
 
   private underlineSource() {
@@ -132,7 +133,8 @@ export class SourceDirective implements OnInit, OnDestroy {
       return;
     }
 
-    clearInterval(this.tryToHideTooltipLoop);
+    this.stopHidingTooltip();
+
     // Keep trying to hide the tooltip
     this.tryToHideTooltipLoop = setInterval(() => {
       if (!this.tooltipRef.instance.mouseIsOverElem) {
