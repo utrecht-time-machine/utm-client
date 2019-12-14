@@ -15,6 +15,7 @@ import Popper from 'popper.js';
 import { SourceTooltipComponent } from './source-tooltip/source-tooltip.component';
 import { SourceTooltipService } from '../../../services/source-tooltip.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { MetadataService } from '../../../services/APIs/metadata.service';
 
 @Directive({
   selector: '[utmSource]',
@@ -36,7 +37,8 @@ export class SourceDirective implements OnInit, OnDestroy {
     private vc: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private tooltipService: SourceTooltipService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private metadataService: MetadataService
   ) {}
 
   ngOnInit() {
@@ -70,6 +72,19 @@ export class SourceDirective implements OnInit, OnDestroy {
     this.tooltipRef.instance.source = this.sourceUrl;
     this.tooltipRef.instance.author = this.sourceAuthor;
     this.tooltipRef.instance.date = this.sourceDate;
+
+    this.metadataService
+      .getMetadata(this.sourceUrl)
+      .then(res => {
+        console.log(res);
+        this.tooltipRef.instance.author = res.author;
+        this.tooltipRef.instance.name = res.name;
+        this.tooltipRef.instance.date = new Date(res.date).toDateString();
+        this.tooltipRef.instance.imageUrl = res.imageUrl;
+      })
+      .catch(err => {
+        console.error(err);
+      });
 
     // Hide the tooltip
     this.tooltipRef.instance.setVisibility(false, true);

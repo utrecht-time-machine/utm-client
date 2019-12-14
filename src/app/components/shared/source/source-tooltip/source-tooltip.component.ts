@@ -17,6 +17,8 @@ export class SourceTooltipComponent implements OnInit {
   @Input() source = '';
   @Input() author = '';
   @Input() date = '';
+  @Input() name = '';
+  @Input() imageUrl = '';
 
   public mouseIsOverElem = false;
   private fadeSpeed = 0.15;

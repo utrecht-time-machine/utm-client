@@ -1,0 +1,5 @@
+export interface SourceMetadata {
+  author: string;
+  description: string;
+  date: Date;
+}
