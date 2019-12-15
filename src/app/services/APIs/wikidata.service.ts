@@ -52,7 +52,8 @@ export class WikidataService {
       .set('props', 'info|labels|descriptions|claims') // labels|descriptions|claims|sitelinks/urls etc.
       .set('languages', 'nl|en')
       .set('formatversion', '2')
-      .set('format', 'json');
+      .set('format', 'json')
+      .set('origin', '*');
 
     return this.http
       .get('https://www.wikidata.org/w/api.php', { params })

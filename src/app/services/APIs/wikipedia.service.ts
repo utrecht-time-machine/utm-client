@@ -59,7 +59,8 @@ export class WikipediaService {
       )
       .set('titles', wikipediaTitle)
       .set('formatversion', '2')
-      .set('format', 'json');
+      .set('format', 'json')
+      .set('origin', '*');
 
     return this.http
       .get(`https://${language}.wikipedia.org/w/api.php`, { params })
@@ -78,20 +79,5 @@ export class WikipediaService {
     // TODO: Ensure this is a valid wikipedia URL
     // TODO: Properly extract the language from the URL
     return wikipediaUrl.substr(8, 2);
-  }
-
-  private requestRevisionData(pageId: string): Promise<any> {
-    const params = new HttpParams()
-      .set('action', 'query')
-      .set('pageids', pageId)
-      .set('prop', 'revisions')
-      .set('rvprop', 'timestamp|user|comment|content')
-      .set('rvslots', 'main')
-      .set('formatversion', '2')
-      .set('format', 'json');
-
-    return this.http
-      .get('https://www.mediawiki.org/w/api.php', { params })
-      .toPromise();
   }
 }
