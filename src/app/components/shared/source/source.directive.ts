@@ -72,7 +72,6 @@ export class SourceDirective implements OnInit, OnDestroy {
     this.metadataService
       .getMetadata(this.sourceUrl)
       .then(res => {
-        console.log(res);
         this.tooltipRef.instance.author = res.author;
         this.tooltipRef.instance.name = res.name;
         this.tooltipRef.instance.description = res.description;
