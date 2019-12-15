@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { WikidataService } from './wikidata.service';
+import { WikipediaService } from './wikipedia.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,8 @@ import { WikidataService } from './wikidata.service';
 export class MetadataService {
   constructor(
     private http: HttpClient,
-    private wikidataService: WikidataService
+    private wikidataService: WikidataService,
+    private wikipediaService: WikipediaService
   ) {}
 
   async getMetadata(url: string) {
@@ -20,6 +22,8 @@ export class MetadataService {
     // TODO: Properly on the domain here
     if (domain.includes('wikidata')) {
       return this.wikidataService.requestByUrl(url);
+    } else if (domain.includes('wikipedia')) {
+      return this.wikipediaService.requestByUrl(url);
     } else {
       const rejectionError =
         'Could not match domain ' + domain + ' with any known domains.';
