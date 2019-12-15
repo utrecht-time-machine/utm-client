@@ -4,7 +4,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Thinker on a Rock",
     "lang": "en",
-    "description": "In 1997 this <utm-source sourceUrl=\"https://en.wikipedia.org/wiki/Thinker_on_a_Rock\" sourceAuthor=\"Wikipedia\">statue</utm-source> was bought by the municipality of <utm-source sourceUrl=\"https://www.wikidata.org/wiki/Q803\" sourceAuthor=\"Wikidata\" sourceDate=\"December 9th 2019\">Utrecht</utm-source>. Utrecht citizens however were not very happy with the new purchase...",
+    "description": "In 1997 this <utm-source sourceUrl=\"https://en.wikipedia.org/wiki/Thinker_on_a_Rock\">statue</utm-source> was bought by the municipality of <utm-source sourceUrl=\"https://www.wikidata.org/wiki/Q803\">Utrecht</utm-source>. Utrecht citizens however were not very happy with the new purchase...",
     "featured-image": "/assets/data-models/stories/2019100000_neude_thinker-on-a-rock/featured.png",
     "authors": [
       {
@@ -43,7 +43,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Public restroom, on the corner of the old post office",
     "lang": "en",
-    "description": "Yes, that's right. On the Neude stood a public restroom with facilities for men and women. What happened to it? And what happened in it?",
+    "description": "Yes, that's right. On the <utm-source sourceUrl=\"https://www.wikidata.org/wiki/Q2755285\">Neude</utm-source> stood a public restroom with facilities for men and women. What happened to it? And what happened in it?",
     "featured-image": "/assets/data-models/stories/2019100001_neude_smell_public_restroom/featured.jpg",
     "authors": [
       {
@@ -72,7 +72,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "De Liefde's Centraal Apotheek",
     "lang": "en",
-    "description": "When was the last time you went to a pharmacy as beautiful as this one? <utm-source sourceAuthor=\"Rijksdienst voor het Cultureel Erfgoed\" sourceUrl=\"https://monumentenregister.cultureelerfgoed.nl/monumenten/514246\">De Liefde's Centraal Apotheek</utm-source> used to be the cheapest and the best place to get your recipes. Now, it is but a clothing store.",
+    "description": "When was the last time you went to a pharmacy as beautiful as this one? <utm-source sourceUrl=\"https://monumentenregister.cultureelerfgoed.nl/monumenten/514246\">De Liefde's Centraal Apotheek</utm-source> used to be the cheapest and the best place to get your recipes. Now, it is but a clothing store.",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
     "authors": [
       {
@@ -685,7 +685,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
     "lang": "nl",
-    "description": "Dit tegeltableau laat de zuivelmarkt zien zoals die omstreeks 1820 op de Bakkerbrug werd gehouden.",
+    "description": "Dit tegeltableau laat de zuivelmarkt zien zoals die omstreeks 1820 op de <utm-source sourceUrl=\"https://nl.wikipedia.org/wiki/Bakkerbrug_(Utrecht)\">Bakkerbrug</utm-source> werd gehouden.",
     "featured-image": "/assets/data-models/stories/2019100006_tegeltableau-zuivelmarkt-bakkerbrug/featured.jpg",
     "authors": [
       {

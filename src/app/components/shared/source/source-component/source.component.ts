@@ -17,8 +17,6 @@ import { SourceDirective } from '../source.directive';
 })
 export class SourceComponent implements OnInit {
   @Input() sourceUrl: string;
-  @Input() sourceAuthor: string;
-  @Input() sourceDate: string;
   @Input() container: ElementRef;
 
   constructor() {}

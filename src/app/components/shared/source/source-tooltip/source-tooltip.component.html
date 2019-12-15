@@ -29,6 +29,14 @@
     {{ name }}
   </p>
 
+  <p *ngIf="description">
+    <b>
+      <ion-icon name="list"></ion-icon>
+      Description:
+    </b>
+    {{ description }}
+  </p>
+
   <p *ngIf="author">
     <b>
       <ion-icon name="person"></ion-icon>

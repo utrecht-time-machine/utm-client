@@ -22,8 +22,6 @@ import { MetadataService } from '../../../services/APIs/metadata.service';
 })
 export class SourceDirective implements OnInit, OnDestroy {
   @Input() sourceUrl: string;
-  @Input() sourceAuthor: string;
-  @Input() sourceDate: string;
   @Input() container: HTMLElement;
 
   private tooltipRef: ComponentRef<SourceTooltipComponent>;
@@ -70,8 +68,6 @@ export class SourceDirective implements OnInit, OnDestroy {
 
     // Set the source for the tooltip
     this.tooltipRef.instance.source = this.sourceUrl;
-    this.tooltipRef.instance.author = this.sourceAuthor;
-    this.tooltipRef.instance.date = this.sourceDate;
 
     this.metadataService
       .getMetadata(this.sourceUrl)
@@ -79,7 +75,10 @@ export class SourceDirective implements OnInit, OnDestroy {
         console.log(res);
         this.tooltipRef.instance.author = res.author;
         this.tooltipRef.instance.name = res.name;
-        this.tooltipRef.instance.date = new Date(res.date).toDateString();
+        this.tooltipRef.instance.description = res.description;
+        this.tooltipRef.instance.date = res.date
+          ? new Date(res.date).toDateString()
+          : undefined;
         this.tooltipRef.instance.imageUrl = res.imageUrl;
       })
       .catch(err => {

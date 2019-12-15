@@ -87,12 +87,7 @@ export class TextWithSourcesDirective implements OnInit {
         sourceComponent.instance.sourceUrl = this.sourceElems[
           sourceTagIdx
         ].getAttribute('sourceUrl');
-        sourceComponent.instance.sourceAuthor = this.sourceElems[
-          sourceTagIdx
-        ].getAttribute('sourceAuthor');
-        sourceComponent.instance.sourceDate = this.sourceElems[
-          sourceTagIdx
-        ].getAttribute('sourceDate');
+
         // TODO: Find a less hacky way to do this
         sourceComponent.instance.container = this.elRef.nativeElement.parentElement;
 

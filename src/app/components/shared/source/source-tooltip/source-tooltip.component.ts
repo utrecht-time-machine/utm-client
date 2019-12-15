@@ -18,6 +18,7 @@ export class SourceTooltipComponent implements OnInit {
   @Input() author = '';
   @Input() date = '';
   @Input() name = '';
+  @Input() description = '';
   @Input() imageUrl = '';
 
   public mouseIsOverElem = false;
