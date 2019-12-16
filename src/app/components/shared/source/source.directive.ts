@@ -86,7 +86,7 @@ export class SourceDirective implements OnInit, OnDestroy {
         this.tooltipPopper.scheduleUpdate();
       })
       .catch(err => {
-        console.error(err);
+        console.warn(err);
         this.tooltipRef.instance.metadata = {};
       });
 
