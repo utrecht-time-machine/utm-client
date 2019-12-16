@@ -16,7 +16,6 @@ export class UtrechtArchivesService {
   }
 
   async request(archiveGuid: string): Promise<SourceMetadata> {
-    console.log(archiveGuid);
     if (archiveGuid === undefined) {
       //  || archiveGuid.length !== 32
       return Promise.reject('Tried to query invalid Utrecht Archives GUID.');
@@ -45,14 +44,12 @@ export class UtrechtArchivesService {
         creator = value;
       }
       if (field === 'datering_vroegst') {
-        earliestDate = this.toDate(value);
+        earliestDate = this.getDateFromDutchDate(value);
       }
       if (field === 'datering_laatst') {
-        latestDate = this.toDate(value);
+        latestDate = this.getDateFromDutchDate(value);
       }
     }
-    console.log('Result');
-    console.log(responseMetadata);
 
     const metadata: SourceMetadata = {
       creator: creator,
@@ -63,8 +60,8 @@ export class UtrechtArchivesService {
     return Promise.resolve(metadata);
   }
 
-  private toDate(dateStr) {
-    const dateParts = dateStr.split('-');
+  private getDateFromDutchDate(date): Date {
+    const dateParts = date.split('-');
     return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
   }
 
