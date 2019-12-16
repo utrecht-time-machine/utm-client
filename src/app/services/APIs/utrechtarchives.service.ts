@@ -10,12 +10,12 @@ export class UtrechtArchivesService {
 
   constructor(private http: HttpClient) {}
 
-  async requestByUrl(archiveUrl: string) {
+  async requestByUrl(archiveUrl: string): Promise<SourceMetadata> {
     const archiveGuid = this.getGuidByUrl(archiveUrl);
     return this.request(archiveGuid);
   }
 
-  async request(archiveGuid: string) {
+  async request(archiveGuid: string): Promise<SourceMetadata> {
     console.log(archiveGuid);
     if (archiveGuid === undefined) {
       //  || archiveGuid.length !== 32
@@ -32,7 +32,7 @@ export class UtrechtArchivesService {
     // Parse metadata
     const responseMetadata = result.media[0].metadata;
     let description: string,
-      author: string,
+      creator: string,
       earliestDate: Date,
       latestDate: Date;
     for (let i = 0; i < responseMetadata.length; i++) {
@@ -42,7 +42,7 @@ export class UtrechtArchivesService {
         description = value;
       }
       if (field === 'vervaardiger') {
-        author = value;
+        creator = value;
       }
       if (field === 'datering_vroegst') {
         earliestDate = this.toDate(value);
@@ -55,7 +55,7 @@ export class UtrechtArchivesService {
     console.log(responseMetadata);
 
     const metadata: SourceMetadata = {
-      author: author,
+      creator: creator,
       description: description,
       earliestDate: earliestDate,
       latestDate: latestDate,

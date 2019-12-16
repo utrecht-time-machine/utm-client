@@ -10,12 +10,12 @@ import { WikiService } from './wiki.service';
 export class WikidataService {
   constructor(private http: HttpClient, private wikiService: WikiService) {}
 
-  async requestByUrl(wikidataUrl: string) {
+  async requestByUrl(wikidataUrl: string): Promise<SourceMetadata> {
     const wikidataId = this.getIdByUrl(wikidataUrl);
     return this.request(wikidataId);
   }
 
-  async request(wikidataId: string) {
+  async request(wikidataId: string): Promise<SourceMetadata> {
     if (wikidataId === undefined) {
       return Promise.reject(new Error('Tried to query undefined Wikidata ID.'));
     }

@@ -49,6 +49,13 @@
     </b>
     {{ metadata.author }}
   </p>
+  <p *ngIf="metadata?.creator">
+    <b>
+      <ion-icon name="person"></ion-icon>
+      Creator:
+    </b>
+    {{ metadata.creator }}
+  </p>
   <p *ngIf="metadata?.earliestDate">
     <b>
       <ion-icon name="calendar"></ion-icon>

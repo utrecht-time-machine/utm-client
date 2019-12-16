@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { WikidataService } from './wikidata.service';
 import { WikipediaService } from './wikipedia.service';
 import { UtrechtArchivesService } from './utrechtarchives.service';
+import { SourceMetadata } from '../../models/source-metadata.model';
 
 @Injectable({
   providedIn: 'root',

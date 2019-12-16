@@ -9,14 +9,17 @@ import { WikiService } from './wiki.service';
 export class WikipediaService {
   constructor(private http: HttpClient, private wikiService: WikiService) {}
 
-  async requestByUrl(wikipediaUrl: string) {
+  async requestByUrl(wikipediaUrl: string): Promise<SourceMetadata> {
     const wikipediaTitle = this.getTitleByUrl(wikipediaUrl);
     const language = this.getLanguageByUrl(wikipediaUrl);
 
     return this.request(wikipediaTitle, language);
   }
 
-  async request(wikipediaTitle: string, language: string) {
+  async request(
+    wikipediaTitle: string,
+    language: string
+  ): Promise<SourceMetadata> {
     if (wikipediaTitle === undefined) {
       return Promise.reject(
         new Error('Tried to query undefined Wikipedia name.')
