@@ -87,6 +87,7 @@ export class SourceDirective implements OnInit, OnDestroy {
       })
       .catch(err => {
         console.error(err);
+        this.tooltipRef.instance.metadata = {};
       });
 
     // Hide the tooltip
