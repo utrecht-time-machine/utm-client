@@ -75,8 +75,14 @@ export class SourceDirective implements OnInit, OnDestroy {
         this.tooltipRef.instance.author = res.author;
         this.tooltipRef.instance.name = res.name;
         this.tooltipRef.instance.description = res.description;
+        this.tooltipRef.instance.earliestDate = res.earliestDate
+          ? new Date(res.earliestDate)
+          : undefined;
+        this.tooltipRef.instance.latestDate = res.latestDate
+          ? new Date(res.latestDate)
+          : undefined;
         this.tooltipRef.instance.date = res.date
-          ? new Date(res.date).toDateString()
+          ? new Date(res.date)
           : undefined;
         this.tooltipRef.instance.imageUrl = res.imageUrl;
       })

@@ -16,7 +16,9 @@ import { tryCatch } from 'rxjs/internal-compatibility';
 export class SourceTooltipComponent implements OnInit {
   @Input() source = '';
   @Input() author = '';
-  @Input() date = '';
+  @Input() earliestDate: Date;
+  @Input() latestDate: Date;
+  @Input() date: Date;
   @Input() name = '';
   @Input() description = '';
   @Input() imageUrl = '';

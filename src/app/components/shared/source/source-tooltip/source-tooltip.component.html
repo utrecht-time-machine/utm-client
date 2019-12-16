@@ -44,11 +44,25 @@
     </b>
     {{ author }}
   </p>
+  <p *ngIf="earliestDate">
+    <b>
+      <ion-icon name="calendar"></ion-icon>
+      Earliest date:
+    </b>
+    {{ earliestDate.toDateString() }}
+  </p>
+  <p *ngIf="latestDate">
+    <b>
+      <ion-icon name="calendar"></ion-icon>
+      Latest date:
+    </b>
+    {{ latestDate.toDateString() }}
+  </p>
   <p *ngIf="date">
     <b>
       <ion-icon name="calendar"></ion-icon>
       Date:
     </b>
-    {{ date }}
+    {{ date.toDateString() }}
   </p>
 </div>
