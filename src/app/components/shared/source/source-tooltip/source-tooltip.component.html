@@ -21,6 +21,11 @@
     <a target="_blank" [href]="source">{{ source }}</a>
   </p>
 
+  <!-- Spinner while metadata is loading -->
+  <p *ngIf="!metadata">
+    <ion-spinner name="crescent"></ion-spinner>
+  </p>
+
   <p *ngIf="metadata?.name">
     <b>
       <ion-icon name="document"></ion-icon>

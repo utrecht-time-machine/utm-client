@@ -19,6 +19,7 @@ export class SourceTooltipComponent implements OnInit {
   @Input() source = '';
 
   public mouseIsOverElem = false;
+  public isVisible = false;
   private fadeSpeed = 0.15;
   private hideAfterFading: ReturnType<typeof setTimeout>;
 
@@ -67,11 +68,13 @@ export class SourceTooltipComponent implements OnInit {
     if (visible) {
       // Show tooltip
       this.renderer.setStyle(elem, 'display', 'block');
+      this.isVisible = true;
     } else {
       // Hide tooltip after fadeout
       this.hideAfterFading = setTimeout(
         () => {
           this.renderer.setStyle(elem, 'display', 'none');
+          this.isVisible = false;
         },
         immediate ? 0 : this.fadeSpeed * 1000
       );

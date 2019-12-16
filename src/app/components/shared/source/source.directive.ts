@@ -29,6 +29,9 @@ export class SourceDirective implements OnInit, OnDestroy {
   private timeBeforeHidingTooltip = 200; // ms
   private tryToHideTooltipLoop: ReturnType<typeof setInterval>;
 
+  private repositionPopperInterval = 25; // ms
+  private repositionPopperLoop: ReturnType<typeof setInterval>;
+
   constructor(
     private elRef: ElementRef,
     private renderer: Renderer2,
@@ -40,7 +43,6 @@ export class SourceDirective implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.createTooltipHtmlElem();
     this.underlineSource();
   }
 
@@ -54,7 +56,11 @@ export class SourceDirective implements OnInit, OnDestroy {
     }
   }
 
-  private createTooltipHtmlElem() {
+  private createTooltip() {
+    if (this.tooltipRef) {
+      return;
+    }
+
     // Create tooltip based on tooltip component
     const tooltipFactory: ComponentFactory<
       SourceTooltipComponent
@@ -69,10 +75,15 @@ export class SourceDirective implements OnInit, OnDestroy {
     // Set the source for the tooltip
     this.tooltipRef.instance.source = this.sourceUrl;
 
+    this.createTooltipPopper();
+
     this.metadataService
       .getMetadata(this.sourceUrl)
       .then(res => {
         this.tooltipRef.instance.metadata = res;
+
+        // Re-position the popper since new data has been added
+        this.tooltipPopper.scheduleUpdate();
       })
       .catch(err => {
         console.error(err);
@@ -83,6 +94,10 @@ export class SourceDirective implements OnInit, OnDestroy {
   }
 
   private createTooltipPopper() {
+    if (!this.tooltipRef) {
+      return;
+    }
+
     // Use Popper to place the tooltip in the right place relative to the source element
     this.tooltipPopper = new Popper(
       this.elRef.nativeElement,
@@ -98,12 +113,28 @@ export class SourceDirective implements OnInit, OnDestroy {
       }
     );
 
+    this.startTooltipRepositioningLoop();
     this.tooltipPopper.enableEventListeners();
+  }
+
+  private stopTooltipRepositioningLoop() {
+    clearInterval(this.repositionPopperLoop);
+  }
+
+  private startTooltipRepositioningLoop() {
+    this.stopTooltipRepositioningLoop();
+
+    this.repositionPopperLoop = setInterval(() => {
+      if (this.tooltipRef.instance.isVisible) {
+        this.tooltipPopper.scheduleUpdate();
+      }
+    }, this.repositionPopperInterval);
   }
 
   private showTooltip() {
     this.stopHidingTooltip();
-    this.createTooltipPopper();
+    this.startTooltipRepositioningLoop();
+    this.createTooltip();
     this.tooltipService.showTooltip(this.tooltipRef);
   }
 
@@ -114,6 +145,7 @@ export class SourceDirective implements OnInit, OnDestroy {
   private hideTooltip() {
     this.tooltipService.hideTooltip(this.tooltipRef);
     this.stopHidingTooltip();
+    this.stopTooltipRepositioningLoop();
   }
 
   private underlineSource() {
@@ -144,7 +176,7 @@ export class SourceDirective implements OnInit, OnDestroy {
 
     // Keep trying to hide the tooltip
     this.tryToHideTooltipLoop = setInterval(() => {
-      if (!this.tooltipRef.instance.mouseIsOverElem) {
+      if (this.tooltipRef && !this.tooltipRef.instance.mouseIsOverElem) {
         // Only hide the tooltip if the cursor is not on the element
         this.hideTooltip();
       }
