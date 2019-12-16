@@ -5,13 +5,13 @@
   <!--    (click)="setVisibility(false)"-->
   <!--  ></ion-icon>-->
 
-  <p *ngIf="imageUrl">
-    <a [href]="imageUrl" target="_blank">
-      <img [src]="imageUrl" alt="Tooltip Image" />
+  <p *ngIf="metadata?.imageUrl">
+    <a [href]="metadata.imageUrl" target="_blank">
+      <img [src]="metadata.imageUrl" alt="Tooltip Image" />
     </a>
   </p>
 
-  <p *ngIf="!source && !author && !date"><b>Source: </b>Unknown.</p>
+  <p *ngIf="!source"><b>Source: </b>Unknown.</p>
 
   <p *ngIf="source" class="source-tooltip-url">
     <b>
@@ -21,48 +21,48 @@
     <a target="_blank" [href]="source">{{ source }}</a>
   </p>
 
-  <p *ngIf="name">
+  <p *ngIf="metadata?.name">
     <b>
       <ion-icon name="document"></ion-icon>
       Name:
     </b>
-    {{ name }}
+    {{ metadata.name }}
   </p>
 
-  <p *ngIf="description">
+  <p *ngIf="metadata?.description">
     <b>
       <ion-icon name="list"></ion-icon>
       Description:
     </b>
-    {{ description }}
+    {{ metadata.description }}
   </p>
 
-  <p *ngIf="author">
+  <p *ngIf="metadata?.author">
     <b>
       <ion-icon name="person"></ion-icon>
       Author:
     </b>
-    {{ author }}
+    {{ metadata.author }}
   </p>
-  <p *ngIf="earliestDate">
+  <p *ngIf="metadata?.earliestDate">
     <b>
       <ion-icon name="calendar"></ion-icon>
       Earliest date:
     </b>
-    {{ earliestDate.toDateString() }}
+    {{ metadata.earliestDate.toDateString() }}
   </p>
-  <p *ngIf="latestDate">
+  <p *ngIf="metadata?.latestDate">
     <b>
       <ion-icon name="calendar"></ion-icon>
       Latest date:
     </b>
-    {{ latestDate.toDateString() }}
+    {{ metadata.latestDate.toDateString() }}
   </p>
-  <p *ngIf="date">
+  <p *ngIf="metadata?.date">
     <b>
       <ion-icon name="calendar"></ion-icon>
       Date:
     </b>
-    {{ date.toDateString() }}
+    {{ metadata.date.toDateString() }}
   </p>
 </div>

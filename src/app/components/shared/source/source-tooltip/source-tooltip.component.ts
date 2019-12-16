@@ -7,6 +7,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { tryCatch } from 'rxjs/internal-compatibility';
+import { SourceMetadata } from '../../../../models/source-metadata.model';
 
 @Component({
   selector: 'utm-source-tooltip',
@@ -14,14 +15,8 @@ import { tryCatch } from 'rxjs/internal-compatibility';
   styleUrls: ['./source-tooltip.component.scss'],
 })
 export class SourceTooltipComponent implements OnInit {
+  @Input() metadata: SourceMetadata;
   @Input() source = '';
-  @Input() author = '';
-  @Input() earliestDate: Date;
-  @Input() latestDate: Date;
-  @Input() date: Date;
-  @Input() name = '';
-  @Input() description = '';
-  @Input() imageUrl = '';
 
   public mouseIsOverElem = false;
   private fadeSpeed = 0.15;
