@@ -47,6 +47,12 @@ export class SourceTooltipComponent implements OnInit {
     }
   }
 
+  private shortenText(text: string, maxCharacters: number = 50) {
+    return (
+      text.substr(0, maxCharacters) + (text.length > maxCharacters ? '...' : '')
+    );
+  }
+
   public setVisibility(visible: boolean, immediate: boolean = false) {
     const elem = this.elRef.nativeElement;
 

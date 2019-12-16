@@ -39,7 +39,7 @@
       <ion-icon name="list"></ion-icon>
       Description:
     </b>
-    {{ metadata.description }}
+    {{ shortenText(metadata.description) }}
   </p>
 
   <p *ngIf="metadata?.author">
