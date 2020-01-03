@@ -134,6 +134,7 @@
     "lang": "en",
     "description": "De Beurs is but one of the café restaurants located at the Neude. Find out what could be heard at De Beurs over the years.",
     "featured-image": "/assets/data-models/stories/2019100003_neude_hearing_de-beurs-cafe/featured.jpg",
+    "hidden": true,
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/UU"
@@ -153,6 +154,35 @@
         "@id": "https://utrechttimemachine.nl/stories/2019100003_neude_hearing_de-beurs-cafe",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
         "content": "neude_hearing_de-beurs-cafe"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20191000013_neude_de-beurs-cafe_introduction",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "De Beurs Utrecht, Neude 37-39",
+    "lang": "en",
+    "description": "De Beurs is but one of the café restaurants located at the Neude. Find out what could be heard at De Beurs over the years.",
+    "featured-image": "/assets/data-models/stories/20191000013_neude_de-beurs-cafe_introduction/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/26780748"
+      }
+    ],
+    "time-period": {
+      "start": "1624",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000013_neude_de-beurs-cafe_introduction",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_de-beurs-cafe_introduction"
       }
     ]
   },
