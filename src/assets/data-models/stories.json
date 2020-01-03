@@ -776,6 +776,7 @@
     "lang": "en",
     "description": "Peek inside the window of Drogisterij Woortman to see what the mid-nineteenth century looked like. ",
     "featured-image": "/assets/data-models/stories/2019100006_neude_taste_drogisterij-woortman/featured.png",
+    "hidden": true,
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/UU"
@@ -795,6 +796,35 @@
         "@id": "https://utrechttimemachine.nl/stories/2019100006_neude_taste_drogisterij-woortman",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
         "content": "neude_taste_drogisterij-woortman"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20191000014_neude_drogisterij-woortman_introduction",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Drogisterij Woortman, Neude 3",
+    "lang": "en",
+    "description": "Peek inside the window of Drogisterij Woortman to see what the mid-nineteenth century looked like. ",
+    "featured-image": "/assets/data-models/stories/20191000014_neude_drogisterij-woortman_introduction/featured.png",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280936"
+      }
+    ],
+    "time-period": {
+      "start": "1851",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000014_neude_drogisterij-woortman_introduction",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_drogisterij-woortman_introduction"
       }
     ]
   },
