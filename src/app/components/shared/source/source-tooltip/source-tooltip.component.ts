@@ -47,7 +47,8 @@ export class SourceTooltipComponent implements OnInit {
     }
   }
 
-  private shortenText(text: string, maxCharacters: number = 50) {
+  // TODO: consider using a pipe for this instead
+  public shortenText(text: string, maxCharacters: number = 50) {
     return (
       text.substr(0, maxCharacters) + (text.length > maxCharacters ? '...' : '')
     );
