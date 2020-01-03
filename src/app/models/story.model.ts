@@ -36,5 +36,6 @@ export interface Story {
   authors: AuthorId[];
   stations: StationId[];
   'time-period': TimePeriod;
-  seq: Seq[]; // to be defined
+  seq: Seq[]; // to be defined,
+  hidden: boolean; // hide this story in the story view
 }

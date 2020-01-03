@@ -46,11 +46,12 @@ export class StoriesService {
   }
 
   setSelectedStations(selectedStories: Story[]) {
+    selectedStories = selectedStories.filter(story => !story.hidden);
     this.selected.next(selectedStories);
     this.setCurrentlyViewedStory(selectedStories[0]);
   }
 
   selectAll() {
-    this.selected.next(this.all.getValue());
+    this.setSelectedStations(this.all.getValue());
   }
 }
