@@ -92,7 +92,8 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100012_neude_de-liefde-centraal-apotheek_introduction",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
-        "content": "neude_de-liefde-centraal-apotheek_introduction"
+        "content": "neude_de-liefde-centraal-apotheek_introduction",
+        "audio": "/assets/data-models/stories/2019100012_neude_de-liefde-centraal-apotheek_introduction/de-liefdes-centraal-apotheek.m4a"
       }
     ]
   },
