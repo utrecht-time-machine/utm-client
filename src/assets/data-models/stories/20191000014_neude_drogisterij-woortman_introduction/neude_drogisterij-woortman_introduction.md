@@ -40,4 +40,4 @@ Find out more by reading [the extended article](/article;storyId=https:%2F%2Futr
 
 **Figure 4:** Het Utrechtsch Nieuwschblad (1913). _Neemt u in acht, schoone vrouwtjes!._ p.4.
 
-[TODO]: <> (Click here to see the translation.)
+Click [here](/article;storyId=https:%2F%2Futrechttimemachine.nl%2Fstories%2F20191000015_neude_drogisterij-woortman_ad-translation;seqId=https:%2F%2Futrechttimemachine.nl%2Fstories%2F20191000015_neude_drogisterij-woortman_ad-translation) to see the translation.

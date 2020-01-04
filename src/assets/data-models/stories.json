@@ -830,6 +830,36 @@
     ]
   },
   {
+    "@id": "https://utrechttimemachine.nl/stories/20191000015_neude_drogisterij-woortman_ad-translation",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Drogisterij Woortman, Ad Translation",
+    "lang": "en",
+    "description": "The translation of an ad mentioned in the Woortman article",
+    "featured-image": "/assets/data-models/stories/20191000015_neude_drogisterij-woortman_ad-translation/women_ad.jpg",
+    "hidden": true,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280936"
+      }
+    ],
+    "time-period": {
+      "start": "1913",
+      "end": "1913"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000015_neude_drogisterij-woortman_ad-translation",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_drogisterij-woortman_ad-translation"
+      }
+    ]
+  },
+  {
     "@id": "https://utrechttimemachine.nl/stories/2019100007_neude_touch_missing-benches",
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Touch: Missing Benches",
