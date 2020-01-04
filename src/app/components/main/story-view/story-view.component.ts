@@ -16,6 +16,8 @@ export class StoryViewComponent implements OnInit {
   @ViewChild('authorSelect', { static: true }) authorSelect: any;
   @ViewChild('contentSlider', { static: false }) contentSlider: any;
 
+  public SeqType = SeqType;
+
   contentSliderOptions = {
     initialSlide: 0,
   };

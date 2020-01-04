@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Story } from '../models/story.model';
+import { SeqType, Story } from '../models/story.model';
 import { Feature, Point } from 'geojson';
 
 @Injectable({
@@ -39,6 +39,32 @@ export class StoriesService {
 
   getByStoryId(id: string): Story {
     return this.all.getValue().find(story => story['@id'] === id);
+  }
+
+  getStorySequenceTypes(story: Story): SeqType[] {
+    const sequenceTypes: SeqType[] = [];
+
+    story.seq.forEach(seq => {
+      sequenceTypes.push(seq['@type']);
+    });
+
+    return sequenceTypes;
+  }
+
+  storyContainsAudio(story: Story): boolean {
+    let storyHasAudio = false;
+
+    for (const seq of story.seq) {
+      const isArticle = seq['@type'] === SeqType.Article;
+      const seqHasAudio = 'audio' in seq;
+
+      if (isArticle && seqHasAudio) {
+        storyHasAudio = true;
+        break;
+      }
+    }
+
+    return storyHasAudio;
   }
 
   setCurrentlyViewedStory(storyViewed: Story) {
