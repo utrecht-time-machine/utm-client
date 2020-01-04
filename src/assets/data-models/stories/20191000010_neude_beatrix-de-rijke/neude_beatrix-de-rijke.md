@@ -2,7 +2,7 @@
 
 **Today** try to look for the facing brick. It displays the life of “Beatrix de Rijke”. Beatrix (1421-1468) was a foundling. She was found somewhere around Dordrecht. Together with a cat she washed up in a cradle during the St. Elisabeth flood.
 
-![](/assets/data-models/stories/2019100010_neude_beatrix-de-rijke/featured.png)
+![](/assets/data-models/stories/20191000010_neude_beatrix-de-rijke/featured.png)
 
 **Questions:**
 
