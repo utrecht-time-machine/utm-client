@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { tryCatch } from 'rxjs/internal-compatibility';
 import { SourceMetadata } from '../../../../models/source-metadata.model';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'utm-source-tooltip',
@@ -23,7 +24,11 @@ export class SourceTooltipComponent implements OnInit {
   private fadeSpeed = 0.15;
   private hideAfterFading: ReturnType<typeof setTimeout>;
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private elRef: ElementRef,
+    private renderer: Renderer2,
+    public deviceService: DeviceDetectorService
+  ) {}
 
   ngOnInit() {}
 

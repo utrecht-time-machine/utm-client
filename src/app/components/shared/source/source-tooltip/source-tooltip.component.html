@@ -1,9 +1,10 @@
 <div class="source-tooltip">
-  <!--  <ion-icon-->
-  <!--    class="close-source-tooltip-btn"-->
-  <!--    name="close-circle"-->
-  <!--    (click)="setVisibility(false)"-->
-  <!--  ></ion-icon>-->
+  <ion-icon
+    *ngIf="deviceService.isMobile()"
+    class="close-source-tooltip-btn"
+    name="close-circle"
+    (click)="setVisibility(false)"
+  ></ion-icon>
 
   <p *ngIf="metadata?.imageUrl">
     <a [href]="metadata.imageUrl" target="_blank">
