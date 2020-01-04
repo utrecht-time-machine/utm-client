@@ -62,9 +62,7 @@ export class SourceDirective implements OnInit, OnDestroy {
     }
 
     // Create tooltip based on tooltip component
-    const tooltipFactory: ComponentFactory<
-      SourceTooltipComponent
-    > = this.componentFactoryResolver.resolveComponentFactory(
+    const tooltipFactory: ComponentFactory<SourceTooltipComponent> = this.componentFactoryResolver.resolveComponentFactory(
       SourceTooltipComponent
     );
     this.tooltipRef = this.vc.createComponent(tooltipFactory);
@@ -152,10 +150,10 @@ export class SourceDirective implements OnInit, OnDestroy {
   private underlineSource() {
     const elem = this.elRef.nativeElement;
     this.renderer.setStyle(elem, 'text-decoration-line', 'underline');
-    this.renderer.setStyle(elem, 'text-decoration-style', 'dashed'); // solid, wavy, dotted, dashed, double
-    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
     this.renderer.setStyle(elem, 'font-style', 'italic');
     this.renderer.setStyle(elem, 'cursor', 'pointer');
+    this.renderer.setStyle(elem, 'text-decoration-color', '#157dbf');
+    this.renderer.setStyle(elem, 'text-decoration-style', 'double'); // solid, wavy, dotted, dashed, double
   }
 
   @HostListener('mouseenter', ['$event']) onMouseEnter(event: Event) {
