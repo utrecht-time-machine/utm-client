@@ -107,10 +107,16 @@ export class SourcesFromPlaintextService {
     elRef.nativeElement.insertAdjacentHTML('beforeend', html);
 
     // Find source tags
-    const sourceElems = await this.parseSourceHtmlTagsFromPlainText(html);
     const sourceTagsInHtml: NodeList = elRef.nativeElement.querySelectorAll(
       this.sourceTag
     );
+
+    if (sourceTagsInHtml.length === 0) {
+      // No source tags found, so the rendered HTML should suffice
+      return Promise.resolve(true);
+    }
+
+    const sourceElems = await this.parseSourceHtmlTagsFromPlainText(html);
 
     if (sourceTagsInHtml.length !== sourceElems.length) {
       return Promise.reject(
