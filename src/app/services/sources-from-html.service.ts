@@ -13,7 +13,7 @@ import { SourceComponent } from '../components/shared/source/source-component/so
 @Injectable({
   providedIn: 'root',
 })
-export class SourcesFromPlaintextService {
+export class SourcesFromHtmlService {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   private sourceTag = 'utm-source';

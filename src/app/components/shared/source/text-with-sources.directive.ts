@@ -6,7 +6,7 @@ import {
   Renderer2,
   ViewContainerRef,
 } from '@angular/core';
-import { SourcesFromPlaintextService } from '../../../services/sources-from-plaintext.service';
+import { SourcesFromHtmlService } from '../../../services/sources-from-html.service';
 
 @Directive({
   selector: '[utmTextWithSources]',
@@ -15,14 +15,14 @@ export class TextWithSourcesDirective implements OnInit {
   @Input('utmTextWithSources') plainTextWithSources: string;
 
   constructor(
-    private sourcesFromPlainText: SourcesFromPlaintextService,
+    private sourcesFromHtml: SourcesFromHtmlService,
     private elRef: ElementRef,
     private renderer: Renderer2,
     private vc: ViewContainerRef
   ) {}
 
   ngOnInit() {
-    this.sourcesFromPlainText
+    this.sourcesFromHtml
       .renderHtmlWithSources(
         this.renderer,
         this.elRef,

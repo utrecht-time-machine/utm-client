@@ -14,7 +14,7 @@ import { ArticleSeq } from '../../../models/story.model';
 import { StoriesService } from '../../../services/stories.service';
 import { trimStoryId } from '../../../helpers/string.helper';
 import { skipWhile } from 'rxjs/operators';
-import { SourcesFromPlaintextService } from '../../../services/sources-from-plaintext.service';
+import { SourcesFromHtmlService } from '../../../services/sources-from-html.service';
 import { MarkdownService } from 'ngx-markdown';
 
 @Component({
@@ -38,7 +38,7 @@ export class ArticleComponent implements OnInit {
     private location: Location,
     private stories: StoriesService,
     private markdownService: MarkdownService,
-    private sourcesFromPlaintext: SourcesFromPlaintextService,
+    private sourcesFromHtml: SourcesFromHtmlService,
     private renderer: Renderer2,
     private vc: ViewContainerRef
   ) {}
@@ -84,7 +84,7 @@ export class ArticleComponent implements OnInit {
         const compiledHtml = this.markdownService.compile(markdownFile);
 
         // Render HTML with sources
-        this.sourcesFromPlaintext.renderHtmlWithSources(
+        this.sourcesFromHtml.renderHtmlWithSources(
           this.renderer,
           this.articleContentElRef,
           this.vc,
