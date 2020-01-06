@@ -19,77 +19,56 @@ export class SourcesFromPlaintextService {
   private sourceTag = 'utm-source';
   private sourceClosingTagHtml = '</' + this.sourceTag + '>';
 
-  private getSourceOpenTagIndices(plainTextWithSources: string): number[] {
-    return indexes(plainTextWithSources, '<' + this.sourceTag);
-  }
-
-  private getSourceCloseTagIndices(plainTextWithSources: string): number[] {
-    return indexes(plainTextWithSources, this.sourceClosingTagHtml);
-  }
-
   private plainTextContainsValidSourceTags(
     plainTextWithSources: string
   ): boolean {
     // Find the source tag indices
-    const sourceTagOpenIndices = this.getSourceOpenTagIndices(
-      plainTextWithSources
+    const sourceTagOpenIndices = indexes(
+      plainTextWithSources,
+      '<' + this.sourceTag
     );
-    const sourceTagCloseIndices = this.getSourceCloseTagIndices(
-      plainTextWithSources
+    const sourceTagCloseIndices = indexes(
+      plainTextWithSources,
+      this.sourceClosingTagHtml
     );
 
     // Ensure that there are no unclosed or unopened tags
     return sourceTagOpenIndices.length === sourceTagCloseIndices.length;
   }
 
-  public getTextContentsBetweenSourceTags(
-    plainTextWithSources: string,
-    sourceElems: HTMLCollection
-  ): string[] {
-    // Find the source tag indices
-    const sourceTagOpenIndices = this.getSourceOpenTagIndices(
-      plainTextWithSources
+  private createSourceElem(
+    renderer: Renderer2,
+    vc: ViewContainerRef,
+    elRef: ElementRef,
+    sourceText: string,
+    sourceUrl: string
+  ): HTMLElement {
+    // Create the source component factory
+    const sourceFactory: ComponentFactory<SourceComponent> = this.componentFactoryResolver.resolveComponentFactory(
+      SourceComponent
     );
-    const sourceTagCloseIndices = this.getSourceCloseTagIndices(
-      plainTextWithSources
+
+    // Create the source component
+    const sourceTextElem = renderer.createText(sourceText);
+    const sourceComponent: ComponentRef<SourceComponent> = vc.createComponent(
+      sourceFactory,
+      0,
+      undefined,
+      [[sourceTextElem]]
     );
 
-    // Find the text content before and after the source tags
-    const textsBetweenSources: string[] = [];
-    for (
-      let sourceTagIdx = 0;
-      sourceTagIdx <= sourceElems.length;
-      sourceTagIdx++
-    ) {
-      let startIdx = 0;
-      if (sourceTagIdx !== 0) {
-        // This text segment starts after the previous source tag was closed
-        startIdx =
-          sourceTagCloseIndices[sourceTagIdx - 1]
-          + this.sourceClosingTagHtml.length;
-      }
+    // Set source details
+    sourceComponent.instance.sourceUrl = sourceUrl;
 
-      // If the final source tag has been handled, this text segment continues to the end
-      let textLength = plainTextWithSources.length - startIdx;
-      if (sourceTagIdx !== sourceElems.length) {
-        // There are still source tags to be processed
-        // This text segment continues to the next source tag
-        textLength = sourceTagOpenIndices[sourceTagIdx] - startIdx;
-      }
+    // TODO: Find a less hacky way to do this
+    sourceComponent.instance.container = elRef.nativeElement.parentElement;
 
-      // Find the text content of this element
-      const textBetweenSources = plainTextWithSources.substr(
-        startIdx,
-        textLength
-      );
-
-      textsBetweenSources.push(textBetweenSources);
-    }
-
-    return textsBetweenSources;
+    // Create source element
+    const sourceElem: HTMLElement = sourceComponent.location.nativeElement;
+    return sourceElem;
   }
 
-  public parseSourceHtmlTagsFromPlainText(
+  private parseSourceHtmlTagsFromPlainText(
     plainTextWithSources: string
   ): Promise<HTMLCollection> {
     // Parse the text as HTML
@@ -118,51 +97,49 @@ export class SourcesFromPlaintextService {
     return Promise.resolve(sourceElems);
   }
 
-  public renderHtmlWithSources(
+  public async renderHtmlWithSources(
     renderer: Renderer2,
     elRef: ElementRef,
     vc: ViewContainerRef,
-    textsBetweenSources: string[],
-    sourceElems: HTMLCollection
-  ) {
-    for (
-      let sourceTagIdx = 0;
-      sourceTagIdx <= sourceElems.length;
-      sourceTagIdx++
-    ) {
-      // Create the plain text elements between the source tags
-      const textBetweenTags = textsBetweenSources[sourceTagIdx];
-      // TODO: Is there a way to insert this HTML through the renderer directly?
-      elRef.nativeElement.insertAdjacentHTML('beforeend', textBetweenTags);
+    html: string
+  ): Promise<boolean> {
+    // Render original HTML
+    elRef.nativeElement.insertAdjacentHTML('beforeend', html);
 
-      if (sourceTagIdx !== sourceElems.length) {
-        // Create the source component factory
-        const sourceFactory: ComponentFactory<SourceComponent> = this.componentFactoryResolver.resolveComponentFactory(
-          SourceComponent
-        );
+    // Find source tags
+    const sourceElems = await this.parseSourceHtmlTagsFromPlainText(html);
+    const sourceTagsInHtml: NodeList = elRef.nativeElement.querySelectorAll(
+      this.sourceTag
+    );
 
-        // Create the source component
-        const sourceText = sourceElems[sourceTagIdx].textContent;
-        const sourceTextElem = renderer.createText(sourceText);
-        const sourceComponent: ComponentRef<SourceComponent> = vc.createComponent(
-          sourceFactory,
-          0,
-          undefined,
-          [[sourceTextElem]]
-        );
-
-        // Set source details
-        sourceComponent.instance.sourceUrl = sourceElems[
-          sourceTagIdx
-        ].getAttribute('sourceUrl');
-
-        // TODO: Find a less hacky way to do this
-        sourceComponent.instance.container = elRef.nativeElement.parentElement;
-
-        // Add source component to the DOM
-        const sourceElem: HTMLElement = sourceComponent.location.nativeElement;
-        renderer.appendChild(elRef.nativeElement, sourceElem);
-      }
+    if (sourceTagsInHtml.length !== sourceElems.length) {
+      return Promise.reject(
+        'The amount of source tags found in the HTML should match the amount of source tags that were parsed.'
+      );
     }
+
+    for (let sourceIdx = 0; sourceIdx < sourceTagsInHtml.length; sourceIdx++) {
+      // Retrieve source information
+      const sourceUrl = sourceElems[sourceIdx].getAttribute('sourceUrl');
+      const sourceText = sourceElems[sourceIdx].textContent;
+
+      // Create source element
+      const sourceElem = this.createSourceElem(
+        renderer,
+        vc,
+        elRef,
+        sourceText,
+        sourceUrl
+      );
+
+      // Insert source element to DOM
+      const sourceTag: Node = sourceTagsInHtml[sourceIdx];
+      renderer.insertBefore(sourceTag.parentNode, sourceElem, sourceTag);
+
+      // Remove original source tag from DOM
+      renderer.removeChild(sourceTag.parentNode, sourceTag);
+    }
+
+    return Promise.resolve(true);
   }
 }

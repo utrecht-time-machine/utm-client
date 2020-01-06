@@ -1,5 +1,6 @@
 import {
   Component,
+  ContentChildren,
   ElementRef,
   OnInit,
   Renderer2,
@@ -82,26 +83,12 @@ export class ArticleComponent implements OnInit {
         // Compile the markdown to HTML
         const compiledHtml = this.markdownService.compile(markdownFile);
 
-        // Find source elements in the HTML
-        const sourceElems: HTMLCollection = await this.sourcesFromPlaintext.parseSourceHtmlTagsFromPlainText(
-          compiledHtml
-        );
-        const textsBetweenSources = this.sourcesFromPlaintext.getTextContentsBetweenSourceTags(
-          compiledHtml,
-          sourceElems
-        );
-
-        console.log(compiledHtml);
-        console.log(sourceElems);
-        console.log(textsBetweenSources);
-
         // Render HTML with sources
         this.sourcesFromPlaintext.renderHtmlWithSources(
           this.renderer,
           this.articleContentElRef,
           this.vc,
-          textsBetweenSources,
-          sourceElems
+          compiledHtml
         );
       });
   }
