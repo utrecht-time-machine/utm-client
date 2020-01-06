@@ -73,6 +73,7 @@ export class SourceTooltipComponent implements OnInit {
     if (visible) {
       // Show tooltip
       this.renderer.setStyle(elem, 'display', 'block');
+      this.renderer.setStyle(elem, 'z-index', '9999');
       this.isVisible = true;
     } else {
       // Hide tooltip after fadeout
