@@ -32,7 +32,7 @@
       <ion-icon name="document"></ion-icon>
       Name:
     </b>
-    {{ metadata.name }}
+    {{ metadata.name | shortenText: 75 }}
   </p>
 
   <p *ngIf="metadata?.description">
@@ -40,7 +40,7 @@
       <ion-icon name="list"></ion-icon>
       Description:
     </b>
-    {{ metadata.description | shortenText: 50 }}
+    {{ metadata.description | shortenText: 100 }}
   </p>
 
   <p *ngIf="metadata?.author">
@@ -48,7 +48,7 @@
       <ion-icon name="person"></ion-icon>
       Author:
     </b>
-    {{ metadata.author }}
+    {{ metadata.author | shortenText: 50 }}
   </p>
   <p *ngIf="metadata?.creator">
     <b>
