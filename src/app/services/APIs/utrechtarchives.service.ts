@@ -62,36 +62,6 @@ export class UtrechtArchivesService {
     return metadata;
   }
 
-  private parseGeneralMetadata(resopnse): SourceMetadata {
-    // Parse page as HTML
-    const httpParser = new DOMParser();
-    const parsedResponse: Document = httpParser.parseFromString(
-      resopnse,
-      'text/html'
-    );
-
-    // Find the meta tags
-    const metaTags = parsedResponse.getElementsByTagName('meta');
-
-    let title: string, description: string;
-    for (let metaTagIdx = 0; metaTagIdx < metaTags.length; metaTagIdx++) {
-      const metaTag = metaTags[metaTagIdx];
-      if (metaTag.name === 'og:title') {
-        title = metaTag.content;
-      }
-      if (metaTag.name === 'og:description') {
-        description = metaTag.content;
-      }
-    }
-
-    const metadata: SourceMetadata = {
-      name: title,
-      description: description,
-    };
-
-    return metadata;
-  }
-
   private getDateFromDutchDate(dutchDate): Date {
     const dateParts = dutchDate.split('-');
     return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
@@ -101,39 +71,27 @@ export class UtrechtArchivesService {
     archiveGuid: string,
     originalUrl: string
   ): Promise<any> {
-    const params = new HttpParams();
-    const headers = new HttpHeaders();
-
     if (archiveGuid !== originalUrl) {
       // Beeldbank
       const beeldbankResponse = await this.http
         .get(
           `https://webservices.picturae.com/mediabank/media/${archiveGuid}?apiKey=${this.apiKey}`,
-          { params }
+          {}
         )
         .toPromise()
         .catch(err => {
-          // console.warn('Could not retrieve Utrecht Archives data from Beeldbank.');
+          Promise.reject(
+            'Could not retrieve metadata from the Utrecht Archives beeldbank.'
+          );
         });
 
       const beeldbankMetadata = this.parseBeeldbankMetadata(beeldbankResponse);
       return Promise.resolve(beeldbankMetadata);
     }
 
-    // General metadata of page
-    const generalMetadataResponse = await this.http
-      .get(originalUrl, {
-        headers: headers,
-        params: params,
-        responseType: 'text',
-      })
-      .toPromise()
-      .catch(err => {
-        Promise.reject('Could not retrieve Utrecht Archives general metadata.');
-      });
-
-    const generalMetadata = this.parseGeneralMetadata(generalMetadataResponse);
-    return Promise.resolve(generalMetadata);
+    return Promise.reject(
+      'Could not retrieve metadata from the Utrecht Archives.'
+    );
   }
 
   private getGuidByUrl(url: string) {

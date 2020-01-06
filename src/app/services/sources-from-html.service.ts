@@ -52,6 +52,7 @@ export class SourcesFromHtmlService {
       SourceComponent
     );
 
+    // TODO: Extend so a source tag can contain more than one HTML element
     let sourceNode: any = sourceContent.firstChild;
     if (!sourceNode) {
       // If the source has no content, use a default text value
@@ -59,7 +60,6 @@ export class SourcesFromHtmlService {
     }
 
     // Create the source component
-    // TODO: Extend so a source tag can contain more than one HTML element
     const sourceComponent: ComponentRef<SourceComponent> = vc.createComponent(
       sourceFactory,
       0,
