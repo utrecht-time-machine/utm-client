@@ -22,7 +22,7 @@ export class MetadataService {
     const matches = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
     const domain = matches && matches[1];
 
-    // TODO: Properly on the domain here
+    // TODO: Properly match on the domain here
     if (domain.includes('wikidata')) {
       return this.wikidataService.requestByUrl(url);
     } else if (domain.includes('wikipedia')) {
