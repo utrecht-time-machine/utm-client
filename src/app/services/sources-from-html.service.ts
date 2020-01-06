@@ -52,13 +52,19 @@ export class SourcesFromHtmlService {
       SourceComponent
     );
 
+    let sourceNode: any = sourceContent.firstChild;
+    if (!sourceNode) {
+      // If the source has no content, use a default text value
+      sourceNode = renderer.createText('Source');
+    }
+
     // Create the source component
     // TODO: Extend so a source tag can contain more than one HTML element
     const sourceComponent: ComponentRef<SourceComponent> = vc.createComponent(
       sourceFactory,
       0,
       undefined,
-      [[sourceContent.firstChild]]
+      [[sourceNode]]
     );
 
     // Set source details
