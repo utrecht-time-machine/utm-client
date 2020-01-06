@@ -60,8 +60,8 @@ export class UtrechtArchivesService {
     return Promise.resolve(metadata);
   }
 
-  private getDateFromDutchDate(date): Date {
-    const dateParts = date.split('-');
+  private getDateFromDutchDate(dutchDate): Date {
+    const dateParts = dutchDate.split('-');
     return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
   }
 
