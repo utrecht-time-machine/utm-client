@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -6,6 +13,8 @@ import { ArticleSeq } from '../../../models/story.model';
 import { StoriesService } from '../../../services/stories.service';
 import { trimStoryId } from '../../../helpers/string.helper';
 import { skipWhile } from 'rxjs/operators';
+import { SourcesFromPlaintextService } from '../../../services/sources-from-plaintext.service';
+import { MarkdownService } from 'ngx-markdown';
 
 @Component({
   selector: 'utm-article',
@@ -13,6 +22,9 @@ import { skipWhile } from 'rxjs/operators';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
+  @ViewChild('articleContent', { static: false })
+  articleContentElRef: ElementRef;
+
   markdown = 'Loading Article...';
 
   storyId: string;
@@ -23,7 +35,11 @@ export class ArticleComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private location: Location,
-    private stories: StoriesService
+    private stories: StoriesService,
+    private markdownService: MarkdownService,
+    private sourcesFromPlaintext: SourcesFromPlaintextService,
+    private renderer: Renderer2,
+    private vc: ViewContainerRef
   ) {}
 
   ngOnInit() {
@@ -45,12 +61,14 @@ export class ArticleComponent implements OnInit {
     this.stories.all
       .pipe(skipWhile(val => val.length < 1))
       .subscribe(async () => {
+        // Retrieve story article
         const myStory = this.stories.getByStoryId(this.storyId);
         this.seq = myStory.seq.find(seq => {
           return seq['@id'] === this.seqId;
         }) as ArticleSeq;
 
-        this.markdown = await this.http
+        // Retrieve markdown file for this story
+        const markdownFile = await this.http
           .get(
             `assets/data-models/stories/${trimStoryId(myStory['@id'])}/${
               this.seq.content
@@ -60,6 +78,31 @@ export class ArticleComponent implements OnInit {
             }
           )
           .toPromise();
+
+        // Compile the markdown to HTML
+        const compiledHtml = this.markdownService.compile(markdownFile);
+
+        // Find source elements in the HTML
+        const sourceElems: HTMLCollection = await this.sourcesFromPlaintext.parseSourceHtmlTagsFromPlainText(
+          compiledHtml
+        );
+        const textsBetweenSources = this.sourcesFromPlaintext.getTextContentsBetweenSourceTags(
+          compiledHtml,
+          sourceElems
+        );
+
+        console.log(compiledHtml);
+        console.log(sourceElems);
+        console.log(textsBetweenSources);
+
+        // Render HTML with sources
+        this.sourcesFromPlaintext.renderHtmlWithSources(
+          this.renderer,
+          this.articleContentElRef,
+          this.vc,
+          textsBetweenSources,
+          sourceElems
+        );
       });
   }
 }
