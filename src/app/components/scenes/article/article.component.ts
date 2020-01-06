@@ -1,6 +1,5 @@
 import {
   Component,
-  ContentChildren,
   ElementRef,
   OnInit,
   Renderer2,
@@ -8,14 +7,14 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ArticleSeq } from '../../../models/story.model';
 import { StoriesService } from '../../../services/stories.service';
 import { trimStoryId } from '../../../helpers/string.helper';
 import { skipWhile } from 'rxjs/operators';
 import { SourcesFromHtmlService } from '../../../services/sources-from-html.service';
-import { MarkdownService } from 'ngx-markdown';
+import { MarkdownService, MarkedRenderer } from 'ngx-markdown';
 
 @Component({
   selector: 'utm-article',
@@ -57,6 +56,45 @@ export class ArticleComponent implements OnInit {
     this.loadArticle();
   }
 
+  private compileMarkdownToHtml(markdownFileContent: string): string {
+    const compiledHtml = this.markdownService.compile(markdownFileContent);
+
+    const htmlParser = new DOMParser();
+    const parsedHtml: Document = htmlParser.parseFromString(
+      compiledHtml,
+      'text/html'
+    );
+
+    // Make sure we also compile images and other markdown elements inside the source tags
+    const sourceTags = parsedHtml.getElementsByTagName(
+      this.sourcesFromHtml.getSourceTag()
+    );
+    for (
+      let sourceTagIdx = 0;
+      sourceTagIdx < sourceTags.length;
+      sourceTagIdx++
+    ) {
+      const sourceTag = sourceTags[sourceTagIdx];
+
+      // Create custom markdown renderer to prevent the generation of redundant p tags inside the source tags
+      const renderer = new MarkedRenderer();
+      renderer.paragraph = (text: string) => {
+        return text;
+      };
+
+      // Compile HTML inside the source tag
+      sourceTag.innerHTML = this.markdownService.compile(
+        sourceTag.innerHTML,
+        false,
+        {
+          renderer: renderer,
+        }
+      );
+    }
+
+    return parsedHtml.getElementsByTagName('body')[0].innerHTML;
+  }
+
   loadArticle() {
     // check if stories are already loaded; if not, await
     this.stories.all
@@ -69,7 +107,7 @@ export class ArticleComponent implements OnInit {
         }) as ArticleSeq;
 
         // Retrieve markdown file for this story
-        const markdownFile = await this.http
+        const markdownFileContent = await this.http
           .get(
             `assets/data-models/stories/${trimStoryId(myStory['@id'])}/${
               this.seq.content
@@ -81,10 +119,10 @@ export class ArticleComponent implements OnInit {
           .toPromise();
 
         // Compile the markdown to HTML
-        const compiledHtml = this.markdownService.compile(markdownFile);
+        const compiledHtml = this.compileMarkdownToHtml(markdownFileContent);
 
         // Render HTML with sources
-        this.sourcesFromHtml.renderHtmlWithSources(
+        await this.sourcesFromHtml.renderHtmlWithSources(
           this.renderer,
           this.articleContentElRef,
           this.vc,

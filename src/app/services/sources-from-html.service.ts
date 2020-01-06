@@ -19,6 +19,10 @@ export class SourcesFromHtmlService {
   private sourceTag = 'utm-source';
   private sourceClosingTagHtml = '</' + this.sourceTag + '>';
 
+  public getSourceTag() {
+    return this.sourceTag;
+  }
+
   private plainTextContainsValidSourceTags(
     plainTextWithSources: string
   ): boolean {
@@ -40,7 +44,7 @@ export class SourcesFromHtmlService {
     renderer: Renderer2,
     vc: ViewContainerRef,
     elRef: ElementRef,
-    sourceText: string,
+    sourceContent: Node,
     sourceUrl: string
   ): HTMLElement {
     // Create the source component factory
@@ -49,12 +53,12 @@ export class SourcesFromHtmlService {
     );
 
     // Create the source component
-    const sourceTextElem = renderer.createText(sourceText);
+    // TODO: Extend so a source tag can contain more than one HTML element
     const sourceComponent: ComponentRef<SourceComponent> = vc.createComponent(
       sourceFactory,
       0,
       undefined,
-      [[sourceTextElem]]
+      [[sourceContent.firstChild]]
     );
 
     // Set source details
@@ -77,7 +81,6 @@ export class SourcesFromHtmlService {
       plainTextWithSources,
       'text/html'
     );
-
     // Find all the source tags in the HTML
     const sourceElems: HTMLCollection = parsedText.getElementsByTagName(
       this.sourceTag
@@ -124,17 +127,17 @@ export class SourcesFromHtmlService {
       );
     }
 
-    for (let sourceIdx = 0; sourceIdx < sourceTagsInHtml.length; sourceIdx++) {
+    for (let sourceIdx = 0; sourceIdx < sourceElems.length; sourceIdx++) {
       // Retrieve source information
+      const sourceContent: Node = sourceElems[sourceIdx];
       const sourceUrl = sourceElems[sourceIdx].getAttribute('sourceUrl');
-      const sourceText = sourceElems[sourceIdx].textContent;
 
       // Create source element
       const sourceElem = this.createSourceElem(
         renderer,
         vc,
         elRef,
-        sourceText,
+        sourceContent,
         sourceUrl
       );
 
