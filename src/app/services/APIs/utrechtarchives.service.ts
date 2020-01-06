@@ -22,11 +22,6 @@ export class UtrechtArchivesService {
     }
 
     const result = await this.requestData(archiveGuid);
-    if (!result) {
-      return Promise.reject(
-        'Could not get metadata for Utrecht Archives GUID ' + archiveGuid
-      );
-    }
 
     // Parse metadata
     const responseMetadata = result.media[0].metadata;
