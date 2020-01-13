@@ -19,7 +19,7 @@ export class MetadataService {
   private async getOpenGraphMetadata(url: string): Promise<SourceMetadata> {
     // Retrieve page content
     const pageHtml = await this.http
-      .get(url, {
+      .get('https://cors-anywhere.herokuapp.com/' + url, {
         responseType: 'text',
       })
       .toPromise()
