@@ -8,6 +8,8 @@ import { skipWhile } from 'rxjs/operators';
 import { DialogueSeq } from '../../../models/story.model';
 import { StoriesService } from '../../../services/stories.service';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { YarnItem } from '../../../models/yarn-item.model';
 
 @Component({
   selector: 'utm-dialogue',
@@ -28,7 +30,8 @@ export class DialogueComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private renderer: Renderer2,
-    private host: ElementRef
+    private host: ElementRef,
+    private http: HttpClient
   ) {}
 
   async ngOnInit() {
@@ -59,7 +62,10 @@ export class DialogueComponent implements OnInit {
             return seq['@id'] === this.seqId;
           }) as DialogueSeq;
 
-          this.storyPlayer.load(this.seq.yarn);
+          const yarn: YarnItem[] = (await this.http
+            .get(this.seq.yarnUrl)
+            .toPromise()) as YarnItem[];
+          this.storyPlayer.load(yarn);
           resolve();
         });
     });

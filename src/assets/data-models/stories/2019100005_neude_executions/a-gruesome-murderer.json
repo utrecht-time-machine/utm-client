@@ -1,0 +1,492 @@
+[
+  {
+    "title": "The thirteenth of November, 1661",
+    "tags": "",
+    "body": "A gruesome murderer shall again be punished on the scaffold today, read more about it on this pamphlet! God-loving people, you must read it and heed it's message, for God wants to save us from greed and darkness. \n[[ What happened? ]][[ Can I see the pamphlet? ]]\n",
+    "position": {
+      "x": 1955,
+      "y": 207
+    },
+    "colorID": 0
+  },
+  {
+    "title": "What happened?",
+    "tags": "",
+    "body": "Well, I guess I can tell you what happened. Augustijn Vos, and his son Pieter Vos murdered poor Orseltje, the canon's maidservant. All this with the knowledge of their mother, Trijntje Riddersbach! Can you believe it? \n[[ How was she killed? ]]\n",
+    "position": {
+      "x": 2355,
+      "y": 94
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Can I see the pamphlet?",
+    "tags": "",
+    "body": "*The paper boy shows you the pamphlet*\n\n[img]/assets/data-models/stories/2019100005_neude_executions/pamphlet.jpg[/img]\n\n[[ It is very hard to read, could you tell me what happened? | What happened? ]]\n",
+    "position": {
+      "x": 2355,
+      "y": 351
+    },
+    "colorID": 0
+  },
+  {
+    "title": "But why would they kill her?",
+    "tags": "",
+    "body": "For the money, of course. The day before the murder, they heard the canon wanted to buy land. So, the son came up with the idea of killing Orseltje to get the keys to his office, where he presumed the money would be. \n[[ His son came up with the idea? ]][[ When did this happen? ]] [[ Did they succeed in stealing the money?]] \n",
+    "position": {
+      "x": 2963,
+      "y": 234
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Did they succeed in stealing the money?",
+    "tags": "",
+    "body": "No, no no no! You see, the mother was standing guard. Just before they could go into the canon's office, she noticed a disturbance outside the house. She warned them, and they ran off. \n[[ Serves them right! ]][[ What did she hear? ]]\n",
+    "position": {
+      "x": 3698,
+      "y": 382
+    },
+    "colorID": 0
+  },
+  {
+    "title": "His son came up with the idea?",
+    "tags": "",
+    "body": "Yes, Pieter... Arrogant fellow. \n  [[ Did they succeed in stealing the money?]]\n",
+    "position": {
+      "x": 3370,
+      "y": 539
+    },
+    "colorID": 0
+  },
+  {
+    "title": "When did this happen?",
+    "tags": "",
+    "body": "On God's day! Sunday. Somehow, this makes this already horrible crime even worse. Instead of going to church, like any well-behaved citizen would, they murdered a kind, caring soul.\n  [[ Did they succeed in stealing the money?]]\n",
+    "position": {
+      "x": 3381,
+      "y": 135
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Serves them right!",
+    "tags": "",
+    "body": "Yes! How dare they commit a terrible crime such as this, and expect to get away with it. All on God's day, don't forget!\n[[ How long did it take for the murderers to be caught? ]]\n",
+    "position": {
+      "x": 4073,
+      "y": 282
+    },
+    "colorID": 0
+  },
+  {
+    "title": "What did she hear?",
+    "tags": "",
+    "body": "Orseltje's terrified screams were heard. People had started to crowd around the canon's house. \n[[ So they heard Orseltje get murdered? ]]\n",
+    "position": {
+      "x": 4068,
+      "y": 598
+    },
+    "colorID": 0
+  },
+  {
+    "title": "How was she killed?",
+    "tags": "",
+    "body": "The poor girl was strangled to death. They carried her body to the basement and hid it under some peat. Oh, it is so heartbreaking to think about. She was such a lovely girl.\n [[But why would they kill her?]]\n",
+    "position": {
+      "x": 2678,
+      "y": 92
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Start",
+    "tags": "",
+    "body": "[i]It is November 13th, 1661. You see quite a commotion at the square. People are pushing each other, as if trying to get to the front. What are they here to see, you wonder? You hear a voice shout something about a trial, and a cruel murder that had been committed. You walk towards this voice.  [/i] [[ The thirteenth of November, 1661]]\n",
+    "position": {
+      "x": 1572,
+      "y": 201
+    },
+    "colorID": 0
+  },
+  {
+    "title": "How long did it take for the murderers to be caught?",
+    "tags": "",
+    "body": "The key was the innkeeper, who had figured out the whole case from the beginning. He had heard dear Orseltje's screams, you see? Augustijn even begged him not to say anything. Eventually, authorities only got his confession out of him because he figured out Augustijn was trying to frame him for the murder! Such a treacherous and evil man, don't you think? After that, they got the confessions out of each family member. \n[[ What's going to happen to them now? ]]\n",
+    "position": {
+      "x": 4458,
+      "y": 288
+    },
+    "colorID": 0
+  },
+  {
+    "title": "So they heard Orseltje get murdered?",
+    "tags": "",
+    "body": "Not exactly. However, the innkeeper, who happened to be at the scene, had figured it all out. Augustijn even begged him not to say anything to the authorities.\n[[ Did the innkeeper tell them eventually? ]]\n\n",
+    "position": {
+      "x": 4414,
+      "y": 554
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Did the innkeeper tell them eventually?",
+    "tags": "",
+    "body": "Yes, of course. Right after he found out Augustijn was trying to frame him for the murder. Such a Godless soul, that Augustijn. \n[[ What's going to happen to them now? ]]\n",
+    "position": {
+      "x": 4733,
+      "y": 641
+    },
+    "colorID": 0
+  },
+  {
+    "title": "No, I wasn't there.",
+    "tags": "",
+    "body": "Oh, you should have seen it. Justice was served. First, they brought in the wife. She was strangled with the same rope her husband and son used to kill Orseltje. Such a clever way to punish, eh? They then covered her body. I guess so that the husband didn't have to see her dead, so merciful, the people of Utrecht!\n[[ I still can't believe both husband and wife were executed on the same day. ]]\n",
+    "position": {
+      "x": 5177,
+      "y": 434
+    },
+    "colorID": 0
+  },
+  {
+    "title": "What's going to happen to them now?",
+    "tags": "",
+    "body": "Well, the husband and wife were executed yesterday. You mean to tell me you weren't there?\n[[ I was totally there! ]][[ No, I wasn't there. ]] \n",
+    "position": {
+      "x": 4867,
+      "y": 290
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I was totally there!",
+    "tags": "",
+    "body": "Ah, but then you know all about it already.\n[[ Not really... ]][[ Both of them were hanged, right? ]]\n",
+    "position": {
+      "x": 5179,
+      "y": 144
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Not really...",
+    "tags": "",
+    "body": "Huh? But you said you were here yesterday!\n[[ Could you please tell me what happened anyway? ]][[ I was here, but not at the square. ]]\n",
+    "position": {
+      "x": 5507,
+      "y": 78
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Both of them were hanged, right?",
+    "tags": "",
+    "body": "... \nNo. \nThe wife was strangled, and the husband was broken on the wheel. Why would a murderer ever be hanged? That's for thieves and perjurers. \n[[ Oh, it is different where I am from. ]]\n",
+    "position": {
+      "x": 5505,
+      "y": 307
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Oh, it is different where I am from.",
+    "tags": "",
+    "body": "Hm, must be some faraway land. \n[[ Not really. ]][[ Sort of. ]]\n",
+    "position": {
+      "x": 5797,
+      "y": 396
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Not really.",
+    "tags": "",
+    "body": "Hmmm...\n [[Could you please tell me what happened anyway?]]\n",
+    "position": {
+      "x": 6113,
+      "y": 220
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Sort of.",
+    "tags": "",
+    "body": "Hmmm...\n [[Could you please tell me what happened anyway?]]\n",
+    "position": {
+      "x": 6130,
+      "y": -22
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Could you please tell me what happened anyway?",
+    "tags": "",
+    "body": "... Sure thing. First, they brought in the wife. She was strangled with the same rope her husband and son used to kill Orseltje. Such a clever way to punish, eh? They then covered her body. I guess so that the husband didn't have to see her dead, so merciful, the people of Utrecht.\n [[ I still can't believe both husband and wife were executed on the same day.]]\n",
+    "position": {
+      "x": 5813,
+      "y": -101
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I was here, but not at the square.",
+    "tags": "",
+    "body": "I'll tell you what happened then! First, they strangled the wife, with the same rope her husband and son had used to kill Orseltje. Such a clever way to punish, eh? They then covered her body. I guess so that the husband didn't have to see her dead, so merciful, the people of Utrecht.\n[[ I still can't believe both husband and wife were executed on the same day. ]]\n",
+    "position": {
+      "x": 5809,
+      "y": 145
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I still can't believe both husband and wife were executed on the same day.",
+    "tags": "",
+    "body": "That's the thing, neither could he! Upon seeing his wife's discarded mules, he exclaimed: \"Oh, has my wife been killed too?\" As if he didn't know that that was going to happen. Foolish. \n[[ That's terrible. ]][[ And what happened to him? ]]\n",
+    "position": {
+      "x": 5479,
+      "y": 614
+    },
+    "colorID": 0
+  },
+  {
+    "title": "That's terrible.",
+    "tags": "",
+    "body": "What do you mean? It is the perfect punishment for a horrific murder.\n[[ It's brutal. ]][[ I guess. ]]\n",
+    "position": {
+      "x": 5752,
+      "y": 926
+    },
+    "colorID": 0
+  },
+  {
+    "title": "And what happened to him?",
+    "tags": "",
+    "body": "He was broken on the wheel. Afterward, his dead body was put on a wheel in Engelenburg, destined to rot and warn arriving citizens about the consequences of crime. Do you want the details about the execution?\n[[ Yes! ]][[ No, spare me. ]]\n",
+    "position": {
+      "x": 5767,
+      "y": 643
+    },
+    "colorID": 0
+  },
+  {
+    "title": "It's brutal.",
+    "tags": "",
+    "body": "It's necessary. People need to learn that each crime comes with a consequence. If they don't, then horrific incidents like Orseltje's would happen every day. Do you want to end up like Orseltje?\n[[ Of course not. ]]\n",
+    "position": {
+      "x": 6085,
+      "y": 890
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I guess.",
+    "tags": "",
+    "body": "It's necessary. People need to know that each crime comes with a consequence. If they don't, then horrific incidents like Orseltje's would happen every day. Do you want to end up like Orseltje?     \n [[ Of course not.]]\n",
+    "position": {
+      "x": 6081,
+      "y": 1116
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Of course not.",
+    "tags": "",
+    "body": "[i]The paper boy looks satisfied. [/i] Anyway, I am so happy Augustijn got a taste of justice. \n [[ And what happened to him?]]\n\n",
+    "position": {
+      "x": 6421,
+      "y": 1037
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Yes!",
+    "tags": "",
+    "body": "First, he was tied up to the cross. The executioner lightly strangled him, and afterward hit him with a broad blunt ax eleven times. The first two hits were on the head, and the others broke all his limbs. Right here, on my pamphlet, you can see what this looked like. Do you want to see it?\n[[ I would love to. ]][[ No, thank you. ]]\n",
+    "position": {
+      "x": 6102,
+      "y": 656
+    },
+    "colorID": 0
+  },
+  {
+    "title": "No, spare me.",
+    "tags": "",
+    "body": "Hmm, well, I guess you will see his son go through the same quite soon anyway. \n [[What is going to happen to the son?]]\n",
+    "position": {
+      "x": 6051,
+      "y": 435
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I would love to.",
+    "tags": "",
+    "body": "Now, bear in mind: the pamphlet was made before the execution itself so it could be sold here. The drawing does not fully add up to the story I told you. In it, you will see the family being executed together. This is false, however. You must believe me, for I was actually there when it happened! [i]The paper boy shows you a close-up of the pamphlet.[/i] \n\n[img]/assets/data-models/stories/2019100005_neude_executions/zoomed-in-pamphlet.png[/img]\n[[ So, I shouldn't buy the pamphlet? ]][[ That's okay, thank you for showing me. ]]\n",
+    "position": {
+      "x": 6505,
+      "y": 746
+    },
+    "colorID": 0
+  },
+  {
+    "title": "No, thank you.",
+    "tags": "",
+    "body": "That's alright. We worked quite hard on that pamphlet... I guess I am a little too excited about it. \n [[ What is going to happen to the son?]]\n",
+    "position": {
+      "x": 6566,
+      "y": 473
+    },
+    "colorID": 0
+  },
+  {
+    "title": "So, I shouldn't buy the pamphlet?",
+    "tags": "",
+    "body": "Oh, yes you should. We worked quite hard on it...\n [[ What is going to happen to the son?]]\n",
+    "position": {
+      "x": 6856,
+      "y": 734
+    },
+    "colorID": 0
+  },
+  {
+    "title": "That's okay, thank you for showing me.",
+    "tags": "",
+    "body": "No problem!\n[[ What is going to happen to the son? ]]\n",
+    "position": {
+      "x": 6856,
+      "y": 966
+    },
+    "colorID": 0
+  },
+  {
+    "title": "What is going to happen to the son?",
+    "tags": "",
+    "body": "Oh, his fate is the same as his father's. He will be broken on the wheel today and put on display next to Augustijn afterwards. In fact, this is going to happen quite soon. His sentence has already been read at the city hall. His execution is why the whole Neude is packed right now. Yes, all the cities and villages near Utrecht know of the trial and are here to see it. From Amsterdam alone, twelve barges have sailed to Utrecht. Fantastic, isn't it? A bit too crowded for my taste though. Come to think of it, where are you from? You must have come here from far too.\n[[ I'm from Utrecht too. ]][[ I don't want to say where I am from. ]]\n",
+    "position": {
+      "x": 7148,
+      "y": 766
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I'm from Utrecht too.",
+    "tags": "",
+    "body": "Really? I can't say I have ever seen you around.\n[[ I'm sort of a homebody. ]][[ Well, we probably come from different parts of the city. ]]\n",
+    "position": {
+      "x": 7495,
+      "y": 699
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I don't want to say where I am from.",
+    "tags": "",
+    "body": "Heh, a mysterious stranger then? That's fun too.\n[[ I have to get going. Thank you for telling me about the executions. ]]\n",
+    "position": {
+      "x": 7500,
+      "y": 941
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I'm sort of a homebody.",
+    "tags": "",
+    "body": "Ahh, one of those, eh? \n [[ I have to get going. Thank you for telling me about the executions.]]\n",
+    "position": {
+      "x": 8033,
+      "y": 536
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Well, we probably come from different parts of the city.",
+    "tags": "",
+    "body": "That's possible.\n [[ I have to get going. Thank you for telling me about the executions.]]\n",
+    "position": {
+      "x": 7827,
+      "y": 748
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I have to get going. Thank you for telling me about the executions.",
+    "tags": "",
+    "body": "But the execution is about to start! Are you really going to miss this?\n[[ Yes. ]][[ No, I'd like to see what happens. ]]\n",
+    "position": {
+      "x": 7833,
+      "y": 1080
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Yes.",
+    "tags": "",
+    "body": "Alright, well, get home safe. The crowds might be a little rowdy.\n[[ I will, thank you! ]]\n",
+    "position": {
+      "x": 8132,
+      "y": 894
+    },
+    "colorID": 0
+  },
+  {
+    "title": "No, I'd like to see what happens.",
+    "tags": "",
+    "body": "[i]You watch Pieter Vos. He is brought to the scaffold on a wagon. As he was bound to on the cross, he seemed very huffed and tried to reason with the executioner and the priest. But he wasn't heard. The priest is praying for Pieter, who is still being resistant to what is about to befall him. The executioner takes out a broad blunt ax. He rises it above his head as he is about to strike Pieter.[/i]\n[[ [i]You look away.[/i] | You look away ]]][[ [i]You keep watching.[/i] | You keep watching ]]\n",
+    "position": {
+      "x": 8128,
+      "y": 1128
+    },
+    "colorID": 0
+  },
+  {
+    "title": "I will, thank you!",
+    "tags": "",
+    "body": "Goodbye!\n[[ Goodbye! ]][[ See you! ]]\n",
+    "position": {
+      "x": 8415,
+      "y": 898
+    },
+    "colorID": 0
+  },
+  {
+    "title": "Goodbye!",
+    "tags": "",
+    "body": "\n",
+    "position": {
+      "x": 8716,
+      "y": 732
+    },
+    "colorID": 0
+  },
+  {
+    "title": "See you!",
+    "tags": "",
+    "body": "\n",
+    "position": {
+      "x": 8718,
+      "y": 1009
+    },
+    "colorID": 0
+  },
+  {
+    "title": "You look away",
+    "tags": "",
+    "body": "[i]You can't bear to watch them torture his body. You walk away. The paper boy is so engrossed in the show, he doesn't even notice you leaving.[/i] \n",
+    "position": {
+      "x": 8457,
+      "y": 1155
+    },
+    "colorID": 0
+  },
+  {
+    "title": "You keep watching",
+    "tags": "",
+    "body": "[i]He first gets hit on the head a few times. Then, the executioner moves on to his limbs. He keeps striking until you are sure there is not an unbroken bone left in his body. The crowd is loving it. You are loving it much less. Eventually, he is nothing but a mangled, lifeless, body. You decide to walk away.[/i] \n",
+    "position": {
+      "x": 8454,
+      "y": 1400
+    },
+    "colorID": 0
+  }
+]

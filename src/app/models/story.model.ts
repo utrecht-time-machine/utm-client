@@ -23,7 +23,7 @@ export interface DialogueSeq extends Seq {
   background: {
     image: string; // URL
   };
-  yarn: YarnItem[];
+  yarnUrl: string;
 }
 
 export interface Story {
