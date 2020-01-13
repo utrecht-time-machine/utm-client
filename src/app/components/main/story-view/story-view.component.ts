@@ -67,5 +67,6 @@ export class StoryViewComponent implements OnInit {
 
   selectedAuthorsChanged(newAuthorIds: string[]) {
     this.authors.selectAuthors(newAuthorIds);
+    this.stories.updateSelectedStories();
   }
 }

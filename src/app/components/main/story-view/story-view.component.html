@@ -18,7 +18,7 @@
           #contentSlider
         >
           <!-- No stories found in this area -->
-          <ion-slide *ngIf="stories.selected.value.length == 0">
+          <ion-slide *ngIf="stories.filtered.value.length == 0">
             <ion-card>
               <img
                 alt="No stories found in this area"
@@ -39,7 +39,7 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          <ion-slide *ngFor="let story of stories.selected | async">
+          <ion-slide *ngFor="let story of stories.filtered | async">
             <ion-card (click)="startStory(story)">
               <!-- Story types -->
               <div class="story-type-chip-container">

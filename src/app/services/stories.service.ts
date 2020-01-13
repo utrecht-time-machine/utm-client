@@ -3,6 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SeqType, Story } from '../models/story.model';
 import { Feature, Point } from 'geojson';
+import { Author } from '../models/author.model';
+import { AuthorsService } from './authors.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +12,13 @@ import { Feature, Point } from 'geojson';
 export class StoriesService {
   all: BehaviorSubject<Story[]>;
   selected: BehaviorSubject<Story[]>;
+  filtered: BehaviorSubject<Story[]>;
   currentlyViewed: BehaviorSubject<Story>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authors: AuthorsService) {
     this.all = new BehaviorSubject<any[]>([]);
     this.selected = new BehaviorSubject<any[]>([]);
+    this.filtered = new BehaviorSubject<any[]>([]);
     this.currentlyViewed = new BehaviorSubject<Story>(null);
     this.update();
   }
@@ -25,6 +29,7 @@ export class StoriesService {
       .toPromise();
     this.all.next(stories);
     this.selected.next([]); // Reset, in case the current selection contains deleted items
+    this.filtered.next([]); // Reset, in case the current selection contains deleted items
     this.currentlyViewed.next(null);
   }
 
@@ -74,7 +79,33 @@ export class StoriesService {
   setSelectedStations(selectedStories: Story[]) {
     selectedStories = selectedStories.filter(story => !story.hidden);
     this.selected.next(selectedStories);
+
+    // Filter selected stories on author
+    const filteredStories = this.getFilteredStoriesByAuthorIds(
+      selectedStories,
+      this.authors.selected.getValue()
+    );
+    this.filtered.next(filteredStories);
+
     this.setCurrentlyViewedStory(selectedStories[0]);
+  }
+
+  updateSelectedStories() {
+    this.setSelectedStations(this.selected.getValue());
+  }
+
+  private getFilteredStoriesByAuthorIds(
+    selectedStories: Story[],
+    selectedAuthors: Author[]
+  ): Story[] {
+    const selectedAuthorIds: string[] = selectedAuthors.map(author => {
+      return author['@id'];
+    });
+    const isAuthorIdSelected = authorId =>
+      selectedAuthorIds.includes(authorId['@id']);
+    const isStorySelectedByAuthor = story =>
+      story.authors.some(authorId => isAuthorIdSelected(authorId));
+    return selectedStories.filter(isStorySelectedByAuthor);
   }
 
   selectAll() {
