@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthorsService } from '../../../services/authors.service';
 import { StoriesService } from '../../../services/stories.service';
 import { Router } from '@angular/router';
-import { Story, SeqType } from '../../../models/story.model';
+import { SeqType, Story } from '../../../models/story.model';
 import { Plugins } from '@capacitor/core';
+import { TimePeriod } from '../../../models/time-period.model';
+import { TimePeriodService } from '../../../services/time-period.service';
 
 const { Browser } = Plugins;
 
@@ -29,6 +31,7 @@ export class StoryViewComponent implements OnInit {
   constructor(
     public authors: AuthorsService,
     public stories: StoriesService,
+    public timePeriod: TimePeriodService,
     private route: Router
   ) {}
 
@@ -65,8 +68,20 @@ export class StoryViewComponent implements OnInit {
     this.authorSelect.open();
   }
 
-  selectedAuthorsChanged(newAuthorIds: string[]) {
+  onSelectedAuthorsChanged($event) {
+    const newAuthorIds: string[] = $event.target.value;
     this.authors.selectAuthors(newAuthorIds);
-    this.stories.updateSelectedStories();
+  }
+
+  onTimeRangeChanged($event) {
+    const newTimePeriodYears: { lower: number; upper: number } =
+      $event.target.value;
+    const startYear: string = newTimePeriodYears.lower.toString();
+    const endYear: string = newTimePeriodYears.upper.toString();
+
+    this.timePeriod.filterRange.next({
+      start: new Date(startYear),
+      end: new Date(endYear),
+    });
   }
 }

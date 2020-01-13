@@ -5,6 +5,8 @@ import { SeqType, Story } from '../models/story.model';
 import { Feature, Point } from 'geojson';
 import { Author } from '../models/author.model';
 import { AuthorsService } from './authors.service';
+import { TimePeriod } from '../models/time-period.model';
+import { TimePeriodService } from './time-period.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +17,24 @@ export class StoriesService {
   filtered: BehaviorSubject<Story[]>;
   currentlyViewed: BehaviorSubject<Story>;
 
-  constructor(private http: HttpClient, private authors: AuthorsService) {
+  constructor(
+    private http: HttpClient,
+    private authors: AuthorsService,
+    private timePeriod: TimePeriodService
+  ) {
     this.all = new BehaviorSubject<any[]>([]);
     this.selected = new BehaviorSubject<any[]>([]);
     this.filtered = new BehaviorSubject<any[]>([]);
     this.currentlyViewed = new BehaviorSubject<Story>(null);
+
+    this.authors.selected.subscribe(() => {
+      this.updateSelectedStories();
+    });
+
+    this.timePeriod.filterRange.subscribe(() => {
+      this.updateSelectedStories();
+    });
+
     this.update();
   }
 
@@ -27,6 +42,18 @@ export class StoriesService {
     const stories: any = await this.http
       .get('assets/data-models/stories.json')
       .toPromise();
+
+    // Parse date strings
+    stories.map((story, idx) => {
+      story['time-period'].start = new Date(story['time-period'].start);
+      if (story['time-period'].start < this.timePeriod.earliestDate) {
+        this.timePeriod.earliestDate = story['time-period'].start;
+      }
+
+      story['time-period'].end = new Date(story['time-period'].end);
+      stories[idx] = story;
+    });
+
     this.all.next(stories);
     this.selected.next([]); // Reset, in case the current selection contains deleted items
     this.filtered.next([]); // Reset, in case the current selection contains deleted items
@@ -80,24 +107,70 @@ export class StoriesService {
     selectedStories = selectedStories.filter(story => !story.hidden);
     this.selected.next(selectedStories);
 
-    // Filter selected stories on author
-    const filteredStories = this.getFilteredStoriesByAuthorIds(
+    // Filter selected stories
+    const filteredStoriesByAuthor = this.getFilteredStoriesByAuthorIds(
       selectedStories,
       this.authors.selected.getValue()
+    );
+    const filteredStories = this.getFilteredStoriesByTimePeriod(
+      filteredStoriesByAuthor,
+      this.timePeriod.filterRange.getValue()
     );
     this.filtered.next(filteredStories);
 
     this.setCurrentlyViewedStory(selectedStories[0]);
   }
 
-  updateSelectedStories() {
+  private updateSelectedStories() {
     this.setSelectedStations(this.selected.getValue());
+  }
+
+  private isStoryInTimePeriod(story: Story, timePeriod: TimePeriod): boolean {
+    const storyTimePeriod: TimePeriod = story['time-period'];
+
+    const storyHasStartDate = !isNaN(storyTimePeriod.start.getTime());
+    const storyHasEndDate = !isNaN(storyTimePeriod.end.getTime());
+
+    const storyStartsInTimePeriod =
+      story['time-period'].start >= timePeriod.start;
+    const storyEndsInTimePeriod = story['time-period'].end <= timePeriod.end;
+
+    if (storyHasStartDate && storyHasEndDate) {
+      // Story has both a start and an end date
+      return storyStartsInTimePeriod && storyEndsInTimePeriod;
+    } else if (storyHasStartDate && !storyHasEndDate) {
+      // Story only has start date
+      return storyStartsInTimePeriod;
+    } else if (storyHasEndDate && !storyHasStartDate) {
+      // Story only has end date
+      return storyEndsInTimePeriod;
+    }
+
+    // Story only has no valid dates
+    return true;
+  }
+
+  private getFilteredStoriesByTimePeriod(
+    selectedStories: Story[],
+    timePeriod: TimePeriod
+  ): Story[] {
+    if (!timePeriod || selectedStories.length === 0) {
+      return selectedStories;
+    }
+
+    return selectedStories.filter(story =>
+      this.isStoryInTimePeriod(story, timePeriod)
+    );
   }
 
   private getFilteredStoriesByAuthorIds(
     selectedStories: Story[],
     selectedAuthors: Author[]
   ): Story[] {
+    if (!selectedAuthors || selectedStories.length === 0) {
+      return selectedStories;
+    }
+
     const selectedAuthorIds: string[] = selectedAuthors.map(author => {
       return author['@id'];
     });

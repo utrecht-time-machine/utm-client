@@ -92,8 +92,10 @@
               <ion-card-header>
                 <ion-card-title>{{ story['title'] }}</ion-card-title>
                 <ion-card-subtitle
-                  >{{ story['time-period']['start'] }} -
-                  {{ story['time-period']['end'] }}</ion-card-subtitle
+                  >{{ story['time-period']['start'].getFullYear() }} -
+                  {{
+                    story['time-period']['end'].getFullYear()
+                  }}</ion-card-subtitle
                 >
               </ion-card-header>
               <ion-card-content [utmTextWithSources]="story['description']">
@@ -118,7 +120,7 @@
           multiple
           [interfaceOptions]="authorSelectionOptions"
           placeholder="Select authors..."
-          (ionChange)="selectedAuthorsChanged($event.target.value)"
+          (ionChange)="onSelectedAuthorsChanged($event)"
           [hidden]="true"
           #authorSelect
         >
@@ -168,12 +170,13 @@
           id="time-range"
           dual-knobs
           pin
-          min="1900"
-          max="2019"
-          value="2019"
+          min="{{ this.timePeriod.earliestDate.getFullYear() }}"
+          max="{{ this.timePeriod.latestDate.getFullYear() }}"
+          value="{{ this.timePeriod.latestDate.getFullYear() }}"
           steps="1"
           snaps
           color="dark"
+          (ionChange)="onTimeRangeChanged($event)"
         >
           <ion-icon slot="start" size="small" name="time"></ion-icon>
           <ion-icon slot="end" name="time"></ion-icon>
