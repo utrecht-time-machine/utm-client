@@ -24,6 +24,18 @@
   margin-bottom: 13px;
 }
 
+.story-author {
+  white-space: nowrap; // Keep logo and text together
+  margin-right: 10px;
+}
+
+.story-author-logo-img {
+  display: inline-block;
+  width: auto;
+  height: 10px;
+  margin-right: 3px !important;
+}
+
 .story-type-chip-container {
   position: absolute;
   top: 5px;

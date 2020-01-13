@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Author } from '../models/author.model';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,16 @@ export class AuthorsService {
       }
     });
     this.selected.next(selectedAuthors);
+  }
+
+  public getAuthorById(authorId: string): Author {
+    const authors: Author[] = this.all.getValue();
+    for (const author of authors) {
+      if (author['@id'] === authorId) {
+        return author;
+      }
+    }
+
+    return undefined;
   }
 }

@@ -98,7 +98,28 @@
                   }}</ion-card-subtitle
                 >
               </ion-card-header>
-              <ion-card-content [utmTextWithSources]="story['description']">
+              <ion-card-content>
+                <div [utmTextWithSources]="story['description']"></div>
+
+                <div class="story-authors ion-margin-top">
+                  <small
+                    class="story-author"
+                    *ngFor="let storyAuthor of story.authors"
+                  >
+                    <img
+                      [src]="
+                        this.authors.getAuthorById(storyAuthor['@id']).logo
+                      "
+                      [alt]="
+                        this.authors.getAuthorById(storyAuthor['@id']).name
+                      "
+                      class="story-author-logo-img"
+                    />
+                    <span>{{
+                      this.authors.getAuthorById(storyAuthor['@id']).name
+                    }}</span>
+                  </small>
+                </div>
               </ion-card-content>
             </ion-card>
           </ion-slide>
