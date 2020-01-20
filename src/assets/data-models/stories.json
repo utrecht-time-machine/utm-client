@@ -43,7 +43,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Public restroom, on the corner of the old post office",
     "lang": "en",
-    "description": "Yes, that's right. On the Neude stood a public restroom with facilities for men and women. What happened to it? And what happened in it?",
+    "description": "Yes, that's right. On the Neude stood a <utm-source sourceUrl=\"http://www.documentatie.org/uds4/dbdropdownvolgende.asp?start=2&search=Utrecht%20-%20Neude%20-%20openbaar%20toilet%20-%20gesloopt%201926&zoekmethode=6\">public restroom</utm-source> with facilities for men and women. What happened to it? And what happened in it?",
     "featured-image": "/assets/data-models/stories/2019100001_neude_smell_public_restroom/featured.jpg",
     "authors": [
       {

@@ -89,6 +89,18 @@ export class MetadataService {
       return await this.utrechtArchivesService
         .requestByUrl(url)
         .catch(err => this.getOpenGraphMetadata(url));
+    } else if (domain.includes('documentatie.org')) {
+      const metadata: SourceMetadata = {
+        name: 'Neude Public Restroom',
+        creator: 'Jean Penders',
+        description:
+          'A clickable photograph of the public restroom that once stood at the Neude.',
+        earliestDate: new Date('1905'),
+        latestDate: new Date('1915'),
+        imageUrl:
+          'https://preserve3.archieven.nl/proxy/fonc-hua/Beeldbank/xNegatieven/X80001-X90000/X81701-X81800/X81766%20-%20818061.jpg',
+      };
+      return Promise.resolve(metadata);
     } else {
       // console.warn('Could not match domain ' + domain + ' with any known domains.');
 
