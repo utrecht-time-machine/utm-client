@@ -1,0 +1,46 @@
+#timeslider-wrapper {
+  background-color: #f5f2d8;
+  min-height: 100%;
+  padding: 20px;
+  position: relative;
+  font-family: 'Playfair Displaya', serif;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  background-image: url('src/assets/img/subtle-patterns/paper_3.png');
+  background-blend-mode: lighten;
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+#timeslider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: calc(100vw / 16 * 9);
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#phone {
+  position: absolute;
+  background-image: url('/assets/img/time-sliders/phone.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 453px;
+  height: 640px;
+}
+
+#screen {
+  position: absolute;
+  top: 90px;
+  left: 95px;
+  right: 93px;
+  bottom: 83px;
+  background-size: 100vw auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+}
