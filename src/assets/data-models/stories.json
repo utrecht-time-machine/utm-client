@@ -260,6 +260,9 @@
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/UU"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/authors/CentraalMuseum"
       }
     ],
     "stations": [

@@ -55,6 +55,17 @@
                   <ion-label>Article</ion-label>
                 </ion-chip>
                 <ion-chip
+                  *ngIf="
+                    stories
+                      .getStorySequenceTypes(story)
+                      .includes(SeqType.TimeSlider)
+                  "
+                  class="story-type-chip"
+                >
+                  <ion-icon name="clock"></ion-icon>
+                  <ion-label>Time Slider</ion-label>
+                </ion-chip>
+                <ion-chip
                   *ngIf="stories.storyContainsAudio(story)"
                   class="story-type-chip"
                 >
