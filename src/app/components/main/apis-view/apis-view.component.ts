@@ -10,16 +10,16 @@ import { ApiSearchFilter } from '../../../models/api-search/api-search-filter.mo
   styleUrls: ['./apis-view.component.scss'],
 })
 export class ApisViewComponent implements OnInit {
-  private queryString = '';
-  private queryResults: ApiSearchResponse[] = [];
-  private querying = false;
+  queryString = '';
+  queryResults: ApiSearchResponse[] = [];
+  querying = false;
 
-  private maxQueryResults = 10;
-  private onlyQueryImages = false;
+  maxQueryResults = 10;
+  onlyQueryImages = false;
 
-  private sources: ApiSearchSource[] = [];
-  private selectedSourceIds: string[] = [];
-  private sourceSelectionOptions: any = {
+  sources: ApiSearchSource[] = [];
+  selectedSourceIds: string[] = [];
+  sourceSelectionOptions: any = {
     header: 'Sources',
   };
 
