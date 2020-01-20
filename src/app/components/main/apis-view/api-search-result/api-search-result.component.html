@@ -1,9 +1,32 @@
-<p>
+<ion-card class="search-result-card">
   <img
     *ngIf="searchResult.imageUrl"
     [src]="searchResult.imageUrl"
     [alt]="searchResult.title"
     class="search-result-img"
   />
-  {{ searchResult.title }} - {{ searchResult.description }}
-</p>
+  <ion-card-header>
+    <ion-card-title>{{ searchResult.title }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <!-- Authors -->
+    <p *ngIf="searchResult.authors && searchResult.authors.length !== 0">
+      <em
+        >By
+        <span *ngFor="let author of searchResult.authors; let i = index">
+          {{ author }}
+          <span *ngIf="i !== searchResult.authors.length - 1">, </span>
+        </span>
+      </em>
+    </p>
+    <!-- Description -->
+    <p *ngIf="searchResult.description">
+      {{ searchResult.description | shortenText: 150 }}
+    </p>
+
+    <!-- Collection -->
+    <small *ngIf="searchResult.collection">
+      Collection: {{ searchResult.collection }}
+    </small>
+  </ion-card-content>
+</ion-card>

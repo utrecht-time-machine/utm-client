@@ -8,9 +8,9 @@ import { ApiSearchResponse } from '../../../models/api-search-response.model';
   styleUrls: ['./apis-view.component.scss'],
 })
 export class ApisViewComponent implements OnInit {
-  private queryString = 'Test';
+  private queryString = 'Utrecht';
 
-  private queryResults: ApiSearchResponse[];
+  private queryResults: ApiSearchResponse[] = [];
 
   constructor(private openCultuurData: OpenCultuurDataService) {}
 
@@ -19,12 +19,16 @@ export class ApisViewComponent implements OnInit {
       return;
     }
 
-    this.getQueryResults(this.queryString);
+    this.executeQuery();
   }
 
-  private async getQueryResults(query: string) {
-    this.queryResults = await this.openCultuurData.searchAllCollections(query);
+  private async executeQuery() {
+    this.queryResults = await this.openCultuurData.searchAllCollections(
+      this.queryString
+    );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.executeQuery();
+  }
 }
