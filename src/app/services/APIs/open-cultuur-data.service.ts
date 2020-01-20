@@ -13,7 +13,7 @@ export class OpenCultuurDataService {
   // TODO: Stop using CORS anywhere here, we should be able to make POST requests to the API with the right headers
   private readonly apiUrl =
     'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/search';
-  private readonly apiSourcedUrl =
+  private readonly apiSourcesUrl =
     'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/sources';
 
   constructor(private http: HttpClient) {}
@@ -57,9 +57,7 @@ export class OpenCultuurDataService {
   }
 
   async getAllSources(): Promise<ApiSearchSource[]> {
-    const result = await this.http
-      .get('http://api.opencultuurdata.nl/v0/sources')
-      .toPromise();
+    const result = await this.http.get(this.apiSourcesUrl).toPromise();
     if (!result['sources']) {
       return Promise.reject(
         'Could not retrieve sources from Open Cultuur Data'
