@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthorsService } from '../../../services/authors.service';
 import { StoriesService } from '../../../services/stories.service';
 import { Router } from '@angular/router';
-import { SeqType, Story } from '../../../models/story.model';
+import { SeqType, Story, TimeSliderSeq } from '../../../models/story.model';
 import { Plugins } from '@capacitor/core';
 import { TimePeriod } from '../../../models/time-period.model';
 import { TimePeriodService } from '../../../services/time-period.service';
@@ -59,6 +59,11 @@ export class StoryViewComponent implements OnInit {
       ]);
     } else if (firstSeqItem['@type'] === SeqType.External) {
       Browser.open({ url: firstSeqItem['content'] });
+    } else if (firstSeqItem['@type'] === SeqType.TimeSlider) {
+      this.route.navigate([
+        '/timeslider',
+        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+      ]);
     } else {
       console.error('Unsupported story type', firstSeqItem['@type']);
     }

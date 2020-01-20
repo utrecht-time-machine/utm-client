@@ -12,7 +12,7 @@ import {
   selector: '[utmTimeSlider]',
 })
 export class TimeSliderDirective implements OnInit, OnDestroy {
-  @Input() currentImageUrl;
+  @Input() presentImageUrl;
   @Input() historicalImageUrl;
 
   private phoneEl: ElementRef;
@@ -20,14 +20,21 @@ export class TimeSliderDirective implements OnInit, OnDestroy {
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) {}
 
-  ngOnInit() {
-    // Set background image
+  updateImages() {
     this.renderer.setStyle(
       this.elRef.nativeElement,
       'background-image',
-      "url('" + this.currentImageUrl + "')"
+      "url('" + this.presentImageUrl + "')"
     );
 
+    this.renderer.setStyle(
+      this.screenEl,
+      'background-image',
+      "url('" + this.historicalImageUrl + "')"
+    );
+  }
+
+  ngOnInit() {
     // Create phone
     this.phoneEl = this.renderer.createElement('div');
     this.phoneEl.nativeElement = this.phoneEl;
@@ -39,15 +46,12 @@ export class TimeSliderDirective implements OnInit, OnDestroy {
     this.screenEl.nativeElement = this.screenEl;
 
     this.renderer.setAttribute(this.screenEl, 'id', 'screen');
-    this.renderer.setStyle(
-      this.screenEl,
-      'background-image',
-      "url('" + this.historicalImageUrl + "')"
-    );
     this.renderer.appendChild(this.phoneEl, this.screenEl);
 
     // Add phone to screen
     this.renderer.appendChild(this.elRef.nativeElement, this.phoneEl);
+
+    this.updateImages();
   }
 
   @HostListener('mousemove', ['$event']) onHover(event: Event) {

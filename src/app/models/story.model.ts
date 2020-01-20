@@ -7,6 +7,7 @@ export enum SeqType {
   Article = 'https://utrechttimemachine.nl/scene-types/article',
   Dialogue = 'https://utrechttimemachine.nl/scene-types/dialogue',
   External = 'https://utrechttimemachine.nl/scene-types/external',
+  TimeSlider = 'https://utrechttimemachine.nl/scene-types/time-slider',
 }
 
 export interface Seq {
@@ -18,12 +19,18 @@ export interface ArticleSeq extends Seq {
   content: string; // contains URL to markdown file
   audio: string; // url
 }
+
 export interface DialogueSeq extends Seq {
   'color-scheme'?: string;
   background: {
     image: string; // URL
   };
   yarnUrl: string;
+}
+
+export interface TimeSliderSeq extends Seq {
+  historicalImageUrl: string;
+  presentImageUrl: string;
 }
 
 export interface Story {

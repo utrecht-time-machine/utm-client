@@ -251,6 +251,36 @@
     ]
   },
   {
+    "@id": "https://utrechttimemachine.nl/stories/20191000017_neude_timeslider",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Neude Timeslider: 1618 - 2018",
+    "lang": "en",
+    "description": "Go back in time, and discover 400 years of Neude history.",
+    "featured-image": "/assets/data-models/stories/20191000017_neude_timeslider/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/6497347541"
+      }
+    ],
+    "time-period": {
+      "start": "1618",
+      "end": "2018"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000017_neude_timeslider",
+        "@type": "https://utrechttimemachine.nl/scene-types/time-slider",
+        "historicalImageUrl": "/assets/data-models/stories/20191000017_neude_timeslider/history.jpg",
+        "presentImageUrl": "/assets/data-models/stories/20191000017_neude_timeslider/bg.jpg"
+      }
+    ]
+  },
+  {
     "@id": "http://histomap.eu/2016/08/19/de-zuivelmarkt-op-de-bakkerbrug/",
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
