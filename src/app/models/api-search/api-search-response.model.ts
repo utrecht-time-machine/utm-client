@@ -7,4 +7,5 @@ export interface ApiSearchResponse {
   imageUrl?: string;
   collection?: string;
   originalUrl?: string;
+  notes?: string[];
 }

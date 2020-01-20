@@ -1,7 +1,4 @@
-<ion-card
-  class="search-result-card"
-  (click)="onResultClick(searchResult.originalUrl)"
->
+<ion-card class="search-result-card">
   <img
     *ngIf="searchResult.imageUrl"
     [src]="searchResult.imageUrl"
@@ -27,9 +24,25 @@
       {{ searchResult.description | shortenText: 150 }}
     </p>
 
+    <!-- Notes -->
+    <div *ngIf="searchResult.notes">
+      <hr />
+      <p class="ion-no-margin">Notes:</p>
+      <ol class="ion-no-margin ion-margin-bottom">
+        <li *ngFor="let note of searchResult.notes">
+          {{ note }}
+        </li>
+      </ol>
+    </div>
+
     <!-- Collection -->
     <small *ngIf="searchResult.collection">
-      Collection: {{ searchResult.collection }}
+      Collection:
+      <a
+        [href]="searchResult.originalUrl ? searchResult.originalUrl : '#'"
+        target="_blank"
+        >{{ searchResult.collection }}</a
+      >
     </small>
   </ion-card-content>
 </ion-card>

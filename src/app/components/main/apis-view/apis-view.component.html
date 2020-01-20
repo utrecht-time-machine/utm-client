@@ -1,26 +1,75 @@
 <ion-content>
-  <ion-searchbar
-    [(ngModel)]="queryString"
-    (ionChange)="onQueryInputChange($event)"
-    placeholder="Enter Input"
-    animated
-  ></ion-searchbar>
+  <ion-grid>
+    <!-- Search input -->
+    <ion-row>
+      <ion-col size="12" size-sm>
+        <ion-searchbar
+          [(ngModel)]="queryString"
+          (ionChange)="onQueryInputChange($event)"
+          placeholder="Enter Input"
+          animated
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
 
-  <div class="ion-text-center">
-    <ion-spinner id="loading-results-spinner" *ngIf="querying"></ion-spinner>
-  </div>
+    <!-- Search filters -->
+    <ion-row>
+      <ion-col size="12" size-sm>
+        <ion-item>
+          <ion-label>Max amount results:</ion-label>
+          <ion-input
+            type="number"
+            (ionChange)="onQueryInputChange($event)"
+            [(ngModel)]="maxQueryResults"
+          >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" size-sm>
+        <ion-item>
+          <ion-label>Selected sources:</ion-label>
+          <ion-select
+            multiple
+            [interfaceOptions]="sourceSelectionOptions"
+            [(ngModel)]="selectedSourceIds"
+            placeholder="Sources..."
+            (ionChange)="onSelectedSourcesChanged($event)"
+          >
+            <ion-select-option
+              *ngFor="let source of sources"
+              [value]="source.id"
+            >
+              {{ source.name }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-  <utm-api-search-result
-    *ngFor="let queryResult of queryResults"
-    [searchResult]="queryResult"
-  ></utm-api-search-result>
+    <!-- Search Results -->
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <ion-spinner
+            id="loading-results-spinner"
+            *ngIf="querying"
+          ></ion-spinner>
+        </div>
 
-  <utm-api-search-result
-    *ngIf="!querying && queryResults.length === 0"
-    [searchResult]="{
-      '@id': undefined,
-      title: 'No results found',
-      description: 'No results were found for this search term.'
-    }"
-  ></utm-api-search-result>
+        <utm-api-search-result
+          *ngFor="let queryResult of queryResults"
+          [searchResult]="queryResult"
+        ></utm-api-search-result>
+
+        <utm-api-search-result
+          *ngIf="!querying && queryResults.length === 0"
+          [searchResult]="{
+            '@id': undefined,
+            title: 'No results found',
+            description: 'No results were found for these search criteria.'
+          }"
+        ></utm-api-search-result>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

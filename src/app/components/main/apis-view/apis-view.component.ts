@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenCultuurDataService } from '../../../services/APIs/open-cultuur-data.service';
-import { ApiSearchResponse } from '../../../models/api-search-response.model';
+import { ApiSearchResponse } from '../../../models/api-search/api-search-response.model';
+import { ApiSearchSource } from '../../../models/api-search/api-search-source.model';
 
 @Component({
   selector: 'utm-apis-view',
@@ -12,9 +13,21 @@ export class ApisViewComponent implements OnInit {
   private queryResults: ApiSearchResponse[] = [];
   private querying = false;
 
+  private maxQueryResults = 10;
+
+  private sources: ApiSearchSource[] = [];
+  private selectedSourceIds: string[] = [];
+  private sourceSelectionOptions: any = {
+    header: 'Sources',
+  };
+
   constructor(private openCultuurData: OpenCultuurDataService) {}
 
   onQueryInputChange($event: Event) {
+    this.executeQuery();
+  }
+
+  onSelectedSourcesChanged($event: Event) {
     this.executeQuery();
   }
 
@@ -29,12 +42,16 @@ export class ApisViewComponent implements OnInit {
     this.queryResults = [];
 
     this.openCultuurData
-      .searchAllCollections(this.queryString)
+      .getQueryResults(
+        this.queryString,
+        this.maxQueryResults,
+        this.selectedSourceIds
+      )
       .then(results => {
         this.querying = false;
         this.queryResults = results;
 
-        console.log(this.queryResults);
+        // console.log(this.queryResults);
       })
       .catch(error => {
         this.querying = false;
@@ -44,5 +61,9 @@ export class ApisViewComponent implements OnInit {
 
   ngOnInit() {
     this.executeQuery();
+
+    this.openCultuurData.getAllSources().then(sources => {
+      this.sources = sources;
+    });
   }
 }
