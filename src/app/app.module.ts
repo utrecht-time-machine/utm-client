@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogueModule } from './components/scenes/dialogue/dialogue.module';
 import { ArticleModule } from './components/scenes/article/article.module';
+import { TimeSliderModule } from './components/scenes/time-slider/time-slider.module';
 
 import 'hammerjs';
 import { NgxPopperModule } from 'ngx-popper';
@@ -30,6 +31,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     HttpClientModule,
     ArticleModule,
     DialogueModule,
+    TimeSliderModule,
     SourceTooltipModule,
     SourceModule,
     NgxPopperModule.forRoot({}),

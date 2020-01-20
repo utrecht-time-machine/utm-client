@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from './components/scenes/article/article.component';
 import { DialogueComponent } from './components/scenes/dialogue/dialogue.component';
+import { TimeSliderComponent } from './components/scenes/time-slider/time-slider.component';
 
 const routes: Routes = [
   { path: 'article', component: ArticleComponent },
   { path: 'dialogue', component: DialogueComponent },
+  { path: 'timeslider', component: TimeSliderComponent },
   {
     path: '',
     loadChildren: () =>
