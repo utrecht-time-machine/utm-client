@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OpenCultuurDataService } from '../../../services/APIs/open-cultuur-data.service';
 import { ApiSearchResponse } from '../../../models/api-search/api-search-response.model';
 import { ApiSearchSource } from '../../../models/api-search/api-search-source.model';
+import { ApiSearchFilter } from '../../../models/api-search/api-search-filter.model';
 
 @Component({
   selector: 'utm-apis-view',
@@ -14,6 +15,7 @@ export class ApisViewComponent implements OnInit {
   private querying = false;
 
   private maxQueryResults = 10;
+  private onlyQueryImages = false;
 
   private sources: ApiSearchSource[] = [];
   private selectedSourceIds: string[] = [];
@@ -41,12 +43,14 @@ export class ApisViewComponent implements OnInit {
     this.querying = true;
     this.queryResults = [];
 
+    const queryFilter: ApiSearchFilter = {
+      onlyIncludeImages: this.onlyQueryImages,
+      sourceIds: this.selectedSourceIds,
+      maxAmountResults: this.maxQueryResults,
+    };
+
     this.openCultuurData
-      .getQueryResults(
-        this.queryString,
-        this.maxQueryResults,
-        this.selectedSourceIds
-      )
+      .getQueryResults(this.queryString, queryFilter)
       .then(results => {
         this.querying = false;
         this.queryResults = results;

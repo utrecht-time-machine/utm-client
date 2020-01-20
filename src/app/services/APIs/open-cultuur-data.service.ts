@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ApiSearchResponse } from '../../models/api-search/api-search-response.model';
 import { ApiSearchSource } from '../../models/api-search/api-search-source.model';
+import { ApiSearchFilter } from '../../models/api-search/api-search-filter.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,37 +19,38 @@ export class OpenCultuurDataService {
 
   async getQueryResults(
     query: string,
-    amtResults: number = 10,
-    sourceIds?: string[]
+    filter: ApiSearchFilter
   ): Promise<ApiSearchResponse[]> {
-    const headers: HttpHeaders = new HttpHeaders({});
-    const params: HttpParams = new HttpParams();
-    const httpOptions = { headers: headers, params: params };
-
-    const body = {
+    const params = {
       query: query,
-      size: Math.min(amtResults, 100),
+      size: Math.min(filter.maxAmountResults, 100),
       facets: { collection: {} },
+      filters: {},
     }; // "sort": "date"
 
-    if (sourceIds && sourceIds.length !== 0) {
-      body['filters'] = {
-        source_id: { terms: sourceIds },
+    // Filter by source
+    if (filter.sourceIds && filter.sourceIds.length !== 0) {
+      params['filters'] = {
+        source_id: { terms: filter.sourceIds },
+      };
+    }
+
+    // Filter only images
+    if (filter.onlyIncludeImages) {
+      params['filters']['media_content_type'] = {
+        terms: ['image/jpeg', 'image/png'],
       };
     }
 
     const response = await this.http
-      .post(this.apiUrl, body, httpOptions)
+      .post(this.apiUrl, params)
       .toPromise()
       .catch(error => {
         return Promise.reject(error);
       });
 
     const hits: Object[] = response['hits']['hits'];
-    const searchResults: ApiSearchResponse[] = this.parseServerResponse(
-      hits,
-      sourceIds
-    );
+    const searchResults: ApiSearchResponse[] = this.parseServerResponse(hits);
 
     return Promise.resolve(searchResults);
   }
@@ -66,10 +68,7 @@ export class OpenCultuurDataService {
     return result['sources'] as ApiSearchSource[];
   }
 
-  private parseServerResponse(
-    response: Object[],
-    sourceIds?: string[]
-  ): ApiSearchResponse[] {
+  private parseServerResponse(response: Object[]): ApiSearchResponse[] {
     const searchResults: ApiSearchResponse[] = [];
 
     for (const hit of response) {
@@ -84,11 +83,33 @@ export class OpenCultuurDataService {
         notes: source['notes'],
       };
 
-      const hasImage = Object.entries(source['enrichments']).length !== 0;
-      if (hasImage) {
+      if (source['date']) {
+        searchResult.date = new Date(source['date']);
+      }
+
+      const hasEnrichmentImage =
+        source['enrichments']
+        && Object.entries(source['enrichments']).length !== 0;
+      if (hasEnrichmentImage) {
         // TODO: Support multiple images, instead of just the first one
         searchResult.imageUrl =
           source['enrichments']['media_urls'][0]['original_url'];
+      }
+
+      const hasMediaImage =
+        source['media_urls']
+        && Object.entries(source['media_urls']).length !== 0;
+      if (hasMediaImage) {
+        // TODO: Support multiple images and video
+        for (const media of source['media_urls']) {
+          const mediaIsImage =
+            media['content_type'] === 'image/jpeg'
+            || media['content_type'] === 'image/png';
+          if (mediaIsImage) {
+            searchResult.imageUrl = media['url'];
+            break;
+          }
+        }
       }
 
       const hasOriginalUrl = Object.entries(
