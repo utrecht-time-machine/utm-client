@@ -8,24 +8,38 @@ import { ApiSearchResponse } from '../../../models/api-search-response.model';
   styleUrls: ['./apis-view.component.scss'],
 })
 export class ApisViewComponent implements OnInit {
-  private queryString = 'Utrecht';
-
+  private queryString = '';
   private queryResults: ApiSearchResponse[] = [];
+  private querying = false;
 
   constructor(private openCultuurData: OpenCultuurDataService) {}
 
   onQueryInputChange($event: Event) {
-    if (this.queryString === '') {
-      return;
-    }
-
     this.executeQuery();
   }
 
-  private async executeQuery() {
-    this.queryResults = await this.openCultuurData.searchAllCollections(
-      this.queryString
-    );
+  private executeQuery() {
+    // TODO: Cancel (or ignore) previous request(s) if we have executed a new request.
+    if (this.queryString === '') {
+      this.queryResults = [];
+      return;
+    }
+
+    this.querying = true;
+    this.queryResults = [];
+
+    this.openCultuurData
+      .searchAllCollections(this.queryString)
+      .then(results => {
+        this.querying = false;
+        this.queryResults = results;
+
+        console.log(this.queryResults);
+      })
+      .catch(error => {
+        this.querying = false;
+        console.error(error);
+      });
   }
 
   ngOnInit() {

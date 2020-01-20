@@ -6,4 +6,5 @@ export interface ApiSearchResponse {
   date?: Date;
   imageUrl?: string;
   collection?: string;
+  originalUrl?: string;
 }

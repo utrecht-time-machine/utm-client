@@ -21,16 +21,21 @@ export class OpenCultuurDataService {
 
     const response = await this.http
       .post(this.apiUrl, body, httpOptions)
-      .toPromise();
-    // TODO: Handle errors
-    // ...
+      .toPromise()
+      .catch(error => {
+        return Promise.reject(error);
+      });
 
-    const hits: Array<Object> = response['hits']['hits'];
+    const hits: Object[] = response['hits']['hits'];
+    const searchResults: ApiSearchResponse[] = this.parseServerResponse(hits);
 
-    // Parse response
+    return Promise.resolve(searchResults);
+  }
+
+  private parseServerResponse(response: Object[]): ApiSearchResponse[] {
     const searchResults: ApiSearchResponse[] = [];
 
-    for (const hit of hits) {
+    for (const hit of response) {
       const source = hit['_source'];
 
       const searchResult: ApiSearchResponse = {
@@ -48,9 +53,17 @@ export class OpenCultuurDataService {
           source['enrichments']['media_urls'][0]['original_url'];
       }
 
+      const hasOriginalUrl = Object.entries(
+        source['meta']['original_object_urls'].length !== 0
+      );
+      if (hasOriginalUrl) {
+        searchResult.originalUrl =
+          source['meta']['original_object_urls']['html'];
+      }
+
       searchResults.push(searchResult);
     }
 
-    return Promise.resolve(searchResults);
+    return searchResults;
   }
 }

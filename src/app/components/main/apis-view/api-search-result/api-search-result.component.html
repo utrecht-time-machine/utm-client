@@ -1,4 +1,7 @@
-<ion-card class="search-result-card">
+<ion-card
+  class="search-result-card"
+  (click)="onResultClick(searchResult.originalUrl)"
+>
   <img
     *ngIf="searchResult.imageUrl"
     [src]="searchResult.imageUrl"

@@ -3,10 +3,24 @@
     [(ngModel)]="queryString"
     (ionChange)="onQueryInputChange($event)"
     placeholder="Enter Input"
+    animated
   ></ion-searchbar>
+
+  <div class="ion-text-center">
+    <ion-spinner id="loading-results-spinner" *ngIf="querying"></ion-spinner>
+  </div>
 
   <utm-api-search-result
     *ngFor="let queryResult of queryResults"
     [searchResult]="queryResult"
+  ></utm-api-search-result>
+
+  <utm-api-search-result
+    *ngIf="!querying && queryResults.length === 0"
+    [searchResult]="{
+      '@id': undefined,
+      title: 'No results found',
+      description: 'No results were found for this search term.'
+    }"
   ></utm-api-search-result>
 </ion-content>

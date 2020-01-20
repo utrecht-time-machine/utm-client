@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiSearchResponse } from '../../../../models/api-search-response.model';
+import { Browser } from '@capacitor/core';
 
 @Component({
   selector: 'utm-api-search-result',
@@ -10,6 +11,14 @@ export class ApiSearchResultComponent implements OnInit {
   @Input() searchResult: ApiSearchResponse;
 
   constructor() {}
+
+  onResultClick(resultUrl: string) {
+    if (!resultUrl || resultUrl === '') {
+      return;
+    }
+
+    Browser.open({ url: resultUrl });
+  }
 
   ngOnInit() {}
 }
