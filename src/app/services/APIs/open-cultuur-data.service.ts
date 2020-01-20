@@ -13,7 +13,8 @@ export class OpenCultuurDataService {
   // TODO: Stop using CORS anywhere here, we should be able to make POST requests to the API with the right headers
   private readonly apiUrl =
     'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/search';
-  private readonly apiSourcedUrl = 'http://api.opencultuurdata.nl/v0/sources';
+  private readonly apiSourcedUrl =
+    'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/sources';
 
   constructor(private http: HttpClient) {}
 
