@@ -10,5 +10,10 @@
       <ion-label>Stories</ion-label>
       <ion-badge>{{ (stories.filtered | async).length }}</ion-badge>
     </ion-tab-button>
+
+    <ion-tab-button routerLink="/apis">
+      <ion-icon name="link"></ion-icon>
+      <ion-label>API Connections</ion-label>
+    </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

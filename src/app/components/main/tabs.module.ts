@@ -9,6 +9,7 @@ import { TabsComponent } from './tabs.component';
 import { StoryViewModule } from './story-view/story-view.module';
 import { MapViewModule } from './map-view/map-view.module';
 import { ArticleModule } from '../scenes/article/article.module';
+import { ApisViewModule } from './apis-view/apis-view.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ArticleModule } from '../scenes/article/article.module';
     TabsPageRoutingModule,
     StoryViewModule,
     MapViewModule,
+    ApisViewModule,
   ],
   declarations: [TabsComponent],
 })
