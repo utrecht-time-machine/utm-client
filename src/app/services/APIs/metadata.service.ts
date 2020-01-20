@@ -4,6 +4,7 @@ import { WikidataService } from './wikidata.service';
 import { WikipediaService } from './wikipedia.service';
 import { UtrechtArchivesService } from './utrechtarchives.service';
 import { SourceMetadata } from '../../models/source-metadata.model';
+import { OpenCultuurDataService } from './open-cultuur-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class MetadataService {
     private http: HttpClient,
     private wikidataService: WikidataService,
     private wikipediaService: WikipediaService,
-    private utrechtArchivesService: UtrechtArchivesService
+    private utrechtArchivesService: UtrechtArchivesService,
+    private openCultuurDataService: OpenCultuurDataService
   ) {}
 
   private async getOpenGraphMetadata(url: string): Promise<SourceMetadata> {

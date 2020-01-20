@@ -1,0 +1,9 @@
+<p>
+  <img
+    *ngIf="searchResult.imageUrl"
+    [src]="searchResult.imageUrl"
+    [alt]="searchResult.title"
+    class="search-result-img"
+  />
+  {{ searchResult.title }} - {{ searchResult.description }}
+</p>
