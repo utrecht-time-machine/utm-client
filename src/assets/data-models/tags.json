@@ -5,6 +5,34 @@
   },
   {
     "@id": "http://vocab.getty.edu/aat/300047600",
-    "title": "statues"
+    "title": "statue"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q13107184",
+    "title": "pharmacy"
+  },
+  {
+    "@id": "http://vocab.getty.edu/aat/300005166",
+    "title": "pub"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q2755285",
+    "title": "neude"
+  },
+  {
+    "@id": "http://vocab.getty.edu/aat/300237781",
+    "title": "interactive"
+  },
+  {
+    "@id": "http://vocab.getty.edu/aat/300006036",
+    "title": "post office"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q2657646",
+    "title": "beatrix de rijke"
+  },
+  {
+    "@id": "http://vocab.getty.edu/aat/300006877",
+    "title": "public library"
   }
 ]

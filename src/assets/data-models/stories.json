@@ -21,7 +21,7 @@
         "@id": "http://vocab.getty.edu/aat/300047600"
       },
       {
-        "@id": "http://vocab.getty.edu/aat/300047600"
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -66,6 +66,9 @@
     "tags": [
       {
         "@id": "http://vocab.getty.edu/aat/300052638"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -95,6 +98,14 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/2709755460"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q13107184"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -159,6 +170,14 @@
         "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300005166"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1624",
       "end": "2019"
@@ -186,6 +205,14 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/26780748"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300005166"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -217,6 +244,14 @@
         "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300005166"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1624",
       "end": "2019"
@@ -245,6 +280,14 @@
     "stations": [
       {
         "@id": "https://utrechttimemachine.nl/places/scaffold"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300237781"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -281,6 +324,11 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/6497347541"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -343,6 +391,14 @@
         "@id": "https://www.openstreetmap.org/node/2709280936"
       }
     ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q13107184"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1851",
       "end": "2019"
@@ -370,6 +426,14 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/2709280936"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q13107184"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -402,6 +466,14 @@
         "@id": "https://www.openstreetmap.org/node/2709280936"
       }
     ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q13107184"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1913",
       "end": "1913"
@@ -429,6 +501,11 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/6497347541"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -460,6 +537,14 @@
         "@id": "https://www.openstreetmap.org/way/265260840"
       }
     ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300006036"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1919",
       "end": "2011"
@@ -487,6 +572,11 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/node/599516529"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
@@ -518,6 +608,14 @@
         "@id": "https://www.openstreetmap.org/node/599516529"
       }
     ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2657646"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
+      }
+    ],
     "time-period": {
       "start": "1421",
       "end": "1468"
@@ -545,6 +643,14 @@
     "stations": [
       {
         "@id": "https://www.openstreetmap.org/way/265260840"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300006877"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
     ],
     "time-period": {
