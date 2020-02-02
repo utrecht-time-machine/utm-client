@@ -102,16 +102,26 @@
               />
               <ion-card-header>
                 <ion-card-title>{{ story['title'] }}</ion-card-title>
-                <ion-card-subtitle
-                  >{{ story['time-period']['start'].getFullYear() }} -
-                  {{
-                    story['time-period']['end'].getFullYear()
-                  }}</ion-card-subtitle
-                >
+                <ion-card-subtitle>
+                  {{ story['time-period']['start'].getFullYear() }} -
+                  {{ story['time-period']['end'].getFullYear() }}
+                </ion-card-subtitle>
               </ion-card-header>
               <ion-card-content>
                 <div [utmTextWithSources]="story['description']"></div>
-
+                <div class="story-tags">
+                  <p *ngIf="story['tags']">
+                    <em
+                      >Tags:
+                      <span *ngFor="let tag of story['tags']; last as isLast">
+                        <span utmSource [sourceUrl]="tag['@id']">{{
+                          tags.getTagById(tag['@id'])?.title
+                        }}</span
+                        >{{ isLast ? '' : ', ' }}
+                      </span>
+                    </em>
+                  </p>
+                </div>
                 <div class="story-authors ion-margin-top">
                   <small
                     class="story-author"

@@ -16,6 +16,14 @@
         "@id": "https://www.openstreetmap.org/node/1806563574"
       }
     ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300047600"
+      },
+      {
+        "@id": "http://vocab.getty.edu/aat/300047600"
+      }
+    ],
     "time-period": {
       "start": "1997",
       "end": "2019"
@@ -53,6 +61,11 @@
     "stations": [
       {
         "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "http://vocab.getty.edu/aat/300052638"
       }
     ],
     "time-period": {

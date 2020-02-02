@@ -6,6 +6,7 @@ import { SeqType, Story, TimeSliderSeq } from '../../../models/story.model';
 import { Plugins } from '@capacitor/core';
 import { TimePeriod } from '../../../models/time-period.model';
 import { TimePeriodService } from '../../../services/time-period.service';
+import { TagsService } from '../../../services/tags.service';
 
 const { Browser } = Plugins;
 
@@ -31,6 +32,7 @@ export class StoryViewComponent implements OnInit {
   constructor(
     public authors: AuthorsService,
     public stories: StoriesService,
+    public tags: TagsService,
     public timePeriod: TimePeriodService,
     private route: Router
   ) {}
