@@ -92,7 +92,6 @@ export class MetadataService {
     } else if (domain.includes('documentatie.org')) {
       const metadata: SourceMetadata = {
         name: 'Neude Public Restroom',
-        creator: 'Jean Penders',
         description:
           'A clickable photograph of the public restroom that once stood at the Neude.',
         earliestDate: new Date('1905'),
