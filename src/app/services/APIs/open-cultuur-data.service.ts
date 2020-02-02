@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ApiSearchResponse } from '../../models/api-search/api-search-response.model';
 import { ApiSearchSource } from '../../models/api-search/api-search-source.model';
 import { ApiSearchFilter } from '../../models/api-search/api-search-filter.model';
+import { ConstantsService } from '../constants.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,13 @@ import { ApiSearchFilter } from '../../models/api-search/api-search-filter.model
 export class OpenCultuurDataService {
   // Documentation: http://docs.opencultuurdata.nl/user/api.html
 
-  // TODO: Stop using CORS anywhere here, we should be able to make POST requests to the API with the right headers
+  // TODO: Stop using CORS proxy here, we should be able to make POST requests to the API with the right headers
   private readonly apiUrl =
-    'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/search';
+    this.constants.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/search';
   private readonly apiSourcesUrl =
-    'https://cors-anywhere.herokuapp.com/http://api.opencultuurdata.nl/v0/sources';
+    this.constants.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/sources';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private constants: ConstantsService) {}
 
   async getQueryResults(
     query: string,
