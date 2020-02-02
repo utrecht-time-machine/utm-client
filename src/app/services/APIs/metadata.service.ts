@@ -5,6 +5,8 @@ import { WikipediaService } from './wikipedia.service';
 import { UtrechtArchivesService } from './utrechtarchives.service';
 import { SourceMetadata } from '../../models/source-metadata.model';
 import { OpenCultuurDataService } from './open-cultuur-data.service';
+import { GettyVocabulariesService } from './getty-vocabularies.service';
+import { ConstantsService } from '../constants.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +17,15 @@ export class MetadataService {
     private wikidataService: WikidataService,
     private wikipediaService: WikipediaService,
     private utrechtArchivesService: UtrechtArchivesService,
-    private openCultuurDataService: OpenCultuurDataService
+    private openCultuurDataService: OpenCultuurDataService,
+    private gettyVocabulariesService: GettyVocabulariesService,
+    private constants: ConstantsService
   ) {}
 
   private async getOpenGraphMetadata(url: string): Promise<SourceMetadata> {
     // Retrieve page content
     const pageHtml = await this.http
-      .get('https://cors-anywhere.herokuapp.com/' + url, {
+      .get(this.constants.corsProxyUrl + url, {
         responseType: 'text',
       })
       .toPromise()
@@ -87,6 +91,10 @@ export class MetadataService {
         .catch(err => this.getOpenGraphMetadata(url));
     } else if (domain.includes('hetutrechtsarchief')) {
       return await this.utrechtArchivesService
+        .requestByUrl(url)
+        .catch(err => this.getOpenGraphMetadata(url));
+    } else if (domain.includes('vocab.getty.edu')) {
+      return await this.gettyVocabulariesService
         .requestByUrl(url)
         .catch(err => this.getOpenGraphMetadata(url));
     } else if (domain.includes('documentatie.org')) {
