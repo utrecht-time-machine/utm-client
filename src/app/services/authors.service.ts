@@ -39,13 +39,6 @@ export class AuthorsService {
   }
 
   public getAuthorById(authorId: string): Author {
-    const authors: Author[] = this.all.getValue();
-    for (const author of authors) {
-      if (author['@id'] === authorId) {
-        return author;
-      }
-    }
-
-    return undefined;
+    return this.all.getValue().find(author => author['@id'] === authorId);
   }
 }
