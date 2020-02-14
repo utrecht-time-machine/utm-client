@@ -49,25 +49,31 @@ export class StoryViewComponent implements OnInit {
     // TODO: Implement actual sequence logic here
     // For now, only load first sequence item
     const firstSeqItem = story.seq[0];
-    if (firstSeqItem['@type'] === SeqType.Article) {
-      this.route.navigate([
-        '/article',
-        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
-      ]);
-    } else if (firstSeqItem['@type'] === SeqType.Dialogue) {
-      this.route.navigate([
-        '/dialogue',
-        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
-      ]);
-    } else if (firstSeqItem['@type'] === SeqType.External) {
-      Browser.open({ url: firstSeqItem['content'] });
-    } else if (firstSeqItem['@type'] === SeqType.TimeSlider) {
-      this.route.navigate([
-        '/timeslider',
-        { storyId: story['@id'], seqId: firstSeqItem['@id'] },
-      ]);
-    } else {
-      console.error('Unsupported story type', firstSeqItem['@type']);
+    switch (firstSeqItem['@type']) {
+      case SeqType.Article:
+        this.route.navigate([
+          '/article',
+          { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+        ]);
+        break;
+      case SeqType.Dialogue:
+        this.route.navigate([
+          '/dialogue',
+          { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+        ]);
+        break;
+      case SeqType.External:
+        Browser.open({ url: firstSeqItem['content'] });
+        break;
+      case SeqType.TimeSlider:
+        this.route.navigate([
+          '/timeslider',
+          { storyId: story['@id'], seqId: firstSeqItem['@id'] },
+        ]);
+        break;
+      default:
+        console.error('Unsupported story type', firstSeqItem['@type']);
+        break;
     }
   }
 
