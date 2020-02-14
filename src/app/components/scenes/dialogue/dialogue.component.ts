@@ -35,6 +35,20 @@ export class DialogueComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    const navInfo = this.router.getCurrentNavigation();
+    if (
+      navInfo.extras
+      && navInfo.extras.state
+      && navInfo.extras.state.preloadedYarn
+    ) {
+      const preloadedYarn: YarnItem[] = JSON.parse(
+        navInfo.extras.state.preloadedYarn
+      );
+      this.storyPlayer.load(preloadedYarn);
+      this.storyScene = this.storyPlayer.next();
+      return;
+    }
+
     this.storyId = this.route.snapshot.paramMap.get('storyId');
     this.seqId = this.route.snapshot.paramMap.get('seqId');
 
@@ -96,6 +110,10 @@ export class DialogueComponent implements OnInit {
       this.host.nativeElement.style.setProperty(
         '--dialogue-scene-bg-image',
         `url(${this.seq.background.image}`
+      );
+      this.host.nativeElement.style.setProperty(
+        '--dialogue-scene-filter',
+        'brightness(0.3) contrast(1)'
       );
     }
   }

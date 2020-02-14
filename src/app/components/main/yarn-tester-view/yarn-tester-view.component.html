@@ -1,0 +1,12 @@
+<ion-content>
+  <h1>
+    Please upload the yarn file you would like to play by clicking the below
+    button.
+  </h1>
+  <p>
+    The yarn file needs to be in JSON format. The story will start with the node
+    with the name "Start" (or the first node in the file).
+  </p>
+
+  <input type="file" (change)="onFileChanged($event)" />
+</ion-content>

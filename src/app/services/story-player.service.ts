@@ -115,6 +115,11 @@ export class StoryPlayerService {
 
     // Set to start node (magic title)
     this.currentStoryNode = this.storyNodes['Start'];
+    if (!this.currentStoryNode) {
+      // If not available, pick first in object.
+      // Not guaranteed to be user-intended node in this case.
+      this.currentStoryNode = Object.values(this.storyNodes)[0];
+    }
   }
 }
 

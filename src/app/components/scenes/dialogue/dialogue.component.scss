@@ -2,6 +2,7 @@
   --dialogue-scene-bg: var(--ion-color-light);
   --dialogue-scene-bg-contrast: var(--ion-color-light-contrast);
   --dialogue-scene-bg-image: '';
+  --dialogue-scene-filter: '';
 
   #story-scene-wrapper {
     padding: 20px;
@@ -20,11 +21,14 @@
   #bg {
     background-color: var(--dialogue-scene-bg);
     background-image: var(--dialogue-scene-bg-image);
+    filter: var(--dialogue-scene-filter);
     height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
     position: fixed;
-    filter: brightness(0.3) contrast(1);
+  }
+
+  .hasImage {
   }
 }

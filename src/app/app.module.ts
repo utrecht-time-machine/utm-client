@@ -20,9 +20,10 @@ import { SourceTooltipComponent } from './components/shared/source/source-toolti
 import { SourceModule } from './components/shared/source/source-component/source.module';
 import { SourceComponent } from './components/shared/source/source-component/source.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { YarnTesterViewComponent } from './components/main/yarn-tester-view/yarn-tester-view.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, YarnTesterViewComponent],
   entryComponents: [SourceTooltipComponent, SourceComponent],
   imports: [
     BrowserModule,
