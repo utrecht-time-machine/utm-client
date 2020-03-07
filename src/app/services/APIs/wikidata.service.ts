@@ -37,7 +37,7 @@ export class WikidataService {
       name: response.labels.en.value,
       author: undefined, // TODO: Find the name of the person that has last revised the article, though this might not be available on wikidata
       description: response.descriptions.en.value,
-      date: new Date(response['modified']),
+      // date: new Date(response['modified']),
       imageUrl: imageFileName
         ? this.wikiService.getImageUrlByFilename(imageFileName)
         : undefined,

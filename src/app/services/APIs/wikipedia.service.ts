@@ -42,9 +42,9 @@ export class WikipediaService {
 
     const metadata: SourceMetadata = {
       name: response.title,
-      author: response.revisions[0].user,
+      // author: response.revisions[0].user,
       description: response.description,
-      date: new Date(revisionDate),
+      // date: new Date(revisionDate),
       imageUrl: imageFileName
         ? this.wikiService.getImageUrlByFilename(imageFileName)
         : undefined,

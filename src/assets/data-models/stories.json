@@ -1,5 +1,51 @@
 [
   {
+    "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Belle van Zuylen zorgt ervoor dat haar in Zwitserland gepubliceerde romans in Utrecht te koop zijn.",
+    "lang": "nl",
+    "description": "",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/7057260"
+      }
+    ],
+    "tags": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen-choorstraat"
+      }
+    ]
+  },
+  {
     "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock",
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Thinker on a Rock",

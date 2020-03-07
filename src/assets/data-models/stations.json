@@ -160,5 +160,20 @@
       "title": "Neude Flat",
       "description": ""
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/7057260",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.11984, 52.09096]
+    },
+    "properties": {
+      "title": "Choorstraat",
+      "description": ""
+    }
   }
 ]

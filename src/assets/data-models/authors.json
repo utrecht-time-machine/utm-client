@@ -23,5 +23,10 @@
     "@id": "https://utrechttimemachine.nl/authors/CentraalMuseum",
     "name": "Centraal Museum",
     "logo": "/assets/img/authors/centraal_museum-logo.svg"
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/authors/HuygensING",
+    "name": "Huygens ING",
+    "logo": "/assets/img/authors/huygens-ing-logo.svg"
   }
 ]

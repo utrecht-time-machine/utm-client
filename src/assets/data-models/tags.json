@@ -34,5 +34,25 @@
   {
     "@id": "http://vocab.getty.edu/aat/300006877",
     "title": "public library"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q123386",
+    "title": "belle van zuylen"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q36180",
+    "title": "authors"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q200764",
+    "title": "bookstores"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q8242",
+    "title": "literature"
+  },
+  {
+    "@id": "https://www.wikidata.org/wiki/Q2461967",
+    "title": "fam. Van Tuyll van Serooskerken"
   }
 ]
