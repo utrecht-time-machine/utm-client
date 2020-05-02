@@ -271,7 +271,12 @@ export class MapService {
       this.isInit.next(true);
 
       this.addStations();
-      this.addLines();
+      this.updateRouteLines();
+
+      // Update route lines when a new route has been selected
+      this.routes.selected.subscribe(() => {
+        this.updateRouteLines();
+      });
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -324,20 +329,28 @@ export class MapService {
   }
 
   /**
-   * Displays lines between stations on the map
+   * Displays route lines between stations on the map
    * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/
    */
-  private async addLines() {
-    console.log('Adding lines');
+  public async updateRouteLines() {
+    // console.log('Updating route lines');
 
     // Retrieve route
-    const route: RouteModel = this.routes.getRouteById(
-      'https://utrechttimemachine.nl/routes/neude-tour'
-    );
+    const route: RouteModel = this.routes.selected.getValue();
     const routeStationCoordinates = this.routes.getRouteStationCoordinates(
       route
     );
 
+    // Remove previous route lines
+    if (this.map.getLayer('route')) {
+      this.map.removeLayer('route');
+    }
+
+    if (this.map.getSource('route')) {
+      this.map.removeSource('route');
+    }
+
+    // Add new route lines
     this.map.addSource('route', {
       type: 'geojson',
       data: {
@@ -364,7 +377,7 @@ export class MapService {
       },
     };
 
-    this.map.addLayer(lineLayer, 'building 3D');
+    this.map.addLayer(lineLayer);
   }
 
   /**

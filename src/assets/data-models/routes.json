@@ -26,11 +26,14 @@
       },
       {
         "@id": "https://utrechttimemachine.nl/places/scaffold"
+      },
+      {
+        "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
     "properties": {
       "title": "Tour Across Neude #2",
-      "description": "Discover the public restroom and the scaffold.",
+      "description": "Discover the public restroom, the scaffold and the Beurs.",
       "color": "#427ef5"
     }
   }
