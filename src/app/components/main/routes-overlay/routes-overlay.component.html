@@ -1,0 +1,19 @@
+<ion-button id="toggle-route-view-btn" color="dark" (click)="toggleRouteView()">
+  <ion-icon name="map" class="ion-margin-end"></ion-icon>
+  {{ routesShown ? 'Hide' : 'Show' }} Routes
+</ion-button>
+
+<div class="map-overlay top" *ngIf="routesShown">
+  <ion-list>
+    <ion-radio-group value="biff">
+      <ion-item *ngFor="let route of routes.all.getValue()">
+        <ion-label>
+          {{ route.properties.title }}
+          <br />
+          <small>{{ route.properties.description }}</small>
+        </ion-label>
+        <ion-radio slot="start" [value]="route['@id']"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</div>

@@ -1,8 +1,11 @@
 <ion-content>
-  <ion-fab horizontal="start" vertical="top">
+  <ion-fab horizontal="end" vertical="top">
     <ion-fab-button color="dark" (click)="toggleExplorationMode()">
       <ion-icon name="disc"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <utm-routes-overlay></utm-routes-overlay>
+
   <div id="mapbox-container" #mapboxContainer></div>
 </ion-content>

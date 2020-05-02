@@ -8,10 +8,10 @@ import { StationsService } from './stations.service';
   providedIn: 'root',
 })
 export class RoutesService {
-  all: BehaviorSubject<any[]>;
+  all: BehaviorSubject<RouteModel[]>;
 
   constructor(private http: HttpClient, private stations: StationsService) {
-    this.all = new BehaviorSubject<any[]>([]);
+    this.all = new BehaviorSubject<RouteModel[]>([]);
     this.update();
   }
 

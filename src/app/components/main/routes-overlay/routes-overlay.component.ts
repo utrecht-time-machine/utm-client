@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { RoutesService } from '../../../services/routes.service';
+
+@Component({
+  selector: 'utm-routes-overlay',
+  templateUrl: './routes-overlay.component.html',
+  styleUrls: ['./routes-overlay.component.scss'],
+})
+export class RoutesOverlayComponent implements OnInit {
+  routesShown = false;
+
+  constructor(public routes: RoutesService) {}
+
+  ngOnInit() {}
+
+  async toggleRouteView() {
+    this.routesShown = !this.routesShown;
+  }
+}

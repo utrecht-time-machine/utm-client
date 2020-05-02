@@ -10,15 +10,28 @@
       },
       {
         "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
-      },
-      {
-        "@id": "https://utrechttimemachine.nl/places/scaffold"
       }
     ],
     "properties": {
       "title": "Tour Across Neude",
       "description": "Discover the former post office, famous statue, and public restroom.",
       "color": "#d64224"
+    }
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/routes/neude-tour-2",
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/places/scaffold"
+      }
+    ],
+    "properties": {
+      "title": "Tour Across Neude #2",
+      "description": "Discover the public restroom and the scaffold.",
+      "color": "#427ef5"
     }
   }
 ]

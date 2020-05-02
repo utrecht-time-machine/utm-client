@@ -1,4 +1,5 @@
 export interface RouteModel {
+  '@id': string;
   stations: {
     '@id': string;
   }[];

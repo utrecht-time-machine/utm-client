@@ -1,0 +1,27 @@
+#toggle-route-view-btn {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 5px;
+}
+
+.map-overlay {
+  z-index: 1;
+
+  position: absolute;
+  width: 300px;
+  top: 55px;
+  left: 5px;
+
+  background-color: #fff; //rgba(255,255,255,0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+ion-list {
+  border-radius: 5px;
+
+  ion-label {
+    white-space: initial;
+  }
+}
