@@ -268,6 +268,7 @@ export class MapService {
       this.isInit.next(true);
 
       this.addStations();
+      this.addLines();
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -310,12 +311,53 @@ export class MapService {
   startGeolocation() {
     this.geolocationWatcher.enable();
   }
+
   stopGeolocation() {
     this.geolocationWatcher.disable();
   }
 
   resize() {
     this.map.resize();
+  }
+
+  /**
+   * Displays lines between stations on the map
+   * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/
+   */
+  private async addLines() {
+    console.log('Adding lines');
+
+    this.map.addSource('route', {
+      type: 'geojson',
+      data: {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: [
+            [5.1181785, 52.0931279],
+            [5.1186779, 52.0936557],
+            [5.118476, 52.093505],
+          ],
+        },
+      },
+    });
+
+    const lineLayer: any = {
+      id: 'route',
+      type: 'line',
+      source: 'route',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+      },
+      paint: {
+        'line-color': '#888',
+        'line-width': 8,
+      },
+    };
+
+    this.map.addLayer(lineLayer, 'building 3D');
   }
 
   /**
