@@ -3,6 +3,7 @@
     "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat",
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Belle van Zuylen zorgt ervoor dat haar in Zwitserland gepubliceerde romans in Utrecht te koop zijn.",
+    "hidden": true,
     "lang": "nl",
     "description": "",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
@@ -316,7 +317,7 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "A gruesome murderer",
     "lang": "en",
-    "description": "Ever wondered about the history of De Beurs? Find about more what has happened to De Beurs since 1624.",
+    "description": "It is November 13th, 1661. A gruesome murderer shall be punished on the scaffold at the Neude today. Find out more in this interactive dialogue.",
     "featured-image": "/assets/data-models/stories/2019100005_neude_executions/featured.jpg",
     "authors": [
       {
