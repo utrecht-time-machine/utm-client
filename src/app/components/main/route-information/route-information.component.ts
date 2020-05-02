@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutesService } from '../../../services/routes.service';
 
 @Component({
   selector: 'utm-route-information',
@@ -6,7 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./route-information.component.scss'],
 })
 export class RouteInformationComponent implements OnInit {
-  constructor() {}
+  constructor(public routes: RoutesService) {}
 
   ngOnInit() {}
+
+  onPrevPage() {
+    this.routes.selectPrevStory();
+  }
+
+  onNextPage() {
+    this.routes.selectNextStory();
+  }
+
+  onSelectFirstPage() {
+    this.routes.selectFirstStory();
+  }
+
+  onSelectLastPage() {
+    this.routes.selectLastStory();
+  }
 }

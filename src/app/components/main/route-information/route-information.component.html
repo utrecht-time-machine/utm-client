@@ -1,26 +1,55 @@
 <div class="route-information-panel">
   <div class="ion-text-center route-information-title">
-    <h2>Kromme Nieuwegracht 3</h2>
-    <p><em>Belle woonde hier als kind en als jonge vrouw</em></p>
+    <h2>{{ routes.getSelectedStory().title }}</h2>
+    <p>
+      <em>{{ routes.getSelectedStory().subtitle }} </em>
+    </p>
   </div>
 
   <div class="route-information-content">
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cumque
-      doloribus error et excepturi fugit magnam quasi quos tempore, veritatis?
-      Amet animi, earum enim facere fuga maiores quas qui reprehenderit!
-    </div>
-    <div>
-      Ab adipisci, esse maiores nam nobis omnis placeat quam rerum voluptatem
-      voluptatum! Aliquid animi, consectetur consequatur corporis dicta
-      distinctio dolor dolorem esse est hic, neque omnis quae repellendus rerum
-      saepe.
-    </div>
-    <div>
-      Accusamus ducimus hic iste libero neque nobis placeat porro quibusdam
-      voluptate voluptatum! Amet atque, consequuntur id magnam mollitia rerum
-      similique. Consequatur dolor eum minus officia repudiandae! Animi
-      asperiores delectus voluptatum?
-    </div>
+    <p>
+      {{ routes.getSelectedStory().story }}
+    </p>
+  </div>
+
+  <div class="route-information-navigation">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2" class="ion-text-center">
+          <ion-button color="dark" fill="clear" (click)="onSelectFirstPage()">
+            <ion-icon name="skip-backward"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2" class="ion-text-center">
+          <ion-button color="dark" fill="clear" (click)="onPrevPage()">
+            <ion-icon name="rewind"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-text-center">
+          <strong>{{ this.routes.selected.getValue().properties.title }}</strong
+          ><br />
+          <small
+            ><em
+              >Page {{ this.routes.selectedStoryIdx.getValue() + 1 }} of
+              {{ this.routes.getAmountStoriesSelectedRoute() }}</em
+            ></small
+          >
+        </ion-col>
+
+        <ion-col size="2" class="ion-text-center">
+          <ion-button color="dark" fill="clear" (click)="onNextPage()">
+            <ion-icon name="fastforward"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2" class="ion-text-center">
+          <ion-button color="dark" fill="clear" (click)="onSelectLastPage()">
+            <ion-icon name="skip-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </div>
