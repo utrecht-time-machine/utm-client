@@ -16,4 +16,9 @@ export class RoutesOverlayComponent implements OnInit {
   async toggleRouteView() {
     this.routesShown = !this.routesShown;
   }
+
+  public onSelectedRoute(event) {
+    const selectedRouteId = event.target.value;
+    this.routes.selectRouteById(selectedRouteId);
+  }
 }

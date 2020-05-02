@@ -5,14 +5,18 @@
 
 <div class="map-overlay top" *ngIf="routesShown">
   <ion-list>
-    <ion-radio-group value="biff">
+    <ion-radio-group [value]="routes.selected.getValue()['@id']">
       <ion-item *ngFor="let route of routes.all.getValue()">
         <ion-label>
           {{ route.properties.title }}
           <br />
           <small>{{ route.properties.description }}</small>
         </ion-label>
-        <ion-radio slot="start" [value]="route['@id']"></ion-radio>
+        <ion-radio
+          slot="start"
+          [value]="route['@id']"
+          (ionSelect)="onSelectedRoute($event)"
+        ></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>

@@ -9,9 +9,11 @@ import { StationsService } from './stations.service';
 })
 export class RoutesService {
   all: BehaviorSubject<RouteModel[]>;
+  selected: BehaviorSubject<RouteModel>;
 
   constructor(private http: HttpClient, private stations: StationsService) {
     this.all = new BehaviorSubject<RouteModel[]>([]);
+    this.selected = new BehaviorSubject<RouteModel>(undefined);
     this.update();
   }
 
@@ -20,6 +22,12 @@ export class RoutesService {
       .get('/assets/data-models/routes.json')
       .toPromise();
     this.all.next(routes);
+    this.selected.next(routes[0]);
+  }
+
+  public selectRouteById(routeId: string) {
+    this.selected.next(this.getRouteById(routeId));
+    console.log('Selected route:', this.selected.getValue());
   }
 
   public getRouteStationCoordinates(route: RouteModel): any {
