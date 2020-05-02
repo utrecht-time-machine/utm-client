@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { RouteModel } from '../models/route.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,9 @@ export class StationsService {
       .get('/assets/data-models/stations.json')
       .toPromise();
     this.all.next(stations);
+  }
+
+  public getStationById(stationId: string): any {
+    return this.all.getValue().find(station => station['id'] === stationId);
   }
 }

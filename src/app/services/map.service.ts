@@ -20,6 +20,8 @@ import { HttpClient } from '@angular/common/http';
 import { StoriesService } from './stories.service';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { skipWhile } from 'rxjs/operators';
+import { RoutesService } from './routes.service';
+import { RouteModel } from '../models/route.model';
 
 interface Custom3dModel {
   url: string;
@@ -67,7 +69,8 @@ export class MapService {
     private stations: StationsService,
     private router: Router,
     private http: HttpClient,
-    private stories: StoriesService
+    private stories: StoriesService,
+    private routes: RoutesService
   ) {
     this.isInit = new BehaviorSubject<boolean>(null);
   }
@@ -327,6 +330,14 @@ export class MapService {
   private async addLines() {
     console.log('Adding lines');
 
+    // Retrieve route
+    const route: RouteModel = this.routes.getRouteById(
+      'https://utrechttimemachine.nl/routes/neude-tour'
+    );
+    const routeStationCoordinates = this.routes.getRouteStationCoordinates(
+      route
+    );
+
     this.map.addSource('route', {
       type: 'geojson',
       data: {
@@ -334,11 +345,7 @@ export class MapService {
         properties: {},
         geometry: {
           type: 'LineString',
-          coordinates: [
-            [5.1181785, 52.0931279],
-            [5.1186779, 52.0936557],
-            [5.118476, 52.093505],
-          ],
+          coordinates: routeStationCoordinates,
         },
       },
     });
@@ -352,8 +359,8 @@ export class MapService {
         'line-cap': 'round',
       },
       paint: {
-        'line-color': '#888',
-        'line-width': 8,
+        'line-color': route.properties.color,
+        'line-width': 4,
       },
     };
 

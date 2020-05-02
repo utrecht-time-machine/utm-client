@@ -1,0 +1,24 @@
+[
+  {
+    "@id": "https://utrechttimemachine.nl/routes/neude-tour",
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/265260840"
+      },
+      {
+        "@id": "https://www.openstreetmap.org/node/1806563574"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/places/scaffold"
+      }
+    ],
+    "properties": {
+      "title": "Tour Across Neude",
+      "description": "Discover the former post office, famous statue, and public restroom.",
+      "color": "#d64224"
+    }
+  }
+]
