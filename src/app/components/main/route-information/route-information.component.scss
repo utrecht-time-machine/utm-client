@@ -1,0 +1,16 @@
+.route-information-panel {
+  z-index: 1;
+  background: #fff;
+
+  position: absolute;
+  padding: 0 15px 15px;
+  bottom: 0;
+  width: 100%;
+
+  box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.route-information-content {
+  max-height: 250px;
+  overflow-y: scroll;
+}

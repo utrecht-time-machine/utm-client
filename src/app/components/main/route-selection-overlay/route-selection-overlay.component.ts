@@ -3,11 +3,11 @@ import { RoutesService } from '../../../services/routes.service';
 import { MapService } from '../../../services/map.service';
 
 @Component({
-  selector: 'utm-routes-overlay',
-  templateUrl: './routes-overlay.component.html',
-  styleUrls: ['./routes-overlay.component.scss'],
+  selector: 'utm-route-selection-overlay',
+  templateUrl: './route-selection-overlay.component.html',
+  styleUrls: ['./route-selection-overlay.component.scss'],
 })
-export class RoutesOverlayComponent implements OnInit {
+export class RouteSelectionOverlayComponent implements OnInit {
   routesShown = false;
 
   constructor(public routes: RoutesService) {}
