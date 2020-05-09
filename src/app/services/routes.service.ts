@@ -27,15 +27,13 @@ export class RoutesService {
   }
 
   async initialize() {
-    await this.update();
-    this.initializeStoryReloading();
-  }
-
-  async update() {
     const routes: RouteModel[] = await this.http
       .get<RouteModel[]>('/assets/data-models/routes.json')
       .toPromise();
     this.all.next(routes);
+
+    this.initializeStoryReloading();
+
     this.selected.next(routes[0]);
     this.selectedStoryIdx.next(0);
   }

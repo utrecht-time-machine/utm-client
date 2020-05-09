@@ -21,6 +21,7 @@ import { SourceModule } from './components/shared/source/source-component/source
 import { SourceComponent } from './components/shared/source/source-component/source.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { YarnTesterViewComponent } from './components/main/yarn-tester-view/yarn-tester-view.component';
+import { StoryInformationModule } from './components/main/story-information/story-information.module';
 
 @NgModule({
   declarations: [AppComponent, YarnTesterViewComponent],
@@ -35,6 +36,7 @@ import { YarnTesterViewComponent } from './components/main/yarn-tester-view/yarn
     TimeSliderModule,
     SourceTooltipModule,
     SourceModule,
+    StoryInformationModule,
     NgxPopperModule.forRoot({}),
     DeviceDetectorModule.forRoot(),
   ],

@@ -1,0 +1,53 @@
+<div
+  class="story-information"
+  *ngIf="story"
+  [ngStyle]="{ maxHeight: this.getHeightStoryInformation() + 'px' }"
+>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12" size-md="4">
+        <utm-story-header
+          [story]="story"
+          [centered]="true"
+          *ngIf="platform.is('mobile')"
+        >
+        </utm-story-header>
+
+        <ion-card
+          class="story-featured-image-container"
+          (click)="startStory(story)"
+        >
+          <utm-story-type-chips [story]="story"></utm-story-type-chips>
+          <img
+            class="story-featured-image"
+            src="{{ story['featured-image'] }}"
+            alt="{{ story['title'] }}"
+          />
+        </ion-card>
+      </ion-col>
+      <ion-col size-xs="12" size-md="8">
+        <utm-story-header
+          [story]="story"
+          *ngIf="!platform.is('mobile')"
+        ></utm-story-header>
+
+        <div
+          [utmTextWithSources]="story['description']"
+          class="ion-margin-top"
+        ></div>
+
+        <ion-button
+          color="primary"
+          size="small"
+          class="ion-margin-top"
+          (click)="startStory(story)"
+        >
+          <ion-icon name="play" class="ion-margin-end"></ion-icon>
+          Read more
+        </ion-button>
+        <utm-story-tags [tagIds]="story.tagIds"></utm-story-tags>
+        <utm-story-authors [authorIds]="story.authors"></utm-story-authors>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

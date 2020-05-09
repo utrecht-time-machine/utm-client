@@ -1,0 +1,26 @@
+.story-featured-image-container {
+}
+
+.story-information {
+  overflow-y: scroll;
+}
+
+.story-featured-image {
+  margin: 0 auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Position the story play button
+.story-play-button {
+  position: fixed;
+  right: 16px;
+  margin-top: 20px;
+}
+
+// Align author selection button with the author chips
+#author-select-btn {
+  margin-bottom: 13px;
+}

@@ -1,0 +1,9 @@
+<div
+  [ngClass]="['story-information-header', centered ? 'ion-text-center' : '']"
+>
+  <h2>{{ story['title'] }}</h2>
+  <em>
+    {{ story['time-period']['start'].getFullYear() }} -
+    {{ story['time-period']['end'].getFullYear() }}
+  </em>
+</div>

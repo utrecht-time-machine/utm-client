@@ -10,6 +10,7 @@ import { StoryViewModule } from './story-view/story-view.module';
 import { MapViewModule } from './map-view/map-view.module';
 import { ArticleModule } from '../scenes/article/article.module';
 import { ApisViewModule } from './apis-view/apis-view.module';
+import { StoryInformationModule } from './story-information/story-information.module';
 
 @NgModule({
   imports: [

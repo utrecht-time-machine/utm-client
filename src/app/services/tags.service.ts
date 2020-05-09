@@ -8,18 +8,18 @@ import { Tag } from '../models/tag.model';
   providedIn: 'root',
 })
 export class TagsService {
-  all: BehaviorSubject<any[]>;
-  selected: BehaviorSubject<any[]>;
+  all: BehaviorSubject<Tag[]>;
+  selected: BehaviorSubject<Tag[]>;
 
   constructor(private http: HttpClient) {
-    this.all = new BehaviorSubject<any[]>([]);
-    this.selected = new BehaviorSubject<any[]>([]);
+    this.all = new BehaviorSubject<Tag[]>([]);
+    this.selected = new BehaviorSubject<Tag[]>([]);
     this.update();
   }
 
   async update() {
-    const tags: any = await this.http
-      .get('/assets/data-models/tags.json')
+    const tags: Tag[] = await this.http
+      .get<Tag[]>('/assets/data-models/tags.json')
       .toPromise();
     this.all.next(tags);
   }

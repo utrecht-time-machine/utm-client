@@ -17,7 +17,7 @@
         "@id": "https://www.openstreetmap.org/way/7057260"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q123386"
       },
@@ -63,7 +63,7 @@
         "@id": "https://www.openstreetmap.org/node/1806563574"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300047600"
       },
@@ -110,7 +110,7 @@
         "@id": "https://utrechttimemachine.nl/places/retiradegebouw-neude"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300004202"
       },
@@ -147,7 +147,7 @@
         "@id": "https://www.openstreetmap.org/node/2709755460"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q13107184"
       },
@@ -217,7 +217,7 @@
         "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300005166"
       },
@@ -254,7 +254,7 @@
         "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300005166"
       },
@@ -291,7 +291,7 @@
         "@id": "https://www.openstreetmap.org/node/26780748"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300005166"
       },
@@ -329,7 +329,7 @@
         "@id": "https://utrechttimemachine.nl/places/scaffold"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300237781"
       },
@@ -373,7 +373,7 @@
         "@id": "https://www.openstreetmap.org/node/6497347541"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
@@ -438,7 +438,7 @@
         "@id": "https://www.openstreetmap.org/node/2709280936"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q13107184"
       },
@@ -475,7 +475,7 @@
         "@id": "https://www.openstreetmap.org/node/2709280936"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q13107184"
       },
@@ -513,7 +513,7 @@
         "@id": "https://www.openstreetmap.org/node/2709280936"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q13107184"
       },
@@ -550,7 +550,7 @@
         "@id": "https://www.openstreetmap.org/node/6497347541"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
@@ -584,7 +584,7 @@
         "@id": "https://www.openstreetmap.org/way/265260840"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300006036"
       },
@@ -621,7 +621,7 @@
         "@id": "https://www.openstreetmap.org/node/599516529"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q2755285"
       }
@@ -655,7 +655,7 @@
         "@id": "https://www.openstreetmap.org/node/599516529"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "https://www.wikidata.org/wiki/Q2657646"
       },
@@ -692,7 +692,7 @@
         "@id": "https://www.openstreetmap.org/way/265260840"
       }
     ],
-    "tags": [
+    "tagIds": [
       {
         "@id": "http://vocab.getty.edu/aat/300006877"
       },

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesService } from '../../../services/routes.service';
-import { StoriesService } from '../../../services/stories.service';
-import { SeqType, Story } from '../../../models/story.model';
-import { TagsService } from '../../../services/tags.service';
-import { AuthorsService } from '../../../services/authors.service';
+import { RoutesService } from '../../../../services/routes.service';
+import { StoriesService } from '../../../../services/stories.service';
+import { SeqType, Story } from '../../../../models/story.model';
+import { TagsService } from '../../../../services/tags.service';
+import { AuthorsService } from '../../../../services/authors.service';
 
 @Component({
   selector: 'utm-route-information',
@@ -13,18 +13,12 @@ import { AuthorsService } from '../../../services/authors.service';
 export class RouteInformationComponent implements OnInit {
   story: Story;
 
-  public SeqType = SeqType;
-
-  constructor(
-    public routes: RoutesService,
-    public stories: StoriesService,
-    public tags: TagsService,
-    public authors: AuthorsService
-  ) {}
+  constructor(public routes: RoutesService) {}
 
   ngOnInit() {
     this.routes.selectedStoryIdx.subscribe(selectedStoryIdx => {
       this.story = this.routes.getSelectedStory();
+      console.log(this.story);
     });
   }
 

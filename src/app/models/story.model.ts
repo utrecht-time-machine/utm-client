@@ -2,6 +2,7 @@ import { AuthorId } from './author.model';
 import { StationId } from './station.model';
 import { TimePeriod } from './time-period.model';
 import { YarnItem } from './yarn-item.model';
+import { Tag, TagId } from './tag.model';
 
 export enum SeqType {
   Article = 'https://utrechttimemachine.nl/scene-types/article',
@@ -45,4 +46,5 @@ export interface Story {
   'time-period': TimePeriod;
   seq: Seq[]; // to be defined,
   hidden: boolean; // hide this story in the story view
+  tagIds?: TagId[];
 }

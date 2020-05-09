@@ -1,0 +1,12 @@
+<div class="story-authors ion-margin-top">
+  <small class="story-author" *ngFor="let storyAuthor of authorIds">
+    <img
+      [src]="this.authors.getAuthorById(storyAuthor['@id']).logo"
+      [alt]="this.authors.getAuthorById(storyAuthor['@id']).name"
+      class="story-author-logo-img"
+    />
+    <span>
+      {{ this.authors.getAuthorById(storyAuthor['@id']).name }}
+    </span>
+  </small>
+</div>

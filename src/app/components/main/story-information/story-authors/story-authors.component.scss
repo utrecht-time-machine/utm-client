@@ -1,0 +1,16 @@
+// Scale down author logos
+.author-logo-img {
+  max-width: 40px;
+}
+
+.story-author {
+  white-space: nowrap; // Keep logo and text together
+  margin-right: 10px;
+}
+
+.story-author-logo-img {
+  display: inline-block;
+  width: auto;
+  height: 10px;
+  margin-right: 3px !important;
+}

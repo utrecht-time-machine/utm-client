@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesService } from '../../../services/routes.service';
-import { MapService } from '../../../services/map.service';
+import { RoutesService } from '../../../../services/routes.service';
 
 @Component({
   selector: 'utm-route-selection-overlay',
