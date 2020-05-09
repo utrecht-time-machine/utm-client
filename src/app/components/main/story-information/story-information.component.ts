@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class StoryInformationComponent implements OnInit {
   @Input() story: Story;
+  hidden = true;
 
   constructor(
     public stories: StoriesService,
@@ -20,6 +21,10 @@ export class StoryInformationComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  toggleHidden() {
+    this.hidden = !this.hidden;
+  }
 
   startStory(story: Story) {
     // TODO: Implement actual sequence logic here

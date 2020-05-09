@@ -4,8 +4,42 @@
   [ngStyle]="{ maxHeight: this.getHeightStoryInformation() + 'px' }"
 >
   <ion-grid>
-    <ion-row>
+    <ion-row *ngIf="hidden">
+      <ion-col class="ion-text-center">
+        <h2>{{ story['title'] }}</h2>
+        <p *ngIf="!platform.is('mobile')">
+          <em
+            [utmTextWithSources]="story['description']"
+            class="ion-margin-top"
+          ></em>
+        </p>
+
+        <ion-button
+          fill="clear"
+          size="small"
+          class="ion-margin-end"
+          (click)="toggleHidden()"
+        >
+          Show Details...
+        </ion-button>
+
+        <ion-button color="primary" size="small" (click)="startStory(story)">
+          <ion-icon name="play" class="ion-margin-end"></ion-icon>
+          Read Story
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!hidden">
       <ion-col size-xs="12" size-md="4">
+        <ion-button
+          fill="clear"
+          color="danger"
+          (click)="toggleHidden()"
+          class="hide-information-btn"
+          *ngIf="platform.is('mobile')"
+        >
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
         <utm-story-header
           [story]="story"
           [centered]="true"
@@ -26,6 +60,16 @@
         </ion-card>
       </ion-col>
       <ion-col size-xs="12" size-md="8">
+        <ion-button
+          fill="clear"
+          color="danger"
+          (click)="toggleHidden()"
+          class="hide-information-btn"
+          *ngIf="!platform.is('mobile')"
+        >
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+
         <utm-story-header
           [story]="story"
           *ngIf="!platform.is('mobile')"
