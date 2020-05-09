@@ -20,6 +20,12 @@
 
 ion-list {
   border-radius: 5px;
+  max-height: 200px;
+  overflow-y: scroll;
+
+  //&::-webkit-scrollbar {
+  //  display: none;  /* Hide scrollbar when possible */
+  //}
 
   ion-label {
     white-space: initial;
