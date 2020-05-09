@@ -20,6 +20,11 @@ export class RouteSelectionOverlayComponent implements OnInit {
 
   public onSelectedRoute(event) {
     const selectedRouteId = event.target.value;
+    const routeIsAlreadySelected =
+      selectedRouteId === this.routes.getSelectedRoute()['@id'];
+    if (routeIsAlreadySelected) {
+      return;
+    }
     this.routes.selectRouteById(selectedRouteId);
   }
 }

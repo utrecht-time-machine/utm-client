@@ -4,6 +4,8 @@ import { MapViewComponent } from './map-view.component';
 import { IonicModule } from '@ionic/angular';
 import { RouteSelectionOverlayComponent } from '../route-selection-overlay/route-selection-overlay.component';
 import { RouteInformationComponent } from '../route-information/route-information.component';
+import { StoryViewModule } from '../story-view/story-view.module';
+import { SourceModule } from '../../shared/source/source-component/source.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +13,6 @@ import { RouteInformationComponent } from '../route-information/route-informatio
     RouteSelectionOverlayComponent,
     RouteInformationComponent,
   ],
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule, StoryViewModule, SourceModule],
 })
 export class MapViewModule {}

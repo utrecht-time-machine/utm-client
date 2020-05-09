@@ -283,7 +283,7 @@ export class MapService {
           // @ts-ignore
           visualizePitch: true,
         }),
-        'bottom-right'
+        'top-right'
       );
 
       // Listen to pitch touch gestures

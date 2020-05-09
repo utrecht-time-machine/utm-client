@@ -1,16 +1,128 @@
-<div class="route-information-panel">
-  <div class="ion-text-center route-information-title">
-    <h2>{{ routes.getSelectedStory().title }}</h2>
-    <p>
-      <em>{{ routes.getSelectedStory().subtitle }} </em>
-    </p>
-  </div>
+<div class="route-information-panel" *ngIf="story">
+  <ion-grid style="max-height: 200px; overflow-y: scroll;">
+    <ion-row>
+      <ion-col size-xs="12" size-md="4">
+        <ion-card>
+          <!-- Story types -->
+          <div class="story-type-chip-container">
+            <ion-chip
+              *ngIf="
+                stories.getStorySequenceTypes(story).includes(SeqType.Article)
+              "
+              class="story-type-chip"
+            >
+              <ion-icon name="paper"></ion-icon>
+              <ion-label>Article</ion-label>
+            </ion-chip>
+            <ion-chip
+              *ngIf="
+                stories
+                  .getStorySequenceTypes(story)
+                  .includes(SeqType.TimeSlider)
+              "
+              class="story-type-chip"
+            >
+              <ion-icon name="clock"></ion-icon>
+              <ion-label>Time Slider</ion-label>
+            </ion-chip>
+            <ion-chip
+              *ngIf="stories.storyContainsAudio(story)"
+              class="story-type-chip"
+            >
+              <ion-icon name="volume-high"></ion-icon>
+              <ion-label>Voice-over</ion-label>
+            </ion-chip>
+            <ion-chip
+              *ngIf="
+                stories.getStorySequenceTypes(story).includes(SeqType.Dialogue)
+              "
+              class="story-type-chip"
+            >
+              <ion-icon name="logo-game-controller-b"></ion-icon>
+              <ion-label>Interactive Dialogue</ion-label>
+            </ion-chip>
+            <ion-chip
+              *ngIf="
+                stories.getStorySequenceTypes(story).includes(SeqType.External)
+              "
+              class="story-type-chip"
+            >
+              <ion-icon name="link"></ion-icon>
+              <ion-label>External Link</ion-label>
+            </ion-chip>
+          </div>
 
-  <div class="route-information-content">
-    <p>
-      {{ routes.getSelectedStory().story }}
-    </p>
-  </div>
+          <img src="{{ story['featured-image'] }}" alt="{{ story['title'] }}" />
+          <ion-card-header>
+            <ion-card-title>{{ story['title'] }}</ion-card-title>
+            <ion-card-subtitle>
+              {{ story['time-period']['start'].getFullYear() }} -
+              {{ story['time-period']['end'].getFullYear() }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content *ngIf="false">
+            <div [utmTextWithSources]="story['description']"></div>
+            <div class="story-tags">
+              <p *ngIf="story['tags']">
+                <em
+                  >Tags:
+                  <span *ngFor="let tag of story['tags']; last as isLast">
+                    <span utmSource [sourceUrl]="tag['@id']">{{
+                      tags.getTagById(tag['@id'])?.title
+                    }}</span
+                    >{{ isLast ? '' : ', ' }}
+                  </span>
+                </em>
+              </p>
+            </div>
+            <div class="story-authors ion-margin-top">
+              <small
+                class="story-author"
+                *ngFor="let storyAuthor of story.authors"
+              >
+                <img
+                  [src]="this.authors.getAuthorById(storyAuthor['@id']).logo"
+                  [alt]="this.authors.getAuthorById(storyAuthor['@id']).name"
+                  class="story-author-logo-img"
+                />
+                <span>{{
+                  this.authors.getAuthorById(storyAuthor['@id']).name
+                }}</span>
+              </small>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-xs="12" size-md="8">
+        <div [utmTextWithSources]="story['description']"></div>
+        <div class="story-tags">
+          <p *ngIf="story['tags']">
+            <em
+              >Tags:
+              <span *ngFor="let tag of story['tags']; last as isLast">
+                <span utmSource [sourceUrl]="tag['@id']">{{
+                  tags.getTagById(tag['@id'])?.title
+                }}</span
+                >{{ isLast ? '' : ', ' }}
+              </span>
+            </em>
+          </p>
+        </div>
+        <div class="story-authors ion-margin-top">
+          <small class="story-author" *ngFor="let storyAuthor of story.authors">
+            <img
+              [src]="this.authors.getAuthorById(storyAuthor['@id']).logo"
+              [alt]="this.authors.getAuthorById(storyAuthor['@id']).name"
+              class="story-author-logo-img"
+            />
+            <span>{{
+              this.authors.getAuthorById(storyAuthor['@id']).name
+            }}</span>
+          </small>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <div class="route-information-navigation">
     <ion-grid>

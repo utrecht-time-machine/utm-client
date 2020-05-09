@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { RouteModel, RouteStoryModel } from '../models/route.model';
+import { RouteModel } from '../models/route.model';
 import { StationsService } from './stations.service';
+import { StoriesService } from './stories.service';
+import { Story } from '../models/story.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,20 +14,54 @@ export class RoutesService {
   selected: BehaviorSubject<RouteModel>;
   selectedStoryIdx: BehaviorSubject<number>;
 
-  constructor(private http: HttpClient, private stations: StationsService) {
+  constructor(
+    private http: HttpClient,
+    private stations: StationsService,
+    private stories: StoriesService
+  ) {
     this.all = new BehaviorSubject<RouteModel[]>([]);
     this.selected = new BehaviorSubject<RouteModel>(undefined);
     this.selectedStoryIdx = new BehaviorSubject<number>(0);
-    this.update();
+
+    this.initialize();
+  }
+
+  async initialize() {
+    await this.update();
+    this.initializeStoryReloading();
   }
 
   async update() {
-    const routes: any = await this.http
-      .get('/assets/data-models/routes.json')
+    const routes: RouteModel[] = await this.http
+      .get<RouteModel[]>('/assets/data-models/routes.json')
       .toPromise();
     this.all.next(routes);
     this.selected.next(routes[0]);
     this.selectedStoryIdx.next(0);
+  }
+
+  private initializeStoryReloading() {
+    this.stories.all.subscribe(() => {
+      this.reloadRouteStories();
+    });
+  }
+
+  private reloadRouteStories() {
+    const currentRoutes = this.all.getValue();
+
+    currentRoutes.forEach((route, idx) => {
+      route.stories = [];
+
+      for (const storyId of route.storyIds) {
+        const story: Story = this.stories.getByStoryId(storyId['@id']);
+        route.stories.push(story);
+      }
+
+      currentRoutes[idx] = route;
+    });
+
+    this.all.next(currentRoutes);
+    console.log(this.all.getValue());
   }
 
   public getAmountStoriesSelectedRoute(): number {
@@ -60,7 +96,11 @@ export class RoutesService {
     this.selectedStoryIdx.next(nextStoryIdx);
   }
 
-  public getSelectedStory(): RouteStoryModel {
+  public getSelectedStory(): Story {
+    if (!this.selected.getValue() || !this.selected.getValue().stories) {
+      return undefined;
+    }
+
     return this.selected.getValue().stories[this.selectedStoryIdx.getValue()];
   }
 
@@ -78,13 +118,20 @@ export class RoutesService {
 
   public getRouteStationCoordinatesById(routeId: string): any {
     const route: RouteModel = this.getRouteById(routeId);
-    const routeStationCoordinates = route.stations.map(station => {
-      return this.stations.getStationById(station['@id']).geometry.coordinates;
+    // TODO: Support multiple stations for a single story?
+    //  Currently always picks the coordinates of the first story station
+    const routeStationCoordinates = route.stories.map(story => {
+      return this.stations.getStationById(story.stations[0]['@id']).geometry
+        .coordinates;
     });
     return routeStationCoordinates;
   }
 
   public getRouteById(routeId: string): RouteModel {
     return this.all.getValue().find(route => route['@id'] === routeId);
+  }
+
+  public getSelectedRoute(): RouteModel {
+    return this.selected.getValue();
   }
 }

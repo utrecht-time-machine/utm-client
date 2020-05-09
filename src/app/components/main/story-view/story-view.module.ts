@@ -16,5 +16,6 @@ import { SourceModule } from '../../shared/source/source-component/source.module
     NgxPopperModule,
     SourceModule,
   ],
+  exports: [TextWithSourcesDirective],
 })
 export class StoryViewModule {}

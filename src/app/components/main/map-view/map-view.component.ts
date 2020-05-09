@@ -67,6 +67,8 @@ export class MapViewComponent implements OnInit {
 
   async toggleExplorationMode() {
     this.map.resize();
+
+    // TODO: Remove exploration mode altogether
     if (this.currentExplorationMode === ExplorationMode.Immersive) {
       this.setExplorationMode(ExplorationMode.Overview);
       const toast = await this.toast.create({

@@ -112,6 +112,8 @@ export class SourcesFromHtmlService {
     vc: ViewContainerRef,
     html: string
   ): Promise<boolean> {
+    elRef.nativeElement.innerHTML = '';
+
     // Render original HTML
     elRef.nativeElement.insertAdjacentHTML('beforeend', html);
 
