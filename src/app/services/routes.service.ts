@@ -125,6 +125,11 @@ export class RoutesService {
     return routeStationCoordinates;
   }
 
+  public deselectRoute() {
+    this.selected.next(undefined);
+    this.selectedStoryIdx.next(0);
+  }
+
   public getRouteById(routeId: string): RouteModel {
     return this.all.getValue().find(route => route['@id'] === routeId);
   }

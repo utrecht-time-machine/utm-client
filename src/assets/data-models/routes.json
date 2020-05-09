@@ -1,5 +1,14 @@
 [
   {
+    "@id": "https://utrechttimemachine.nl/routes/no-route",
+    "storyIds": [],
+    "properties": {
+      "title": "No Route",
+      "description": "Show all stories on the map.",
+      "color": "black"
+    }
+  },
+  {
     "@id": "https://utrechttimemachine.nl/routes/neude-tour",
     "storyIds": [
       {

@@ -26,7 +26,6 @@ export class TextWithSourcesDirective implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('!!');
     if (changes.plainTextWithSources) {
       this.sourcesFromHtml
         .renderHtmlWithSources(
