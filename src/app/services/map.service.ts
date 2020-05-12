@@ -1,7 +1,12 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import * as THREE from 'three';
 import * as mapboxgl from 'mapbox-gl';
-import { LngLat, LngLatBounds, MercatorCoordinate } from 'mapbox-gl';
+import {
+  AnySourceData,
+  LngLat,
+  LngLatBounds,
+  MercatorCoordinate,
+} from 'mapbox-gl';
 import { Feature, Point } from 'geojson';
 import { MeshLambertMaterial } from 'three';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -73,6 +78,36 @@ export class MapService {
     private routes: RoutesService
   ) {
     this.isInit = new BehaviorSubject<boolean>(null);
+  }
+
+  private static generateWaypointMarkers(stations: any[]) {
+    const wayPointMarkers = {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [],
+      },
+    };
+    for (const station of stations) {
+      const station3DModel = station.properties['3d-model'];
+      const coordinates = [...station.geometry.coordinates];
+      if (station3DModel) {
+        // Slight offset of 2D marker so it doesn't overlap the 3D model
+        coordinates[0] += 0.000075;
+      }
+      const wayPointMarker = {
+        type: 'Feature',
+        properties: {
+          id: station.id,
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: coordinates,
+        },
+      };
+      wayPointMarkers.data.features.push(wayPointMarker);
+    }
+    return wayPointMarkers;
   }
 
   private static generateDefaultWaypoint(
@@ -381,10 +416,46 @@ export class MapService {
   }
 
   /**
-   * Displays stations as 3d cones on the map/
-   * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
+   * Displays stations as 2d marker icons on the map, additionally shows a 3d model (if available)
+   * 3D model support adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
+   * Click on marker support adapted from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
    */
   private async addStations() {
+    this.map.loadImage('/assets/img/map/station-marker.png', (error, image) => {
+      if (error) {
+        throw error;
+      }
+      this.map.addImage('station-marker', image);
+      const markers: any = MapService.generateWaypointMarkers(
+        this.stations.all.getValue()
+      );
+      this.map.addSource('point', markers);
+
+      const layerId = 'station-markers';
+      this.map.addLayer({
+        id: layerId,
+        type: 'symbol',
+        source: 'point',
+        layout: {
+          'icon-image': 'station-marker',
+          'icon-size': 0.75,
+        },
+      });
+
+      this.map.on('click', layerId, e => {
+        // const coordinates = (e.features[0].geometry as any).coordinates.slice();
+        const id = e.features[0].properties.id;
+        this.routes.selectStoryByStationId(id);
+      });
+
+      this.map.on('mouseenter', layerId, () => {
+        this.map.getCanvas().style.cursor = 'pointer';
+      });
+      this.map.on('mouseleave', layerId, () => {
+        this.map.getCanvas().style.cursor = '';
+      });
+    });
+
     // NOTE: Due to the for-loop, the scene is rendered multiple times with the same cone object,
     // rather than rendered once with multiple cone objects.
     for (const station of this.stations.all.getValue()) {
@@ -400,7 +471,8 @@ export class MapService {
         waypointResult = await MapService.generateCustomWaypoint(station);
       } else {
         // default waypoint
-        waypointResult = MapService.generateDefaultWaypoint(station);
+        // waypointResult = MapService.generateDefaultWaypoint(station);
+        continue;
       }
       currentScene = waypointResult.scene;
       modelTransform = waypointResult.meshTransform;

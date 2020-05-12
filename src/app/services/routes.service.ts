@@ -75,6 +75,25 @@ export class RoutesService {
     this.selectedStoryIdx.next(prevStoryIdx);
   }
 
+  public selectStoryByStationId(stationId) {
+    const stories = this.selected.getValue().stories;
+    for (let storyIdx = 0; storyIdx < stories.length; storyIdx++) {
+      // TODO: Support multiple stations for a single story?
+      //  Story is currently assumed to only have one associated station
+      const story: Story = stories[storyIdx];
+      console.log(stationId);
+      console.log(story.stations[0]['@id'], '\n');
+      if (stationId === story.stations[0]['@id']) {
+        this.selectedStoryIdx.next(storyIdx);
+        return;
+      }
+    }
+
+    console.warn(
+      'Could not find a story for the clicked station in the selected route'
+    );
+  }
+
   public selectFirstStory() {
     this.selectedStoryIdx.next(0);
   }

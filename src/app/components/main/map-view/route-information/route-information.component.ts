@@ -18,7 +18,6 @@ export class RouteInformationComponent implements OnInit {
   ngOnInit() {
     this.routes.selectedStoryIdx.subscribe(selectedStoryIdx => {
       this.story = this.routes.getSelectedStory();
-      console.log(this.story);
     });
   }
 
