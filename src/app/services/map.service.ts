@@ -52,6 +52,17 @@ interface ModelTransform {
   providedIn: 'root',
 })
 export class MapService {
+  constructor(
+    private rendererFactory: RendererFactory2,
+    private stations: StationsService,
+    private router: Router,
+    private http: HttpClient,
+    private stories: StoriesService,
+    private routes: RoutesService
+  ) {
+    this.isInit = new BehaviorSubject<boolean>(null);
+  }
+
   static defaultMaterial: MeshLambertMaterial = new THREE.MeshLambertMaterial({
     color: 0xfbefcf,
   });
@@ -69,46 +80,7 @@ export class MapService {
   private geolocationWatcherSub: Subscription;
   private geolocationWatcher: GeolocationWatcherHelper;
 
-  constructor(
-    private rendererFactory: RendererFactory2,
-    private stations: StationsService,
-    private router: Router,
-    private http: HttpClient,
-    private stories: StoriesService,
-    private routes: RoutesService
-  ) {
-    this.isInit = new BehaviorSubject<boolean>(null);
-  }
-
-  private static generateWaypointMarkers(stations: any[]) {
-    const wayPointMarkers = {
-      type: 'geojson',
-      data: {
-        type: 'FeatureCollection',
-        features: [],
-      },
-    };
-    for (const station of stations) {
-      const station3DModel = station.properties['3d-model'];
-      const coordinates = [...station.geometry.coordinates];
-      if (station3DModel) {
-        // Slight offset of 2D marker so it doesn't overlap the 3D model
-        coordinates[0] += 0.000075;
-      }
-      const wayPointMarker = {
-        type: 'Feature',
-        properties: {
-          id: station.id,
-        },
-        geometry: {
-          type: 'Point',
-          coordinates: coordinates,
-        },
-      };
-      wayPointMarkers.data.features.push(wayPointMarker);
-    }
-    return wayPointMarkers;
-  }
+  private readonly markerLayerId = 'station-markers';
 
   private static generateDefaultWaypoint(
     station
@@ -262,6 +234,38 @@ export class MapService {
     };
   }
 
+  private generateWaypointMarkers(stations: any[]) {
+    const wayPointMarkers = {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [],
+      },
+    };
+    for (const station of stations) {
+      const station3DModel = station.properties['3d-model'];
+      const coordinates = [...station.geometry.coordinates];
+      if (station3DModel) {
+        // Slight offset of 2D marker so it doesn't overlap the 3D model
+        coordinates[0] += 0.000075;
+      }
+      const isSelected = this.routes.getSelectedStationId() === station.id;
+      const wayPointMarker = {
+        type: 'Feature',
+        properties: {
+          id: station.id,
+          icon: isSelected ? 'selected-station-marker' : 'station-marker',
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: coordinates,
+        },
+      };
+      wayPointMarkers.data.features.push(wayPointMarker);
+    }
+    return wayPointMarkers;
+  }
+
   init() {
     if (this.isInit.getValue() !== null) {
       console.error('You tried to reinitialise the map, which is not allowed.');
@@ -305,12 +309,18 @@ export class MapService {
     this.map.on('load', () => {
       this.isInit.next(true);
 
-      this.addStations();
+      this.add3DModels();
+      this.addStationMarkers();
       this.updateRouteLines();
 
       // Update route lines when a new route has been selected
       this.routes.selected.subscribe(() => {
         this.updateRouteLines();
+      });
+
+      // Update station markers when a new station has been selected
+      this.routes.selectedStoryIdx.subscribe(() => {
+        this.updateStationMarkers();
       });
 
       this.map.addControl(
@@ -416,46 +426,9 @@ export class MapService {
   }
 
   /**
-   * Displays stations as 2d marker icons on the map, additionally shows a 3d model (if available)
-   * 3D model support adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
-   * Click on marker support adapted from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
+   *    3D model support adopted from https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/
    */
-  private async addStations() {
-    this.map.loadImage('/assets/img/map/station-marker.png', (error, image) => {
-      if (error) {
-        throw error;
-      }
-      this.map.addImage('station-marker', image);
-      const markers: any = MapService.generateWaypointMarkers(
-        this.stations.all.getValue()
-      );
-      this.map.addSource('point', markers);
-
-      const layerId = 'station-markers';
-      this.map.addLayer({
-        id: layerId,
-        type: 'symbol',
-        source: 'point',
-        layout: {
-          'icon-image': 'station-marker',
-          'icon-size': 0.75,
-        },
-      });
-
-      this.map.on('click', layerId, e => {
-        // const coordinates = (e.features[0].geometry as any).coordinates.slice();
-        const id = e.features[0].properties.id;
-        this.routes.selectStoryByStationId(id);
-      });
-
-      this.map.on('mouseenter', layerId, () => {
-        this.map.getCanvas().style.cursor = 'pointer';
-      });
-      this.map.on('mouseleave', layerId, () => {
-        this.map.getCanvas().style.cursor = '';
-      });
-    });
-
+  private async add3DModels() {
     // NOTE: Due to the for-loop, the scene is rendered multiple times with the same cone object,
     // rather than rendered once with multiple cone objects.
     for (const station of this.stations.all.getValue()) {
@@ -530,5 +503,75 @@ export class MapService {
       // @ts-ignore
       this.map.addLayer(customLayer, 'building 3D');
     }
+  }
+
+  public updateStationMarkers() {
+    // TODO: Change the marker image of the selected marker
+    console.log(this.map.getSource('station-markers-points'));
+  }
+
+  /**
+   * Displays stations as 2d marker icons on the map, additionally shows a 3d model (if available)
+   * Click on marker support adapted from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
+   */
+  private async addStationMarkers() {
+    const imageUrls = [
+      {
+        url: '/assets/img/map/selected-station-marker.png',
+        id: 'selected-station-marker',
+      },
+      { url: '/assets/img/map/station-marker.png', id: 'station-marker' },
+    ];
+    await Promise.all(
+      imageUrls.map(
+        img =>
+          new Promise((resolve, reject) => {
+            this.map.loadImage(img.url, (error, res) => {
+              if (error) {
+                throw error;
+              }
+              if (!this.map.hasImage(img.id)) {
+                this.map.addImage(img.id, res);
+                console.log('Added image', img.id);
+              }
+              resolve();
+            });
+          })
+      )
+    );
+
+    const markers: any = this.generateWaypointMarkers(
+      this.stations.all.getValue()
+    );
+
+    this.map.addSource('station-markers-points', markers);
+
+    this.map.addLayer({
+      id: this.markerLayerId,
+      type: 'symbol',
+      source: 'station-markers-points',
+      layout: {
+        'icon-image': '{icon}',
+        'icon-size': 0.75,
+        'text-field': '{id}',
+        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+        'text-offset': [0, -1.6],
+        'text-anchor': 'top',
+        'text-size': 8,
+      },
+    });
+
+    this.map.on('click', this.markerLayerId, e => {
+      // const coordinates = (e.features[0].geometry as any).coordinates.slice();
+      const id = e.features[0].properties.id;
+      this.routes.selectStoryByStationId(id);
+    });
+
+    this.map.on('mouseenter', this.markerLayerId, () => {
+      this.map.getCanvas().style.cursor = 'pointer';
+    });
+    this.map.on('mouseleave', this.markerLayerId, () => {
+      this.map.getCanvas().style.cursor = '';
+    });
   }
 }

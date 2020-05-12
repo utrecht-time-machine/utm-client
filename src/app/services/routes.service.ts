@@ -5,6 +5,7 @@ import { RouteModel } from '../models/route.model';
 import { StationsService } from './stations.service';
 import { StoriesService } from './stories.service';
 import { Story } from '../models/story.model';
+import { StationId } from '../models/station.model';
 
 @Injectable({
   providedIn: 'root',
@@ -73,6 +74,14 @@ export class RoutesService {
     }
 
     this.selectedStoryIdx.next(prevStoryIdx);
+  }
+
+  public getSelectedStationId(): StationId {
+    const selectedStory: Story = this.getSelectedStory();
+    if (!selectedStory) {
+      return { '@id': undefined };
+    }
+    return selectedStory.stations[0];
   }
 
   public selectStoryByStationId(stationId) {
