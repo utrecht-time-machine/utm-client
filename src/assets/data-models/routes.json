@@ -1,9 +1,9 @@
 [
   {
-    "@id": "https://utrechttimemachine.nl/routes/no-route",
+    "@id": "https://utrechttimemachine.nl/routes/all-stories",
     "storyIds": [],
     "properties": {
-      "title": "No Route",
+      "title": "All Stories",
       "description": "Show all stories on the map.",
       "color": "black"
     }

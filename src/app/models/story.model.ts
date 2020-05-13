@@ -48,3 +48,7 @@ export interface Story {
   hidden: boolean; // hide this story in the story view
   tagIds?: TagId[];
 }
+
+export interface StoryId {
+  '@id': string;
+}

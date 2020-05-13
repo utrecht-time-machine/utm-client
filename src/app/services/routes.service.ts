@@ -6,6 +6,7 @@ import { StationsService } from './stations.service';
 import { StoriesService } from './stories.service';
 import { Story } from '../models/story.model';
 import { StationId } from '../models/station.model';
+import { Route } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,8 @@ export class RoutesService {
   all: BehaviorSubject<RouteModel[]>;
   selected: BehaviorSubject<RouteModel>;
   selectedStoryIdx: BehaviorSubject<number>;
+
+  private allStoriesRouteId: string;
 
   constructor(
     private http: HttpClient,
@@ -31,6 +34,9 @@ export class RoutesService {
     const routes: RouteModel[] = await this.http
       .get<RouteModel[]>('/assets/data-models/routes.json')
       .toPromise();
+
+    this.allStoriesRouteId = routes[0]['@id'];
+
     this.all.next(routes);
 
     this.initializeStoryReloading();
@@ -39,14 +45,25 @@ export class RoutesService {
     this.selectedStoryIdx.next(0);
   }
 
+  public getAllStoriesRouteId() {
+    return this.allStoriesRouteId;
+  }
+
   private initializeStoryReloading() {
-    this.stories.all.subscribe(() => {
-      this.reloadRouteStories();
+    this.stories.all.subscribe(allStories => {
+      this.reloadRouteStories(allStories);
     });
   }
 
-  private reloadRouteStories() {
+  private reloadRouteStories(allStories: Story[]) {
     const currentRoutes = this.all.getValue();
+
+    // Add all stories for when no route is selected
+    // Internally, "no route" is seen as a route which includes all stories
+    const allStoryIds = allStories.map(story => {
+      return { '@id': story['@id'] };
+    });
+    currentRoutes[0].storyIds = allStoryIds;
 
     currentRoutes.forEach((route, idx) => {
       route.stories = [];
@@ -97,9 +114,11 @@ export class RoutesService {
       }
     }
 
-    console.warn(
-      'Could not find a story for the clicked station in the selected route'
+    console.log(
+      'Could not find a story for the clicked station in the selected route, deselecting route.'
     );
+    this.deselectRoute();
+    this.selectStoryByStationId(stationId);
   }
 
   public selectFirstStory() {
@@ -153,7 +172,9 @@ export class RoutesService {
   }
 
   public deselectRoute() {
-    this.selected.next(undefined);
+    const noRoute: RouteModel = this.getRouteById(this.allStoriesRouteId);
+    this.selected.next(noRoute);
+
     this.selectedStoryIdx.next(0);
   }
 

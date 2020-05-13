@@ -1,8 +1,8 @@
-import { Story } from './story.model';
+import { Story, StoryId } from './story.model';
 
 export interface RouteModel {
   '@id': string;
-  storyIds: string[];
+  storyIds: StoryId[];
   stories?: Story[];
   properties: {
     title: string;

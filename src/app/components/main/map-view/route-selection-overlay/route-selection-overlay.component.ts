@@ -20,7 +20,6 @@ export class RouteSelectionOverlayComponent implements OnInit {
   public onSelectedRoute(event) {
     const selectedRouteId = event.target.value;
     if (selectedRouteId === 'no-route') {
-      this.routes.deselectRoute();
       return;
     }
 

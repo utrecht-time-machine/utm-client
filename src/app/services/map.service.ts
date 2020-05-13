@@ -401,6 +401,11 @@ export class MapService {
       this.map.removeSource('route');
     }
 
+    // Don't show lines for the "All Stories" route
+    if (this.routes.getAllStoriesRouteId() === route['@id']) {
+      return;
+    }
+
     // Add new route lines
     this.map.addSource('route', {
       type: 'geojson',
@@ -428,7 +433,7 @@ export class MapService {
       },
     };
 
-    this.map.addLayer(lineLayer);
+    this.map.addLayer(lineLayer, this.markerLayerId);
   }
 
   /**
@@ -507,7 +512,7 @@ export class MapService {
       };
       this.map.triggerRepaint();
       // @ts-ignore
-      this.map.addLayer(customLayer, 'building 3D');
+      this.map.addLayer(customLayer);
     }
   }
 
@@ -573,20 +578,24 @@ export class MapService {
       this.routes.getSelectedStationId()['@id']
     );
     this.map.addSource(this.markerSourceId, this.markerPoints);
-    this.map.addLayer({
-      id: this.markerLayerId,
-      type: 'symbol',
-      source: this.markerSourceId,
-      layout: {
-        'icon-image': '{icon}',
-        'icon-size': 0.75,
-        // 'text-field': '{id}',
-        // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        // 'text-offset': [0, -1.6],
-        // 'text-anchor': 'top',
-        // 'text-size': 8,
+    this.map.addLayer(
+      {
+        id: this.markerLayerId,
+        type: 'symbol',
+        source: this.markerSourceId,
+        layout: {
+          'icon-image': '{icon}',
+          'icon-size': 0.75,
+          'icon-allow-overlap': true,
+          // 'text-field': '{id}',
+          // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+          // 'text-offset': [0, -1.6],
+          // 'text-anchor': 'top',
+          // 'text-size': 8,
+        },
       },
-    });
+      'building 3D'
+    );
 
     this.map.on('click', this.markerLayerId, e => {
       // const coordinates = (e.features[0].geometry as any).coordinates.slice();
