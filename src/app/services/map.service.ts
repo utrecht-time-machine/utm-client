@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import * as mapboxgl from 'mapbox-gl';
 import {
   AnySourceData,
+  GeoJSONSource,
   LngLat,
   LngLatBounds,
   MercatorCoordinate,
@@ -66,6 +67,8 @@ export class MapService {
   static defaultMaterial: MeshLambertMaterial = new THREE.MeshLambertMaterial({
     color: 0xfbefcf,
   });
+  static readonly selectedMarkerImgId = 'selected-station-marker-img';
+  static readonly markerImgId = 'station-marker-img';
 
   isInit: BehaviorSubject<boolean>;
   mapContainer: HTMLElement;
@@ -80,7 +83,9 @@ export class MapService {
   private geolocationWatcherSub: Subscription;
   private geolocationWatcher: GeolocationWatcherHelper;
 
-  private readonly markerLayerId = 'station-markers';
+  private markerPoints;
+  private readonly markerLayerId = 'station-markers-layer';
+  private readonly markerSourceId = 'station-points';
 
   private static generateDefaultWaypoint(
     station
@@ -234,7 +239,7 @@ export class MapService {
     };
   }
 
-  private generateWaypointMarkers(stations: any[]) {
+  private static generateWaypointMarkers(stations: any[], selectedStationId) {
     const wayPointMarkers = {
       type: 'geojson',
       data: {
@@ -243,18 +248,19 @@ export class MapService {
       },
     };
     for (const station of stations) {
+      const isSelected = selectedStationId === station.id;
+
       const station3DModel = station.properties['3d-model'];
       const coordinates = [...station.geometry.coordinates];
       if (station3DModel) {
         // Slight offset of 2D marker so it doesn't overlap the 3D model
         coordinates[0] += 0.000075;
       }
-      const isSelected = this.routes.getSelectedStationId() === station.id;
       const wayPointMarker = {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: isSelected ? 'selected-station-marker' : 'station-marker',
+          icon: isSelected ? this.selectedMarkerImgId : this.markerImgId,
         },
         geometry: {
           type: 'Point',
@@ -320,7 +326,7 @@ export class MapService {
 
       // Update station markers when a new station has been selected
       this.routes.selectedStoryIdx.subscribe(() => {
-        this.updateStationMarkers();
+        this.selectStationMarker(this.routes.getSelectedStationId()['@id']);
       });
 
       this.map.addControl(
@@ -505,9 +511,31 @@ export class MapService {
     }
   }
 
-  public updateStationMarkers() {
-    // TODO: Change the marker image of the selected marker
-    console.log(this.map.getSource('station-markers-points'));
+  public selectStationMarker(stationId) {
+    if (!this.markerPoints) {
+      return;
+    }
+
+    // Update marker image
+    for (
+      let featureIdx = 0;
+      featureIdx < this.markerPoints.data.features.length;
+      featureIdx++
+    ) {
+      const feature = this.markerPoints.data.features[featureIdx];
+      const markerStationId = feature.properties.id;
+      if (markerStationId === stationId) {
+        this.markerPoints.data.features[featureIdx].properties.icon =
+          MapService.selectedMarkerImgId;
+      } else {
+        this.markerPoints.data.features[featureIdx].properties.icon =
+          MapService.markerImgId;
+      }
+    }
+
+    (this.map.getSource(this.markerSourceId) as GeoJSONSource).setData(
+      this.markerPoints.data
+    );
   }
 
   /**
@@ -518,9 +546,9 @@ export class MapService {
     const imageUrls = [
       {
         url: '/assets/img/map/selected-station-marker.png',
-        id: 'selected-station-marker',
+        id: MapService.selectedMarkerImgId,
       },
-      { url: '/assets/img/map/station-marker.png', id: 'station-marker' },
+      { url: '/assets/img/map/station-marker.png', id: MapService.markerImgId },
     ];
     await Promise.all(
       imageUrls.map(
@@ -540,24 +568,23 @@ export class MapService {
       )
     );
 
-    const markers: any = this.generateWaypointMarkers(
-      this.stations.all.getValue()
+    this.markerPoints = MapService.generateWaypointMarkers(
+      this.stations.all.getValue(),
+      this.routes.getSelectedStationId()['@id']
     );
-
-    this.map.addSource('station-markers-points', markers);
-
+    this.map.addSource(this.markerSourceId, this.markerPoints);
     this.map.addLayer({
       id: this.markerLayerId,
       type: 'symbol',
-      source: 'station-markers-points',
+      source: this.markerSourceId,
       layout: {
         'icon-image': '{icon}',
         'icon-size': 0.75,
-        'text-field': '{id}',
-        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        'text-offset': [0, -1.6],
-        'text-anchor': 'top',
-        'text-size': 8,
+        // 'text-field': '{id}',
+        // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+        // 'text-offset': [0, -1.6],
+        // 'text-anchor': 'top',
+        // 'text-size': 8,
       },
     });
 

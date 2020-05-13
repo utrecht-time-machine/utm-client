@@ -90,8 +90,7 @@ export class RoutesService {
       // TODO: Support multiple stations for a single story?
       //  Story is currently assumed to only have one associated station
       const story: Story = stories[storyIdx];
-      console.log(stationId);
-      console.log(story.stations[0]['@id'], '\n');
+
       if (stationId === story.stations[0]['@id']) {
         this.selectedStoryIdx.next(storyIdx);
         return;
