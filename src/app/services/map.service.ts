@@ -69,6 +69,7 @@ export class MapService {
   });
   static readonly selectedMarkerImgId = 'selected-station-marker-img';
   static readonly markerImgId = 'station-marker-img';
+  static readonly routeMarkerImgId = 'route-station-marker-img';
 
   isInit: BehaviorSubject<boolean>;
   mapContainer: HTMLElement;
@@ -402,7 +403,7 @@ export class MapService {
     }
 
     // Don't show lines for the "All Stories" route
-    if (this.routes.getAllStoriesRouteId() === route['@id']) {
+    if (this.routes.isShowingAllStories()) {
       return;
     }
 
@@ -521,7 +522,9 @@ export class MapService {
       return;
     }
 
-    // Update marker image
+    const routeStations = this.routes.getRouteStationIds();
+    console.log(routeStations);
+    // Update selected marker image
     for (
       let featureIdx = 0;
       featureIdx < this.markerPoints.data.features.length;
@@ -532,6 +535,12 @@ export class MapService {
       if (markerStationId === stationId) {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.selectedMarkerImgId;
+      } else if (
+        !this.routes.isShowingAllStories()
+        && routeStations.includes(markerStationId)
+      ) {
+        this.markerPoints.data.features[featureIdx].properties.icon =
+          MapService.routeMarkerImgId;
       } else {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.markerImgId;
@@ -553,7 +562,14 @@ export class MapService {
         url: '/assets/img/map/selected-station-marker.png',
         id: MapService.selectedMarkerImgId,
       },
-      { url: '/assets/img/map/station-marker.png', id: MapService.markerImgId },
+      {
+        url: '/assets/img/map/station-marker.png',
+        id: MapService.markerImgId,
+      },
+      {
+        url: '/assets/img/map/route-station-marker.png',
+        id: MapService.routeMarkerImgId,
+      },
     ];
     await Promise.all(
       imageUrls.map(

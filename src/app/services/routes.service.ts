@@ -45,10 +45,6 @@ export class RoutesService {
     this.selectedStoryIdx.next(0);
   }
 
-  public getAllStoriesRouteId() {
-    return this.allStoriesRouteId;
-  }
-
   private initializeStoryReloading() {
     this.stories.all.subscribe(allStories => {
       this.reloadRouteStories(allStories);
@@ -91,6 +87,17 @@ export class RoutesService {
     }
 
     this.selectedStoryIdx.next(prevStoryIdx);
+  }
+
+  public getRouteStationIds(): string[] {
+    const stories = this.selected.getValue().stories;
+    const stationIds: string[] = [];
+    for (const story of stories) {
+      if (story) {
+        stationIds.push(story.stations[0]['@id']);
+      }
+    }
+    return stationIds;
   }
 
   public getSelectedStationId(): StationId {
@@ -184,5 +191,9 @@ export class RoutesService {
 
   public getSelectedRoute(): RouteModel {
     return this.selected.getValue();
+  }
+
+  public isShowingAllStories(): boolean {
+    return this.getSelectedRoute()['@id'] === this.allStoriesRouteId;
   }
 }
