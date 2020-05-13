@@ -240,7 +240,7 @@ export class MapService {
     };
   }
 
-  private static generateWaypointMarkers(stations: any[], selectedStationId) {
+  private static generateWaypointMarkers(stations: any[]) {
     const wayPointMarkers = {
       type: 'geojson',
       data: {
@@ -249,8 +249,6 @@ export class MapService {
       },
     };
     for (const station of stations) {
-      const isSelected = selectedStationId === station.id;
-
       const station3DModel = station.properties['3d-model'];
       const coordinates = [...station.geometry.coordinates];
       if (station3DModel) {
@@ -261,7 +259,7 @@ export class MapService {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: isSelected ? this.selectedMarkerImgId : this.markerImgId,
+          icon: this.markerImgId,
           opacity: 1,
         },
         geometry: {
@@ -439,7 +437,7 @@ export class MapService {
       },
     };
 
-    this.map.addLayer(lineLayer, this.markerLayerId);
+    this.map.addLayer(lineLayer, 'building 3D');
   }
 
   /**
@@ -601,7 +599,7 @@ export class MapService {
               }
               if (!this.map.hasImage(img.id)) {
                 this.map.addImage(img.id, res);
-                console.log('Added image', img.id);
+                // console.log('Added image', img.id);
               }
               resolve();
             });
@@ -609,10 +607,7 @@ export class MapService {
       )
     );
 
-    this.markerPoints = MapService.generateWaypointMarkers(
-      allStoryStations,
-      this.routes.getSelectedStationId()['@id']
-    );
+    this.markerPoints = MapService.generateWaypointMarkers(allStoryStations);
 
     if (
       this.map.getLayer(this.markerLayerId)

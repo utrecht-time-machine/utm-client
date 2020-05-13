@@ -12,34 +12,27 @@
     "@id": "https://utrechttimemachine.nl/routes/neude-tour",
     "storyIds": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100000_neude_thinker-on-a-rock"
+        "@id": "https://utrechttimemachine.nl/stories/20201000019_belle-van-zuylen-krommenieuwegracht"
       },
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100001_neude_smell_public_restroom"
+        "@id": "https://utrechttimemachine.nl/stories/20201000020_belle-van-zuylen-clavecimbel-les"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000021_belle-van-zuylen_zadelstraat"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000022_belle-van-zuylen_publication-le-noble"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000023_belle-van-zuylen_jan-verliefd"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat"
       }
     ],
     "properties": {
-      "title": "Tour Across Neude",
-      "description": "Discover the Neude's famous statue and its public restroom.",
-      "color": "#007dbf"
-    }
-  },
-  {
-    "@id": "https://utrechttimemachine.nl/routes/neude-tour-2",
-    "storyIds": [
-      {
-        "@id": "https://utrechttimemachine.nl/stories/20191000012_neude_de-liefde-centraal-apotheek_introduction"
-      },
-      {
-        "@id": "https://utrechttimemachine.nl/stories/2019100001_neude_smell_public_restroom"
-      },
-      {
-        "@id": "https://utrechttimemachine.nl/stories/2019100003_neude_hearing_de-beurs-cafe"
-      }
-    ],
-    "properties": {
-      "title": "Tour Across Neude #2",
-      "description": "Discover the old pharmacy, the public restroom and the Beurs.",
+      "title": "Belle van Zuylen",
+      "description": "Ontdek de beroemde Utrechtse schrijfster.",
       "color": "#007dbf"
     }
   }

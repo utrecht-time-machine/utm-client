@@ -175,5 +175,125 @@
       "title": "Choorstraat",
       "description": ""
     }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2684300955",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1238913, 52.0922471]
+    },
+    "properties": {
+      "title": "Kromme Nieuwe Gracht 3",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/471061757",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.12507, 52.0853]
+    },
+    "properties": {
+      "title": "Lange Nieuwstraat",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/72891620",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1194, 52.0901]
+    },
+    "properties": {
+      "title": "Zadelstraat",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2709280887",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1206385, 52.0930809]
+    },
+    "properties": {
+      "title": "Janskerkhof 3",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2709279839",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1205902, 52.0932548]
+    },
+    "properties": {
+      "title": "Janskerkhof 2",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/7009794",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1336, 52.08521]
+    },
+    "properties": {
+      "title": "Zonstraat",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/304696233",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.11358, 52.09299]
+    },
+    "properties": {
+      "title": "Vredenburg",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/55277368",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.07303, 52.12712]
+    },
+    "properties": {
+      "title": "Slot Zuylen",
+      "description": ""
+    }
   }
 ]

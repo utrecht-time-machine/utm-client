@@ -73,7 +73,6 @@ export class RoutesService {
     });
 
     this.all.next(currentRoutes);
-    console.log(this.all.getValue());
   }
 
   public getAmountStoriesSelectedRoute(): number {
