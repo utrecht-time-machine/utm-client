@@ -3,6 +3,7 @@
 
 .story-information {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .story-featured-image {
@@ -27,5 +28,6 @@
 
 .hide-information-btn {
   position: absolute;
-  right: 0;
+  right: -20px;
+  top: -10px;
 }

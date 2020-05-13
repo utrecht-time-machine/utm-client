@@ -262,6 +262,7 @@ export class MapService {
         properties: {
           id: station.id,
           icon: isSelected ? this.selectedMarkerImgId : this.markerImgId,
+          opacity: 1,
         },
         geometry: {
           type: 'Point',
@@ -523,7 +524,6 @@ export class MapService {
     }
 
     const routeStations = this.routes.getRouteStationIds();
-    console.log(routeStations);
     // Update selected marker image
     for (
       let featureIdx = 0;
@@ -535,15 +535,22 @@ export class MapService {
       if (markerStationId === stationId) {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.selectedMarkerImgId;
+        this.markerPoints.data.features[featureIdx].properties.opacity = 1;
       } else if (
         !this.routes.isShowingAllStories()
         && routeStations.includes(markerStationId)
       ) {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.routeMarkerImgId;
+        this.markerPoints.data.features[featureIdx].properties.opacity = 1;
       } else {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.markerImgId;
+        if (!this.routes.isShowingAllStories()) {
+          this.markerPoints.data.features[featureIdx].properties.opacity = 0.15;
+        } else {
+          this.markerPoints.data.features[featureIdx].properties.opacity = 1;
+        }
       }
     }
 
@@ -567,7 +574,7 @@ export class MapService {
         id: MapService.markerImgId,
       },
       {
-        url: '/assets/img/map/route-station-marker.png',
+        url: '/assets/img/map/station-marker.png', // '/assets/img/map/route-station-marker.png'
         id: MapService.routeMarkerImgId,
       },
     ];
@@ -608,6 +615,9 @@ export class MapService {
           // 'text-offset': [0, -1.6],
           // 'text-anchor': 'top',
           // 'text-size': 8,
+        },
+        paint: {
+          'icon-opacity': { type: 'identity', property: 'opacity' },
         },
       },
       'building 3D'

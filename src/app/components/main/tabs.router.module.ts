@@ -11,7 +11,7 @@ const routes: Routes = [
     component: TabsComponent,
     children: [
       { path: 'map', component: MapViewComponent },
-      { path: 'story', component: StoryViewComponent },
+      // { path: 'story', component: StoryViewComponent },
       { path: 'apis', component: ApisViewComponent },
       { path: '', redirectTo: '/map', pathMatch: 'full' },
     ],

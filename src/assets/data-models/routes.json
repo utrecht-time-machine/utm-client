@@ -21,7 +21,7 @@
     "properties": {
       "title": "Tour Across Neude",
       "description": "Discover the Neude's famous statue and its public restroom.",
-      "color": "#d64224"
+      "color": "#007dbf"
     }
   },
   {
@@ -40,7 +40,7 @@
     "properties": {
       "title": "Tour Across Neude #2",
       "description": "Discover the old pharmacy, the public restroom and the Beurs.",
-      "color": "blue"
+      "color": "#007dbf"
     }
   }
 ]
