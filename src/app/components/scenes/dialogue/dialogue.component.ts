@@ -89,8 +89,8 @@ export class DialogueComponent implements OnInit {
     this.storyScene = this.storyPlayer.next(storyId);
   }
 
-  returnToStories() {
-    this.router.navigate(['story']);
+  returnToMap() {
+    this.router.navigate(['map']);
   }
 
   setStyling() {

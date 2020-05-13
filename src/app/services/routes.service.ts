@@ -46,7 +46,7 @@ export class RoutesService {
   }
 
   private initializeStoryReloading() {
-    this.stories.all.subscribe(allStories => {
+    this.stories.selected.subscribe(allStories => {
       this.reloadRouteStories(allStories);
     });
   }

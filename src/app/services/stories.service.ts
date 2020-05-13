@@ -23,6 +23,8 @@ export class StoriesService {
     private timePeriod: TimePeriodService
   ) {
     this.all = new BehaviorSubject<any[]>([]);
+
+    // TODO: Update, story view has been removed
     this.selected = new BehaviorSubject<any[]>([]);
     this.filtered = new BehaviorSubject<any[]>([]);
     this.currentlyViewed = new BehaviorSubject<Story>(null);
@@ -119,6 +121,12 @@ export class StoriesService {
     this.filtered.next(filteredStories);
 
     this.setCurrentlyViewedStory(selectedStories[0]);
+  }
+
+  public getAllSelectedStoryStationIds() {
+    return this.selected.getValue().map(story => {
+      return story.stations[0];
+    });
   }
 
   private updateSelectedStories() {

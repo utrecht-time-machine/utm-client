@@ -318,8 +318,12 @@ export class MapService {
       this.isInit.next(true);
 
       this.add3DModels();
-      this.addStationMarkers();
-      this.updateRouteLines();
+      this.stories.selected.subscribe(() => {
+        if (!this.markerPoints) {
+          this.addStationMarkers();
+          this.updateRouteLines();
+        }
+      });
 
       // Update route lines when a new route has been selected
       this.routes.selected.subscribe(() => {
@@ -547,7 +551,7 @@ export class MapService {
         this.markerPoints.data.features[featureIdx].properties.icon =
           MapService.markerImgId;
         if (!this.routes.isShowingAllStories()) {
-          this.markerPoints.data.features[featureIdx].properties.opacity = 0.15;
+          this.markerPoints.data.features[featureIdx].properties.opacity = 0.25;
         } else {
           this.markerPoints.data.features[featureIdx].properties.opacity = 1;
         }
@@ -564,6 +568,15 @@ export class MapService {
    * Click on marker support adapted from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
    */
   private async addStationMarkers() {
+    const allStoryStations = this.stories
+      .getAllSelectedStoryStationIds()
+      .map(stationId => {
+        return this.stations.getStationById(stationId['@id']);
+      });
+    if (allStoryStations.length === 0) {
+      return;
+    }
+
     const imageUrls = [
       {
         url: '/assets/img/map/selected-station-marker.png',
@@ -597,9 +610,18 @@ export class MapService {
     );
 
     this.markerPoints = MapService.generateWaypointMarkers(
-      this.stations.all.getValue(),
+      allStoryStations,
       this.routes.getSelectedStationId()['@id']
     );
+
+    if (
+      this.map.getLayer(this.markerLayerId)
+      || this.map.getSource(this.markerSourceId)
+    ) {
+      this.map.removeLayer(this.markerLayerId);
+      this.map.removeSource(this.markerSourceId);
+    }
+
     this.map.addSource(this.markerSourceId, this.markerPoints);
     this.map.addLayer(
       {
@@ -619,8 +641,8 @@ export class MapService {
         paint: {
           'icon-opacity': { type: 'identity', property: 'opacity' },
         },
-      },
-      'building 3D'
+      }
+      // 'building 3D'
     );
 
     this.map.on('click', this.markerLayerId, e => {

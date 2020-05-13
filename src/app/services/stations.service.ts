@@ -8,15 +8,15 @@ import { RouteModel } from '../models/route.model';
 })
 export class StationsService {
   all: BehaviorSubject<any[]>;
-  selected: BehaviorSubject<any[]>;
+  // selected: BehaviorSubject<any[]>;
 
   constructor(private http: HttpClient) {
     this.all = new BehaviorSubject<any[]>([]);
-    this.selected = new BehaviorSubject<any[]>([]);
-    this.update();
+    // this.selected = new BehaviorSubject<any[]>([]);
+    this.init();
   }
 
-  async update() {
+  async init() {
     const stations: any = await this.http
       .get('/assets/data-models/stations.json')
       .toPromise();
