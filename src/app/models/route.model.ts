@@ -11,3 +11,7 @@ export interface RouteModel {
     hideLines: boolean;
   };
 }
+
+export interface RouteId {
+  '@id': string;
+}

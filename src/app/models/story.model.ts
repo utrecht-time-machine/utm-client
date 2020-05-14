@@ -3,6 +3,7 @@ import { StationId } from './station.model';
 import { TimePeriod } from './time-period.model';
 import { YarnItem } from './yarn-item.model';
 import { Tag, TagId } from './tag.model';
+import { RouteId } from './route.model';
 
 export enum SeqType {
   Article = 'https://utrechttimemachine.nl/scene-types/article',
@@ -40,6 +41,7 @@ export interface Story {
   title: string;
   lang: string; // e.g., nl, en, de
   description: string;
+  recommendedRouteId?: RouteId;
   'featured-image': string; // url
   authors: AuthorId[];
   stations: StationId[];

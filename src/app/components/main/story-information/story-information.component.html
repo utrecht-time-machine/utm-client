@@ -6,7 +6,12 @@
   <ion-grid>
     <ion-row *ngIf="hidden">
       <ion-col class="ion-text-center">
+        <utm-story-recommended-route
+          [recommendedRouteId]="story.recommendedRouteId"
+        ></utm-story-recommended-route>
+
         <h2>{{ story['title'] }}</h2>
+
         <p *ngIf="!platform.is('mobile')">
           <em
             [utmTextWithSources]="story['description']"
@@ -40,6 +45,7 @@
         >
           <ion-icon name="close"></ion-icon>
         </ion-button>
+
         <utm-story-header
           [story]="story"
           [centered]="true"

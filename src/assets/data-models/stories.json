@@ -4,6 +4,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Belle van Zuylen zorgt ervoor dat haar in Zwitserland gepubliceerde romans in Utrecht te koop zijn.",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
@@ -50,6 +53,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Belle van Zuylen woonde hier als kind en als jonge vrouw",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "De schrijfster Belle van Zuylen (officiële naam Isabella van Tuyll van Serooskerken) woonde hier als kind en als jonge vrouw.",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
@@ -96,6 +102,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Belle van Zuylen geeft clavecimbel-les",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "Belle van Zuylen geeft clavecimbel-les aan haar (iets oudere) nichtje Isabella Agneta van Lockhorst.",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
@@ -142,6 +151,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Geheime correspondentie van Belle van Zuylen via de Zadelstraat",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "De geheime correspondentie met David-Louis-Constant d’Hermenches loopt deels via de verloofde van Belle’s zuster Mitie – die in de Zadelstraat woonde.",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
@@ -188,6 +200,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Belle van Zuylen: Le Noble publicatie",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "De eerste (anonieme) publicatie van Belle van Zuylen, het verhaal Le Noble, veroorzaakt enige opschudding.",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
@@ -234,6 +249,9 @@
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "Jan van Hardenbroek verliefd op Belle van Zuylen",
     "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
     "description": "Gijsbert Jan van Hardenbroek, eveneens lid van de Utrechtse ridderschap en woonachtig in dit hoekpand, wordt verliefd op Belle van Zuylen. ",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [

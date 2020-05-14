@@ -10,6 +10,7 @@ import { StoryTagsComponent } from './story-tags/story-tags.component';
 import { StoryTypeChipsComponent } from './story-type-chips/story-type-chips.component';
 import { StoryAuthorsComponent } from './story-authors/story-authors.component';
 import { StoryHeaderComponent } from './story-header/story-header.component';
+import { StoryRecommendedRouteComponent } from './story-recommended-route/story-recommended-route.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StoryHeaderComponent } from './story-header/story-header.component';
     StoryTypeChipsComponent,
     StoryAuthorsComponent,
     StoryHeaderComponent,
+    StoryRecommendedRouteComponent,
   ],
   imports: [
     CommonModule,
