@@ -531,6 +531,9 @@ export class MapService {
       return;
     }
 
+    const station = this.stations.getStationById(stationId);
+    this.map.flyTo({ center: station.geometry.coordinates });
+
     const routeStations = this.routes.getRouteStationIds();
     // Update marker images
     for (
@@ -651,7 +654,9 @@ export class MapService {
     );
 
     this.map.on('click', this.markerLayerId, e => {
-      // const coordinates = (e.features[0].geometry as any).coordinates.slice();
+      // const coordinates = (e.features[0].geometry as any).coordinates;
+      // this.map.flyTo({ center: coordinates });
+
       const id = e.features[0].properties.id;
       this.routes.selectStoryByStationId(id);
     });
