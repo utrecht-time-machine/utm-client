@@ -15,6 +15,7 @@ export class RoutesService {
   all: BehaviorSubject<RouteModel[]>;
   selected: BehaviorSubject<RouteModel>;
   selectedStoryIdx: BehaviorSubject<number>;
+  routesOverviewShown = false;
 
   private allStoriesRouteId: string;
 
@@ -158,7 +159,7 @@ export class RoutesService {
     const selectedRoute: RouteModel = this.getRouteById(routeId);
     this.selected.next(selectedRoute);
     this.selectedStoryIdx.next(0);
-
+    this.routesOverviewShown = true;
     // console.log('Selected route:', this.selected.getValue());
   }
 

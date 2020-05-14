@@ -7,14 +7,12 @@ import { RoutesService } from '../../../../services/routes.service';
   styleUrls: ['./route-selection-overlay.component.scss'],
 })
 export class RouteSelectionOverlayComponent implements OnInit {
-  routesShown = false;
-
   constructor(public routes: RoutesService) {}
 
   ngOnInit() {}
 
   async toggleRouteView() {
-    this.routesShown = !this.routesShown;
+    this.routes.routesOverviewShown = !this.routes.routesOverviewShown;
   }
 
   public onSelectedRoute(event) {
