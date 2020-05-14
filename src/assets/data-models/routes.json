@@ -33,7 +33,8 @@
     "properties": {
       "title": "Belle van Zuylen",
       "description": "Ontdek de beroemde Utrechtse schrijfster.",
-      "color": "#007dbf"
+      "color": "#007dbf",
+      "hideLines": true
     }
   }
 ]

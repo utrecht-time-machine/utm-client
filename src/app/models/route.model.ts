@@ -8,5 +8,6 @@ export interface RouteModel {
     title: string;
     description: string;
     color: string;
+    hideLines: boolean;
   };
 }

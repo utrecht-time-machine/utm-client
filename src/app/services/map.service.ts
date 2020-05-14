@@ -67,9 +67,12 @@ export class MapService {
   static defaultMaterial: MeshLambertMaterial = new THREE.MeshLambertMaterial({
     color: 0xfbefcf,
   });
-  static readonly selectedMarkerImgId = 'selected-station-marker-img';
-  static readonly markerImgId = 'station-marker-img';
-  static readonly routeMarkerImgId = 'route-station-marker-img';
+  static readonly markerImgIds = {
+    marker: 'station-marker-img',
+    selected: 'selected-station-marker-img',
+    route: 'route-station-marker-img',
+    invisible: 'invisible-station-marker-img',
+  };
 
   isInit: BehaviorSubject<boolean>;
   mapContainer: HTMLElement;
@@ -251,15 +254,13 @@ export class MapService {
     for (const station of stations) {
       const station3DModel = station.properties['3d-model'];
       const coordinates = [...station.geometry.coordinates];
-      if (station3DModel) {
-        // Slight offset of 2D marker so it doesn't overlap the 3D model
-        coordinates[0] += 0.000075;
-      }
+
       const wayPointMarker = {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: this.markerImgId,
+          icon: this.markerImgIds.marker,
+          routeLabel: '',
           opacity: 1,
         },
         geometry: {
@@ -405,8 +406,10 @@ export class MapService {
       this.map.removeSource('route');
     }
 
-    // Don't show lines for the "All Stories" route
-    if (this.routes.isShowingAllStories()) {
+    if (
+      !this.routes.getSelectedRoute().properties.hideLines
+      || this.routes.isShowingAllStories()
+    ) {
       return;
     }
 
@@ -434,6 +437,9 @@ export class MapService {
       paint: {
         'line-color': route.properties.color,
         'line-width': 4,
+        'line-opacity': 0.65,
+        'line-dasharray': [4, 4],
+        // 'line-blur': 5
       },
     };
 
@@ -526,32 +532,31 @@ export class MapService {
     }
 
     const routeStations = this.routes.getRouteStationIds();
-    // Update selected marker image
+    // Update marker images
     for (
       let featureIdx = 0;
       featureIdx < this.markerPoints.data.features.length;
       featureIdx++
     ) {
-      const feature = this.markerPoints.data.features[featureIdx];
-      const markerStationId = feature.properties.id;
+      const properties = this.markerPoints.data.features[featureIdx].properties;
+      const markerStationId = properties.id;
+      const indexInRoute = routeStations.indexOf(markerStationId);
+      properties.routeLabel = '';
+      properties.opacity = 1;
+      properties.icon = MapService.markerImgIds.marker;
+
+      if (!this.routes.isShowingAllStories() && indexInRoute !== -1) {
+        // Station that is part of this route
+        properties.icon = MapService.markerImgIds.route;
+        properties.routeLabel = '#' + (indexInRoute + 1);
+      }
       if (markerStationId === stationId) {
-        this.markerPoints.data.features[featureIdx].properties.icon =
-          MapService.selectedMarkerImgId;
-        this.markerPoints.data.features[featureIdx].properties.opacity = 1;
-      } else if (
-        !this.routes.isShowingAllStories()
-        && routeStations.includes(markerStationId)
-      ) {
-        this.markerPoints.data.features[featureIdx].properties.icon =
-          MapService.routeMarkerImgId;
-        this.markerPoints.data.features[featureIdx].properties.opacity = 1;
-      } else {
-        this.markerPoints.data.features[featureIdx].properties.icon =
-          MapService.markerImgId;
+        // Selected station
+        properties.icon = MapService.markerImgIds.selected;
+      } else if (indexInRoute === -1) {
+        // Normal station (not belonging to this specific route)
         if (!this.routes.isShowingAllStories()) {
-          this.markerPoints.data.features[featureIdx].properties.opacity = 0.25;
-        } else {
-          this.markerPoints.data.features[featureIdx].properties.opacity = 1;
+          properties.opacity = 0.25;
         }
       }
     }
@@ -578,15 +583,19 @@ export class MapService {
     const imageUrls = [
       {
         url: '/assets/img/map/selected-station-marker.png',
-        id: MapService.selectedMarkerImgId,
+        id: MapService.markerImgIds.selected,
       },
       {
         url: '/assets/img/map/station-marker.png',
-        id: MapService.markerImgId,
+        id: MapService.markerImgIds.marker,
       },
       {
-        url: '/assets/img/map/station-marker.png', // '/assets/img/map/route-station-marker.png'
-        id: MapService.routeMarkerImgId,
+        url: '/assets/img/map/station-marker.png', // Route markers are currently identical to normal markers
+        id: MapService.markerImgIds.route,
+      },
+      {
+        url: '/assets/img/map/invisible-station-marker.png',
+        id: MapService.markerImgIds.invisible,
       },
     ];
     await Promise.all(
@@ -627,11 +636,12 @@ export class MapService {
           'icon-image': '{icon}',
           'icon-size': 0.75,
           'icon-allow-overlap': true,
-          // 'text-field': '{id}',
-          // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-          // 'text-offset': [0, -1.6],
-          // 'text-anchor': 'top',
-          // 'text-size': 8,
+          'text-field': '{routeLabel}',
+          'text-allow-overlap': true,
+          'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+          'text-offset': [0, -2.3],
+          'text-anchor': 'top',
+          'text-size': 15,
         },
         paint: {
           'icon-opacity': { type: 'identity', property: 'opacity' },
