@@ -22,6 +22,8 @@ import { SourceComponent } from './components/shared/source/source-component/sou
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { YarnTesterViewComponent } from './components/main/yarn-tester-view/yarn-tester-view.component';
 import { StoryInformationModule } from './components/main/story-information/story-information.module';
+import { VgCoreModule } from 'videogular2/compiled/src/core/core';
+import { VgControlsModule } from 'videogular2/compiled/src/controls/controls';
 
 @NgModule({
   declarations: [AppComponent, YarnTesterViewComponent],
@@ -39,6 +41,8 @@ import { StoryInformationModule } from './components/main/story-information/stor
     StoryInformationModule,
     NgxPopperModule.forRoot({}),
     DeviceDetectorModule.forRoot(),
+    VgCoreModule,
+    VgControlsModule,
   ],
   providers: [
     StatusBar,

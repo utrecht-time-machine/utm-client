@@ -2,6 +2,11 @@
 }
 
 .story-information {
+  //overflow: visible;
+  overflow-y: scroll;
+}
+
+.story-information-details-row {
   overflow-y: scroll;
   overflow-x: hidden;
 }

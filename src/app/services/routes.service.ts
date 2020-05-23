@@ -43,7 +43,7 @@ export class RoutesService {
     this.initializeStoryReloading();
 
     this.selected.next(routes[0]);
-    this.selectedStoryIdx.next(0);
+    this.selectedStoryIdx.next(8);
   }
 
   private initializeStoryReloading() {

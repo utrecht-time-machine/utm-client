@@ -15,6 +15,7 @@ import { trimStoryId } from '../../../helpers/string.helper';
 import { skipWhile } from 'rxjs/operators';
 import { SourcesFromHtmlService } from '../../../services/sources-from-html.service';
 import { MarkdownService, MarkedRenderer } from 'ngx-markdown';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'utm-article',
@@ -39,7 +40,8 @@ export class ArticleComponent implements OnInit {
     private markdownService: MarkdownService,
     private sourcesFromHtml: SourcesFromHtmlService,
     private renderer: Renderer2,
-    private vc: ViewContainerRef
+    private vc: ViewContainerRef,
+    public device: DeviceDetectorService
   ) {}
 
   ngOnInit() {

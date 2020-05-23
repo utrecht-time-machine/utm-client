@@ -1,10 +1,13 @@
 <div
   class="story-information"
   *ngIf="story"
-  [ngStyle]="{ maxHeight: this.getHeightStoryInformation() + 'px' }"
+  [ngStyle]="{
+    height:
+      mapInfoUI.getMapInfoElemHeight() - mapInfoUI.mapInfoNavBarHeight + 'px'
+  }"
 >
   <ion-grid>
-    <ion-row *ngIf="hidden">
+    <ion-row *ngIf="!mapInfoUI.detailsShown">
       <ion-col class="ion-text-center">
         <utm-story-recommended-route
           [recommendedRouteId]="story.recommendedRouteId"
@@ -23,7 +26,7 @@
           fill="clear"
           size="small"
           class="ion-margin-end"
-          (click)="toggleHidden()"
+          (click)="mapInfoUI.toggleDetailsVisibility()"
         >
           Show Details...
         </ion-button>
@@ -34,16 +37,20 @@
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="!hidden">
+    <ion-row
+      *ngIf="mapInfoUI.detailsShown"
+      class="story-information-details-row"
+    >
       <ion-col size-xs="12" size-md="4">
         <ion-button
           fill="clear"
           color="primary"
-          (click)="toggleHidden()"
+          (click)="mapInfoUI.toggleDetailsVisibility()"
           class="hide-information-btn"
           *ngIf="platform.is('mobile')"
         >
-          <ion-icon name="close"></ion-icon> Hide details
+          <ion-icon name="close"></ion-icon>
+          Hide details
         </ion-button>
 
         <utm-story-header
@@ -69,11 +76,12 @@
         <ion-button
           fill="clear"
           color="primary"
-          (click)="toggleHidden()"
+          (click)="mapInfoUI.toggleDetailsVisibility()"
           class="hide-information-btn"
           *ngIf="!platform.is('mobile')"
         >
-          <ion-icon name="close" class="ion-margin-end"></ion-icon> Hide details
+          <ion-icon name="close" class="ion-margin-end"></ion-icon>
+          Hide details
         </ion-button>
 
         <utm-story-header

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ApiSearchResponse } from '../../models/api-search/api-search-response.model';
 import { ApiSearchSource } from '../../models/api-search/api-search-source.model';
 import { ApiSearchFilter } from '../../models/api-search/api-search-filter.model';
-import { ConstantsService } from '../constants.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +13,11 @@ export class OpenCultuurDataService {
 
   // TODO: Stop using CORS proxy here, we should be able to make POST requests to the API with the right headers
   private readonly apiUrl =
-    this.constants.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/search';
+    environment.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/search';
   private readonly apiSourcesUrl =
-    this.constants.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/sources';
+    environment.corsProxyUrl + 'http://api.opencultuurdata.nl/v0/sources';
 
-  constructor(private http: HttpClient, private constants: ConstantsService) {}
+  constructor(private http: HttpClient) {}
 
   async getQueryResults(
     query: string,

@@ -243,7 +243,10 @@ export class MapService {
     };
   }
 
-  private static generateWaypointMarkers(stations: any[]) {
+  private static generateWaypointMarkers(
+    stations: any[],
+    selectedStationId: string
+  ) {
     const wayPointMarkers = {
       type: 'geojson',
       data: {
@@ -254,12 +257,15 @@ export class MapService {
     for (const station of stations) {
       const station3DModel = station.properties['3d-model'];
       const coordinates = [...station.geometry.coordinates];
+      const isSelectedStation = station.id === selectedStationId;
 
       const wayPointMarker = {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: this.markerImgIds.marker,
+          icon: isSelectedStation
+            ? this.markerImgIds.selected
+            : this.markerImgIds.marker,
           routeLabel: '',
           opacity: 1,
         },
@@ -619,7 +625,10 @@ export class MapService {
       )
     );
 
-    this.markerPoints = MapService.generateWaypointMarkers(allStoryStations);
+    this.markerPoints = MapService.generateWaypointMarkers(
+      allStoryStations,
+      this.routes.getSelectedStationId()['@id']
+    );
 
     if (
       this.map.getLayer(this.markerLayerId)

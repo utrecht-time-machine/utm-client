@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 import { ToastController } from '@ionic/angular';
 import { MapService } from '../../../services/map.service';
 import { skipWhile } from 'rxjs/operators';
+import { MapInfoUIService } from '../../../services/map-info-ui.service';
 
 enum ExplorationMode {
   Immersive,
@@ -38,7 +39,8 @@ export class MapViewComponent implements OnInit {
     private stories: StoriesService,
     private toast: ToastController,
     private map: MapService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public mapInfoUI: MapInfoUIService
   ) {}
 
   async ngOnInit() {

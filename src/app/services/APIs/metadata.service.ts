@@ -6,7 +6,7 @@ import { UtrechtArchivesService } from './utrechtarchives.service';
 import { SourceMetadata } from '../../models/source-metadata.model';
 import { OpenCultuurDataService } from './open-cultuur-data.service';
 import { GettyVocabulariesService } from './getty-vocabularies.service';
-import { ConstantsService } from '../constants.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -18,14 +18,13 @@ export class MetadataService {
     private wikipediaService: WikipediaService,
     private utrechtArchivesService: UtrechtArchivesService,
     private openCultuurDataService: OpenCultuurDataService,
-    private gettyVocabulariesService: GettyVocabulariesService,
-    private constants: ConstantsService
+    private gettyVocabulariesService: GettyVocabulariesService
   ) {}
 
   private async getOpenGraphMetadata(url: string): Promise<SourceMetadata> {
     // Retrieve page content
     const pageHtml = await this.http
-      .get(this.constants.corsProxyUrl + url, {
+      .get(environment.corsProxyUrl + url, {
         responseType: 'text',
       })
       .toPromise()

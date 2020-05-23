@@ -4,6 +4,7 @@ import { StoriesService } from '../../../services/stories.service';
 import { Platform } from '@ionic/angular';
 import { Browser } from '@capacitor/core';
 import { Router } from '@angular/router';
+import { MapInfoUIService } from '../../../services/map-info-ui.service';
 
 @Component({
   selector: 'utm-story-information',
@@ -12,19 +13,23 @@ import { Router } from '@angular/router';
 })
 export class StoryInformationComponent implements OnInit {
   @Input() story: Story;
-  hidden = true;
+  sources: any[];
 
   constructor(
     public stories: StoriesService,
     public platform: Platform,
-    public router: Router
-  ) {}
+    public router: Router,
+    public mapInfoUI: MapInfoUIService
+  ) {
+    this.sources = [
+      {
+        src: 'http://static.videogular.com/assets/audios/videogular.mp3',
+        type: 'audio/mp3',
+      },
+    ];
+  }
 
   ngOnInit() {}
-
-  toggleHidden() {
-    this.hidden = !this.hidden;
-  }
 
   startStory(story: Story) {
     // TODO: Implement actual sequence logic here
@@ -56,12 +61,5 @@ export class StoryInformationComponent implements OnInit {
         console.error('Unsupported story type', firstSeqItem['@type']);
         break;
     }
-  }
-
-  getHeightStoryInformation() {
-    if (this.platform.is('mobile')) {
-      return 250;
-    }
-    return 400;
   }
 }

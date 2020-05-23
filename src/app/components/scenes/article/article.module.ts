@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './article.component';
 import { IonicModule } from '@ionic/angular';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { VgCoreModule } from 'videogular2/compiled/src/core/core';
+import { VgControlsModule } from 'videogular2/compiled/src/controls/controls';
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -11,7 +12,8 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     CommonModule,
     IonicModule,
     MarkdownModule.forRoot(),
-    NgxAudioPlayerModule,
+    VgCoreModule,
+    VgControlsModule,
   ],
 })
 export class ArticleModule {}

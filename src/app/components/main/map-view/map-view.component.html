@@ -1,7 +1,11 @@
 <ion-content>
   <utm-route-selection-overlay></utm-route-selection-overlay>
 
-  <div id="mapbox-container" #mapboxContainer></div>
+  <div
+    id="mapbox-container"
+    #mapboxContainer
+    [ngStyle]="{ 'padding-bottom': mapInfoUI.getMapInfoElemHeight() + 'px' }"
+  ></div>
 
   <utm-route-information></utm-route-information>
 </ion-content>

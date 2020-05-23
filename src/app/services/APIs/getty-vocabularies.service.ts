@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SourceMetadata } from '../../models/source-metadata.model';
-import { ConstantsService } from '../constants.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GettyVocabulariesService {
-  constructor(private http: HttpClient, private constants: ConstantsService) {}
+  constructor(private http: HttpClient) {}
 
   async requestByUrl(url: string): Promise<SourceMetadata> {
     const result = await this.http
-      .get(this.constants.corsProxyUrl + url + '.json', {})
+      .get(environment.corsProxyUrl + url + '.json', {})
       .toPromise()
       .catch(err => {
         return Promise.reject(err);

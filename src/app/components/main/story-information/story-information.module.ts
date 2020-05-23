@@ -11,6 +11,8 @@ import { StoryTypeChipsComponent } from './story-type-chips/story-type-chips.com
 import { StoryAuthorsComponent } from './story-authors/story-authors.component';
 import { StoryHeaderComponent } from './story-header/story-header.component';
 import { StoryRecommendedRouteComponent } from './story-recommended-route/story-recommended-route.component';
+import { VgCoreModule } from 'videogular2/compiled/src/core/core';
+import { VgControlsModule } from 'videogular2/compiled/src/controls/controls';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { StoryRecommendedRouteComponent } from './story-recommended-route/story-
     NgxPopperModule,
     SourceModule,
     StoryViewModule,
+    VgControlsModule,
+    VgCoreModule,
   ],
   exports: [StoryInformationComponent],
 })
