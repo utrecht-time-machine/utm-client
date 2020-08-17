@@ -7,6 +7,10 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class MapInfoUIService {
   public readonly mapInfoNavBarHeight = 64; // pixels
+  private readonly mapInfoHeights = {
+    mobile: { noDetails: 220, details: 340 },
+    nonMobile: { noDetails: 300, details: 400 },
+  };
   public detailsShown = false;
 
   constructor(
@@ -20,9 +24,13 @@ export class MapInfoUIService {
 
   public getMapInfoElemHeight(): number {
     if (this.device.isMobile()) {
-      return this.detailsShown ? 340 : 220;
+      return this.detailsShown
+        ? this.mapInfoHeights.mobile.details
+        : this.mapInfoHeights.mobile.noDetails;
     }
 
-    return this.detailsShown ? 400 : 300;
+    return this.detailsShown
+      ? this.mapInfoHeights.nonMobile.details
+      : this.mapInfoHeights.nonMobile.noDetails;
   }
 }

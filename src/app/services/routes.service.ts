@@ -17,6 +17,8 @@ export class RoutesService {
   selectedStoryIdx: BehaviorSubject<number>;
   routesOverviewShown = false;
 
+  private readonly DEFAULTSTORYIDX = 8;
+
   private allStoriesRouteId: string;
 
   constructor(
@@ -43,7 +45,7 @@ export class RoutesService {
     this.initializeStoryReloading();
 
     this.selected.next(routes[0]);
-    this.selectedStoryIdx.next(8);
+    this.selectedStoryIdx.next(this.DEFAULTSTORYIDX);
   }
 
   private initializeStoryReloading() {
