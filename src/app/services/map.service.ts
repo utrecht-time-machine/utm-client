@@ -303,7 +303,7 @@ export class MapService {
     (mapboxgl as any).accessToken = environment.mapboxToken;
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/edushifts/ck24sb7330d2h1cl78hj19tmw',
+      style: 'mapbox://styles/simondirks/ckg2a5xd1029p19pb2i41p0rx',
       center: environment.defaultCenter,
       zoom: environment.initialZoom,
       pitch: 45,
@@ -599,7 +599,6 @@ export class MapService {
         id: MapService.markerImgIds.marker,
       },
       {
-        url: '/assets/img/map/station-marker.png', // Route markers are currently identical to normal markers
         id: MapService.markerImgIds.route,
       },
       {

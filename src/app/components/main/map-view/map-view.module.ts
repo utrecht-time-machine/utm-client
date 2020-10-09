@@ -7,12 +7,14 @@ import { RouteInformationComponent } from './route-information/route-information
 import { StoryViewModule } from '../story-view/story-view.module';
 import { SourceModule } from '../../shared/source/source-component/source.module';
 import { StoryInformationModule } from '../story-information/story-information.module';
+import { InventoryButtonComponent } from './inventory-button/inventory-button.component';
 
 @NgModule({
   declarations: [
     MapViewComponent,
     RouteSelectionOverlayComponent,
     RouteInformationComponent,
+    InventoryButtonComponent
   ],
   imports: [
     CommonModule,
