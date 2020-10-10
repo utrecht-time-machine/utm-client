@@ -9,11 +9,10 @@ import { YarnTesterViewComponent } from '../../yarn-tester-view/yarn-tester-view
   styleUrls: ['./inventory-button.component.scss'],
 })
 export class InventoryButtonComponent implements OnInit {
-
   constructor(
     private router: Router,
     private popoverController: PopoverController
-  ) { }
+  ) {}
 
   ngOnInit() {}
 
@@ -22,11 +21,10 @@ export class InventoryButtonComponent implements OnInit {
   }
 
   async openPopover(ev: any) {
-    // Open popover
     const popover = await this.popoverController.create({
       component: YarnTesterViewComponent,
       event: ev,
-      translucent: true
+      translucent: true,
     });
     return await popover.present();
   }

@@ -591,18 +591,19 @@ export class MapService {
 
     const imageUrls = [
       {
-        url: '/assets/img/map/selected-station-marker.png',
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.selected,
       },
       {
-        url: '/assets/img/map/station-marker.png',
+        url: '/assets/img/map/transparent-marker.png',
         id: MapService.markerImgIds.marker,
       },
       {
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.route,
       },
       {
-        url: '/assets/img/map/invisible-station-marker.png',
+        url: '/assets/img/map/green-marker.png',
         id: MapService.markerImgIds.invisible,
       },
     ];

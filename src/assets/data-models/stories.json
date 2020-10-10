@@ -1,8 +1,8 @@
 [
   {
-    "@id": "https://utrechttimemachine.nl/stories/FAKESTORY",
+    "@id": "https://utrechttimemachine.nl/stories/buurkerk",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "FAKESTORY",
+    "title": "Buurkerk",
     "lang": "en",
     "description": "FAKESTORY DESCRIPTION",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
@@ -15,6 +15,68 @@
     "stations": [
       {
         "@id": "https://utrechttimemachine.nl/places/oracle_buurkerk"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_sight-de-liefde-centraal-apotheek",
+        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/Dom",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Dom",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/villon_behind_the_dom"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "neude_sight-de-liefde-centraal-apotheek",
+        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/carillon",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Carillon",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/carillon-person_dom-tower"
       }
     ],
     "time-period": {
