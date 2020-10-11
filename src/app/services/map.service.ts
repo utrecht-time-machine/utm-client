@@ -599,6 +599,7 @@ export class MapService {
         id: MapService.markerImgIds.marker,
       },
       {
+        url: '/assets/img/map/station-marker.png',
         id: MapService.markerImgIds.route,
       },
       {
