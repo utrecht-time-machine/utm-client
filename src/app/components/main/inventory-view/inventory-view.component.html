@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <ion-app>
+      <ion-header translucent>
+        <ion-toolbar>
+          <ion-title>List</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content fullscreen>
+        <ion-list>
+          <ion-list-header>
+            Invenventory
+          </ion-list-header>
+
+          <ion-item *ngFor="let item of inventoryitems">
+            <ion-avatar slot="start">
+              <img src="{{ item.image }}" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ item.title }}</h2>
+              <h3>{{ item.description }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-app>
+  </body>
+</html>

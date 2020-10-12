@@ -17,7 +17,7 @@ export class InventoryButtonComponent implements OnInit {
   ngOnInit() {}
 
   openInventory() {
-    this.router.navigate(['yarn']);
+    this.router.navigate(['inv']);
   }
 
   async openPopover(ev: any) {

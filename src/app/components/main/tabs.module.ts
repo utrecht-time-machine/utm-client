@@ -11,6 +11,7 @@ import { MapViewModule } from './map-view/map-view.module';
 import { ArticleModule } from '../scenes/article/article.module';
 import { ApisViewModule } from './apis-view/apis-view.module';
 import { StoryInformationModule } from './story-information/story-information.module';
+import { InventoryViewModule } from './inventory-view/inventory-view.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { StoryInformationModule } from './story-information/story-information.mo
     StoryViewModule,
     MapViewModule,
     ApisViewModule,
+    InventoryViewModule,
   ],
   declarations: [TabsComponent],
 })
