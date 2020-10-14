@@ -1,14 +1,17 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title>List</ion-title>
+      <ion-title>Inventory</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content fullscreen>
+    <ion-button color="dark" (click)="Back()">
+      <ion-icon name="accessibility"></ion-icon> Back
+    </ion-button>
     <ion-list>
       <ion-list-header>
-        Inventory
+        Items
       </ion-list-header>
 
       <ion-item *ngFor="let item of inventoryitems">
