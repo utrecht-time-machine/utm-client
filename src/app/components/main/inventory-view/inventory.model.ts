@@ -3,8 +3,8 @@ export class inventoryitem {
   public image: string;
   public description: string;
 
-  constructor(name: string, img: string, desc: string) {
-    this.name = name;
+  constructor(title: string, img: string, desc: string) {
+    this.title = title;
     this.image = img;
     this.description = desc;
   }
