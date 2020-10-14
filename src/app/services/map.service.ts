@@ -303,7 +303,7 @@ export class MapService {
     (mapboxgl as any).accessToken = environment.mapboxToken;
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/simondirks/ckg2a5xd1029p19pb2i41p0rx',
+      style: 'mapbox://styles/timangevare/ckg9f094p0lg019n88h9od1p3',
       center: environment.defaultCenter,
       zoom: environment.initialZoom,
       pitch: 45,
