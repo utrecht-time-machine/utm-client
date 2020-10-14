@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\main",
+    "\\src\\app\\components\\main\\apis-view",
+    "\\src\\app\\components\\main\\inventory-view",
+    "\\src\\app\\components\\main\\map-view\\inventory-button"
+  ],
+  "SelectedNode": "\\src\\app\\components\\main\\inventory-view\\inventory.model.ts",
+  "PreviewInSolutionExplorer": false
+}

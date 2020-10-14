@@ -303,7 +303,7 @@ export class MapService {
     (mapboxgl as any).accessToken = environment.mapboxToken;
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/edushifts/ck24sb7330d2h1cl78hj19tmw',
+      style: 'mapbox://styles/timangevare/ckg9f094p0lg019n88h9od1p3',
       center: environment.defaultCenter,
       zoom: environment.initialZoom,
       pitch: 45,
@@ -591,19 +591,19 @@ export class MapService {
 
     const imageUrls = [
       {
-        url: '/assets/img/map/selected-station-marker.png',
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.selected,
       },
       {
-        url: '/assets/img/map/station-marker.png',
+        url: '/assets/img/map/transparent-marker.png',
         id: MapService.markerImgIds.marker,
       },
       {
-        url: '/assets/img/map/station-marker.png', // Route markers are currently identical to normal markers
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.route,
       },
       {
-        url: '/assets/img/map/invisible-station-marker.png',
+        url: '/assets/img/map/green-marker.png',
         id: MapService.markerImgIds.invisible,
       },
     ];
