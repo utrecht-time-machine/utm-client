@@ -8,7 +8,11 @@ import { inventoryitem } from './inventory.model';
 })
 export class InventoryViewComponent implements OnInit {
   inventoryitems: inventoryitem[] = [
-    new inventoryitem('medal', '', 'You beat him'),
+    new inventoryitem(
+      'medal',
+      'https://www.globalgiving.org/pfil/36946/pict_large.jpg',
+      'You beat the basilisk'
+    ),
   ];
   constructor() {}
 
