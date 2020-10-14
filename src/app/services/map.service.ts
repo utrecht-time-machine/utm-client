@@ -28,6 +28,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { skipWhile } from 'rxjs/operators';
 import { RouteModel } from '../models/route.model';
 import { YarnTesterViewComponent } from '../components/main/yarn-tester-view/yarn-tester-view.component';
+import { MarkerPopupComponent } from '../components/main/map-view/marker-popup/marker-popup.component';
 import { PopoverController } from '@ionic/angular';
 
 interface Custom3dModel {
@@ -551,7 +552,7 @@ export class MapService {
       const id = e.features[0].properties.id;
 
       const popover = await this.popoverController.create({
-        component: YarnTesterViewComponent,
+        component: MarkerPopupComponent,
         translucent: true,
       });
       return await popover.present();

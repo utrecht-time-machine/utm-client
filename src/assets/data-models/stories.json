@@ -23,8 +23,8 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
-        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "@id": "https://utrechttimemachine.nl/stories/20201000024_oracle_buurkerk",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "content": "neude_sight-de-liefde-centraal-apotheek",
         "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
       }
@@ -55,7 +55,7 @@
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
-        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "content": "neude_sight-de-liefde-centraal-apotheek",
         "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
       }
@@ -86,7 +86,7 @@
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
-        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "content": "neude_sight-de-liefde-centraal-apotheek",
         "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
       }
