@@ -25,8 +25,11 @@
       {
         "@id": "https://utrechttimemachine.nl/stories/20201000024_oracle_buurkerk",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
-        "content": "neude_sight-de-liefde-centraal-apotheek",
-        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000024_oracle_buurkerk/oracle-dialogue.json"
       }
     ]
   },
@@ -54,10 +57,13 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
+        "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
-        "content": "neude_sight-de-liefde-centraal-apotheek",
-        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
       }
     ]
   },
@@ -85,10 +91,13 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100002_neude_sight-de-liefde-centraal-apotheek",
+        "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
-        "content": "neude_sight-de-liefde-centraal-apotheek",
-        "audio": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/de-liefdes-centraal-apotheek.mp3"
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
       }
     ]
   }
