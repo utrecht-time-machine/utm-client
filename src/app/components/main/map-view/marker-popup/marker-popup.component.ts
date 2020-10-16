@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SeqType, Story } from '../../../../models/story.model';
 import { StoriesService } from '../../../../services/stories.service';
+import { RoutesService } from '../../../../services/routes.service';
 import { Platform } from '@ionic/angular';
 import { Browser } from '@capacitor/core';
 import { Router } from '@angular/router';
@@ -20,6 +21,7 @@ export class MarkerPopupComponent implements OnInit {
      stories: StoriesService,
     public platform: Platform,
     public router: Router,
+    public routes: RoutesService
     // public mapInfoUI: MapInfoUIService
     ) { 
       this.sources = [ {
@@ -31,6 +33,12 @@ export class MarkerPopupComponent implements OnInit {
   ngOnInit() {}
 
   startStory(story: Story) {
+    this.routes.all.subscribe(_ => {
+      story = this.routes.getSelectedStory();
+    });
+    this.routes.selectedStoryIdx.subscribe(selectedStoryIdx => {
+      story = this.routes.getSelectedStory();
+    });
     // TODO: Implement actual sequence logic here
     // For now, only load first sequence item
     const firstSeqItem = story.seq[0];

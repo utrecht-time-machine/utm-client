@@ -27,6 +27,7 @@ import { StoriesService } from './stories.service';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { skipWhile } from 'rxjs/operators';
 import { RouteModel } from '../models/route.model';
+import { RoutesService } from './routes.service';
 import { YarnTesterViewComponent } from '../components/main/yarn-tester-view/yarn-tester-view.component';
 import { MarkerPopupComponent } from '../components/main/map-view/marker-popup/marker-popup.component';
 import { PopoverController } from '@ionic/angular';
@@ -61,7 +62,8 @@ export class MapService {
     private router: Router,
     private http: HttpClient,
     private stories: StoriesService,
-    private popoverController: PopoverController
+    private popoverController: PopoverController,
+    private routes: RoutesService
   ) {
     this.isInit = new BehaviorSubject<boolean>(null);
   }
@@ -550,6 +552,7 @@ export class MapService {
       // this.map.flyTo({ center: coordinates });
 
       const id = e.features[0].properties.id;
+      this.routes.selectStoryByStationId(id);
 
       const popover = await this.popoverController.create({
         component: MarkerPopupComponent,
