@@ -5,6 +5,7 @@ import { RoutesService } from '../../../../services/routes.service';
 import { Platform } from '@ionic/angular';
 import { Browser } from '@capacitor/core';
 import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
 // import { MapInfoUIService } from '../../../../services/map-info-ui.service';
 
 @Component({
@@ -21,8 +22,9 @@ export class MarkerPopupComponent implements OnInit {
      stories: StoriesService,
     public platform: Platform,
     public router: Router,
-    public routes: RoutesService
+    public routes: RoutesService,
     // public mapInfoUI: MapInfoUIService
+    private popoverController: PopoverController
     ) { 
       this.sources = [ {
           src: 'http://static.videogular.com/assets/audios/videogular.mp3',
@@ -31,6 +33,10 @@ export class MarkerPopupComponent implements OnInit {
       }
 
   ngOnInit() {}
+
+  async DismissPopover() {
+    await this.popoverController.dismiss();
+      }
 
   startStory(story: Story) {
     this.routes.all.subscribe(_ => {
@@ -54,6 +60,7 @@ export class MarkerPopupComponent implements OnInit {
           '/dialogue',
           { storyId: story['@id'], seqId: firstSeqItem['@id'] },
         ]);
+        this.DismissPopover();
         break;
       // case SeqType.External:
       //   Browser.open({ url: firstSeqItem['content'] });
