@@ -28,6 +28,9 @@
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
+        "character": {
+          "image": "/assets/data-models/stories/20201000024_oracle_buurkerk/Utrechtbasilisk_1.png"
+        },
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/20201000024_oracle_buurkerk/Protoptype_DSTT_2.json"
       }
@@ -62,6 +65,9 @@
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
+        "character": {
+          "image": "/assets/data-models/stories/20201000024_oracle_buurkerk/random-character-image.gif"
+        },
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
       }
@@ -95,6 +101,9 @@
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000024_oracle_buurkerk/random-character-image.gif"
         },
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
