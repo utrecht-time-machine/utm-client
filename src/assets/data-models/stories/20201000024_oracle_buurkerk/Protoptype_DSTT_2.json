@@ -1,0 +1,332 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Oracle appears.\n\n\"Chosen one, the order has been compromised.\nThe storm of 1674 has weakened the fabric of time and space, causing a time rift here and now.\"\n\n[[Why? |RestoringTheSquare]]  [[I'm not taking part in this|Lame user]]",
+		"position": {
+			"x": -388,
+			"y": 290
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RestoringTheSquare",
+		"tags": "",
+		"body": "\"Now that they are restoring the Dom Tower the rift has been opened.\nSeveral historical figures  have been transported to the present, as well the basilisk of Utrecht.\"\n\n\"The terrible beast has left them petrified throughout the city.\n\nYou must free them and send them back to their time line and defeat the Basilisk to impeach the collapse of history.\nIf you fail, the rift will grow bigger, sucking in Utrecht and its inhabitants, and eventually the entire world.\"\n\n\"If you succeed, you shall be rewarded for your bravery.\" \n[[I'm brave|continue brave]]  [[But how?|continue brave]]",
+		"position": {
+			"x": 309,
+			"y": 258
+		},
+		"colorID": 0
+	},
+	{
+		"title": "DoNotQuestionFate",
+		"tags": "",
+		"body": "\"It is not for us to question fate. Now be on your way. Time is ticking.\"\n [[okay|Nextlevel]]  [[But wait, I've some more que.|Nextlevel]]",
+		"position": {
+			"x": 978,
+			"y": 571
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Nextlevel",
+		"tags": "",
+		"body": "Common rue potion appears \n\nBasilisk character chart appears\n\nOracle character chart appears\n\n[[Go to Villon|GotoVillon]]",
+		"position": {
+			"x": 1342,
+			"y": 271
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoVillon",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n  \"Merci stranger\"\n\n\"Oh non! La police is there!\"\n\nVillon runs away\n\n[[Oh no! He stole my wallet-I'll tackle him!|Stolenwallet]] [[He stole my wallet!- \"Hey wait up!\"|Waitup]]",
+		"position": {
+			"x": 1702,
+			"y": 261
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoCarilloner",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\"Oh Thank you\"\n\nGive paper button\n\nCarilloner plays the song \n\n\"The Builder forgot his hammer. Might you please bring it to him for me? \nHe ran to the garden to take care of his flowers as soon as his shift ended\"\n\nPick up hammer button  \n\n<<if visited(\"Carilloner\")is true>> [[ Go to the Builder|GotoTheBuilder|]]\n\nRoute to next location appears",
+		"position": {
+			"x": 2174,
+			"y": 259
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoTheBuilder",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Thank you Dakhaas!\"\n\n\n[[ Dakhaas? |Dakhaas]] [[ Who are you calling Dakhaas? Achterlijke gladiool|Dakhaas]]",
+		"position": {
+			"x": 2495,
+			"y": 253
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoTruus",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Kameraad! Thank God the SS did not catch you.\"\n\n\nGive the Daffodils button.\n\n\n\"Oh! Good! If we want to end the occupation of the Square we need to move quickly\"\n\nThis document will set us free. \n\nMy contact is waiting in front of the University Building\"\n\n\nPick up Declaration button\n\n<<if visited(\"Truus\")is true>> [[ Go to Nassau|GotoNassau|]]\nRoute to next location appears",
+		"position": {
+			"x": 2935,
+			"y": 256
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoNassau",
+		"tags": "",
+		"body": "Press put concoction on statue\n\n\n\"You took your time!\n\nDo you know who I am? \n\nWhy didn't you save me before?\n\nDon't you know I have other things to do!\"\n\nPlayer: [[ answer: Be thankful that I saved you period. I can also re-petrify you if you are not happy.|YouAchterlijkeGladiool]] [[ answer: Tell me more.|Nottime]]",
+		"position": {
+			"x": 3261,
+			"y": 253
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoAnnaMaria",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Thank you discipulus!\"\n\n\n\"Oh no my books must have fallen when I was attacked by that beast.\"\n\n[[ Help |Helper]]   [[ Don't do anything|Slacker]]",
+		"position": {
+			"x": 3913,
+			"y": 241
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoBuysBallot",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Did you that storm?! This is excellent research subject. Yes, excellent!\"\n\n\n\"This was a close one. If it was not for this lightning rod, I would have been electrocuted.\"\n\n\nBuys Ballot cuts the wire and takes out the sword from the ground and give it to you.\n\n\n\"I have no use for it now, you can return it to its owner.\"\n\n\nButton pick up sword (with wire around the handle). \n\n\n<<if visited(\"BuysBallot\")is true>> >> [[ Go to Brinno|GotoBrinno]]\n\n\nRoute to next location appears",
+		"position": {
+			"x": 4465,
+			"y": 233
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoBrinno",
+		"tags": "",
+		"body": "Press put concoction on statue button (limes)\n\n\n\"Soldier! The beast slayed so many of our army. \n\nI attacked it with my sword but it was futile.\n\nHis scales are as hard as diamond.\n\nHis eyes are made of fire. \n\nHis breath is putrid and will make you faint on the spot. \n\nBe brave soldier. A death in battle is a noble death.\"\n\n\n\n[[ answer: Run for your life- End game now |Endgamenow]] |]][[ answer: A death in battle is a noble death- Continue playing|OracleAppears]] |]]",
+		"position": {
+			"x": 4862,
+			"y": 242
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Nottime",
+		"tags": "",
+		"body": "\"You plebs!\"\n\n\nCan't you see that I am the brother of William of Orange?\n\nMy time is too valuable to waste on you.\n\nI have a declaration to sign.\"\n\n\nNassau looks in pocket for declaration \nNassau cannot find the declaration\n\n\n\"Huh were did go?\"\n\n\nGive the declaration button\n\n\n[[Is this what you are looking for?|givedeclarationtonassau]]",
+		"position": {
+			"x": 3566,
+			"y": 595
+		},
+		"colorID": 0
+	},
+	{
+		"title": "YouAchterlijkeGladiool",
+		"tags": "",
+		"body": "\"You Achterlijke Gladiool!\"\n\n\"How dare you talk to me this way?!\n\nDo you want to be under the Spanish occupation?\n\nWe need to unite  northern provinces.\"\n\n\n [[Oh really, with what declaration? |givedeclarationtonassau]]",
+		"position": {
+			"x": 3548,
+			"y": -59
+		},
+		"colorID": 0
+	},
+	{
+		"title": "OracleAppears",
+		"tags": "",
+		"body": "\"Congratulations Chosen One, you have freed all the corrupted figures, saving their lives!\"\n\n\n\"However, your quest is not yet over. \n\nYou must now defeat the Basilisk. \n\nBasilisks's weakness are their eyes.\n\nYou must find the most reflective surface on the Square.\n\nBe on your way Chosen One, time is ticking.\"\n\n<<if visited(\"OracleAppears\")is true>> >> [[ Go to the Sun|GototheSun]]",
+		"position": {
+			"x": 5658,
+			"y": 240
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Endgamenow",
+		"tags": "",
+		"body": "Oracle appears\n\n\n\"You fool! You have doomed us all!\"\n\n\nBasilisk: Screeeeeechhh \n\n\n\n\"Can you hear it? The Basilisk is celebrating its victory.\"\n\n\nThe Basilisk dance in victory. \n\n\nThe rift opens and swallows everything in Utrecht and spreads through the world. \n\nThe screen goes white. \n\nMushroom cloud animation with message. \n\n\"Congratulations the world has ended because of you\"\nPlayer: [[ answer: Oh No! Return to battle |OracleAppears]] |]][[ answer:Ok|end1 lame user stops the game]] |]]",
+		"position": {
+			"x": 5301,
+			"y": -188
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end1 lame user stops the game",
+		"tags": "",
+		"body": "quit game button",
+		"position": {
+			"x": 6061,
+			"y": -705
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GototheSun",
+		"tags": "",
+		"body": "Pick up the sun button\n\n\n\nBasilisk: \"angry\" screeeeeech \n\n\nBasilisk retreats to the shadows of the Dom Tower.The Basilisk is ready to fight.\n\n\n<<if visited(\"GototheSun\")is true>> >> [[ Go Under the DOm|GoUnderDomTower]]",
+		"position": {
+			"x": 6135,
+			"y": 258
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GoUnderDomTower",
+		"tags": "",
+		"body": "The basilisk hiding in the passage under the Tower.\n\n\nThe basilisk sees you. \n\nIt starts rattling its scales. \n\nIt leans towards you, orienting its deadly gaze towards your face. \n\nA thunderstorm began to growl in its throat.\n\nPlayer:[[ Look |Death end]] [[ Avert your eyes |Continue]]",
+		"position": {
+			"x": 6568,
+			"y": 253
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Continue",
+		"tags": "",
+		"body": "Use the Sun button\n\n\nYou take the Sun and puts it in front of your face.\n\n\nThe basilisk jumps back with an angry snarl. \n\nBut it is too late. \n\nHis deadly power is transforming him into a statue. \n\nThe statue shatters. \n\nThe Stone transforms into dust and is aspirated by the time rift. \n\nThe rift slowly closes. \n\nThe Basilisk is defeated.\n\n<<if visited (\"Continue\")is true>> >> [[  Next|GotoEnd2]]",
+		"position": {
+			"x": 7391,
+			"y": 248
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Death end",
+		"tags": "",
+		"body": "\"You fool! You have doomed us all!\"\n\n\nBasilisk: Screeeeeechhh \n\n\n\"Can you hear it? \n\nThe Basilisk is celebrating its victory.\"\n\n\nThe Basilisk dance in victory. \n\n\nThe rift opens and swallows everything in Utrecht and spreads through the world. \n\nThe screen goes white. \n\nMushroom cloud animation with message. \n\n\"Congratulations the world has ended because of you!\"\n\nPlayer: [[ answer: Oh No! I didn't look |Continue]] [[ answer:Ok|end1 lame user stops the game]]",
+		"position": {
+			"x": 6993,
+			"y": -308
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GotoEnd2",
+		"tags": "",
+		"body": "Oracle appears again \n\n\"Congratulations Chosen One, you have saved the World!\"\n\n\n\"Here is your reward,take a screenshot now before it goes away\"\n\n\nPick Reward button. \n\n\n\"Goodbye Chosen One\"\n\nend of protoype/level1",
+		"position": {
+			"x": 7956,
+			"y": 239
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Dakhaas",
+		"tags": "",
+		"body": "\"Oh don't make a fuss about it. It is just a term of endearment.\"\n\n\n\"Here, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favorite.\"\n\n\nPick up Daffodils button\n\n\n<<if visited(\"Builder\")is true>> [[ Go to Truus|GotoTruus|]]\nRoute to next location appears",
+		"position": {
+			"x": 2711,
+			"y": -148
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Stolenwallet",
+		"tags": "",
+		"body": "Tackle Villon\n\n\"You don't have to be violent mon ami.\n\nYou looked very heavy and I just wanted to relieve you of the weight\"\n\n\nVillon gives back the wallet and runs away again.\n\nlook down and see a page of sheet music on the ground. It must have fallen when you tackled him.\n\nPick up paper button\n\nOracle: Look at the back of the paper, it is addressed to the Carilloner\n\n<<if visited(\"Villon\") is true>> [[ Go to the Carilloner|GotoCarilloner]] \n\nRoute to next location appears",
+		"position": {
+			"x": 1958,
+			"y": -45
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Waitup",
+		"tags": "",
+		"body": "Villon stops for a second and turns around.\n \n\n [[Aren't you forgetting something?|Villon gives wallet back]] [[You thief!|Villon gives wallet back]]",
+		"position": {
+			"x": 1974,
+			"y": 592
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Helper",
+		"tags": "",
+		"body": "Help Anna Maria pick up the books\n\nButton give the quill \n\n\n\"Oh thank you. \n\n You should not help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care|conversationmaria]] [[No problem! happy to help!|conversationmaria]]",
+		"position": {
+			"x": 4182,
+			"y": -131
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Slacker",
+		"tags": "",
+		"body": "Anna Maria picks up the books.\n\n\nGive the quill button. \n\n\nAnna Maria leaves \nSee book on the ground\n\nPick up book button\n\n\nSee Buys Ballot on the cover\n\n\n<<if visited(\"AnnaMaria\")is true>> >> [[ Go to Buys Ballot|GotoBuysBallot]]\nRoute to next location appears",
+		"position": {
+			"x": 4195,
+			"y": 604
+		},
+		"colorID": 0
+	},
+	{
+		"title": "continue brave",
+		"tags": "",
+		"body": "\"Take this common rue concoction, apply it on the petrified characters and they shall be freed from their bronze prison\"\n\n\"You will find the Poet François Villon behind Dom Church.Go to him, he will help you find the other historical figures. Be careful! Villon has been know to pick a pocket or two.\"\n\n\"Now be on your way Chosen one, good luck!\"\n[[Wait, why me? |DoNotQuestionFate]] [[Ok|Nextlevel]]",
+		"position": {
+			"x": 682,
+			"y": 262
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Villon gives wallet back",
+		"tags": "",
+		"body": "\"Me?\"\n\n\"Oh you mean the wallet? I don't know how that got there.\"\n\n \"Pardonne-moi mon ami!\"\n\n\nVillon gives back the wallet and runs away again.\n\n\nVillon drops a paper of sheet music \n\n\nPick up paper button \n\nOracle: \"Look at the back of the paper is addressed to the Carilloner\"\n\n<<if visited(\"Villon\") is true>> [[ Go to the Carilloner|GotoCarilloner]] |]]\n\nRoute to next location appears",
+		"position": {
+			"x": 2221,
+			"y": 841
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Lame user",
+		"tags": "",
+		"body": "\"Are you devoid of any sense of bravery and righteousness?\n\nThe faith of the world is at stake!\" \n\n [[Yes i'm a coward take me out of here|End game start (lame user)]][[ No I want to help! |RestoringTheSquare]]",
+		"position": {
+			"x": 509,
+			"y": -179
+		},
+		"colorID": 0
+	},
+	{
+		"title": "End game start (lame user)",
+		"tags": "",
+		"body": "Oracle appears\n\n \"You fool! You have doomed us all! \"\n\nBasilisk: Screeeeeechhh \n\n\"Can you hear it?\"\n\n\"The Basilisk is celebrating its victory.\"\n\n\nThe Basilisk dance in victory. \nThe rift opens and swallows everything in Utrecht and spreads through the world. \nThe screen goes white. \nMushroom cloud animation with message. \n\n\"Congratulations the world has ended because of you\"\n [[end game|end1 lame user stops the game]] [[No wait! Take be back|RestoringTheSquare]]",
+		"position": {
+			"x": 2056,
+			"y": -683
+		},
+		"colorID": 0
+	},
+	{
+		"title": "givedeclarationtonassau",
+		"tags": "",
+		"body": "\"You dief! How did you steal it?\"\n\n\nNassau does not give you time to respond. \n\nHe signs the declaration with a quill and throws it on the ground after using it and leaves.\n\n\nPick up quill button.\n\n\n<<if visited(\"Nassau\")is true>> [[Go to Anna Maria|GotoAnnaMaria]] \n\nRoute to next location appears",
+		"position": {
+			"x": 3565,
+			"y": 273
+		},
+		"colorID": 0
+	},
+	{
+		"title": "conversationmaria",
+		"tags": "",
+		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\nBut it is not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n\nPick up book button\n\n\nSee Buys Ballot on the cover\n\n\n<<if visited(\"AnnaMaria\")is true>> >> [[ Go to Buys Ballot|GotoBuysBallot]]\nRoute to next location appears",
+		"position": {
+			"x": 4509,
+			"y": -119
+		},
+		"colorID": 0
+	}
+]
