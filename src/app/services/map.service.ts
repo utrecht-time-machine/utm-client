@@ -17,7 +17,7 @@ import {
 } from '../helpers/geolocation-watcher.helper';
 import { environment } from '../../environments/environment';
 import { MapTouchPitcherHelper } from '../helpers/map-touch-pitcher.helper';
-import { Story } from '../models/story.model';
+import { Story, StoryState } from '../models/story.model';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { mergeDedupe } from '../helpers/merge-array-dedupe.helper';
 import { Router } from '@angular/router';
@@ -247,7 +247,7 @@ export class MapService {
     };
   }
 
-  private static generateWaypointMarkers(stations: any[]) {
+  public generateWaypointMarkers(stations: any[]) {
     const isSelectedStation = true;
 
     const wayPointMarkers = {
@@ -262,13 +262,20 @@ export class MapService {
       const coordinates = [...station.geometry.coordinates];
       // const isSelectedStation = station.id === selectedStationId;
 
+      // Gets the story that belongs to this station
+      const storyState = this.routes.getStoryByStationId(station.id).state;
+
+      // Set the station icon according to the story state
+      let stationIcon = MapService.markerImgIds.selected;
+      if (storyState === StoryState.Locked) {
+        stationIcon = MapService.markerImgIds.invisible;
+      }
+
       const wayPointMarker = {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: isSelectedStation
-            ? this.markerImgIds.selected
-            : this.markerImgIds.marker,
+          icon: stationIcon,
           routeLabel: '',
           opacity: 1,
         },
@@ -327,10 +334,12 @@ export class MapService {
 
       this.add3DModels();
       this.stories.selected.subscribe(() => {
-        if (!this.markerPoints) {
-          this.addStationMarkers();
-        }
+        this.addStationMarkers();
       });
+
+      setInterval(() => {
+        this.addStationMarkers();
+      }, 6000);
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -512,12 +521,14 @@ export class MapService {
       )
     );
 
-    this.markerPoints = MapService.generateWaypointMarkers(allStoryStations);
+    this.markerPoints = this.generateWaypointMarkers(allStoryStations);
 
+    let clickEventAlreadyAdded = false;
     if (
       this.map.getLayer(this.markerLayerId)
       || this.map.getSource(this.markerSourceId)
     ) {
+      clickEventAlreadyAdded = true;
       this.map.removeLayer(this.markerLayerId);
       this.map.removeSource(this.markerSourceId);
     }
@@ -547,27 +558,32 @@ export class MapService {
       // 'building 3D'
     );
 
-    this.map.on('click', this.markerLayerId, async e => {
-      // If the user has clicked on a marker...
+    if (!clickEventAlreadyAdded) {
+      this.map.on('click', this.markerLayerId, async e => {
+        console.log('Called click event ', new Date().getMilliseconds());
+        // If the user has clicked on a marker...
 
-      // const coordinates = (e.features[0].geometry as any).coordinates;
-      // this.map.flyTo({ center: coordinates });
+        // const coordinates = (e.features[0].geometry as any).coordinates;
+        // this.map.flyTo({ center: coordinates });
 
-      const stationId = e.features[0].properties.id;
-      this.routes.selectStoryByStationId(stationId);
+        const stationId = e.features[0].properties.id;
+        // Select the story that belongs to the station we just clicked
+        this.routes.selectStoryByStationId(stationId);
 
-      const popover = await this.popoverController.create({
-        component: MarkerPopupComponent,
-        translucent: true,
+        // Create a popover that is able to start the selected story
+        const popover = await this.popoverController.create({
+          component: MarkerPopupComponent,
+          translucent: true,
+        });
+        return await popover.present();
       });
-      return await popover.present();
-    });
 
-    this.map.on('mouseenter', this.markerLayerId, () => {
-      this.map.getCanvas().style.cursor = 'pointer';
-    });
-    this.map.on('mouseleave', this.markerLayerId, () => {
-      this.map.getCanvas().style.cursor = '';
-    });
+      this.map.on('mouseenter', this.markerLayerId, () => {
+        this.map.getCanvas().style.cursor = 'pointer';
+      });
+      this.map.on('mouseleave', this.markerLayerId, () => {
+        this.map.getCanvas().style.cursor = '';
+      });
+    }
   }
 }

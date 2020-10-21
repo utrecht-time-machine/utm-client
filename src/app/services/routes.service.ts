@@ -110,6 +110,18 @@ export class RoutesService {
     return selectedStory.stations[0];
   }
 
+  public getStoryByStationId(stationId): Story {
+    const stories = this.selected.getValue().stories;
+    for (let storyIdx = 0; storyIdx < stories.length; storyIdx++) {
+      //  Story is currently assumed to only have one associated station
+      const story: Story = stories[storyIdx];
+      if (stationId === story.stations[0]['@id']) {
+        return story;
+      }
+    }
+    return undefined;
+  }
+
   public selectStoryByStationId(stationId) {
     const stories = this.selected.getValue().stories;
     for (let storyIdx = 0; storyIdx < stories.length; storyIdx++) {
