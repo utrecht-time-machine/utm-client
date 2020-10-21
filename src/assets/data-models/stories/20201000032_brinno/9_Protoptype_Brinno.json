@@ -1,0 +1,12 @@
+[
+	{
+		"title": "GotoBrinno",
+		"tags": "",
+		"body": "Press put concoction on statue button (limes)\n\n\n\"Soldier! The beast slayed so many of our army. \n\nGive sword button\n\n\"I attacked it with my sword but it was futile.\n\nHis scales are as hard as diamond.\nHis eyes are made of fire. \n\nHis breath is putrid and will make you faint on the spot. \n\nBe brave soldier. A death in battle is a noble death.\"\n\n\n\n[[ Run for your life- End game now |Endgamenow]] [[  A death in battle is a noble death- Continue playing|OracleAppears]] \n\nBrinno's character sheet appears",
+		"position": {
+			"x": 4862,
+			"y": 242
+		},
+		"colorID": 0
+	}
+]
