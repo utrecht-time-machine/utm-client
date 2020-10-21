@@ -548,11 +548,13 @@ export class MapService {
     );
 
     this.map.on('click', this.markerLayerId, async e => {
+      // If the user has clicked on a marker...
+
       // const coordinates = (e.features[0].geometry as any).coordinates;
       // this.map.flyTo({ center: coordinates });
 
-      const id = e.features[0].properties.id;
-      this.routes.selectStoryByStationId(id);
+      const stationId = e.features[0].properties.id;
+      this.routes.selectStoryByStationId(stationId);
 
       const popover = await this.popoverController.create({
         component: MarkerPopupComponent,

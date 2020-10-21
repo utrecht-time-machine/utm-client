@@ -31,7 +31,8 @@
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/20201000024_oracle_buurkerk/Protoptype_DSTT_2.json"
       }
-    ]
+    ],
+    "state": 1
   },
   {
     "@id": "https://utrechttimemachine.nl/stories/Dom",
@@ -65,7 +66,8 @@
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
       }
-    ]
+    ],
+    "state": 0
   },
   {
     "@id": "https://utrechttimemachine.nl/stories/carillon",
@@ -99,6 +101,7 @@
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
       }
-    ]
+    ],
+    "state": 1
   }
 ]

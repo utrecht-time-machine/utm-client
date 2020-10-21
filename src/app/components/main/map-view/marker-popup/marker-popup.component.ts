@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SeqType, Story } from '../../../../models/story.model';
+import { SeqType, Story, StoryState } from '../../../../models/story.model';
 import { StoriesService } from '../../../../services/stories.service';
 import { RoutesService } from '../../../../services/routes.service';
 import { Platform } from '@ionic/angular';
@@ -13,30 +13,34 @@ import { PopoverController } from '@ionic/angular';
   templateUrl: './marker-popup.component.html',
   styleUrls: ['./marker-popup.component.scss'],
 })
-
 export class MarkerPopupComponent implements OnInit {
-  @Input() story: Story;
+  story: Story;
   sources: any[];
+  storyState = StoryState;
 
   constructor(
-     stories: StoriesService,
+    stories: StoriesService,
     public platform: Platform,
     public router: Router,
     public routes: RoutesService,
     // public mapInfoUI: MapInfoUIService
     private popoverController: PopoverController
-    ) { 
-      this.sources = [ {
-          src: 'http://static.videogular.com/assets/audios/videogular.mp3',
-          type: 'audio/mp3',
-        } ]
-      }
+  ) {
+    this.sources = [
+      {
+        src: 'http://static.videogular.com/assets/audios/videogular.mp3',
+        type: 'audio/mp3',
+      },
+    ];
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.story = this.routes.getSelectedStory();
+  }
 
   async DismissPopover() {
     await this.popoverController.dismiss();
-      }
+  }
 
   startStory(story: Story) {
     this.routes.all.subscribe(_ => {
@@ -76,5 +80,4 @@ export class MarkerPopupComponent implements OnInit {
         break;
     }
   }
-
 }

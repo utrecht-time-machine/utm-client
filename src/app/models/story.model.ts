@@ -35,6 +35,12 @@ export interface TimeSliderSeq extends Seq {
   presentImageUrl: string;
 }
 
+export enum StoryState {
+  Selected = 0,
+  Locked,
+  Finished,
+}
+
 export interface Story {
   '@id': string; // url
   '@type': 'https://utrechttimemachine.nl/ontology/story';
@@ -49,6 +55,7 @@ export interface Story {
   seq: Seq[]; // to be defined,
   hidden: boolean; // hide this story in the story view
   tagIds?: TagId[];
+  state: StoryState;
 }
 
 export interface StoryId {
