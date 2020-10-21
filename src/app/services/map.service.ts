@@ -337,9 +337,9 @@ export class MapService {
         this.addStationMarkers();
       });
 
-      setInterval(() => {
-        this.addStationMarkers();
-      }, 6000);
+      // setTimeout(() => {
+      //   this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_start", StoryState.Selected);
+      // }, 2000);
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -560,7 +560,6 @@ export class MapService {
 
     if (!clickEventAlreadyAdded) {
       this.map.on('click', this.markerLayerId, async e => {
-        console.log('Called click event ', new Date().getMilliseconds());
         // If the user has clicked on a marker...
 
         // const coordinates = (e.features[0].geometry as any).coordinates;
