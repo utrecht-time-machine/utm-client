@@ -1,0 +1,12 @@
+[
+	{
+		"title": "GotoTruus",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Vriend! Luckily the SS did not catch you!\"\n\n\nGive the Daffodils button.\n\n\n\"Oh! Good! If we want to end the occupation of the Square we need to move quickly\"\n\nThis document will set us free. \n\nMy contact is waiting in front of the University Building\"\n\n\nPick up Declaration button\n\n<<if visited(\"Truus\")is true>> [[ Go to Nassau|GotoNassau|]]\n\nTruus van Lier's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 2935,
+			"y": 256
+		},
+		"colorID": 0
+	}
+]

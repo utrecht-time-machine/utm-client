@@ -40,7 +40,7 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://utrechttimemachine.nl/places/carillon-person_dom-tower",
+    "id": "https://utrechttimemachine.nl/places/carillionist_dom-tower",
     "geometry": {
       "type": "Point",
       "coordinates": [5.121630,52.090760]

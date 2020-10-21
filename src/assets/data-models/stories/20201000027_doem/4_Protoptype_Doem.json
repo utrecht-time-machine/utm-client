@@ -1,0 +1,22 @@
+[
+	{
+		"title": "GotoTheBuilder",
+		"tags": "",
+		"body": "Press put concoction on statue button\n\n\n\"Thank you Dakhaas!\"\n\n\n[[ Dakhaas? |Dakhaas]] [[ Who are you calling Dakhaas? Achterlijke gladiool!|Dakhaas]]",
+		"position": {
+			"x": 2495,
+			"y": 253
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Dakhaas",
+		"tags": "",
+		"body": "\"Oh don't make a fuss about it. It is just a term of endearment.\"\n\nGive hammer button\n\n\n\"Thanks! I'll need that later!\nHere, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favorite.\"\n\n\nPick up Daffodils button\n\n\n<<if visited(\"Builder\")is true>> [[ Go to Truus|GotoTruus|]]\n\nJan van den Doem's character sheet appears\n\n\nRoute to next location appears",
+		"position": {
+			"x": 2711,
+			"y": -148
+		},
+		"colorID": 0
+	}
+]

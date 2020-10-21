@@ -1,6 +1,9 @@
 <ion-content>
   <div id="bg"></div>
   <div id="story-scene-wrapper" *ngIf="storyScene">
+    <div style="text-align: center">
+      <img [src]="seq.character.image" alt="">
+    </div>
     <markdown [data]="storyScene.body"></markdown>
     <ion-button
       color="dark"

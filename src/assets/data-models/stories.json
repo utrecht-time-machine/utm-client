@@ -1,8 +1,8 @@
 [
   {
-    "@id": "https://utrechttimemachine.nl/stories/buurkerk",
+    "@id": "https://utrechttimemachine.nl/stories/oracle_start",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Buurkerk",
+    "title": "oracle_start",
     "lang": "en",
     "description": "FAKESTORY DESCRIPTION",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
@@ -23,21 +23,24 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/20201000024_oracle_buurkerk",
+        "@id": "https://utrechttimemachine.nl/stories/20201000024_oracle_start",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
+        "character": {
+          "image": "/assets/data-models/stories/20201000024_oracle_start/random-character-image.gif"
+        },
         "color-scheme": "dark",
-        "yarnUrl": "/assets/data-models/stories/20201000024_oracle_buurkerk/Protoptype_DSTT_2.json"
+        "yarnUrl": "/assets/data-models/stories/20201000024_oracle_start/1_Protoptype_Oracle_start.json"
       }
     ],
     "state": 1
   },
   {
-    "@id": "https://utrechttimemachine.nl/stories/Dom",
+    "@id": "https://utrechttimemachine.nl/stories/villon",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Dom",
+    "title": "villon",
     "lang": "en",
     "description": "FAKESTORY DESCRIPTION",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
@@ -58,21 +61,24 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
+        "@id": "https://utrechttimemachine.nl/stories/20201000025_villon",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
+        "character": {
+          "image": "/assets/data-models/stories/20201000025_villon/random-character-image.gif"
+        },
         "color-scheme": "dark",
-        "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
+        "yarnUrl": "/assets/data-models/stories/20201000025_villon/2_Protoptype_villon.json"
       }
     ],
     "state": 0
   },
   {
-    "@id": "https://utrechttimemachine.nl/stories/carillon",
+    "@id": "https://utrechttimemachine.nl/stories/carillionist",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Carillon",
+    "title": "carillionist",
     "lang": "en",
     "description": "FAKESTORY DESCRIPTION",
     "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
@@ -84,7 +90,7 @@
     ],
     "stations": [
       {
-        "@id": "https://utrechttimemachine.nl/places/carillon-person_dom-tower"
+        "@id": "https://utrechttimemachine.nl/places/carillionist_dom-tower"
       }
     ],
     "time-period": {
@@ -93,13 +99,16 @@
     },
     "seq": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/2019100005_neude_executions",
+        "@id": "https://utrechttimemachine.nl/stories/20201000026_carillionist",
         "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
         "background": {
           "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
         },
+        "character": {
+          "image": "/assets/data-models/stories/20201000026_carillionist/random-character-image.gif"
+        },
         "color-scheme": "dark",
-        "yarnUrl": "/assets/data-models/stories/2019100005_neude_executions/a-gruesome-murderer.json"
+        "yarnUrl": "/assets/data-models/stories/20201000026_carillionist/3_Protoptype_carillionist.json"
       }
     ],
     "state": 1

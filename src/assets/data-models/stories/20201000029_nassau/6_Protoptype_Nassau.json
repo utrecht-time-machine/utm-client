@@ -1,0 +1,52 @@
+[
+	{
+		"title": "GotoNassau",
+		"tags": "",
+		"body": "Press put concoction on statue\n\n\n\"You took your time!\n\nDo you know who I am? \n\nWhy didn't you save me first?\n\nDon't you know I have other things to do!\"\n\nPlayer: [[Be thankful that I saved you period. I can also re-petrify you if you are not happy.|YouAchterlijkeGladiool]] [[Tell me more.|Nottime]]",
+		"position": {
+			"x": 3261,
+			"y": 253
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Nottime",
+		"tags": "",
+		"body": "\"You plebs!\"\n\n\nCan't you see that I am the brother of William of Orange?\n\nMy time is too valuable to waste on you.\n\nI have a declaration to sign.\"\n\n\nNassau looks in pocket for declaration \nNassau cannot find the declaration\n\n\n\"Huh were did go?\"\n\nGive declaration button\n\n\n[[Is this what you are looking for?|givedeclarationtonassau]]",
+		"position": {
+			"x": 3566,
+			"y": 595
+		},
+		"colorID": 0
+	},
+	{
+		"title": "YouAchterlijkeGladiool",
+		"tags": "",
+		"body": "\"You Achterlijke Gladiool!\"\n\n\"How dare you talk to me this way?!\n\nDo you want to be under the Spanish occupation?\n\nWe need to unite  northern provinces.\"\n\n\nGive declaration button\n\n\n [[Oh really, with what declaration? |givedeclarationtonassau]]",
+		"position": {
+			"x": 3548,
+			"y": -59
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Villon gives wallet back",
+		"tags": "",
+		"body": "\"Me?\"\n\n\"Oh you mean the wallet? I don't know how that got there.\"\n\n \"Pardonne-moi mon ami!\"\n\n\nVillon gives back the wallet and runs away again.\n\n\nVillon drops a paper of sheet music \n\n\nPick up paper button \n\nOracle: \"Look at the back of the paper is addressed to the Carilloner\"\n\n<<if visited(\"Villon\") is true>> [[ Go to the Carilloner|GotoCarilloner]] |]]\n\nRoute to next location appears",
+		"position": {
+			"x": 2221,
+			"y": 841
+		},
+		"colorID": 0
+	},
+	{
+		"title": "givedeclarationtonassau",
+		"tags": "",
+		"body": "\"You dief! How did you steal it?\"\n\n\nNassau does not give you time to respond. \n\nHe signs the declaration with a quill and throws it on the ground after using it and leaves.\n\n\nPick up quill button.\n\n\n<<if visited(\"Nassau\")is true>> [[Go to Anna Maria|GotoAnnaMaria]] \n\n\nJan van Nassau's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 3564,
+			"y": 271
+		},
+		"colorID": 0
+	}
+]
