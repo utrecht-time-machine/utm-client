@@ -2,7 +2,7 @@
 	{
 		"title": "GotoVillon",
 		"tags": "",
-		"body": "Press put concoction on statue button\n\n  \"Merci stranger\"\n\n\"Oh non! La police is there!\"\n\nVillon runs away\n\n[[Oh no! He stole my wallet-I'll tackle him!|Stolenwallet]] [[He stole my wallet!- \"Hey wait up!\"|Waitup]]",
+		"body": "\"Merci stranger\"\n\n\"Oh non! La police is there!\"\n\nVillon runs away\n\n[[Oh no! He stole my wallet-I'll tackle him!|Stolenwallet]] [[He stole my wallet!- \"Hey wait up!\"|Waitup]]",
 		"position": {
 			"x": 1702,
 			"y": 261
@@ -12,7 +12,7 @@
 	{
 		"title": "Stolenwallet",
 		"tags": "",
-		"body": "Tackle Villon\n\n\"You don't have to be violent mon ami.\n\nYou looked very heavy and I just wanted to relieve you of the weight\"\n\n\nVillon gives back the wallet and runs away again.\n\nlook down and see a page of sheet music on the ground. It must have fallen when you tackled him.\n\nPick up paper button\n\nOracle: Look at the back of the paper, it is addressed to the Carilloner\n\n<<if visited(\"Villon\") is true>> [[ Go to the Carilloner|GotoCarilloner]] \n\n\nVillon's character sheet appears \n\nRoute to next location appears",
+		"body": "Tackle Villon\n\n\"You don't have to be violent mon ami.\n\nYou looked very heavy and I just wanted to relieve you of the weight\"\n\n\nVillon gives back the wallet and runs away again.\n\nlook down and see a page of sheet music on the ground. It must have fallen when you tackled him.\n\n [[Pick up paper|Pick up paper button]]\n\n\nOracle: Look at the back of the paper, it is addressed to the carillonist\n\n\nVillon's character sheet appears \n\nRoute to next location appears",
 		"position": {
 			"x": 1958,
 			"y": -45
@@ -24,7 +24,7 @@
 		"tags": "",
 		"body": "Villon stops for a second and turns around.\n \n\n [[Aren't you forgetting something?|Villon gives wallet back]] [[You thief!|Villon gives wallet back]]",
 		"position": {
-			"x": 1974,
+			"x": 1975,
 			"y": 592
 		},
 		"colorID": 0
@@ -32,10 +32,20 @@
 	{
 		"title": "Villon gives wallet back",
 		"tags": "",
-		"body": "\"Me?\"\n\n\"Oh you mean the wallet? I don't know how that got there.\"\n\n \"Pardonne-moi mon ami!\"\n\n\nVillon gives back the wallet and runs away again.\n\n\nVillon drops a paper of sheet music \n\n\nPick up paper button \n\nOracle: \"Look at the back of the paper is addressed to the Carilloner\"\n\n<<if visited(\"Villon\") is true>> [[ Go to the Carilloner|GotoCarilloner]] |]]\n\nVillon's character sheet appears\n\nRoute to next location appears",
+		"body": "\"Me?\"\n\n\"Oh you mean the wallet? I don't know how that got there.\"\n\n \"Pardonne-moi mon ami!\"\n\n\nVillon gives back the wallet and runs away again.\n\n\nVillon drops a paper of sheet music \n\n [[Pick up paper button|Pick up paper button]]",
 		"position": {
-			"x": 2221,
-			"y": 841
+			"x": 2226,
+			"y": 839
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick up paper button",
+		"tags": "",
+		"body": "Oracle: \"Look at the back of the paper, it is addressed to the carillonist.\"\n\n\nVillon's character sheet appears \n\nRoute to next location appears",
+		"position": {
+			"x": 2278,
+			"y": 233
 		},
 		"colorID": 0
 	}

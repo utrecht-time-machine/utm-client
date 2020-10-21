@@ -2,10 +2,30 @@
 	{
 		"title": "GotoTruus",
 		"tags": "",
-		"body": "Press put concoction on statue button\n\n\n\"Vriend! Luckily the SS did not catch you!\"\n\n\nGive the Daffodils button.\n\n\n\"Oh! Good! If we want to end the occupation of the Square we need to move quickly\"\n\nThis document will set us free. \n\nMy contact is waiting in front of the University Building\"\n\n\nPick up Declaration button\n\n<<if visited(\"Truus\")is true>> [[ Go to Nassau|GotoNassau|]]\n\nTruus van Lier's character sheet appears\n\nRoute to next location appears",
+		"body": "\"Vriend! Luckily the SS did not catch you!\"\n\n [[Give daffodils|Give daffodils]]",
 		"position": {
-			"x": 2935,
-			"y": 256
+			"x": 2939,
+			"y": 244
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give daffodils",
+		"tags": "",
+		"body": "\"Oh! Good! If we want to end the occupation of the Square we need to move quickly!\n\nThis document will set us free. My contact is waiting in front of the University Building.\"\n\n [[pick up declaration|pick up declaration button]]",
+		"position": {
+			"x": 3298,
+			"y": 235
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up declaration button",
+		"tags": "",
+		"body": "Truus van Lier's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 3594,
+			"y": 144
 		},
 		"colorID": 0
 	}

@@ -2,7 +2,7 @@
 	{
 		"title": "GotoTheBuilder",
 		"tags": "",
-		"body": "Press put concoction on statue button\n\n\n\"Thank you Dakhaas!\"\n\n\n[[ Dakhaas? |Dakhaas]] [[ Who are you calling Dakhaas? Achterlijke gladiool!|Dakhaas]]",
+		"body": "\"Thank you Dakhaas!\"\n\n\n[[ Dakhaas? |Dakhaas]] [[ Who are you calling Dakhaas? Achterlijke gladiool!|Dakhaas]]",
 		"position": {
 			"x": 2495,
 			"y": 253
@@ -12,10 +12,30 @@
 	{
 		"title": "Dakhaas",
 		"tags": "",
-		"body": "\"Oh don't make a fuss about it. It is just a term of endearment.\"\n\nGive hammer button\n\n\n\"Thanks! I'll need that later!\nHere, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favorite.\"\n\n\nPick up Daffodils button\n\n\n<<if visited(\"Builder\")is true>> [[ Go to Truus|GotoTruus|]]\n\nJan van den Doem's character sheet appears\n\n\nRoute to next location appears",
+		"body": "\"Oh don't make a fuss about it. It is just a term of endearment.\"\n\n [[Give hammer|Give hammer button]]",
 		"position": {
-			"x": 2711,
-			"y": -148
+			"x": 2710,
+			"y": -150
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give hammer button",
+		"tags": "",
+		"body": "\"Thanks! I'll need that later!\nHere, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favourite.\"\n\n [[pick up daffodils|pick up daffodils button]]",
+		"position": {
+			"x": 3020,
+			"y": -74
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up daffodils button",
+		"tags": "",
+		"body": "Jan van den Doem's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 3258,
+			"y": 198
 		},
 		"colorID": 0
 	}

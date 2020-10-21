@@ -2,10 +2,30 @@
 	{
 		"title": "GotoCarilloner",
 		"tags": "",
-		"body": "Press put concoction on statue button\n\n\"Oh Thank you. I am glad to be freed out of that brick prison!\"\n\nGive paper button\n\n\"Ah sheet music! Just what I needed, I'll exercise my rigid fingers immediately!\"\n\nCarillonist plays the song (add music or just music notes)\n\n\"The Builder forgot his hammer. Might you please bring it to him for me? \nHe ran to the garden to take care of his flowers as soon as his shift ended\"\n\nPick up hammer button  \n\n<<if visited(\"Carilloner\")is true>> [[ Go to the Builder|GotoTheBuilder|]]\n\n\ncarillonist's character sheet appears\n\nRoute to next location appears",
+		"body": "\"Oh Thank you. I am glad to be freed out of that brick prison!\"\n\n [[give paper|give paper button]]",
 		"position": {
-			"x": 2174,
-			"y": 259
+			"x": 2173,
+			"y": 262
+		},
+		"colorID": 0
+	},
+	{
+		"title": "give paper button",
+		"tags": "",
+		"body": "\"Ah sheet music! Just what I needed, I'll exercise my rigid fingers immediately!\"\n\nCarillonist plays the song \n\n\"The Builder forgot his hammer. Might you please bring it to him for me? \nHe ran to the garden to take care of his flowers as soon as his shift ended\"\n\n [[pick up hammer|pick up hammer button]]",
+		"position": {
+			"x": 2457,
+			"y": 180
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up hammer button",
+		"tags": "",
+		"body": "carillonist's character sheet appears\n\nRoute to next location appears.",
+		"position": {
+			"x": 2729,
+			"y": 290
 		},
 		"colorID": 0
 	}

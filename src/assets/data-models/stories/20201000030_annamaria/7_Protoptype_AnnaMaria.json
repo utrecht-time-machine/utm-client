@@ -2,9 +2,9 @@
 	{
 		"title": "GotoAnnaMaria",
 		"tags": "",
-		"body": "Press put concoction on statue button\n\n\n\"Thank you discipulus!\"\n\n\n\"Oh no my books must have fallen when I was attacked by that beast.\"\n\n[[ Help |Helper]]   [[ Don't do anything|Slacker]]",
+		"body": "\"Thank you discipulus!\"\n\n\n\"Oh no my books must have fallen when I was attacked by that beast.\"\n\n[[ Help |Helper]]   [[ Don't do anything|Slacker]]",
 		"position": {
-			"x": 3913,
+			"x": 3914,
 			"y": 241
 		},
 		"colorID": 0
@@ -12,19 +12,19 @@
 	{
 		"title": "Helper",
 		"tags": "",
-		"body": "Help Anna Maria pick up the books\n\nButton give the quill \n\n\n\"Oh thank you. \n\n You should not help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care about bullies|conversationmaria]] [[No problem! happy to help!|conversationmaria]]",
+		"body": "Help Anna Maria pick up the books\n\n[[Give Quill|Give Quill button]]",
 		"position": {
-			"x": 4182,
-			"y": -131
+			"x": 4185,
+			"y": -134
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Slacker",
 		"tags": "",
-		"body": "Anna Maria picks up the books.\n\n\nGive the quill button. \n\n\nAnna Maria leaves \nSee book on the ground\n\nPick up book button\n\n\nSee Buys Ballot on the cover\n\n\n<<if visited(\"AnnaMaria\")is true>> >> [[ Go to Buys Ballot|GotoBuysBallot]]\n\nAnna Maria van Schurman's character sheet appears\n\nRoute to next location appears",
+		"body": "Anna Maria picks up the books.\n\n [[Give Quill|Give Quill slacker]]",
 		"position": {
-			"x": 4195,
+			"x": 4196,
 			"y": 604
 		},
 		"colorID": 0
@@ -32,10 +32,50 @@
 	{
 		"title": "conversationmaria",
 		"tags": "",
-		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\nBut it is not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n\nPick up book button\n\n\nSee Buys Ballot on the cover\n\n\n<<if visited(\"AnnaMaria\")is true>> >> [[ Go to Buys Ballot|GotoBuysBallot]]\n\nAnna Maria van Schurman's character sheet appears\n\nRoute to next location appears",
+		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\n\nBut it is not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n [[pick up book|pick up book button]]",
 		"position": {
-			"x": 4509,
-			"y": -119
+			"x": 4741,
+			"y": -137
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick up book slacker",
+		"tags": "",
+		"body": "See Buys Ballot on the cover\n\nAnna Maria van Schurman's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 4494,
+			"y": 462
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give Quill slacker",
+		"tags": "",
+		"body": "Anna Maria takes the quill and silently leaves \n\nSee book on the ground\n\n[[Pick up book|Pick up book slacker]]",
+		"position": {
+			"x": 4252,
+			"y": 296
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give Quill button",
+		"tags": "",
+		"body": "\"Oh thank you. \n\n You should not help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care about bullies|conversationmaria]] [[No problem! happy to help!|conversationmaria]]",
+		"position": {
+			"x": 4446,
+			"y": 41
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up book button",
+		"tags": "",
+		"body": "See Buys Ballot on the cover\n\n\nAnna Maria van Schurman's character sheet appears\n\nRoute to next location appears",
+		"position": {
+			"x": 4892,
+			"y": 109
 		},
 		"colorID": 0
 	}
