@@ -32,17 +32,17 @@
 	{
 		"title": "Nextlevel",
 		"tags": "",
-		"body": "Common rue potion appears \n\nBasilisk character chart appears\n\nOracle character chart appears\n\n[[Go to Villon|GotoVillon]]",
+		"body": "Common rue potion appears \n\nBasilisk character chart appears\n\nOracle character chart appears",
 		"position": {
-			"x": 1342,
-			"y": 271
+			"x": 1369,
+			"y": 285
 		},
 		"colorID": 0
 	},
 	{
 		"title": "end1 lame user stops the game",
 		"tags": "",
-		"body": "quit game button",
+		"body": "",
 		"position": {
 			"x": 6061,
 			"y": -705
