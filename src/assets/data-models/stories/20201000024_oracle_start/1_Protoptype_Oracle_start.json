@@ -1,0 +1,82 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Oracle appears.\n\n\"Chosen one, the order has been compromised.\nThe storm of 1674 has weakened the fabric of time and space, causing a time rift here and now.\"\n\n[[I'm intrigued! Why? |RestoringTheSquare]]  [[I'm not taking part in this|Lame user]]",
+		"position": {
+			"x": -388,
+			"y": 290
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RestoringTheSquare",
+		"tags": "",
+		"body": "\"Now that they are restoring the Dom Tower the rift has been opened.\nSeveral historical figures  have been transported to the present, as well the basilisk of Utrecht.\"\n\n\"The terrible beast has left them petrified throughout the city.\n\nYou must free them and send them back to their time line and defeat the Basilisk to impeach the collapse of history.\nIf you fail, the rift will grow bigger, sucking in Utrecht and its inhabitants, and eventually the entire world.\"\n\n\"If you succeed, you shall be rewarded for your bravery.\" \n[[I'm brave|continue brave]]  [[But how?|continue brave]]",
+		"position": {
+			"x": 309,
+			"y": 258
+		},
+		"colorID": 0
+	},
+	{
+		"title": "DoNotQuestionFate",
+		"tags": "",
+		"body": "\"It is not for us to question fate. Now be on your way. Time is ticking.\"\n [[okay|Nextlevel]]  [[But wait, I've some more questio...|Nextlevel]]",
+		"position": {
+			"x": 978,
+			"y": 571
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Nextlevel",
+		"tags": "",
+		"body": "Common rue potion appears \n\nBasilisk character chart appears\n\nOracle character chart appears\n\n[[Go to Villon|GotoVillon]]",
+		"position": {
+			"x": 1342,
+			"y": 271
+		},
+		"colorID": 0
+	},
+	{
+		"title": "end1 lame user stops the game",
+		"tags": "",
+		"body": "quit game button",
+		"position": {
+			"x": 6061,
+			"y": -705
+		},
+		"colorID": 0
+	},
+	{
+		"title": "continue brave",
+		"tags": "",
+		"body": "\"Take this common rue concoction, apply it on the petrified characters and they shall be freed from their bronze prison\"\n\n\"You will find the Poet François Villon behind Dom Church.Go to him, he will help you find the other historical figures. Be careful! Villon has been know to pick a pocket or two.\"\n\n\"Now be on your way Chosen one, good luck!\"\n[[Wait, why me? |DoNotQuestionFate]] [[Ok|Nextlevel]]",
+		"position": {
+			"x": 682,
+			"y": 262
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Lame user",
+		"tags": "",
+		"body": "\"Are you devoid of any sense of bravery and righteousness?\n\nThe faith of the world is at stake!\" \n\n [[Yes i'm a coward take me out of here|End game start (lame user)]][[ No I want to help! |RestoringTheSquare]]",
+		"position": {
+			"x": 509,
+			"y": -179
+		},
+		"colorID": 0
+	},
+	{
+		"title": "End game start (lame user)",
+		"tags": "",
+		"body": "Oracle appears\n\n \"You fool! You have doomed us all! \"\n\n[img]/assets/data-models/stories/20201000024_oracle_start/Utrechtbasilisk_1.png[/img]\n\nBasilisk: Screeeeeechhh \n\n\"Can you hear it?\"\n\n\"The Basilisk is celebrating its victory.\"\n\n\nThe Basilisk dance in victory. \nThe rift opens and swallows everything in Utrecht and spreads through the world. \nThe screen goes white. \nMushroom cloud animation with message. \n\n\"Congratulations the world has ended because of you\"\n [[end game please. I don't care about the ending of the world |end1 lame user stops the game]] [[No wait! Take be back|RestoringTheSquare]]",
+		"position": {
+			"x": 2056,
+			"y": -683
+		},
+		"colorID": 0
+	}
+]
