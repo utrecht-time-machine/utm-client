@@ -266,9 +266,12 @@ export class MapService {
       const storyState = this.routes.getStoryByStationId(station.id).state;
 
       // Set the station icon according to the story state
-      let stationIcon = MapService.markerImgIds.selected;
-      if (storyState === StoryState.Locked) {
-        stationIcon = MapService.markerImgIds.invisible;
+      let stationIcon = MapService.markerImgIds.invisible;
+      if (storyState === StoryState.Selected) {
+        stationIcon = MapService.markerImgIds.selected;
+      }
+      if (storyState === StoryState.Finished) {
+        stationIcon = MapService.markerImgIds.marker;
       }
 
       const wayPointMarker = {
@@ -491,7 +494,7 @@ export class MapService {
         id: MapService.markerImgIds.selected,
       },
       {
-        url: '/assets/img/map/transparent-marker.png',
+        url: '/assets/img/map/green-marker.png',
         id: MapService.markerImgIds.marker,
       },
       {
@@ -499,7 +502,7 @@ export class MapService {
         id: MapService.markerImgIds.route,
       },
       {
-        url: '/assets/img/map/green-marker.png',
+        url: '/assets/img/map/transparent-marker.png',
         id: MapService.markerImgIds.invisible,
       },
     ];
