@@ -11,7 +11,7 @@
 	},
 	{
 		"title": "give paper button",
-		"tags": "",
+		"tags": "removePaper",
 		"body": "\"Ah sheet music! Just what I needed, I'll exercise my rigid fingers immediately!\"\n\nCarillonist plays the song \n\n\"The Builder forgot his hammer. Might you please bring it to him for me? \nHe ran to the garden to take care of his flowers as soon as his shift ended\"\n\n [[pick up hammer|pick up hammer button]]",
 		"position": {
 			"x": 2457,
@@ -21,8 +21,8 @@
 	},
 	{
 		"title": "pick up hammer button",
-		"tags": "",
-		"body": "carillonist's character sheet appears\n\nRoute to next location appears.",
+		"tags": "addHammer addCarillionistMedal",
+		"body": "carillionist's character sheet appears\n\nRoute to next location appears.",
 		"position": {
 			"x": 2729,
 			"y": 290

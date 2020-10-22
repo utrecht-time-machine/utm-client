@@ -41,11 +41,11 @@
 	},
 	{
 		"title": "Pick up paper button",
-		"tags": "",
+		"tags": "addPaper addVillonMedal",
 		"body": "Oracle: \"Look at the back of the paper, it is addressed to the carillonist.\"\n\n\nVillon's character sheet appears \n\nRoute to next location appears",
 		"position": {
 			"x": 2278,
-			"y": 233
+			"y": 231
 		},
 		"colorID": 0
 	}

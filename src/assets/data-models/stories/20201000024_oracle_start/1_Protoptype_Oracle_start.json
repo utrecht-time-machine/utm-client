@@ -31,7 +31,7 @@
 	},
 	{
 		"title": "Nextlevel",
-		"tags": "",
+		"tags": "addCommonRuePotion addOracleMedal",
 		"body": "Common rue potion appears \n\nBasilisk character chart appears\n\nOracle character chart appears",
 		"position": {
 			"x": 1369,
@@ -42,7 +42,7 @@
 	{
 		"title": "end1 lame user stops the game",
 		"tags": "",
-		"body": "",
+		"body": "Empty Text",
 		"position": {
 			"x": 6061,
 			"y": -705
