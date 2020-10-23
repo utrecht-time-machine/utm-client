@@ -35,7 +35,7 @@
         "yarnUrl": "/assets/data-models/stories/20201000024_oracle_start/1_Protoptype_Oracle_start.json"
       }
     ],
-    "state": 2
+    "state": 0
   },
   {
     "@id": "https://utrechttimemachine.nl/stories/villon",
@@ -73,7 +73,7 @@
         "yarnUrl": "/assets/data-models/stories/20201000025_villon/2_Protoptype_villon.json"
       }
     ],
-    "state": 0
+    "state": 1
   },
   {
     "@id": "https://utrechttimemachine.nl/stories/carillionist",

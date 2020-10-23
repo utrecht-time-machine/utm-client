@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { replaceAll } from '../helpers/string.helper';
 import { YarnItem } from '../models/yarn-item.model';
+import { StoriesService } from './stories.service';
+import { StoryState } from '../models/story.model';
 
 export interface StoryNode {
   title: string;
@@ -24,7 +26,10 @@ export class StoryPlayerService {
   private storyNodes: Record<string, StoryNode>;
   private currentStoryNode: StoryNode;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private stories: StoriesService
+  ) {}
 
   /**
    *
@@ -69,34 +74,39 @@ export class StoryPlayerService {
         if (tag === 'addSun') {
           console.log('Sun was added to inventory');
         }
-        // medals are not in the game yet (except for victory medallion), might be added later
-        // if (tag === "addOracleMedal") {
-        //   console.log("OracleMedal was added to inventory");
-        // }
-        // if (tag === "addVillonMedal") {
-        //   console.log("VillonMedal was added to inventory");
-        // }
-        // if (tag === "addCarillionistMedal") {
-        //   console.log("CarillionistMedal was added to inventory");
-        // }
-        // if (tag === "addDoemMedal") {
-        //   console.log("DoemMedal was added to inventory");
-        // }
-        // if (tag === "addTruusMedal") {
-        //   console.log("TruusMedal was added to inventory");
-        // }
-        // if (tag === "addNassauMedal") {
-        //   console.log("NassauMedal was added to inventory");
-        // }
-        // if (tag === "addAnnaMariaMedal") {
-        //   console.log("AnnaMariaMedal was added to inventory");
-        // }
-        // if (tag === "addBuysBallotMedal") {
-        //   console.log("BuysBallotMedal was added to inventory");
-        // }
-        // if (tag === "addBrinnoMedal") {
-        //   console.log("BrinnoMedal was added to inventory");
-        // }
+
+        if (tag === "addOracleMedal") {
+          console.log("OracleMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_start", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/villon", StoryState.Selected);
+        }
+        if (tag === "addVillonMedal") {
+          console.log("VillonMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/villon", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/carillionist", StoryState.Selected);
+        }
+        if (tag === "addCarillionistMedal") {
+          console.log("CarillionistMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/carillionist", StoryState.Finished);
+        }
+        if (tag === "addDoemMedal") {
+          console.log("DoemMedal was added to inventory");
+        }
+        if (tag === "addTruusMedal") {
+          console.log("TruusMedal was added to inventory");
+        }
+        if (tag === "addNassauMedal") {
+          console.log("NassauMedal was added to inventory");
+        }
+        if (tag === "addAnnaMariaMedal") {
+          console.log("AnnaMariaMedal was added to inventory");
+        }
+        if (tag === "addBuysBallotMedal") {
+          console.log("BuysBallotMedal was added to inventory");
+        }
+        if (tag === "addBrinnoMedal") {
+          console.log("BrinnoMedal was added to inventory");
+        }
         if (tag === 'addBasiliskMedal') {
           console.log("You defeated the Basilisk! BasiliskMedal was added to inventory");
         }

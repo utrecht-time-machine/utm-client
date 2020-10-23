@@ -107,7 +107,7 @@ export class StoriesService {
 
   public updateStoryStateById(storyId: string, newState: StoryState) {
     const updatedSelectedStories = this.selected.getValue();
-    console.log(updatedSelectedStories);
+    // console.log(updatedSelectedStories);
 
     // Loop through each story
     for (
@@ -120,9 +120,9 @@ export class StoriesService {
       // Is this the story we want to change the state of?
       if (selectedStory['@id'] === storyId) {
         // Change the state of this story
-        console.log('Previous state was', selectedStory.state);
-        selectedStory.state = StoryState.Selected;
-        console.log('New state is', selectedStory.state);
+        // console.log('Previous state was', selectedStory.state);
+        selectedStory.state = newState;
+        // console.log('New state is', selectedStory.state);
 
         // Save the updated story
         updatedSelectedStories[storyIdx] = selectedStory;
