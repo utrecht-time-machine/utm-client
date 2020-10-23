@@ -21,7 +21,7 @@
 	},
 	{
 		"title": "Give hammer button",
-		"tags": "",
+		"tags": "removeHammer",
 		"body": "\"Thanks! I'll need that later!\nHere, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favourite.\"\n\n [[pick up daffodils|pick up daffodils button]]",
 		"position": {
 			"x": 3020,
@@ -31,8 +31,8 @@
 	},
 	{
 		"title": "pick up daffodils button",
-		"tags": "",
-		"body": "Jan van den Doem's character sheet appears\n\nRoute to next location appears",
+		"tags": "addDaffodils addDoemMedal",
+		"body": "",
 		"position": {
 			"x": 3258,
 			"y": 198
