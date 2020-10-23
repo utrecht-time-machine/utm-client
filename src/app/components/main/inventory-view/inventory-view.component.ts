@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { inventoryitem } from './inventory.model';
 import { Router } from '@angular/router';
-import inventoryItemsDatabase from '../../../../assets/data-models/InventoryItems/InventoryItems.json';
+// import inventoryItemsDatabase from '../../../../assets/data-models/InventoryItems/InventoryItems.json';
 import { HttpClient } from '@angular/common/http';
 
 // inventoryItemsDatabase = json.load(assets/data-models/InventoryItems/InventoryItems.json);
