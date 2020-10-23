@@ -66,6 +66,9 @@ export class StoryPlayerService {
         if (tag === 'addSword') {
           console.log('Sword was added to inventory');
         }
+        if (tag === 'addSun') {
+          console.log('Sun was added to inventory');
+        }
         // medals are not in the game yet (except for victory medallion), might be added later
         // if (tag === "addOracleMedal") {
         //   console.log("OracleMedal was added to inventory");
