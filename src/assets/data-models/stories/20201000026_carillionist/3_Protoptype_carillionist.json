@@ -22,7 +22,7 @@
 	{
 		"title": "pick up hammer button",
 		"tags": "addHammer addCarillionistMedal",
-		"body": "carillionist's character sheet appears\n\nRoute to next location appears.",
+		"body": "",
 		"position": {
 			"x": 2729,
 			"y": 290
