@@ -59,9 +59,9 @@ export class MapViewComponent implements OnInit {
       this.startMapResizeListener();
 
       // TEMPORARY HACK // TODO: replace
-      //setTimeout(() => {
-      //this.setExplorationMode(ExplorationMode.Overview); // TODO: move this to service
-      //}, 500);
+      setTimeout(() => {
+        this.setExplorationMode(ExplorationMode.Overview); // TODO: move this to service
+      }, 500);
     });
   }
 
@@ -105,7 +105,9 @@ export class MapViewComponent implements OnInit {
         if (this.currentExplorationMode === ExplorationMode.Overview) {
           return;
         }
-        this.map.stopGeolocation();
+        this.map.startGeolocation();
+
+        // this.map.stopGeolocation();
         this.stories.selectAll();
         this.currentExplorationMode = ExplorationMode.Overview;
         break;
