@@ -81,10 +81,10 @@
 	},
 	{
 		"title": "Pick up son button",
-		"tags": "",
+		"tags": "addSun",
 		"body": "Basilisk: \"angry\" screeeeeech \n\n\nBasilisk retreats to the shadows of the Dom Tower.The Basilisk is ready to fight.\n\n\n[[ Go Under the DOm|GoUnderDomTower]]",
 		"position": {
-			"x": 6307,
+			"x": 6308,
 			"y": 382
 		},
 		"colorID": 0

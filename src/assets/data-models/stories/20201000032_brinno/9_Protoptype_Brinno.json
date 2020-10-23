@@ -11,8 +11,8 @@
 	},
 	{
 		"title": "Give Sword Button",
-		"tags": "",
-		"body": "\"I attacked it with this very sword but it was futile.\n\nHis scales are as hard as diamond.\nHis eyes are made of fire. \n\nHis breath is putrid and will make you faint on the spot. \n\nBe brave soldier. A death in battle is a noble death.\"\n\nEnd game now or   Continue playing\n\nBrinno's character sheet appears",
+		"tags": "RemoveSword addBrinnoMedal",
+		"body": "\"I attacked it with this very sword but it was futile.\n\nHis scales are as hard as diamond.\nHis eyes are made of fire. \n\nHis breath is putrid and will make you faint on the spot. \n\nBe brave soldier. A death in battle is a noble death.\"\n\nEnd game now or   Continue playing",
 		"position": {
 			"x": 5172,
 			"y": 233
