@@ -39,34 +39,35 @@ export class StoryPlayerService {
     }
     this.currentStoryNode = this.storyNodes[nodeTitle];
 
-    var tagsArray = this.currentStoryNode.tags.split(" ");
-    tagsArray.forEach((tag)=>{
-      if (tag.startsWith("add")) {
-        if (tag === "addCommonRuePotion") {
-          console.log("CommonRuePotion was added to inventory");
+    var tagsArray = this.currentStoryNode.tags.split(' ');
+    tagsArray.forEach(tag => {
+      if (tag.startsWith('add')) {
+        if (tag === 'addCommonRuePotion') {
+          console.log('CommonRuePotion was added to inventory');
         }
-        if (tag === "addPaper") {
-          console.log("Paper was added to inventory");
+        if (tag === 'addPaper') {
+          console.log('Paper was added to inventory');
         }
-        if (tag === "addHammer") {
-          console.log("Hammer was added to inventory");
+        if (tag === 'addHammer') {
+          console.log('Hammer was added to inventory');
         }
-        if (tag === "addOracleMedal") {
-          console.log("OracleMedal was added to inventory");
-        }
-        if (tag === "addVillonMedal") {
-          console.log("VillonMedal was added to inventory");
-        }
-        if (tag === "addCarillionistMedal") {
-          console.log("CarillionistMedal was added to inventory");
-        }
+        // medals are not in the game yet (except for victory medallion), might be added later
+        // if (tag === "addOracleMedal") {
+        //   console.log("OracleMedal was added to inventory");
+        // }
+        // if (tag === "addVillonMedal") {
+        //   console.log("VillonMedal was added to inventory");
+        // }
+        // if (tag === "addCarillionistMedal") {
+        //   console.log("CarillionistMedal was added to inventory");
       }
-      if (tag.startsWith("remove")) {
-        if (tag === "removePaper") {
-          console.log("Paper was removed from inventory");
+
+      if (tag.startsWith('remove')) {
+        if (tag === 'removePaper') {
+          console.log('Paper was removed from inventory');
         }
-        if (tag === "removeHammer") {
-          console.log("Hammer was removed from inventory");
+        if (tag === 'removeHammer') {
+          console.log('Hammer was removed from inventory');
         }
       }
     });
