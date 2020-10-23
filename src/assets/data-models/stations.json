@@ -43,10 +43,121 @@
     "id": "https://utrechttimemachine.nl/places/carillionist_dom-tower",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.121630,52.090760]
+      "coordinates": [
+        5.121630,
+        52.090760
+      ]
     },
     "properties": {
       "title": "Carillon person - Dom Tower",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/doem_pandhof",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122444,
+        52.090583
+      ]
+    },
+    "properties": {
+      "title": "Builder Jan van der Doem - garden Pandhof",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/truus_front_domchurch",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.121889,
+        52.090861
+      ]
+    },
+    "properties": {
+      "title": "Truus - statue front domchurch",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/nassau_statue",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122028,
+        52.090361
+      ]
+    },
+    "properties": {
+      "title": "Jan Van Nassau - statue",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/annamaria_behind_the_dom",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122889,
+        52.091139
+      ]
+    },
+    "properties": {
+      "title": "anna maria van Schurman-Achter de Dom 8",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/buysballot_academy_building",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122333,
+        52.090361
+      ]
+    },
+    "properties": {
+      "title": "Buys ballot- On Academy Building (Domplein 29)",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/brinno_limes",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122361,
+        52.091417
+      ]
+    },
+    "properties": {
+      "title": "Brinno- Limes Domstraat",
       "description": "-"
     }
   }

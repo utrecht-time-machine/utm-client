@@ -112,5 +112,233 @@
       }
     ],
     "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/doem",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "doem",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/doem_pandhof"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000027_doem",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000027_doem/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000027_doem/4_Protoptype_Doem.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/truus",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "truus",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/truus_front_domchurch"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000028_truus",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000028_truus/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000028_truus/5_Prototype_Truus.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/nassau",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "nassau",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/nassau_statue"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000029_nassau",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000029_nassau/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000029_nassau/6_Protoptype_Nassau.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/annamaria",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "annamaria",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/annamaria_behind_the_dom"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000030_annamaria",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000030_annamaria/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000030_annamaria/7_Protoptype_AnnaMaria.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/buysballot",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "buysballot",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/buysballot_academy_building"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000031_buysballot",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000031_buysballot/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000031_buysballot/8_Protoptype_BuysBallot.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/brinno",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "brinno",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/brinno_limes"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000032_brinno",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000032_brinno/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000032_brinno/9_Protoptype_Brinno.json"
+      }
+    ],
+    "state": 1
   }
 ]
