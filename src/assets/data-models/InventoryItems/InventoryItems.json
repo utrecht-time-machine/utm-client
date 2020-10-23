@@ -1,14 +1,20 @@
 [
   {
+    "title": "Potion",
+    "img": "https://www.globalgiving.org/pfil/36946/pict_large.jpg",
+    "desc": "A potion made with common rue, given to you by the oracle. She told you it could be used to depetrify the characters"
+  },
+
+  {
     "title": "Sheet music",
     "img": "https://www.globalgiving.org/pfil/36946/pict_large.jpg",
-    "desc": "A piece of paper given to you by Villon. It look like it's sheet music for a song performed on bells."
+    "desc": "A piece of paper given to you by Villon. It look like it's sheet music for a carillon"
   },
 
   {
     "title": "Hammer",
     "img": "https://www.globalgiving.org/pfil/36946/pict_large.jpg",
-    "desc": "Hammer given to you by the Carriloner. Could This hammer be used in construction work?"
+    "desc": "Hammer given to you by the Carrilonist. Could This hammer be used in construction work?"
   },
 
   {
@@ -42,8 +48,14 @@
   },
 
   {
+    "title": "Sun",
+    "img": "https://www.globalgiving.org/pfil/36946/pict_large.jpg",
+    "desc": "A reflective statue of the sun. Could this be used as a mirror to make the basilisk petrify himself"
+  },
+
+  {
     "title": "Medallion",
     "img": "https://www.globalgiving.org/pfil/36946/pict_large.jpg",
-    "desc": "You have beaten the basilisk. This medallion represents your victory."
+    "desc": "You've beaten the basilisk. This medallion represents your victory."
   }
 ]
