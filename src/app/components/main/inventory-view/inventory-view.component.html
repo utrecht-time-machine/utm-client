@@ -14,13 +14,13 @@
         Items
       </ion-list-header>
 
-      <ion-item *ngFor="let item of inventoryitems">
+      <ion-item *ngFor="let item of InventoryItems">
         <ion-avatar slot="start">
-          <img src="{{ item.image }}" />
+          <img src="{{ item.img }}" />
         </ion-avatar>
         <ion-label>
           <h2>{{ item.title }}</h2>
-          <h3>{{ item.description }}</h3>
+          <h3>{{ item.desc }}</h3>
         </ion-label>
       </ion-item>
     </ion-list>
