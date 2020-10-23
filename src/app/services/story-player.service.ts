@@ -51,6 +51,21 @@ export class StoryPlayerService {
         if (tag === 'addHammer') {
           console.log('Hammer was added to inventory');
         }
+        if (tag === 'addDaffodils') {
+          console.log('Daffodils was added to inventory');
+        }
+        if (tag === 'addUnionOfUtrecht') {
+          console.log('UnionOfUtrecht was added to inventory');
+        }
+        if (tag === 'addQuill') {
+          console.log('Quill was added to inventory');
+        }
+        if (tag === 'addBook') {
+          console.log('Book was added to inventory');
+        }
+        if (tag === 'addSword') {
+          console.log('Sword was added to inventory');
+        }
         // medals are not in the game yet (except for victory medallion), might be added later
         // if (tag === "addOracleMedal") {
         //   console.log("OracleMedal was added to inventory");
@@ -60,6 +75,28 @@ export class StoryPlayerService {
         // }
         // if (tag === "addCarillionistMedal") {
         //   console.log("CarillionistMedal was added to inventory");
+        // }
+        // if (tag === "addDoemMedal") {
+        //   console.log("DoemMedal was added to inventory");
+        // }
+        // if (tag === "addTruusMedal") {
+        //   console.log("TruusMedal was added to inventory");
+        // }
+        // if (tag === "addNassauMedal") {
+        //   console.log("NassauMedal was added to inventory");
+        // }
+        // if (tag === "addAnnaMariaMedal") {
+        //   console.log("AnnaMariaMedal was added to inventory");
+        // }
+        // if (tag === "addBuysBallotMedal") {
+        //   console.log("BuysBallotMedal was added to inventory");
+        // }
+        // if (tag === "addBrinnoMedal") {
+        //   console.log("BrinnoMedal was added to inventory");
+        // }
+        if (tag === 'addBasiliskMedal') {
+          console.log("You defeated the Basilisk! BasiliskMedal was added to inventory");
+        }
       }
 
       if (tag.startsWith('remove')) {
@@ -68,6 +105,21 @@ export class StoryPlayerService {
         }
         if (tag === 'removeHammer') {
           console.log('Hammer was removed from inventory');
+        }
+        if (tag === 'removeDaffodils') {
+          console.log('Daffodils was removed from inventory');
+        }
+        if (tag === 'removeUnionOfUtrecht') {
+          console.log('UnionOfUtrecht was removed from inventory');
+        }
+        if (tag === 'removeQuill') {
+          console.log('Quill was removed from inventory');
+        }
+        if (tag === 'removeBook') {
+          console.log('Book was removed from inventory');
+        }
+        if (tag === 'removeSword') {
+          console.log('Sword was removed from inventory');
         }
       }
     });
