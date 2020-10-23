@@ -124,6 +124,12 @@ export class RoutesService {
 
   public selectStoryByStationId(stationId) {
     const stories = this.selected.getValue().stories;
+    console.log(
+      'Stories length',
+      stories.length,
+      'selected route',
+      this.selected.getValue()
+    );
     for (let storyIdx = 0; storyIdx < stories.length; storyIdx++) {
       // TODO: Support multiple stations for a single story?
       //  Story is currently assumed to only have one associated station
