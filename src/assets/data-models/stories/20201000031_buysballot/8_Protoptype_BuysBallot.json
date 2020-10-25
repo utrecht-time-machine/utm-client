@@ -22,7 +22,7 @@
 	{
 		"title": "Pick up sword button",
 		"tags": "addSword addBuysBallotMedal",
-		"body": "Buys Ballot's character sheet appears\n\nRoute to next location appears",
+		"body": "",
 		"position": {
 			"x": 5093,
 			"y": 243

@@ -88,24 +88,36 @@ export class StoryPlayerService {
         if (tag === "addCarillionistMedal") {
           console.log("CarillionistMedal was added to inventory");
           this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/carillionist", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/doem", StoryState.Selected);
         }
         if (tag === "addDoemMedal") {
           console.log("DoemMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/doem", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/truus", StoryState.Selected);
         }
         if (tag === "addTruusMedal") {
           console.log("TruusMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/truus", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/nassau", StoryState.Selected);
         }
         if (tag === "addNassauMedal") {
           console.log("NassauMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/nassau", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/annamaria", StoryState.Selected);
         }
         if (tag === "addAnnaMariaMedal") {
           console.log("AnnaMariaMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/annamaria", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/buysballot", StoryState.Selected);
         }
         if (tag === "addBuysBallotMedal") {
           console.log("BuysBallotMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/buysballot", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/brinno", StoryState.Selected);
         }
         if (tag === "addBrinnoMedal") {
           console.log("BrinnoMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/brinno", StoryState.Finished);
         }
         if (tag === 'addBasiliskMedal') {
           console.log("You defeated the Basilisk! BasiliskMedal was added to inventory");
