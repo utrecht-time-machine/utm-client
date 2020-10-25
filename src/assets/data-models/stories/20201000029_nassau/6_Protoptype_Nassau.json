@@ -2,7 +2,7 @@
 	{
 		"title": "GotoNassau",
 		"tags": "",
-		"body": "\"You took your time!\n\nDo you know who I am? \n\nWhy didn't you save me first?\n\nDon't you know I have other things to do!\"\n\nPlayer: [[Be thankful that I saved you period. I can also re-petrify you if you are not happy.|YouAchterlijkeGladiool]] [[Tell me more.|Nottime]]",
+		"body": "\"You took your time!\n\nDo you know who I am? \n\nWhy didn't you save me first?\n\nDon't you know I have other things to do!\"\n\n[[Be thankful that I saved you period. I can also re-petrify you if you're unhappy.|YouAchterlijkeGladiool]] [[Tell me more.|Nottime]]",
 		"position": {
 			"x": 3261,
 			"y": 253
@@ -12,7 +12,7 @@
 	{
 		"title": "Nottime",
 		"tags": "",
-		"body": "\"You plebs!\"\n\n\nCan't you see that I am the brother of William of Orange?\n\nMy time is too valuable to waste on you.\n\nI have a declaration to sign.\"\n\n\nNassau looks in pocket for declaration \nNassau cannot find the declaration\n\n\n\"Huh were did go?\"\n\n[[ Give declaration|givedeclarationtonassau]]",
+		"body": "\"You plebs!\"\n\n\"Can't you see that I'm the brother of William of Orange?\n\nMy time is too valuable to waste on you.\n\nI have a declaration to sign!\"\n\n\nNassau looks in pocket for declaration \nNassau cannot find the declaration\n\n\"Huh were did go?\"\n\n[[ Give declaration|givedeclarationtonassau]]",
 		"position": {
 			"x": 3566,
 			"y": 595
@@ -22,7 +22,7 @@
 	{
 		"title": "YouAchterlijkeGladiool",
 		"tags": "",
-		"body": "\"You Achterlijke Gladiool!\"\n\n\"How dare you talk to me this way?!\n\nDo you want to be under the Spanish occupation?\n\nWe need to unite  northern provinces.\"\n\n [[Give declaration|givedeclarationtonassau]]",
+		"body": "\"You Achterlijke Gladiool!\"\n\n\"How dare you talk to me this way?!\n\nDo you want to be under the Spanish occupation?\n\nWe need to unite the northern provinces.\"\n\n [[Give declaration|givedeclarationtonassau]]",
 		"position": {
 			"x": 3553,
 			"y": -57
