@@ -40,7 +40,7 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://utrechttimemachine.nl/places/carillionist_dom-tower",
+    "id": "https://utrechttimemachine.nl/places/carillionist_dom_tower",
     "geometry": {
       "type": "Point",
       "coordinates": [
@@ -158,6 +158,42 @@
     },
     "properties": {
       "title": "Brinno- Limes Domstraat",
+      "description": "-"
+    }
+<<<<<<< HEAD
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/sun_academy_building",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.122500,
+        52.090278
+      ]
+    },
+    "properties": {
+      "title": "the sun - academy building",
+      "description": "-"
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://utrechttimemachine.nl/places/oracle_end_dom_tower",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.121278,
+        52.090667      ]
+    },
+    "properties": {
+      "title": "end fight - under dom tower",
       "description": "-"
     }
   }

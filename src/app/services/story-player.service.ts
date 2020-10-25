@@ -73,6 +73,8 @@ export class StoryPlayerService {
         }
         if (tag === 'addSun') {
           console.log('Sun was added to inventory');
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/sun", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_end", StoryState.Selected);
         }
 
         if (tag === "addOracleMedal") {
@@ -118,9 +120,11 @@ export class StoryPlayerService {
         if (tag === "addBrinnoMedal") {
           console.log("BrinnoMedal was added to inventory");
           this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/brinno", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/sun", StoryState.Selected);
         }
         if (tag === 'addBasiliskMedal') {
           console.log("You defeated the Basilisk! BasiliskMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_end", StoryState.Finished);
         }
       }
 
@@ -145,6 +149,9 @@ export class StoryPlayerService {
         }
         if (tag === 'removeSword') {
           console.log('Sword was removed from inventory');
+        }
+        if (tag === 'removeSun') {
+          console.log('Sun was removed from inventory');
         }
       }
     });
@@ -197,9 +204,11 @@ export class StoryPlayerService {
       // TODO: implement featured image
       const foundImages = body.match(/\[img\].*?\[\/img\]/g);
       if (foundImages) {
-        image = replaceAll(foundImages[0], /\[\/?img]/, '');
+        foundImages.forEach((foundImage) => {
+          image = replaceAll(foundImage, /\[\/?img]/, '');
+          body = body.replace(foundImage, `![](${image})`);
+        })
         // TODO: add alt text with description of image (available for archive pieces
-        body = body.replace(/\[img\].*?\[\/img\]/g, `![](${image})`);
       }
 
       // Set audio

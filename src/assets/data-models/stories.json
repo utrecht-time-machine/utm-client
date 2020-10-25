@@ -90,7 +90,7 @@
     ],
     "stations": [
       {
-        "@id": "https://utrechttimemachine.nl/places/carillionist_dom-tower"
+        "@id": "https://utrechttimemachine.nl/places/carillionist_dom_tower"
       }
     ],
     "time-period": {
@@ -337,6 +337,83 @@
         },
         "color-scheme": "dark",
         "yarnUrl": "/assets/data-models/stories/20201000032_brinno/9_Protoptype_Brinno.json"
+      }
+    ],
+    "state": 1
+<<<<<<< HEAD
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/sun",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "sun",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/sun_academy_building"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000033_sun",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": "/assets/data-models/stories/20201000033_sun/random-character-image.gif"
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000033_sun/10_Protoptype_Sun.json"
+      }
+    ],
+    "state": 1
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/oracle_end",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "oracle - end fight",
+    "lang": "en",
+    "description": "FAKESTORY DESCRIPTION",
+    "featured-image": "/assets/data-models/stories/2019100002_neude_sight-de-liefde-centraal-apotheek/featured.jpg",
+    "hidden": false,
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/UU"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://utrechttimemachine.nl/places/oracle_end_dom_tower"
+      }
+    ],
+    "time-period": {
+      "start": "1903",
+      "end": "2019"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000034_oracle_end",
+        "@type": "https://utrechttimemachine.nl/scene-types/dialogue",
+        "background": {
+          "image": "/assets/data-models/stories/2019100005_neude_executions/background.jpg"
+        },
+        "character": {
+          "image": ""
+        },
+        "color-scheme": "dark",
+        "yarnUrl": "/assets/data-models/stories/20201000034_oracle_end/11_Protoptype_Oracle_end.json"
       }
     ],
     "state": 1

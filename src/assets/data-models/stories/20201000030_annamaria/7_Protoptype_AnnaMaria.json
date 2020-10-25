@@ -32,7 +32,7 @@
 	{
 		"title": "conversationmaria",
 		"tags": "",
-		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\n\nBut it is not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n [[pick up book|pick up book button]]",
+		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\n\nBut it's not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n [[pick up book|pick up book button]]",
 		"position": {
 			"x": 4741,
 			"y": -137
@@ -51,7 +51,7 @@
 	},
 	{
 		"title": "Give Quill slacker",
-		"tags": "RemoveQuill",
+		"tags": "removeQuill",
 		"body": "Anna Maria takes the quill and silently leaves \n\nSee book on the ground\n\n[[Pick up book|Pick up book slacker]]",
 		"position": {
 			"x": 4252,
@@ -61,8 +61,8 @@
 	},
 	{
 		"title": "Give Quill button",
-		"tags": "RemoveQuill",
-		"body": "\"Oh thank you. \n\n You should not help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care about bullies|conversationmaria]] [[No problem! happy to help!|conversationmaria]]",
+		"tags": "removeQuill",
+		"body": "\"Oh thank you. \n\n You shouldn't help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care about bullies|conversationmaria]] [[No problem! Happy to help!|conversationmaria]]",
 		"position": {
 			"x": 4444,
 			"y": 41
@@ -72,7 +72,7 @@
 	{
 		"title": "pick up book button",
 		"tags": "addBook addAnnaMariaMedal",
-		"body": "See Buys Ballot on the cover",
+		"body": "See Buys Ballot's name on the cover of the book",
 		"position": {
 			"x": 4892,
 			"y": 109
