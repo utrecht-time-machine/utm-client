@@ -21,11 +21,39 @@ export class InventoryViewComponent implements OnInit {
   }
 
   async loadInventoryItems() {
+    let collectedItemsArray = [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+    ];
+    localStorage.setItem('collectedItems', JSON.stringify(collectedItemsArray));
+    let collectedItems = localStorage.getItem('collectedItems');
+    let CollectedItemsArray = JSON.parse(collectedItems);
+    // console.log(CollectedItemsArray)
     this.InventoryItems = await this.http
       .get<any>('/assets/data-models/InventoryItems/InventoryItems.json')
       .toPromise();
     console.log(this.InventoryItems);
+    console.log(typeof this.InventoryItems);
+    let ret = [];
+    for (let i = 0; i < CollectedItemsArray.length; i++) {
+      // console.log(typeof CollectedItemsArray[i])
+      console.log(this.InventoryItems);
+      if (CollectedItemsArray[i]) {
+        ret.push(this.InventoryItems[i]);
+        console.log(ret);
+      }
+    }
+    this.InventoryItems = ret;
   }
+
   // inventoryitems: inventoryitem[] = [
   //   for x in inventoryItemsDatabase
   //   new inventoryitem(
