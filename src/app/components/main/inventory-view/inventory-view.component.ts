@@ -45,13 +45,13 @@ export class InventoryViewComponent implements OnInit {
     let ret = [];
     for (let i = 0; i < CollectedItemsArray.length; i++) {
       // console.log(typeof CollectedItemsArray[i])
-      this.InventoryItems = ret;
       console.log(this.InventoryItems);
       if (CollectedItemsArray[i]) {
         ret.push(this.InventoryItems[i]);
         console.log(ret);
       }
     }
+    this.InventoryItems = ret;
   }
 
   // inventoryitems: inventoryitem[] = [
