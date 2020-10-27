@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { replaceAll } from '../helpers/string.helper';
 import { YarnItem } from '../models/yarn-item.model';
+import { StoriesService } from './stories.service';
+import { StoryState } from '../models/story.model';
 
 export interface StoryNode {
   title: string;
@@ -24,7 +26,10 @@ export class StoryPlayerService {
   private storyNodes: Record<string, StoryNode>;
   private currentStoryNode: StoryNode;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private stories: StoriesService
+  ) {}
 
   /**
    *
@@ -38,6 +43,119 @@ export class StoryPlayerService {
       nodeTitle = this.currentStoryNode.title;
     }
     this.currentStoryNode = this.storyNodes[nodeTitle];
+
+    var tagsArray = this.currentStoryNode.tags.split(' ');
+    tagsArray.forEach(tag => {
+      if (tag.startsWith('add')) {
+        if (tag === 'addCommonRuePotion') {
+          console.log('CommonRuePotion was added to inventory');
+        }
+        if (tag === 'addPaper') {
+          console.log('Paper was added to inventory');
+        }
+        if (tag === 'addHammer') {
+          console.log('Hammer was added to inventory');
+        }
+        if (tag === 'addDaffodils') {
+          console.log('Daffodils was added to inventory');
+        }
+        if (tag === 'addUnionOfUtrecht') {
+          console.log('UnionOfUtrecht was added to inventory');
+        }
+        if (tag === 'addQuill') {
+          console.log('Quill was added to inventory');
+        }
+        if (tag === 'addBook') {
+          console.log('Book was added to inventory');
+        }
+        if (tag === 'addSword') {
+          console.log('Sword was added to inventory');
+        }
+        if (tag === 'addSun') {
+          console.log('Sun was added to inventory');
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/sun", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_end", StoryState.Selected);
+        }
+
+        if (tag === "addOracleMedal") {
+          console.log("OracleMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_start", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/villon", StoryState.Selected);
+        }
+        if (tag === "addVillonMedal") {
+          console.log("VillonMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/villon", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/carillionist", StoryState.Selected);
+        }
+        if (tag === "addCarillionistMedal") {
+          console.log("CarillionistMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/carillionist", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/doem", StoryState.Selected);
+        }
+        if (tag === "addDoemMedal") {
+          console.log("DoemMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/doem", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/truus", StoryState.Selected);
+        }
+        if (tag === "addTruusMedal") {
+          console.log("TruusMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/truus", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/nassau", StoryState.Selected);
+        }
+        if (tag === "addNassauMedal") {
+          console.log("NassauMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/nassau", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/annamaria", StoryState.Selected);
+        }
+        if (tag === "addAnnaMariaMedal") {
+          console.log("AnnaMariaMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/annamaria", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/buysballot", StoryState.Selected);
+        }
+        if (tag === "addBuysBallotMedal") {
+          console.log("BuysBallotMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/buysballot", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/brinno", StoryState.Selected);
+        }
+        if (tag === "addBrinnoMedal") {
+          console.log("BrinnoMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/brinno", StoryState.Finished);
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/sun", StoryState.Selected);
+        }
+        if (tag === 'addBasiliskMedal') {
+          console.log("You defeated the Basilisk! BasiliskMedal was added to inventory");
+          this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_end", StoryState.Finished);
+        }
+      }
+
+      if (tag.startsWith('remove')) {
+        if (tag === 'removePaper') {
+          console.log('Paper was removed from inventory');
+        }
+        if (tag === 'removeHammer') {
+          console.log('Hammer was removed from inventory');
+        }
+        if (tag === 'removeDaffodils') {
+          console.log('Daffodils was removed from inventory');
+        }
+        if (tag === 'removeUnionOfUtrecht') {
+          console.log('UnionOfUtrecht was removed from inventory');
+        }
+        if (tag === 'removeQuill') {
+          console.log('Quill was removed from inventory');
+        }
+        if (tag === 'removeBook') {
+          console.log('Book was removed from inventory');
+        }
+        if (tag === 'removeSword') {
+          console.log('Sword was removed from inventory');
+        }
+        if (tag === 'removeSun') {
+          console.log('Sun was removed from inventory');
+        }
+      }
+    });
+
     return this.currentStoryNode;
   }
 
@@ -86,9 +204,11 @@ export class StoryPlayerService {
       // TODO: implement featured image
       const foundImages = body.match(/\[img\].*?\[\/img\]/g);
       if (foundImages) {
-        image = replaceAll(foundImages[0], /\[\/?img]/, '');
+        foundImages.forEach((foundImage) => {
+          image = replaceAll(foundImage, /\[\/?img]/, '');
+          body = body.replace(foundImage, `![](${image})`);
+        })
         // TODO: add alt text with description of image (available for archive pieces
-        body = body.replace(/\[img\].*?\[\/img\]/g, `![](${image})`);
       }
 
       // Set audio

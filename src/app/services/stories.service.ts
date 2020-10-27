@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { SeqType, Story } from '../models/story.model';
+import { SeqType, Story, StoryState } from '../models/story.model';
 import { Feature, Point } from 'geojson';
 import { Author } from '../models/author.model';
 import { AuthorsService } from './authors.service';
@@ -103,6 +103,34 @@ export class StoriesService {
 
   setCurrentlyViewedStory(storyViewed: Story) {
     this.currentlyViewed.next(storyViewed);
+  }
+
+  public updateStoryStateById(storyId: string, newState: StoryState) {
+    const updatedSelectedStories = this.selected.getValue();
+    // console.log(updatedSelectedStories);
+
+    // Loop through each story
+    for (
+      let storyIdx = 0;
+      storyIdx < updatedSelectedStories.length;
+      storyIdx++
+    ) {
+      const selectedStory = updatedSelectedStories[storyIdx];
+
+      // Is this the story we want to change the state of?
+      if (selectedStory['@id'] === storyId) {
+        // Change the state of this story
+        // console.log('Previous state was', selectedStory.state);
+        selectedStory.state = newState;
+        // console.log('New state is', selectedStory.state);
+
+        // Save the updated story
+        updatedSelectedStories[storyIdx] = selectedStory;
+      }
+    }
+
+    // Update
+    this.selected.next(updatedSelectedStories);
   }
 
   setSelectedStations(selectedStories: Story[]) {

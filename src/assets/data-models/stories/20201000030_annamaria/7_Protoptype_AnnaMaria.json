@@ -1,0 +1,82 @@
+[
+	{
+		"title": "GotoAnnaMaria",
+		"tags": "",
+		"body": "\"Thank you discipulus!\"\n\n\n\"Oh no my books must have fallen when I was attacked by that beast.\"\n\n[[ Help |Helper]]   [[ Don't do anything|Slacker]]",
+		"position": {
+			"x": 3914,
+			"y": 241
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Helper",
+		"tags": "",
+		"body": "Help Anna Maria pick up the books\n\n[[Give Quill|Give Quill button]]",
+		"position": {
+			"x": 4185,
+			"y": -134
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Slacker",
+		"tags": "",
+		"body": "Anna Maria picks up the books.\n\n [[Give Quill|Give Quill slacker]]",
+		"position": {
+			"x": 4196,
+			"y": 604
+		},
+		"colorID": 0
+	},
+	{
+		"title": "conversationmaria",
+		"tags": "",
+		"body": "\"I even  have to take classes hidden behind a curtain because of those bullies.\n\nBut it's not that all bad, Professor Voetius has been very kind in helping me join the University.\"\n\n\nAnna Maria leaves \n\n\nSee book on the ground\n\n [[pick up book|pick up book button]]",
+		"position": {
+			"x": 4741,
+			"y": -137
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick up book slacker",
+		"tags": "addBook addAnnaMariaMedal",
+		"body": "See Buys Ballot on the cover",
+		"position": {
+			"x": 4494,
+			"y": 462
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give Quill slacker",
+		"tags": "removeQuill",
+		"body": "Anna Maria takes the quill and silently leaves \n\nSee book on the ground\n\n[[Pick up book|Pick up book slacker]]",
+		"position": {
+			"x": 4252,
+			"y": 296
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give Quill button",
+		"tags": "removeQuill",
+		"body": "\"Oh thank you. \n\n You shouldn't help me, the other students might bully you too if they see you help me.\"\n\n\n [[I don't care about bullies|conversationmaria]] [[No problem! Happy to help!|conversationmaria]]",
+		"position": {
+			"x": 4444,
+			"y": 41
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up book button",
+		"tags": "addBook addAnnaMariaMedal",
+		"body": "See Buys Ballot's name on the cover of the book",
+		"position": {
+			"x": 4892,
+			"y": 109
+		},
+		"colorID": 0
+	}
+]

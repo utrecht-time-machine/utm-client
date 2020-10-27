@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Inventory</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-button color="dark" (click)="Back()">
+      <ion-icon name="arrow-back" class="ion-margin-end"></ion-icon> Back
+    </ion-button>
+    <ion-list>
+      <ion-list-header>
+        Items
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of InventoryItems">
+        <ion-avatar slot="start">
+          <img src="{{ item.img }}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ item.title }}</h2>
+          <h3>{{ item.desc }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-app>

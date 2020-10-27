@@ -1,0 +1,32 @@
+[
+	{
+		"title": "GotoBuysBallot",
+		"tags": "",
+		"body": "\"Did you that see storm?! This is an excellent research subject. Yes, excellent!\"\n\n [[Give book|Give book button]]",
+		"position": {
+			"x": 4467,
+			"y": 233
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give book button",
+		"tags": "removeBook",
+		"body": "\"Ah thank you! This was a close one. If it wasn't for this lightning rod, I'd have been electrocuted.\"\n\n\nBuys Ballot cuts the wire and takes out the sword from the ground and gives it to you.\n\n\n\"I have no use for it now, you can return it to its owner. I must document this exceptional weather phenomena at once!.\"\n\n [[Pick up sword|Pick up sword button]]",
+		"position": {
+			"x": 4769,
+			"y": 215
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick up sword button",
+		"tags": "addSword addBuysBallotMedal",
+		"body": "",
+		"position": {
+			"x": 5093,
+			"y": 243
+		},
+		"colorID": 0
+	}
+]

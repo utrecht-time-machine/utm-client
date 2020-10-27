@@ -17,7 +17,7 @@ import {
 } from '../helpers/geolocation-watcher.helper';
 import { environment } from '../../environments/environment';
 import { MapTouchPitcherHelper } from '../helpers/map-touch-pitcher.helper';
-import { Story } from '../models/story.model';
+import { Story, StoryState } from '../models/story.model';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { mergeDedupe } from '../helpers/merge-array-dedupe.helper';
 import { Router } from '@angular/router';
@@ -26,8 +26,11 @@ import { HttpClient } from '@angular/common/http';
 import { StoriesService } from './stories.service';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { skipWhile } from 'rxjs/operators';
-import { RoutesService } from './routes.service';
 import { RouteModel } from '../models/route.model';
+import { RoutesService } from './routes.service';
+import { YarnTesterViewComponent } from '../components/main/yarn-tester-view/yarn-tester-view.component';
+import { MarkerPopupComponent } from '../components/main/map-view/marker-popup/marker-popup.component';
+import { PopoverController } from '@ionic/angular';
 
 interface Custom3dModel {
   url: string;
@@ -59,6 +62,7 @@ export class MapService {
     private router: Router,
     private http: HttpClient,
     private stories: StoriesService,
+    private popoverController: PopoverController,
     private routes: RoutesService
   ) {
     this.isInit = new BehaviorSubject<boolean>(null);
@@ -243,10 +247,9 @@ export class MapService {
     };
   }
 
-  private static generateWaypointMarkers(
-    stations: any[],
-    selectedStationId: string
-  ) {
+  public generateWaypointMarkers(stations: any[]) {
+    const isSelectedStation = true;
+
     const wayPointMarkers = {
       type: 'geojson',
       data: {
@@ -257,15 +260,25 @@ export class MapService {
     for (const station of stations) {
       const station3DModel = station.properties['3d-model'];
       const coordinates = [...station.geometry.coordinates];
-      const isSelectedStation = station.id === selectedStationId;
+      // const isSelectedStation = station.id === selectedStationId;
+
+      // Gets the story that belongs to this station
+      const storyState = this.routes.getStoryByStationId(station.id).state;
+
+      // Set the station icon according to the story state
+      let stationIcon = MapService.markerImgIds.invisible;
+      if (storyState === StoryState.Selected) {
+        stationIcon = MapService.markerImgIds.selected;
+      }
+      if (storyState === StoryState.Finished) {
+        stationIcon = MapService.markerImgIds.marker;
+      }
 
       const wayPointMarker = {
         type: 'Feature',
         properties: {
           id: station.id,
-          icon: isSelectedStation
-            ? this.markerImgIds.selected
-            : this.markerImgIds.marker,
+          icon: stationIcon,
           routeLabel: '',
           opacity: 1,
         },
@@ -303,7 +316,7 @@ export class MapService {
     (mapboxgl as any).accessToken = environment.mapboxToken;
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/edushifts/ck24sb7330d2h1cl78hj19tmw',
+      style: 'mapbox://styles/timangevare/ckg9f094p0lg019n88h9od1p3',
       center: environment.defaultCenter,
       zoom: environment.initialZoom,
       pitch: 45,
@@ -324,21 +337,12 @@ export class MapService {
 
       this.add3DModels();
       this.stories.selected.subscribe(() => {
-        if (!this.markerPoints) {
-          this.addStationMarkers();
-          this.updateRouteLines();
-        }
+        this.addStationMarkers();
       });
 
-      // Update route lines when a new route has been selected
-      this.routes.selected.subscribe(() => {
-        this.updateRouteLines();
-      });
-
-      // Update station markers when a new station has been selected
-      this.routes.selectedStoryIdx.subscribe(() => {
-        this.selectStationMarker(this.routes.getSelectedStationId()['@id']);
-      });
+      // setTimeout(() => {
+      //   this.stories.updateStoryStateById("https://utrechttimemachine.nl/stories/oracle_start", StoryState.Selected);
+      // }, 2000);
 
       this.map.addControl(
         new mapboxgl.NavigationControl({
@@ -369,7 +373,8 @@ export class MapService {
               selectedStories.push(this.stories.getAllWithStation(station));
             }
           }
-          this.stories.setSelectedStations(mergeDedupe(selectedStories));
+          // This is where the stories of the stations within range are selected
+          // this.stories.setSelectedStations(mergeDedupe(selectedStories));
         });
     });
   }
@@ -388,68 +393,6 @@ export class MapService {
 
   resize() {
     this.map.resize();
-  }
-
-  /**
-   * Displays route lines between stations on the map
-   * Adopted from https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/
-   */
-  public async updateRouteLines() {
-    // console.log('Updating route lines');
-
-    // Retrieve route
-    const route: RouteModel = this.routes.selected.getValue();
-    const routeStationCoordinates = this.routes.getRouteStationCoordinates(
-      route
-    );
-
-    // Remove previous route lines
-    if (this.map.getLayer('route')) {
-      this.map.removeLayer('route');
-    }
-
-    if (this.map.getSource('route')) {
-      this.map.removeSource('route');
-    }
-
-    if (
-      !this.routes.getSelectedRoute().properties.hideLines
-      || this.routes.isShowingAllStories()
-    ) {
-      return;
-    }
-
-    // Add new route lines
-    this.map.addSource('route', {
-      type: 'geojson',
-      data: {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-          type: 'LineString',
-          coordinates: routeStationCoordinates,
-        },
-      },
-    });
-
-    const lineLayer: any = {
-      id: 'route',
-      type: 'line',
-      source: 'route',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round',
-      },
-      paint: {
-        'line-color': route.properties.color,
-        'line-width': 4,
-        'line-opacity': 0.65,
-        'line-dasharray': [4, 4],
-        // 'line-blur': 5
-      },
-    };
-
-    this.map.addLayer(lineLayer, 'building 3D');
   }
 
   /**
@@ -532,49 +475,6 @@ export class MapService {
     }
   }
 
-  public selectStationMarker(stationId) {
-    if (!this.markerPoints) {
-      return;
-    }
-
-    const station = this.stations.getStationById(stationId);
-    this.map.flyTo({ center: station.geometry.coordinates });
-
-    const routeStations = this.routes.getRouteStationIds();
-    // Update marker images
-    for (
-      let featureIdx = 0;
-      featureIdx < this.markerPoints.data.features.length;
-      featureIdx++
-    ) {
-      const properties = this.markerPoints.data.features[featureIdx].properties;
-      const markerStationId = properties.id;
-      const indexInRoute = routeStations.indexOf(markerStationId);
-      properties.routeLabel = '';
-      properties.opacity = 1;
-      properties.icon = MapService.markerImgIds.marker;
-
-      if (!this.routes.isShowingAllStories() && indexInRoute !== -1) {
-        // Station that is part of this route
-        properties.icon = MapService.markerImgIds.route;
-        properties.routeLabel = '#' + (indexInRoute + 1);
-      }
-      if (markerStationId === stationId) {
-        // Selected station
-        properties.icon = MapService.markerImgIds.selected;
-      } else if (indexInRoute === -1) {
-        // Normal station (not belonging to this specific route)
-        if (!this.routes.isShowingAllStories()) {
-          properties.opacity = 0.25;
-        }
-      }
-    }
-
-    (this.map.getSource(this.markerSourceId) as GeoJSONSource).setData(
-      this.markerPoints.data
-    );
-  }
-
   /**
    * Displays stations as 2d marker icons on the map, additionally shows a 3d model (if available)
    * Click on marker support adapted from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
@@ -591,19 +491,19 @@ export class MapService {
 
     const imageUrls = [
       {
-        url: '/assets/img/map/selected-station-marker.png',
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.selected,
       },
       {
-        url: '/assets/img/map/station-marker.png',
+        url: '/assets/img/map/green-marker.png',
         id: MapService.markerImgIds.marker,
       },
       {
-        url: '/assets/img/map/station-marker.png', // Route markers are currently identical to normal markers
+        url: '/assets/img/map/red-marker.png',
         id: MapService.markerImgIds.route,
       },
       {
-        url: '/assets/img/map/invisible-station-marker.png',
+        url: '/assets/img/map/transparent-marker.png',
         id: MapService.markerImgIds.invisible,
       },
     ];
@@ -625,20 +525,20 @@ export class MapService {
       )
     );
 
-    this.markerPoints = MapService.generateWaypointMarkers(
-      allStoryStations,
-      this.routes.getSelectedStationId()['@id']
-    );
+    this.markerPoints = this.generateWaypointMarkers(allStoryStations);
 
+    let clickEventAlreadyAdded = false;
     if (
       this.map.getLayer(this.markerLayerId)
       || this.map.getSource(this.markerSourceId)
     ) {
+      clickEventAlreadyAdded = true;
       this.map.removeLayer(this.markerLayerId);
       this.map.removeSource(this.markerSourceId);
     }
 
     this.map.addSource(this.markerSourceId, this.markerPoints);
+
     this.map.addLayer(
       {
         id: this.markerLayerId,
@@ -662,19 +562,31 @@ export class MapService {
       // 'building 3D'
     );
 
-    this.map.on('click', this.markerLayerId, e => {
-      // const coordinates = (e.features[0].geometry as any).coordinates;
-      // this.map.flyTo({ center: coordinates });
+    if (!clickEventAlreadyAdded) {
+      this.map.on('click', this.markerLayerId, async e => {
+        // If the user has clicked on a marker...
 
-      const id = e.features[0].properties.id;
-      this.routes.selectStoryByStationId(id);
-    });
+        // const coordinates = (e.features[0].geometry as any).coordinates;
+        // this.map.flyTo({ center: coordinates });
 
-    this.map.on('mouseenter', this.markerLayerId, () => {
-      this.map.getCanvas().style.cursor = 'pointer';
-    });
-    this.map.on('mouseleave', this.markerLayerId, () => {
-      this.map.getCanvas().style.cursor = '';
-    });
+        const stationId = e.features[0].properties.id;
+        // Select the story that belongs to the station we just clicked
+        this.routes.selectStoryByStationId(stationId);
+
+        // Create a popover that is able to start the selected story
+        const popover = await this.popoverController.create({
+          component: MarkerPopupComponent,
+          translucent: true,
+        });
+        return await popover.present();
+      });
+
+      this.map.on('mouseenter', this.markerLayerId, () => {
+        this.map.getCanvas().style.cursor = 'pointer';
+      });
+      this.map.on('mouseleave', this.markerLayerId, () => {
+        this.map.getCanvas().style.cursor = '';
+      });
+    }
   }
 }

@@ -1,0 +1,32 @@
+[
+	{
+		"title": "GotoCarilloner",
+		"tags": "",
+		"body": "\"Oh Thank you. I'm glad to be freed from that brick prison!\"\n\n [[give paper|give paper button]]",
+		"position": {
+			"x": 2173,
+			"y": 262
+		},
+		"colorID": 0
+	},
+	{
+		"title": "give paper button",
+		"tags": "removePaper",
+		"body": "\"Ah, sheet music! Just what I needed, I'll exercise my rigid fingers immediately!\"\n\nCarillonist plays the song \n\n\"The Builder forgot his hammer. Will you please bring it to him for me? \nHe ran to the garden to take care of his flowers as soon as his shift ended.\"\n\n [[pick up hammer|pick up hammer button]]",
+		"position": {
+			"x": 2457,
+			"y": 180
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up hammer button",
+		"tags": "addHammer addCarillionistMedal",
+		"body": "",
+		"position": {
+			"x": 2731,
+			"y": 290
+		},
+		"colorID": 0
+	}
+]

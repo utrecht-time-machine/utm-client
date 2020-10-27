@@ -4,14 +4,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/265260840",
+    "id": "https://utrechttimemachine.nl/places/oracle_buurkerk",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1181785, 52.0931279]
+      "coordinates": [
+        5.119595,
+        52.0908
+      ]
     },
     "properties": {
-      "title": "Former post office",
-      "description": "Will soon be part of the public library Utrecht."
+      "title": "Oracle - Buurkerk",
+      "description": "-"
     }
   },
   {
@@ -19,20 +22,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/1806563574",
+    "id": "https://utrechttimemachine.nl/places/villon_behind_the_dom",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1186779, 52.0936557]
+      "coordinates": [
+        5.1232,
+        52.0905
+      ]
     },
     "properties": {
-      "title": "Thinker on Rock",
-      "description": "Thinker on a Rock is a bronze sculpture by Barry Flanagan.",
-      "3d-model": {
-        "url": "./assets/3d-models/thinker-on-a-rock-neude.gltf",
-        "scale": 0.5,
-        "rotate": -110,
-        "altitude": 0
-      }
+      "title": "Villon - achter the dom",
+      "description": "-"
     }
   },
   {
@@ -40,20 +40,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://utrechttimemachine.nl/places/retiradegebouw-neude",
+    "id": "https://utrechttimemachine.nl/places/carillionist_dom_tower",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.118476, 52.093505]
+      "coordinates": [
+        5.121630,
+        52.090760
+      ]
     },
     "properties": {
-      "title": "Former public restroom",
-      "description": "Also called the 'retirade gebouw' in Dutch.",
-      "3d-model": {
-        "url": "./assets/3d-models/public-restroom-neude.gltf",
-        "scale": 1,
-        "rotate": 0,
-        "altitude": 0
-      }
+      "title": "Carillon person - Dom Tower",
+      "description": "-"
     }
   },
   {
@@ -61,14 +58,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2709755460",
+    "id": "https://utrechttimemachine.nl/places/doem_pandhof",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1184988, 52.0938563]
+      "coordinates": [
+        5.122444,
+        52.090583
+      ]
     },
     "properties": {
-      "title": "De Liefde's Centraal Apotheek",
-      "description": ""
+      "title": "Builder Jan van der Doem - garden Pandhof",
+      "description": "-"
     }
   },
   {
@@ -76,14 +76,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/26780748",
+    "id": "https://utrechttimemachine.nl/places/truus_front_domchurch",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1190619, 52.092868]
+      "coordinates": [
+        5.121889,
+        52.090861
+      ]
     },
     "properties": {
-      "title": "De Beurs",
-      "description": ""
+      "title": "Truus - statue front domchurch",
+      "description": "-"
     }
   },
   {
@@ -91,14 +94,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2709275548",
+    "id": "https://utrechttimemachine.nl/places/nassau_statue",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1175543, 52.0919491]
+      "coordinates": [
+        5.122028,
+        52.090361
+      ]
     },
     "properties": {
-      "title": "Tegel Tableau: De zuivelmarkt op de Bakkerbrug",
-      "description": ""
+      "title": "Jan Van Nassau - statue",
+      "description": "-"
     }
   },
   {
@@ -106,14 +112,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://utrechttimemachine.nl/places/scaffold",
+    "id": "https://utrechttimemachine.nl/places/annamaria_behind_the_dom",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.118852, 52.092969]
+      "coordinates": [
+        5.122889,
+        52.091139
+      ]
     },
     "properties": {
-      "title": "Scaffold",
-      "description": "A scaffold stood on the square approximately here around 1661."
+      "title": "anna maria van Schurman-Achter de Dom 8",
+      "description": "-"
     }
   },
   {
@@ -121,14 +130,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2709280936",
+    "id": "https://utrechttimemachine.nl/places/buysballot_academy_building",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1190966, 52.0932116]
+      "coordinates": [
+        5.122333,
+        52.090361
+      ]
     },
     "properties": {
-      "title": "Drogisterij Woortman",
-      "description": ""
+      "title": "Buys ballot- On Academy Building (Domplein 29)",
+      "description": "-"
     }
   },
   {
@@ -136,14 +148,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/6497347541",
+    "id": "https://utrechttimemachine.nl/places/brinno_limes",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1185978, 52.0932377]
+      "coordinates": [
+        5.122361,
+        52.091417
+      ]
     },
     "properties": {
-      "title": "Neude Center",
-      "description": ""
+      "title": "Brinno- Limes Domstraat",
+      "description": "-"
     }
   },
   {
@@ -151,14 +166,17 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/599516529",
+    "id": "https://utrechttimemachine.nl/places/sun_academy_building",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1179342, 52.0926323]
+      "coordinates": [
+        5.122500,
+        52.090278
+      ]
     },
     "properties": {
-      "title": "Neude Flat",
-      "description": ""
+      "title": "the sun - academy building",
+      "description": "-"
     }
   },
   {
@@ -166,134 +184,16 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/7057260",
+    "id": "https://utrechttimemachine.nl/places/oracle_end_dom_tower",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.11984, 52.09096]
+      "coordinates": [
+        5.121278,
+        52.090667      ]
     },
     "properties": {
-      "title": "Choorstraat",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2684300955",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1238913, 52.0922471]
-    },
-    "properties": {
-      "title": "Kromme Nieuwe Gracht 3",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/471061757",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12507, 52.0853]
-    },
-    "properties": {
-      "title": "Lange Nieuwstraat",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/72891620",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1194, 52.0901]
-    },
-    "properties": {
-      "title": "Zadelstraat",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2709280887",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1206385, 52.0930809]
-    },
-    "properties": {
-      "title": "Janskerkhof 3",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/2709279839",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1205902, 52.0932548]
-    },
-    "properties": {
-      "title": "Janskerkhof 2",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/7009794",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1336, 52.08521]
-    },
-    "properties": {
-      "title": "Zonstraat",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/304696233",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.11358, 52.09299]
-    },
-    "properties": {
-      "title": "Vredenburg",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/55277368",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.07303, 52.12712]
-    },
-    "properties": {
-      "title": "Slot Zuylen",
-      "description": ""
+      "title": "end fight - under dom tower",
+      "description": "-"
     }
   }
 ]

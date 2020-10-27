@@ -4,6 +4,7 @@ import { TabsComponent } from './tabs.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { StoryViewComponent } from './story-view/story-view.component';
 import { ApisViewComponent } from './apis-view/apis-view.component';
+import { InventoryViewComponent } from './inventory-view/inventory-view.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       // { path: 'story', component: StoryViewComponent },
       { path: 'apis', component: ApisViewComponent },
       { path: '', redirectTo: '/map', pathMatch: 'full' },
+      { path: 'inv', component: InventoryViewComponent },
     ],
   },
 ];

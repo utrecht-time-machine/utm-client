@@ -1,0 +1,22 @@
+<p>
+  <strong>{{ story.title }}</strong
+  ><br />
+  {{ story.description }}
+</p>
+
+<p *ngIf="story.state === storyState.Locked">
+  Station locked. Come back later
+</p>
+<p *ngIf="story.state === storyState.Selected">
+  Start your adventure!
+</p>
+
+<ion-button
+  color="primary"
+  size="small"
+  (click)="startStory(story)"
+  [disabled]="story.state === storyState.Locked"
+>
+  <ion-icon name="play" class="ion-margin-end"></ion-icon>
+  Depetrify!
+</ion-button>

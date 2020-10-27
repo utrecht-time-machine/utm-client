@@ -1,0 +1,42 @@
+[
+	{
+		"title": "GotoTheBuilder",
+		"tags": "",
+		"body": "\"Thank you Dakhaas!\"\n\n\n[[ Dakhaas? |Dakhaas]] [[ Who are you calling Dakhaas? Achterlijke gladiool!|Dakhaas]]",
+		"position": {
+			"x": 2495,
+			"y": 254
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Dakhaas",
+		"tags": "",
+		"body": "\"Oh don't make a fuss about it. It's just a term of endearment.\"\n\n [[Give hammer|Give hammer button]]",
+		"position": {
+			"x": 2710,
+			"y": -150
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Give hammer button",
+		"tags": "removeHammer",
+		"body": "\"Thanks! I'll need that later!\nHere, take these blomme. Could you give them to Truus? \n\nI admire her deeds a lot and I heard they are her favorite.\"\n\n [[pick up daffodils|pick up daffodils button]]",
+		"position": {
+			"x": 3021,
+			"y": -74
+		},
+		"colorID": 0
+	},
+	{
+		"title": "pick up daffodils button",
+		"tags": "addDaffodils addDoemMedal",
+		"body": "",
+		"position": {
+			"x": 3256,
+			"y": 198
+		},
+		"colorID": 0
+	}
+]
