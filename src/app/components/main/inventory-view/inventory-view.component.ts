@@ -40,15 +40,15 @@ export class InventoryViewComponent implements OnInit {
     this.InventoryItems = await this.http
       .get<any>('/assets/data-models/InventoryItems/InventoryItems.json')
       .toPromise();
-    console.log(this.InventoryItems);
-    console.log(typeof this.InventoryItems);
+    // console.log(this.InventoryItems);
+    // console.log(typeof this.InventoryItems);
     let ret = [];
     for (let i = 0; i < CollectedItemsArray.length; i++) {
       // console.log(typeof CollectedItemsArray[i])
-      console.log(this.InventoryItems);
+      // console.log(this.InventoryItems);
       if (CollectedItemsArray[i]) {
         ret.push(this.InventoryItems[i]);
-        console.log(ret);
+        // console.log(ret);
       }
     }
     this.InventoryItems = ret;
