@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./inventory-view.component.scss'],
 })
 export class InventoryViewComponent implements OnInit {
-  InventoryItems: any[];
+  InventoryItems: any[] = [];
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -21,36 +21,23 @@ export class InventoryViewComponent implements OnInit {
   }
 
   async loadInventoryItems() {
-    // let collectedItemsArray = [
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    //   false,
-    // ];
-    // localStorage.setItem('collectedItems', JSON.stringify(collectedItemsArray));
-    let collectedItems = localStorage.getItem('collectedItems');
-    let collectedItemsArray = JSON.parse(collectedItems);
-    // console.log(collectedItemsArray)
-    this.InventoryItems = await this.http
+    const collectedItems = localStorage.getItem('collectedItems');
+    const collectedItemsArray = JSON.parse(collectedItems);
+    if (!collectedItemsArray || collectedItemsArray.length < 1) {
+      return;
+    }
+
+    const allInventoryItems = await this.http
       .get<any>('/assets/data-models/InventoryItems/InventoryItems.json')
       .toPromise();
-    // console.log(this.InventoryItems);
-    // console.log(typeof this.InventoryItems);
-    let collectedItemsArryCheck = [];
+
+    const collectedItemsArryCheck = [];
     for (let i = 0; i < collectedItemsArray.length; i++) {
-      // console.log(typeof collectedItemsArray[i])
-      // console.log(this.InventoryItems);
       if (collectedItemsArray[i]) {
-        collectedItemsArryCheck.push(this.InventoryItems[i]);
-        // console.log(ret);
+        collectedItemsArryCheck.push(allInventoryItems[i]);
       }
     }
+
     this.InventoryItems = collectedItemsArryCheck;
   }
 
