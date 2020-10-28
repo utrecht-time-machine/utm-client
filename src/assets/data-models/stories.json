@@ -2,9 +2,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/oracle_start",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "oracle_start",
+    "title": "Sister Bertken aka the Oracle",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Berta Jacobs was the illegitimate child in the famous Lichtenberg family.",
     "featured-image": "/assets/data-models/stories/20201000024_oracle_start/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -40,9 +40,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/villon",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "villon",
+    "title": "François de Montcorbier aka François Villon",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "The cursed Poet. François de Montcorbier took the name of his guardian Guillaume de Villon. He took François to his home after the death of his father.",
     "featured-image": "/assets/data-models/stories/20201000025_villon/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -78,9 +78,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/carillionist",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "carillionist",
+    "title": "Malgosia Fiebig",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Was the Dom Tower’s first woman carillonist in over three hundred centuries.",
     "featured-image": "/assets/data-models/stories/20201000026_carillionist/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -116,9 +116,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/doem",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "doem",
+    "title": "Jan van den Doem",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Jan designed the Dom Tower and is responsible for the appearance of the tower today.",
     "featured-image": "/assets/data-models/stories/20201000027_doem/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -154,9 +154,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/truus",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "truus",
+    "title": "Truus van Lier",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Law student and member of the student resistance group CS-6 during WWII.",
     "featured-image": "/assets/data-models/stories/20201000028_truus/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -192,9 +192,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/nassau",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "nassau",
+    "title": "Jan van Nassau",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Was born into the noble House of Nassau.",
     "featured-image": "/assets/data-models/stories/20201000029_nassau/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -230,9 +230,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/annamaria",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "annamaria",
+    "title": "Anna Maria van Schurman",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Anna Maria van Schurman was the first female student in the Netherlands.",
     "featured-image": "/assets/data-models/stories/20201000030_annamaria/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -268,9 +268,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/buysballot",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "buysballot",
+    "title": "Buys Ballot",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Buys Ballot was famous for his observation of wind and his meteorological law.",
     "featured-image": "/assets/data-models/stories/20201000031_buysballot/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -306,9 +306,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/brinno",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "brinno",
+    "title": "Brinno",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Leader of the Cananefates. Under his leadership, revolted against the Romans.",
     "featured-image": "/assets/data-models/stories/20201000032_brinno/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -344,9 +344,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/sun",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "sun",
+    "title": "Sun",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "A reflective surface to defeat the Basilisk",
     "featured-image": "/assets/data-models/stories/20201000033_sun/random-character-image.gif",
     "hidden": false,
     "authors": [
@@ -382,9 +382,9 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/oracle_end",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "oracle - end fight",
+    "title": "Basilisk end fight",
     "lang": "en",
-    "description": "FAKESTORY DESCRIPTION",
+    "description": "Some heroes would go into the cellar to defeat the basilisk but they met the basilisk’ deadly gaze. All died.",
     "featured-image": "/assets/data-models/stories/20201000034_oracle_end/Utrechtbasilisk_1.png",
     "hidden": false,
     "authors": [
