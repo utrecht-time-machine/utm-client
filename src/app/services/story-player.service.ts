@@ -327,13 +327,16 @@ export class StoryPlayerService {
 
       // Set audio
       const foundAudios = body.match(/\[audio\].*?\[\/audio\]/g);
+      console.log("foundAudios: ", foundAudios);
       if (foundAudios) {
         audio = replaceAll(foundAudios[0], /\[\/?audio]/, '');
+        console.log("audio: ", audio);
         // TODO: place other audio as well, in-line
-        body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
+        body = body.replace(/\[audio\].*?\[\/audio\]/g, '<audio controls src="'.concat(audio.toString(),'"></audio>'.toString()));
+        console.log("body: ", body);
       }
 
-      body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
+      // body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
 
       // console.log(answers); // DEBUG
       // console.log(body); // DEBUG
