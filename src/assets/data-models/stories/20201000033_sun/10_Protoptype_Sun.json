@@ -1,0 +1,42 @@
+[
+	{
+		"title": "OracleAppears",
+		"tags": "",
+		"body": "\"Congratulations Chosen One, you have freed all the petrified figures, saving their lives!\"\n\n\n\"However, your quest is not yet over. \n\nYou must now defeat the Basilisk. \n\nBasilisks' weakness are their eyes.\n\nYou must find the most reflective surface on the Square.\n\nBe on your way Chosen One, time is ticking.\"\n\n[[ Go to the Sun|GototheSun]]",
+		"position": {
+			"x": 5658,
+			"y": 233
+		},
+		"colorID": 0
+	},
+	{
+		"title": "GototheSun",
+		"tags": "",
+		"body": "[[Pick up sun|Pick up son button]]",
+		"position": {
+			"x": 5947,
+			"y": 267
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick up son button",
+		"tags": "addSun",
+		"body": "Basilisk: \"angry\" screeeeeech \n\nBasilisk retreats to the shadows of the Dom Tower. The Basilisk is ready to fight.\n\n [[Go to Dom Tower|Go to Dom Tower]]",
+		"position": {
+			"x": 6308,
+			"y": 382
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Go to Dom Tower",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 6740,
+			"y": 207
+		},
+		"colorID": 0
+	}
+]

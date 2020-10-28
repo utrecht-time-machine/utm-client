@@ -373,7 +373,8 @@ export class MapService {
               selectedStories.push(this.stories.getAllWithStation(station));
             }
           }
-          this.stories.setSelectedStations(mergeDedupe(selectedStories));
+          // This is where the stories of the stations within range are selected
+          // this.stories.setSelectedStations(mergeDedupe(selectedStories));
         });
     });
   }
