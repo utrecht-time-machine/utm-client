@@ -4,6 +4,7 @@ import { replaceAll } from '../helpers/string.helper';
 import { YarnItem } from '../models/yarn-item.model';
 import { StoriesService } from './stories.service';
 import { StoryState } from '../models/story.model';
+import { InventoryManager } from './inventory-manager.service';
 
 export interface StoryNode {
   title: string;
@@ -26,7 +27,11 @@ export class StoryPlayerService {
   private storyNodes: Record<string, StoryNode>;
   private currentStoryNode: StoryNode;
 
-  constructor(private http: HttpClient, private stories: StoriesService) {}
+  constructor(
+    private http: HttpClient,
+    private stories: StoriesService,
+    private inventory: InventoryManager
+  ) {}
 
   /**
    *
@@ -41,27 +46,11 @@ export class StoryPlayerService {
     }
     this.currentStoryNode = this.storyNodes[nodeTitle];
 
-    var tagsArray = this.currentStoryNode.tags.split(' ');
+    const tagsArray = this.currentStoryNode.tags.split(' ');
     tagsArray.forEach(tag => {
       if (tag.startsWith('add')) {
         if (tag === 'addCommonRuePotion') {
-          let collectedItemsArray = [
-            true,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-          ];
-          localStorage.setItem(
-            'collectedItems',
-            JSON.stringify(collectedItemsArray)
-          );
-          console.log('CommonRuePotion was added to inventory');
+          this.inventory.addItemToInventory('CommonRuePotion');
         }
         if (tag === 'addPaper') {
           let addItem = localStorage.getItem('collectedItems');
@@ -327,13 +316,19 @@ export class StoryPlayerService {
 
       // Set audio
       const foundAudios = body.match(/\[audio\].*?\[\/audio\]/g);
-      console.log("foundAudios: ", foundAudios);
+      console.log('foundAudios: ', foundAudios);
       if (foundAudios) {
         audio = replaceAll(foundAudios[0], /\[\/?audio]/, '');
-        console.log("audio: ", audio);
+        console.log('audio: ', audio);
         // TODO: place other audio as well, in-line
-        body = body.replace(/\[audio\].*?\[\/audio\]/g, '<audio controls src="'.concat(audio.toString(),'"></audio>'.toString()));
-        console.log("body: ", body);
+        body = body.replace(
+          /\[audio\].*?\[\/audio\]/g,
+          '<audio controls src="'.concat(
+            audio.toString(),
+            '"></audio>'.toString()
+          )
+        );
+        console.log('body: ', body);
       }
 
       // body = body.replace(/\[audio\].*?\[\/audio\]/g, '');
