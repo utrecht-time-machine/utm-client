@@ -62,7 +62,7 @@ export class InventoryManager {
 
     this.inventoryItems.next(newInventoryItems);
     this.updatePersistentStorage();
-    console.log(`${itemId} was added to inventory`); // DEBUG
+    // console.log(`${itemId} was added to inventory`); // DEBUG
   }
 
   removeItemFromInventory(itemId: string) {

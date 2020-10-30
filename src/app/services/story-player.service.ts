@@ -52,17 +52,17 @@ export class StoryPlayerService {
         if (!tag.endsWith('Medal')) {
           var inventoryItemToAdd = tag.substring(3);
           this.inventory.addItemToInventory(inventoryItemToAdd);
-          console.log(inventoryItemToAdd, " was added to inventory");
+          console.log(inventoryItemToAdd, ' was added to inventory');
         }
 
         if (tag === 'addCommonRuePotion') {
           // this.inventory.addItemToInventory('CommonRuePotion');
         }
         if (tag === 'addPaper') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[1] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+          // let addItem = localStorage.getItem('collectedItems');
+          // let addItemArray = JSON.parse(addItem);
+          // addItemArray[1] = true;
+          // localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
           // console.log('Paper was added to inventory');
         }
         if (tag === 'addHammer') {
@@ -240,7 +240,7 @@ export class StoryPlayerService {
       if (tag.startsWith('remove')) {
         var inventoryItemToRemove = tag.substring(6);
         this.inventory.removeItemFromInventory(inventoryItemToRemove);
-        console.log(inventoryItemToRemove, " was removed from inventory");
+        console.log(inventoryItemToRemove, ' was removed from inventory');
 
         // if (tag === 'removePaper') {
         //   console.log('Paper was removed from inventory');
