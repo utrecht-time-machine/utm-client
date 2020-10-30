@@ -52,61 +52,61 @@ export class StoryPlayerService {
         if (!tag.endsWith('Medal')) {
           var inventoryItemToAdd = tag.substring(3);
           this.inventory.addItemToInventory(inventoryItemToAdd);
-          console.log(inventoryItemToAdd, ' was added to inventory');
+          // console.log(inventoryItemToAdd, ' was added to inventory');
         }
 
-        if (tag === 'addCommonRuePotion') {
-          // this.inventory.addItemToInventory('CommonRuePotion');
-        }
-        if (tag === 'addPaper') {
-          // let addItem = localStorage.getItem('collectedItems');
-          // let addItemArray = JSON.parse(addItem);
-          // addItemArray[1] = true;
-          // localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Paper was added to inventory');
-        }
-        if (tag === 'addHammer') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[2] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Hammer was added to inventory');
-        }
-        if (tag === 'addDaffodils') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[3] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Daffodils was added to inventory');
-        }
-        if (tag === 'addUnionOfUtrecht') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[4] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('UnionOfUtrecht was added to inventory');
-        }
-        if (tag === 'addQuill') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[5] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Quill was added to inventory');
-        }
-        if (tag === 'addBook') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[6] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Book was added to inventory');
-        }
-        if (tag === 'addSword') {
-          let addItem = localStorage.getItem('collectedItems');
-          let addItemArray = JSON.parse(addItem);
-          addItemArray[7] = true;
-          localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          // console.log('Sword was added to inventory');
-        }
+        // if (tag === 'addCommonRuePotion') {
+        //   // this.inventory.addItemToInventory('CommonRuePotion');
+        // }
+        // if (tag === 'addPaper') {
+        //   // let addItem = localStorage.getItem('collectedItems');
+        //   // let addItemArray = JSON.parse(addItem);
+        //   // addItemArray[1] = true;
+        //   // localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Paper was added to inventory');
+        // }
+        // if (tag === 'addHammer') {
+        //   // let addItem = localStorage.getItem('collectedItems');
+        //   // let addItemArray = JSON.parse(addItem);
+        //   // addItemArray[2] = true;
+        //   // localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Hammer was added to inventory');
+        // }
+        // if (tag === 'addDaffodils') {
+        //   let addItem = localStorage.getItem('collectedItems');
+        //   let addItemArray = JSON.parse(addItem);
+        //   addItemArray[3] = true;
+        //   localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Daffodils was added to inventory');
+        // }
+        // if (tag === 'addUnionOfUtrecht') {
+        //   let addItem = localStorage.getItem('collectedItems');
+        //   let addItemArray = JSON.parse(addItem);
+        //   addItemArray[4] = true;
+        //   localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('UnionOfUtrecht was added to inventory');
+        // }
+        // if (tag === 'addQuill') {
+        //   let addItem = localStorage.getItem('collectedItems');
+        //   let addItemArray = JSON.parse(addItem);
+        //   addItemArray[5] = true;
+        //   localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Quill was added to inventory');
+        // }
+        // if (tag === 'addBook') {
+        //   let addItem = localStorage.getItem('collectedItems');
+        //   let addItemArray = JSON.parse(addItem);
+        //   addItemArray[6] = true;
+        //   localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Book was added to inventory');
+        // }
+        // if (tag === 'addSword') {
+        //   let addItem = localStorage.getItem('collectedItems');
+        //   let addItemArray = JSON.parse(addItem);
+        //   addItemArray[7] = true;
+        //   localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
+        //   // console.log('Sword was added to inventory');
+        // }
         if (tag === 'addSun') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
