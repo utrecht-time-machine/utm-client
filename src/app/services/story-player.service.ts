@@ -49,64 +49,70 @@ export class StoryPlayerService {
     const tagsArray = this.currentStoryNode.tags.split(' ');
     tagsArray.forEach(tag => {
       if (tag.startsWith('add')) {
+        if (!tag.endsWith('Medal')) {
+          var inventoryItemToAdd = tag.substring(3);
+          this.inventory.addItemToInventory(inventoryItemToAdd);
+          console.log(inventoryItemToAdd, " was added to inventory");
+        }
+
         if (tag === 'addCommonRuePotion') {
-          this.inventory.addItemToInventory('CommonRuePotion');
+          // this.inventory.addItemToInventory('CommonRuePotion');
         }
         if (tag === 'addPaper') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[1] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Paper was added to inventory');
+          // console.log('Paper was added to inventory');
         }
         if (tag === 'addHammer') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[2] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Hammer was added to inventory');
+          // console.log('Hammer was added to inventory');
         }
         if (tag === 'addDaffodils') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[3] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Daffodils was added to inventory');
+          // console.log('Daffodils was added to inventory');
         }
         if (tag === 'addUnionOfUtrecht') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[4] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('UnionOfUtrecht was added to inventory');
+          // console.log('UnionOfUtrecht was added to inventory');
         }
         if (tag === 'addQuill') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[5] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Quill was added to inventory');
+          // console.log('Quill was added to inventory');
         }
         if (tag === 'addBook') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[6] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Book was added to inventory');
+          // console.log('Book was added to inventory');
         }
         if (tag === 'addSword') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[7] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Sword was added to inventory');
+          // console.log('Sword was added to inventory');
         }
         if (tag === 'addSun') {
           let addItem = localStorage.getItem('collectedItems');
           let addItemArray = JSON.parse(addItem);
           addItemArray[8] = true;
           localStorage.setItem('collectedItems', JSON.stringify(addItemArray));
-          console.log('Sun was added to inventory');
+          // console.log('Sun was added to inventory');
           this.stories.updateStoryStateById(
             'https://utrechttimemachine.nl/stories/sun',
             StoryState.Finished
@@ -232,30 +238,34 @@ export class StoryPlayerService {
       }
 
       if (tag.startsWith('remove')) {
-        if (tag === 'removePaper') {
-          console.log('Paper was removed from inventory');
-        }
-        if (tag === 'removeHammer') {
-          console.log('Hammer was removed from inventory');
-        }
-        if (tag === 'removeDaffodils') {
-          console.log('Daffodils was removed from inventory');
-        }
-        if (tag === 'removeUnionOfUtrecht') {
-          console.log('UnionOfUtrecht was removed from inventory');
-        }
-        if (tag === 'removeQuill') {
-          console.log('Quill was removed from inventory');
-        }
-        if (tag === 'removeBook') {
-          console.log('Book was removed from inventory');
-        }
-        if (tag === 'removeSword') {
-          console.log('Sword was removed from inventory');
-        }
-        if (tag === 'removeSun') {
-          console.log('Sun was removed from inventory');
-        }
+        var inventoryItemToRemove = tag.substring(6);
+        this.inventory.removeItemFromInventory(inventoryItemToRemove);
+        console.log(inventoryItemToRemove, " was removed from inventory");
+
+        // if (tag === 'removePaper') {
+        //   console.log('Paper was removed from inventory');
+        // }
+        // if (tag === 'removeHammer') {
+        //   console.log('Hammer was removed from inventory');
+        // }
+        // if (tag === 'removeDaffodils') {
+        //   console.log('Daffodils was removed from inventory');
+        // }
+        // if (tag === 'removeUnionOfUtrecht') {
+        //   console.log('UnionOfUtrecht was removed from inventory');
+        // }
+        // if (tag === 'removeQuill') {
+        //   console.log('Quill was removed from inventory');
+        // }
+        // if (tag === 'removeBook') {
+        //   console.log('Book was removed from inventory');
+        // }
+        // if (tag === 'removeSword') {
+        //   console.log('Sword was removed from inventory');
+        // }
+        // if (tag === 'removeSun') {
+        //   console.log('Sun was removed from inventory');
+        // }
       }
     });
 
