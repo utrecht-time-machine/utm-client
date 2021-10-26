@@ -87,7 +87,7 @@
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "De schrijfster Belle van Zuylen (officiële naam Isabella van Tuyll van Serooskerken) woonde hier als kind en als jonge vrouw.",
+    "description": "Hier woonde, ’s winters, de familie Van Tuyll van Serooskerken. Diederik Jacob en zijn vrouw Helena Jacoba kregen vijf kinderen, van wie Isabella (geboren 21 oktober 1740) de oudste was. Zij is nu bekend als de schrijfster Belle van Zuylen, die bovenaan de Utrechtse literaire canon staat.",
     "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
     "authors": [
       {
@@ -321,6 +321,55 @@
         "@id": "https://utrechttimemachine.nl/stories/20201000023_belle-van-zuylen_jan-verliefd",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
         "content": "belle-van-zuylen_jan-verliefd"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000024_belle-van-zuylen_slot-zuylen",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Slot Zuylen",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "De Van Tuylls waren van adel. Ze bezaten ook Slot Zuylen, aan de Vecht. Daar woonden ze in de zomer. Als je dit prachtige Slot ziet, met de tuinen eromheen, kan je haast niet geloven dat Belle van Zuylen haar ouderlijk huis en vooral haar vader beschrijft als betrekkelijk sober. Toch is dat zo.",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/55277368"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1764",
+      "end": "1764"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000024_belle-van-zuylen_slot-zuylen",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen_slot-zuylen"
       }
     ]
   },
