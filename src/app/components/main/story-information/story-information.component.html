@@ -15,7 +15,7 @@
 
         <h2>{{ story['title'] }}</h2>
 
-        <p *ngIf="!platform.is('mobile')">
+        <p *ngIf="true || !platform.is('mobile')">
           <em
             [utmTextWithSources]="story['description']"
             class="ion-margin-top"

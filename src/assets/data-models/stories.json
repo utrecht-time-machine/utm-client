@@ -82,13 +82,13 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/20201000019_belle-van-zuylen-krommenieuwegracht",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Belle van Zuylen woonde hier als kind en als jonge vrouw",
+    "title": "Kromme Nieuwegracht 3",
     "lang": "nl",
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "Hier woonde, ’s winters, de familie Van Tuyll van Serooskerken. Diederik Jacob en zijn vrouw Helena Jacoba kregen vijf kinderen, van wie Isabella (geboren 21 oktober 1740) de oudste was. Zij is nu bekend als de schrijfster Belle van Zuylen, die bovenaan de Utrechtse literaire canon staat.",
-    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "description": "Op dit adres woonde de familie Van Tuyll ’s winters. In het gezin van Diederik Jacob en zijn vrouw Helena Jacoba was Isabella (geb. 21-10-1740) de oudste van vijf. Zij werd later de schrijfster Belle van Zuylen, die sinds 2008 de Utrechtse literaire canon aanvoert.",
+    "featured-image": "/assets/data-models/stories/20201000019_belle-van-zuylen-krommenieuwegracht/featured.jpg",
     "authors": [
       {
         "@id": "https://utrechttimemachine.nl/authors/HuygensING"
