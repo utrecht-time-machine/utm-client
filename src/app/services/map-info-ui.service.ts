@@ -8,8 +8,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class MapInfoUIService {
   public readonly mapInfoNavBarHeight = 64; // pixels
   private readonly mapInfoHeights = {
-    mobile: { noDetails: 220, details: 340 },
-    nonMobile: { noDetails: 300, details: 400 },
+    mobile: { noDetails: 320, details: 420 },
+    nonMobile: { noDetails: 320, details: 420 },
   };
   public detailsShown = false;
 

@@ -76,6 +76,300 @@
       }
     ]
   },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20201000019_belle-van-zuylen-krommenieuwegracht",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Kromme Nieuwegracht 3",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Op dit adres woonde de familie Van Tuyll ’s winters. In het gezin van Diederik Jacob en zijn vrouw Helena Jacoba was Isabella (geb. 21-10-1740) de oudste van vijf. Zij werd later de schrijfster Belle van Zuylen, die sinds 2008 de Utrechtse literaire canon aanvoert.",
+    "featured-image": "/assets/data-models/stories/20201000019_belle-van-zuylen-krommenieuwegracht/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2684300955"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1740",
+      "end": "1771"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000019_belle-van-zuylen-krommenieuwegracht",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen-krommenieuwegracht"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20201000020_belle-van-zuylen-clavecimbel-les",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Belle van Zuylen geeft clavecimbel-les",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Belle van Zuylen geeft clavecimbel-les aan haar (iets oudere) nichtje Isabella Agneta van Lockhorst.",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/471061757"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1755",
+      "end": "1755"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000020_belle-van-zuylen-clavecimbel-les",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen-clavecimbel-les"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20201000021_belle-van-zuylen_zadelstraat",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Geheime correspondentie van Belle van Zuylen via de Zadelstraat",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "De geheime correspondentie met David-Louis-Constant d’Hermenches loopt deels via de verloofde van Belle’s zuster Mitie – die in de Zadelstraat woonde.",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/72891620"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1762",
+      "end": "1762"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000021_belle-van-zuylen_zadelstraat",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen_zadelstraat"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20201000022_belle-van-zuylen_publication-le-noble",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Belle van Zuylen: Le Noble publicatie",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "De eerste (anonieme) publicatie van Belle van Zuylen, het verhaal Le Noble, veroorzaakt enige opschudding.",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280887"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1762",
+      "end": "1762"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000022_belle-van-zuylen_publication-le-noble",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen_publication-le-noble"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20201000023_belle-van-zuylen_jan-verliefd",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Jan van Hardenbroek verliefd op Belle van Zuylen",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Gijsbert Jan van Hardenbroek, eveneens lid van de Utrechtse ridderschap en woonachtig in dit hoekpand, wordt verliefd op Belle van Zuylen. ",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709279839"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1764",
+      "end": "1764"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000023_belle-van-zuylen_jan-verliefd",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen_jan-verliefd"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000024_belle-van-zuylen_slot-zuylen",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Slot Zuylen",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "De Van Tuylls waren van adel. Ze bezaten ook Slot Zuylen, aan de Vecht. Daar woonden ze in de zomer. Als je dit prachtige Slot ziet, met de tuinen eromheen, kan je haast niet geloven dat Belle van Zuylen haar ouderlijk huis en vooral haar vader beschrijft als betrekkelijk sober. Toch is dat zo.",
+    "featured-image": "/assets/data-models/stories/20191000018_belle-van-zuylen-choorstraat/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/55277368"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q200764"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1764",
+      "end": "1764"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000024_belle-van-zuylen_slot-zuylen",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "belle-van-zuylen_slot-zuylen"
+      }
+    ]
+  },
 
   {
     "@id": "https://utrechttimemachine.nl/stories/20210000025_belle-van-zuylen_klein-paushuize",

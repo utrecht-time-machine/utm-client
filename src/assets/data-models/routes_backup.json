@@ -12,7 +12,25 @@
     "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen",
     "storyIds": [
       {
+        "@id": "https://utrechttimemachine.nl/stories/20201000019_belle-van-zuylen-krommenieuwegracht"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000020_belle-van-zuylen-clavecimbel-les"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000021_belle-van-zuylen_zadelstraat"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000022_belle-van-zuylen_publication-le-noble"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20201000023_belle-van-zuylen_jan-verliefd"
+      },
+      {
         "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000024_belle-van-zuylen_slot-zuylen"
       },
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000025_belle-van-zuylen_klein-paushuize"

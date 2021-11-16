@@ -169,7 +169,7 @@
     "id": "https://www.openstreetmap.org/way/7057260",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.11984, 52.09096]
+      "coordinates": [5.1201411, 52.0904411]
     },
     "properties": {
       "title": "Choorstraat",
@@ -293,6 +293,51 @@
     },
     "properties": {
       "title": "Slot Zuylen",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/4607720561",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1238818, 52.0907184]
+    },
+    "properties": {
+      "title": "Klein Paushuize",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/way/700005751",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.12632, 52.09294]
+    },
+    "properties": {
+      "title": "Nobelstraat",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/node/2709280887",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.1206385, 52.0930809]
+    },
+    "properties": {
+      "title": "Statenkamer",
       "description": ""
     }
   }
