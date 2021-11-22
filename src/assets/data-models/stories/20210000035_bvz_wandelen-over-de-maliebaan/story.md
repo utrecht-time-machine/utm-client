@@ -1,0 +1,4 @@
+![Wandelen over de Maliebaan](/assets/data-models/stories/20210000035_bvz_wandelen-over-de-maliebaan/featured.jpg)
+<utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source>
+
+Ze schrijft in een enigszins sombere stemming aan D’Hermenches: ze had verwacht hem te zien, en dat was niet gebeurd. Vandaar dat ze hem nu toewenst dat hij zich enorm verveelt en er spijt van heeft niet met haar te hebben gewandeld over de « Mail d’Utrecht », ondertussen pratend over het toen betrekkelijke recente boek van Adam Smith: The theory of moral sentiments (brief 104).

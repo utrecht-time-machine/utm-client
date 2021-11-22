@@ -12,16 +12,67 @@
     "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen",
     "storyIds": [
       {
-        "@id": "https://utrechttimemachine.nl/stories/20191000018_belle-van-zuylen-choorstraat"
+        "@id": "https://utrechttimemachine.nl/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-"
       },
       {
-        "@id": "https://utrechttimemachine.nl/stories/20210000025_belle-van-zuylen_klein-paushuize"
+        "@id": "https://utrechttimemachine.nl/stories/20210000019_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805"
       },
       {
-        "@id": "https://utrechttimemachine.nl/stories/20210000026_belle-van-zuylen_nobelstraat"
+        "@id": "https://utrechttimemachine.nl/stories/20210000020_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805"
       },
       {
-        "@id": "https://utrechttimemachine.nl/stories/20210000027_belle-van-zuylen_statenkamer"
+        "@id": "https://utrechttimemachine.nl/stories/20210000021_bvz_het-winterverblijf-van-de-familie"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000023_bvz_de-muziekleraar"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000025_bvz_de-aula-van-de-universiteit"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000026_bvz_de-post-opent-je-brieven"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000027_bvz_het-belang-van-een-goede-boekhandel"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000028_bvz_de-oude-spruyt"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000030_bvz_afstand-nemen-ten-opzichte-van-je-familie"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000031_bvz_adeldom-is-niet-meer"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000032_bvz_zwemles-in-het-meer-van-neuchtel"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000033_bvz_een-rondje-over-de-kermis"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000034_bvz_een-lawaaiige-straat"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000035_bvz_wandelen-over-de-maliebaan"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000036_bvz_goede-kennissen-op-de-drift"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000037_bvz_starre-rechtzinnigheid"
+      },
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000038_bvz_op-de-neude"
       }
     ],
     "properties": {

@@ -1,0 +1,4 @@
+![Lage Weide: plek voor een toren ??](/assets/data-models/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-/featured.jpg)
+<utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source>
+
+Ze werd door haar Zwitserse omgeving ook wel aangesproken als een “Bataafse” of zelfs een “Bataafse heldin” (brieven 1348 en 772). Ze koesterde haar herinneringen aan Nederland: als ze in de zomer van 1784 in Chexbres verblijft (aan het meer van Lausanne), herinnert de regio haar – verrassend genoeg – aan de omgeving van Utrecht: “Het huis staat op enige afstand van het dorp, in een verlatenheid die even groen is als de Lage Weide. Het lijkt op sommige hofsteden: een binnenplaats, kippen, rode luiken”. Die streek “ligt weliswaar hoog, maar het is er niet droog. Er zijn boomgaarden, weilanden, veel notenbomen en ook heel wat fonteinen” (brief 521).

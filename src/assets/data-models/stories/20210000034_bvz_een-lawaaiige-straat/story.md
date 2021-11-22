@@ -1,0 +1,4 @@
+![Een lawaaiige straat](/assets/data-models/stories/20210000034_bvz_een-lawaaiige-straat/featured.jpg)
+<utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source>
+
+Dat schijnt een erg lawaaiige straat te zijn geweest (brief 34), maar dominee Brown woonde er met zijn vrouw en een schoonzuster. Belle beschrijft deze twee als “beminnelijke Zwitserse dames, een en al goedheid en gelijkmatigheid, de enige vrouwen in heel Utrecht die ik opzoek” (brief 201). Of we dit laatste letterlijk moeten nemen is de vraag.... Haar vertrouwdheid met het Engels dankte Belle grotendeels aan deze Schotse dominee van de Engelse kerk. Bij hem ontmoet ze ook andere Engelsen, waaronder de heer Horn, een Engelse balling die haar uitspraak van het Engels corrigeert (brief 294).

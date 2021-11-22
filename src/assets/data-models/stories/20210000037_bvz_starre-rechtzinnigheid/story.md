@@ -1,0 +1,5 @@
+![Starre rechtzinnigheid](/assets/data-models/stories/20210000037_bvz_starre-rechtzinnigheid/featured.jpg)
+<utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source>
+
+In maart 1765 vraagt ze zich bijvoorbeeld af: “Zullen de starre rechtzinnigheid of het trieste fanatisme van mijn land mij ooit tot devotie inspireren? Ik kom hier steevast ziek van verveling of vol droeve twijfel uit de kerk” (brief 189). En ze besluit deze brief: “Adieu, ik rep mij naar een zeer slechte preek die ik moet aanhoren — dat is iets anders dan luisteren!”.
+In Zuylen ging het ook ongeveer zo. Op een zondag in mei 1764 schrijft ze aan haar broer Vincent: “Onze nieuwe dominee houdt op dit moment zijn intredepreek. De heer Swaving heeft hem geïnstalleerd; ik dacht dat allemaal nogal lang zou duren en maar matig interessant zou zijn; uit voorzorg heb ik me ervan vrijgesteld” (brief 90).
