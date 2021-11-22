@@ -87,17 +87,21 @@ with open('./bvz_stories.json', 'r', encoding="utf-8") as f:
         id = ''.join(char for char in id if (char.isalnum() or char == '-') and char != 'â')
         id = str(id_num) + "_bvz_" + id.lower()
 
+        id_num += 1
+        if len(story_data["coordinates"]) <= 0:
+          continue
+
         story_parsed["@id"] += id
         story_parsed["title"] += story_data["title"]
         story_parsed["description"] = story_data["description"]
         story_parsed["featured-image"] = story_parsed["featured-image"].replace("[ID]", id)
-        story_parsed["stations"][0]["@id"] = "https://www.openstreetmap.org/node/2709280887" # story_data["stationId"]
+        story_parsed["stations"][0]["@id"] = story_data["stationId"]
         story_parsed["seq"][0]["@id"] += id
         stories_parsed.append(story_parsed)
 
         station_parsed = json.loads(json.dumps(station_template))
         station_parsed["id"] = story_data["stationId"]
-        station_parsed["geometry"]["coordinates"] = story_data["coordinates"]
+        station_parsed["geometry"]["coordinates"] = [story_data["coordinates"][1], story_data["coordinates"][0]]
         stations_parsed.append(station_parsed)
 
         story_path = f'./parsed-stories/{id}'
@@ -112,7 +116,6 @@ with open('./bvz_stories.json', 'r', encoding="utf-8") as f:
         imgFile = './images/' + str(i+1) + '.jpg'
         copyfile(imgFile, story_path + '/featured.jpg')
         
-        id_num += 1
 
     with open('./stories_parsed.json', 'w', encoding="utf-8") as f:
       f.write(json.dumps(stories_parsed, ensure_ascii=False))

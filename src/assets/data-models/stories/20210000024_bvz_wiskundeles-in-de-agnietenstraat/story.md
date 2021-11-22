@@ -1,5 +1,4 @@
-![Wiskundeles in de Agnietenstraat](/assets/data-models/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat/featured.jpg)
-<utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source>
+![Wiskundeles in de Agnietenstraat](/assets/data-models/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat/featured.jpg)<br><small><utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source></small>
 
 En de resultaten blijven niet uit: ”Mijn leermeester, die niemand naar de mond praat, ook niet uit beleefdheid, heeft mij gezegd dat hij nooit iemand met méér aanleg heeft gezien, en evenmin ooit zulke snelle vorderingen heeft meegemaakt”. Zelf vindt ze dat ze “na een paar uur wiskunde open van geest en vrolijker van hart word. Ik heb het gevoel dat ik beter slaap en beter eet na het zien van evidente, onbetwistbare waarheden; het troost mij voor de duisterheden van de godsdienst en de metafysica”.
 Ze schrijft dit aan David-Louis Constant d’Hermenches, haar vriend en vertrouweling die zich ongerust maakte over een teveel aan wiskunde in haar programma: “Bestudeer alsjeblieft die wiskunde niet, dat vernauwt de verbeelding en maakt de geest dor” (brief 86).

@@ -308,8 +308,8 @@ export class MapService {
       zoom: environment.initialZoom,
       pitch: 45,
       maxZoom: environment.maxZoom,
-      minZoom: environment.minZoom,
-      maxBounds: mapBounds,
+      // minZoom: environment.minZoom,
+      // maxBounds: mapBounds,
     });
 
     // use the Mapbox GL JS map canvas for three.js
