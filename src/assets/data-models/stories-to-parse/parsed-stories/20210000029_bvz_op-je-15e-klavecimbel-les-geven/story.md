@@ -1,0 +1,3 @@
+![Op je 15e klavecimbel-les geven](/assets/data-models/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven/featured.jpg)<br><small><utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source></small>
+
+Deze naamgenoot was iets ouder dan zij zelf, dus het is heel terecht dat Mlle Prevost, Belle’s voormalige gouvernante, trots is op haar oud-leerling, met wie ze nog lange tijd briefcontact onderhield. In mei 1755 complimenteert zij haar ermee dat ze in staat is om deze lessen te geven: “Als het lukt, dan kunnen zowel de docent als de leerling daar trots op zijn!” (brief 34).

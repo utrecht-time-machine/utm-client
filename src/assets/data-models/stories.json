@@ -666,6 +666,190 @@
     ]
   },
   {
+    "@id": "https://utrechttimemachine.nl/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Lage Weide: plek voor een toren ??",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Belle van Zuylen, in 1740 geboren in Utrecht, heeft haar eerste 30 jaar hier doorgebracht. In 1771 trouwde ze met een Zwitser en vertrok ze naar Neuchâtel, waar in de jaren 80 haar schrijfsterscarrière op gang kwam. Maar ze bleef in contact met Nederland, en heeft sinds kort ook een plaats in de Nederlandse canon.",
+    "featured-image": "/assets/data-models/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/7057260"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000020_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Belle van Zuylen, beroemdste schrijfster van Utrecht, 1740-1805",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Als je dit kasteel zo ziet, kan je haast niet geloven dat Belle van Zuylen het leven in haar ouderlijk huis beschrijft als betrekkelijk sober. ",
+    "featured-image": "/assets/data-models/stories/20210000020_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/55277368"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000020_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000021_bvz_het-winterverblijf-van-de-familie",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Het winterverblijf van de familie",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "‘s Winters woonde de familie Van Tuyll in de stad: op het adres Kromme Nieuwe Gracht 3 (hier op een 19e-eeuwse tekening). In het gezin van Diederik Jacob en zijn vrouw Helena Jacoba was Isabella (geb. 21-10-1740) de oudste van vijf. Zij werd later de schrijfster Belle van Zuylen, die sinds 2008 de Utrechtse literaire canon aanvoert.",
+    "featured-image": "/assets/data-models/stories/20210000021_bvz_het-winterverblijf-van-de-familie/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2684300955"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000021_bvz_het-winterverblijf-van-de-familie",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Belle van Zuylen, beroemdste schrijfster van Utrecht, 1740-1805",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "De Tuylls gingen natuurlijk toch regelmatig vanuit Zuylen naar Utrecht. Ze reden dan langs de Vecht, in een koets of in een sjees. Dat gaf wat privacy: zonder dat haar broers zich ermee bemoeiden, kon Belle even rustig met haar ouders praten.",
+    "featured-image": "/assets/data-models/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/471061757"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
     "@id": "https://utrechttimemachine.nl/stories/20210000023_bvz_de-muziekleraar",
     "@type": "https://utrechttimemachine.nl/ontology/story",
     "title": "De muziekleraar",
@@ -675,15 +859,34 @@
     },
     "description": "Ze ging ook vaak naar Van Rhijn, haar muziekleraar. Hij woonde in de Nobelstraat  – die toen nog Zonstraat heette (aan het eind waren de resten van de stadsmuur zichtbaar). Zijn muzieklessen waren voor haar om verschillende redenen belangrijk: later zou ze niet alleen romans schrijven, maar ook klavecimbel spelen én opera’s componeren. Van Rhijn had daarvoor ongetwijfeld de basis gelegd.",
     "featured-image": "/assets/data-models/stories/20210000023_bvz_de-muziekleraar/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/368920122" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/368920122"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000023_bvz_de-muziekleraar",
@@ -702,15 +905,34 @@
     },
     "description": "Bij Laurens Praalder, verbonden aan de Fundatie van Renswoude (aan het eind van de Lange Nieuwstraat), volgde Belle van Zuylen wiskundelessen. Over hem vertelde ze: “Mijn leermeester is ondanks zijn boerse uiterlijk een zeer kundig man, en daarbij zo gelukkig, zo eenvoudig, zo bescheiden, dat hij een gunstige mening over de natuurwetenschap weet te wekken” (brief 87).",
     "featured-image": "/assets/data-models/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/node/2681373676" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2681373676"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat",
@@ -729,15 +951,34 @@
     },
     "description": "Ook volgde ze lessen bij verschillende hoogleraren van de universiteit. Het Academiegebouw zou pas in de 19e eeuw gebouwd worden, maar de Aula, naast de kloostergang, was er al wel. Daar vonden de promoties plaats.",
     "featured-image": "/assets/data-models/stories/20210000025_bvz_de-aula-van-de-universiteit/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/35443986" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/35443986"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000025_bvz_de-aula-van-de-universiteit",
@@ -756,15 +997,34 @@
     },
     "description": "Belle van Zuylen moet vaak langs de Dom hebben gelopen. Toch noemt ze hem in haar brieven niet één keer....  Vlak onder de Dom, in de Zadelstraat, woonde, vóór zijn huwelijk met Belle’s zuster in april 1763, Cornelis de Perponcher. Haar toekomstige zwager was bereid om voor háár bestemde brieven naar zijn adres te laten sturen, en die dan aan haar door te geven – en omgekeerd.",
     "featured-image": "/assets/data-models/stories/20210000026_bvz_de-post-opent-je-brieven/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/72891620" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/72891620"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000026_bvz_de-post-opent-je-brieven",
@@ -783,18 +1043,129 @@
     },
     "description": "Ook met haar boekhandelaar Spruyt heeft ze afspraken gemaakt, zo blijkt in een brief uit juni 1764 aan James Boswell, die duidelijke instructies krijgt: “Schrijf mij niet te dikwijls, maar wel lange brieven, en adresseer ze aan boekhandel Spruyt”.",
     "featured-image": "/assets/data-models/stories/20210000027_bvz_het-belang-van-een-goede-boekhandel/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/72891620" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/72891620"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000027_bvz_het-belang-van-een-goede-boekhandel",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000028_bvz_de-oude-spruyt",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "De oude Spruyt",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "In de jaren 80 had boekhandelaar Hendrik Spruyt nog steeds zijn winkel in de Choorstraat. En Belle, inmiddels Isabelle de Charrière, herinnert zich dat hij haar twintig jaar eerder had gezegd dat hij het eerste boek dat ze zou laten drukken meteen in de verkoop zou brengen (brief 513). Als het in 1784, in Neuchâtel, zover is, spant ze haar broer Vincent voor haar karretje.",
+    "featured-image": "/assets/data-models/stories/20210000028_bvz_de-oude-spruyt/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/7057260"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000028_bvz_de-oude-spruyt",
+        "@type": "https://utrechttimemachine.nl/scene-types/article",
+        "content": "story"
+      }
+    ]
+  },
+  {
+    "@id": "https://utrechttimemachine.nl/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven",
+    "@type": "https://utrechttimemachine.nl/ontology/story",
+    "title": "Op je 15e klavecimbel-les geven",
+    "lang": "nl",
+    "recommendedRouteId": {
+      "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
+    },
+    "description": "Ook vanuit de Lange Nieuwstraat moet Belle van Zuylen de Dom hebben zien opdoemen, als ze daar was om klavecimbel-les te geven aan haar nichtje Isabella Agneta van Lockhorst.",
+    "featured-image": "/assets/data-models/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven/featured.jpg",
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
+    ],
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/471061757"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
+    "seq": [
+      {
+        "@id": "https://utrechttimemachine.nl/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven",
         "@type": "https://utrechttimemachine.nl/scene-types/article",
         "content": "story"
       }
@@ -810,15 +1181,34 @@
     },
     "description": "In de Statenkamer aan het Janskerkhof nam Belle’s vader deel aan de vergaderingen van de Utrechtse ridderschap; vanaf oktober 1767 was hij daarvan de voorzitter. Als lid van de ridderschap zou hij worden opgevolgd door zijn oudste zoon Willem.",
     "featured-image": "/assets/data-models/stories/20210000030_bvz_afstand-nemen-ten-opzichte-van-je-familie/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/node/2709280887" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280887"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000030_bvz_afstand-nemen-ten-opzichte-van-je-familie",
@@ -837,15 +1227,34 @@
     },
     "description": "Zelf was zij in dit gebouw, de Statenkamer, misschien nooit binnen geweest? Toen ze eenmaal in Zwitserland woonde, maakte haar broer Willem deel uit van de Utrechtse ridderschap en vergaderde hij hier. ",
     "featured-image": "/assets/data-models/stories/20210000031_bvz_adeldom-is-niet-meer/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/node/2709280887" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2709280887"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000031_bvz_adeldom-is-niet-meer",
@@ -864,15 +1273,34 @@
     },
     "description": "Naar het adres Klein Paushuize heeft Isabelle de Charrière in de laatste 15 jaar van haar leven (ze overleed in 1805) tientallen brieven gestuurd. ",
     "featured-image": "/assets/data-models/stories/20210000032_bvz_zwemles-in-het-meer-van-neuchtel/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/node/2684301586" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/2684301586"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000032_bvz_zwemles-in-het-meer-van-neuchtel",
@@ -891,15 +1319,34 @@
     },
     "description": "De kermis op het Vredenburg was een plek waar Belle van Zuylen onopvallend mensen kon spreken die ze liever niet thuis ontving, zoals bijvoorbeeld haar correspondent David-Louis Constant d’Hermenches, de Zwitserse kolonel die ze op een bal in Den Haag had ontmoet.",
     "featured-image": "/assets/data-models/stories/20210000033_bvz_een-rondje-over-de-kermis/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/304696234" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/304696234"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000033_bvz_een-rondje-over-de-kermis",
@@ -918,15 +1365,34 @@
     },
     "description": "Mogelijk is Belle, komend vanuit Slot Zuylen, soms door deze Wittevrouwenpoort de stad ingegaan? Ze kwam dan in de Wittevrouwenstraat. ",
     "featured-image": "/assets/data-models/stories/20210000034_bvz_een-lawaaiige-straat/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/758374920" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/758374920"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000034_bvz_een-lawaaiige-straat",
@@ -945,15 +1411,34 @@
     },
     "description": "De Maliebaan, die natuurlijk nog buiten de stad lag, komt maar één keer voor in de correspondentie: in juli 1764. Niet dat Belle er toen had gewandeld, overigens.",
     "featured-image": "/assets/data-models/stories/20210000035_bvz_wandelen-over-de-maliebaan/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/650789894" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/650789894"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000035_bvz_wandelen-over-de-maliebaan",
@@ -972,15 +1457,34 @@
     },
     "description": "In één van de huizen links, aan de Drift nr. 17, woonde vanaf 1768 Johan Gideon Loten, die gouverneur was geweest van Makassar en Ceylon – en van wie gezegd werd dat hij een slavin, Sitie, had meegenomen naar Utrecht.",
     "featured-image": "/assets/data-models/stories/20210000036_bvz_goede-kennissen-op-de-drift/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/node/1870091487" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/node/1870091487"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000036_bvz_goede-kennissen-op-de-drift",
@@ -999,15 +1503,34 @@
     },
     "description": "In de Waalse kerk, vlak achter het winterverblijf van de Tuylls, zal  Belle van Zuylen af en toe kerkdiensten bezocht kunnen hebben – waarschijnlijk niet met veel enthousiasme. ",
     "featured-image": "/assets/data-models/stories/20210000037_bvz_starre-rechtzinnigheid/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/33701392" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/33701392"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000037_bvz_starre-rechtzinnigheid",
@@ -1026,15 +1549,34 @@
     },
     "description": "Op de Neude speelde zich in de jaren van de Bataafse Revolutie van allerlei af, waarvan we in de correspondentie met Isabelle de Charrière niet veel details terugvinden.",
     "featured-image": "/assets/data-models/stories/20210000038_bvz_op-de-neude/featured.jpg",
-    "authors": [{ "@id": "https://utrechttimemachine.nl/authors/HuygensING" }],
-    "stations": [{ "@id": "https://www.openstreetmap.org/way/7057508" }],
-    "tagIds": [
-      { "@id": "https://www.wikidata.org/wiki/Q123386" },
-      { "@id": "https://www.wikidata.org/wiki/Q36180" },
-      { "@id": "https://www.wikidata.org/wiki/Q8242" },
-      { "@id": "https://www.wikidata.org/wiki/Q2461967" }
+    "authors": [
+      {
+        "@id": "https://utrechttimemachine.nl/authors/HuygensING"
+      }
     ],
-    "time-period": { "start": "1784", "end": "1784" },
+    "stations": [
+      {
+        "@id": "https://www.openstreetmap.org/way/7057508"
+      }
+    ],
+    "tagIds": [
+      {
+        "@id": "https://www.wikidata.org/wiki/Q123386"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q36180"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q8242"
+      },
+      {
+        "@id": "https://www.wikidata.org/wiki/Q2461967"
+      }
+    ],
+    "time-period": {
+      "start": "1784",
+      "end": "1784"
+    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000038_bvz_op-de-neude",

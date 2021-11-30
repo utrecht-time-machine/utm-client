@@ -1,0 +1,3 @@
+![De muziekleraar](/assets/data-models/stories/20210000023_bvz_de-muziekleraar/featured.jpg)<br><small><utm-source sourceUrl="https://hetutrechtsarchief.nl/beeldmateriaal/detail/ba4692ab-ee67-5856-be4b-1d99c9341969">Image source</utm-source></small>
+
+Maar ze gebruikte deze lessen bij Van Rhijn ook wel om ontmoetingen te arrangeren met kennissen die ze niet op Zuylen wilde uitnodigen. Zo schreef ze in maart 1765 aan Adolf Werner van Pallandt: “Morgenochtend ben ik van elf tot twaalf bij Van Rhijn; als je nog niet vertrokken bent en als je mij daar nog enkele woorden wilt komen zeggen zonder dat wij de indruk wekken dat te hebben afgesproken, stem ik erin toe dat je daarheen komt” (br. 190).
