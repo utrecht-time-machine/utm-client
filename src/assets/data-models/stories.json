@@ -903,7 +903,7 @@
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "Bij Laurens Praalder, verbonden aan de Fundatie van Renswoude (aan het eind van de Lange Nieuwstraat), volgde Belle van Zuylen wiskundelessen. Over hem vertelde ze: “Mijn leermeester is ondanks zijn boerse uiterlijk een zeer kundig man, en daarbij zo gelukkig, zo eenvoudig, zo bescheiden, dat hij een gunstige mening over de natuurwetenschap weet te wekken” (brief 87).",
+    "description": "Bij Laurens Praalder, verbonden aan de Fundatie van Renswoude (aan het eind van de Lange Nieuwstraat), volgde Belle van Zuylen wiskundelessen. Over hem vertelde ze: “Mijn leermeester is ondanks zijn boerse uiterlijk een zeer kundig man, en daarbij zo gelukkig, zo eenvoudig, zo bescheiden, dat hij een gunstige mening over de natuurwetenschap weet te wekken” (brief <a href='https://charriere.huygens.knaw.nl/edition/entry/1811'>87</a>).",
     "featured-image": "/assets/data-models/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat/featured.jpg",
     "authors": [
       {
@@ -1087,7 +1087,7 @@
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "In de jaren 80 had boekhandelaar Hendrik Spruyt nog steeds zijn winkel in de Choorstraat. En Belle, inmiddels Isabelle de Charrière, herinnert zich dat hij haar twintig jaar eerder had gezegd dat hij het eerste boek dat ze zou laten drukken meteen in de verkoop zou brengen (brief 513). Als het in 1784, in Neuchâtel, zover is, spant ze haar broer Vincent voor haar karretje.",
+    "description": "In de jaren 80 had boekhandelaar Hendrik Spruyt nog steeds zijn winkel in de Choorstraat. En Belle, inmiddels Isabelle de Charrière, herinnert zich dat hij haar twintig jaar eerder had gezegd dat hij het eerste boek dat ze zou laten drukken meteen in de verkoop zou brengen (brief <a href='https://charriere.huygens.knaw.nl/edition/entry/2237'>513</a>). Als het in 1784, in Neuchâtel, zover is, spant ze haar broer Vincent voor haar karretje.",
     "featured-image": "/assets/data-models/stories/20210000028_bvz_de-oude-spruyt/featured.jpg",
     "authors": [
       {
