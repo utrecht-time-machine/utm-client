@@ -4,8 +4,8 @@
   <utm-story-recommended-route
     [recommendedRouteId]="story.recommendedRouteId"
   ></utm-story-recommended-route>
-  <h2>{{ story['title'] }}</h2>
-  <em>
+  <h2 [utmTextWithSources]="story['title']"></h2>
+  <em *ngIf="story['time-period']">
     {{ story['time-period']['start'].getFullYear() }} -
     {{ story['time-period']['end'].getFullYear() }}
   </em>

@@ -47,12 +47,15 @@ export class StoriesService {
 
     // Parse date strings
     stories.map((story, idx) => {
-      story['time-period'].start = new Date(story['time-period'].start);
-      if (story['time-period'].start < this.timePeriod.earliestDate) {
-        this.timePeriod.earliestDate = story['time-period'].start;
+      if (story['time-period']) {
+        story['time-period'].start = new Date(story['time-period'].start);
+        if (story['time-period'].start < this.timePeriod.earliestDate) {
+          this.timePeriod.earliestDate = story['time-period'].start;
+        }
+
+        story['time-period'].end = new Date(story['time-period'].end);
       }
 
-      story['time-period'].end = new Date(story['time-period'].end);
       stories[idx] = story;
     });
 

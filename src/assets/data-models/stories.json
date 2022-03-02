@@ -668,12 +668,12 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Lage Weide: plek voor een toren ??",
+    "title": "Lage Weide: plek voor een <a href='https://nl.wikipedia.org/wiki/Belle_van_Zuylen_(toren)'>toren</a>??",
     "lang": "nl",
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "Belle van Zuylen, in 1740 geboren in Utrecht, heeft haar eerste 30 jaar hier doorgebracht. In 1771 trouwde ze met een Zwitser en vertrok ze naar Neuchâtel, waar in de jaren 80 haar schrijfsterscarrière op gang kwam. Maar ze bleef in contact met Nederland, en heeft sinds kort ook een plaats in de Nederlandse canon.",
+    "description": "Belle van Zuylen, in 1740 geboren in Utrecht, heeft haar eerste 30 jaar hier doorgebracht. In 1771 trouwde ze met een Zwitser en vertrok ze naar Neuchâtel, waar in de jaren 80 haar schrijfsterscarrière op gang kwam. Maar ze bleef in contact met Nederland, en heeft sinds kort ook een plaats in de <a href='https://www.canonvannederland.nl/nl/saraburgerhart'>Nederlandse canon</a>.",
     "featured-image": "/assets/data-models/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-/featured.jpg",
     "authors": [
       {
@@ -699,10 +699,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000018_bvz_lage-weide-plek-voor-een-toren-",
@@ -745,10 +741,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000020_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
@@ -765,7 +757,7 @@
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
     },
-    "description": "‘s Winters woonde de familie Van Tuyll in de stad: op het adres Kromme Nieuwe Gracht 3 (hier op een 19e-eeuwse tekening). In het gezin van Diederik Jacob en zijn vrouw Helena Jacoba was Isabella (geb. 21-10-1740) de oudste van vijf. Zij werd later de schrijfster Belle van Zuylen, die sinds 2008 de Utrechtse literaire canon aanvoert.",
+    "description": "‘s Winters woonde de familie Van Tuyll in de stad: op het adres Kromme Nieuwe Gracht 3 (hier op een 19e-eeuwse tekening). In het gezin van Diederik Jacob en zijn vrouw Helena Jacoba was Isabella (geb. 21-10-1740) de oudste van vijf. Zij werd later de schrijfster Belle van Zuylen, die sinds 2008 de Utrechtse <a href='https://www.cityofliterature.nl/de-utrechtse-canon/'>literaire canon</a> aanvoert.",
     "featured-image": "/assets/data-models/stories/20210000021_bvz_het-winterverblijf-van-de-familie/featured.jpg",
     "authors": [
       {
@@ -791,10 +783,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000021_bvz_het-winterverblijf-van-de-familie",
@@ -806,7 +794,7 @@
   {
     "@id": "https://utrechttimemachine.nl/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
     "@type": "https://utrechttimemachine.nl/ontology/story",
-    "title": "Belle van Zuylen, beroemdste schrijfster van Utrecht, 1740-1805",
+    "title": "De Vecht",
     "lang": "nl",
     "recommendedRouteId": {
       "@id": "https://utrechttimemachine.nl/routes/belle-van-zuylen"
@@ -820,7 +808,7 @@
     ],
     "stations": [
       {
-        "@id": "https://www.openstreetmap.org/way/471061757"
+        "@id": "https://www.openstreetmap.org/relation/1357924"
       }
     ],
     "tagIds": [
@@ -837,10 +825,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000022_bvz_belle-van-zuylen-beroemdste-schrijfster-van-utrecht-1740-1805",
@@ -883,10 +867,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000023_bvz_de-muziekleraar",
@@ -929,10 +909,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000024_bvz_wiskundeles-in-de-agnietenstraat",
@@ -958,7 +934,7 @@
     ],
     "stations": [
       {
-        "@id": "https://www.openstreetmap.org/way/35443986"
+        "@id": "https://www.openstreetmap.org/relation/3530174"
       }
     ],
     "tagIds": [
@@ -975,10 +951,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000025_bvz_de-aula-van-de-universiteit",
@@ -1021,10 +993,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000026_bvz_de-post-opent-je-brieven",
@@ -1067,10 +1035,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000027_bvz_het-belang-van-een-goede-boekhandel",
@@ -1096,7 +1060,7 @@
     ],
     "stations": [
       {
-        "@id": "https://www.openstreetmap.org/way/7057260"
+        "@id": "https://www.openstreetmap.org/way/72891620"
       }
     ],
     "tagIds": [
@@ -1113,10 +1077,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000028_bvz_de-oude-spruyt",
@@ -1159,10 +1119,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000029_bvz_op-je-15e-klavecimbel-les-geven",
@@ -1205,10 +1161,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000030_bvz_afstand-nemen-ten-opzichte-van-je-familie",
@@ -1251,10 +1203,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000031_bvz_adeldom-is-niet-meer",
@@ -1297,10 +1245,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000032_bvz_zwemles-in-het-meer-van-neuchtel",
@@ -1343,10 +1287,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000033_bvz_een-rondje-over-de-kermis",
@@ -1389,10 +1329,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000034_bvz_een-lawaaiige-straat",
@@ -1435,10 +1371,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000035_bvz_wandelen-over-de-maliebaan",
@@ -1481,10 +1413,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000036_bvz_goede-kennissen-op-de-drift",
@@ -1527,10 +1455,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000037_bvz_starre-rechtzinnigheid",
@@ -1573,10 +1497,6 @@
         "@id": "https://www.wikidata.org/wiki/Q2461967"
       }
     ],
-    "time-period": {
-      "start": "1784",
-      "end": "1784"
-    },
     "seq": [
       {
         "@id": "https://utrechttimemachine.nl/stories/20210000038_bvz_op-de-neude",

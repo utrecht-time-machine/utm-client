@@ -169,7 +169,7 @@
     "id": "https://www.openstreetmap.org/way/7057260",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1201411, 52.0904411]
+      "coordinates": [5.060111, 52.113389]
     },
     "properties": {
       "title": "Choorstraat",
@@ -376,40 +376,10 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/35443986",
+    "id": "https://www.openstreetmap.org/relation/3530174",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.12131, 52.09065]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/72891620",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12018, 52.09035]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/72891620",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12018, 52.09035]
+      "coordinates": [5.12246, 52.09027]
     },
     "properties": {
       "title": "",
@@ -469,7 +439,7 @@
     "id": "https://www.openstreetmap.org/way/304696234",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.11281, 52.09294]
+      "coordinates": [5.114722, 52.091944]
     },
     "properties": {
       "title": "",
@@ -484,22 +454,7 @@
     "id": "https://www.openstreetmap.org/way/758374920",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.12411, 52.09514]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/650789894",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.13788, 52.09427]
+      "coordinates": [5.126111, 52.095]
     },
     "properties": {
       "title": "",
@@ -514,7 +469,7 @@
     "id": "https://www.openstreetmap.org/node/1870091487",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.1235846, 52.0946054]
+      "coordinates": [5.123056, 52.093611]
     },
     "properties": {
       "title": "",
@@ -646,40 +601,10 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/35443986",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12131, 52.09065]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
     "id": "https://www.openstreetmap.org/way/72891620",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.12018, 52.09035]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/72891620",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12018, 52.09035]
+      "coordinates": [5.12007, 52.09031]
     },
     "properties": {
       "title": "",
@@ -766,55 +691,10 @@
       "geojson": "https://purl.org/geojson/vocab#"
     },
     "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/304696234",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.11281, 52.09294]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/way/758374920",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.12411, 52.09514]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
     "id": "https://www.openstreetmap.org/way/650789894",
     "geometry": {
       "type": "Point",
-      "coordinates": [5.13788, 52.09427]
-    },
-    "properties": {
-      "title": "",
-      "description": ""
-    }
-  },
-  {
-    "@context": {
-      "geojson": "https://purl.org/geojson/vocab#"
-    },
-    "type": "Feature",
-    "id": "https://www.openstreetmap.org/node/1870091487",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [5.1235846, 52.0946054]
+      "coordinates": [5.12943, 52.08857]
     },
     "properties": {
       "title": "",
@@ -845,6 +725,21 @@
     "geometry": {
       "type": "Point",
       "coordinates": [5.11867, 52.09319]
+    },
+    "properties": {
+      "title": "",
+      "description": ""
+    }
+  },
+  {
+    "@context": {
+      "geojson": "https://purl.org/geojson/vocab#"
+    },
+    "type": "Feature",
+    "id": "https://www.openstreetmap.org/relation/1357924",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [4.9953, 52.1793]
     },
     "properties": {
       "title": "",

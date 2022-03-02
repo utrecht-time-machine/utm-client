@@ -13,7 +13,7 @@
           [recommendedRouteId]="story.recommendedRouteId"
         ></utm-story-recommended-route>
 
-        <h2>{{ story['title'] }}</h2>
+        <h2 [utmTextWithSources]="story['title']"></h2>
 
         <p *ngIf="true || !platform.is('mobile')">
           <em

@@ -44,8 +44,9 @@ export class RoutesService {
 
     this.initializeStoryReloading();
 
-    this.selected.next(routes[0]);
-    this.selectedStoryIdx.next(this.DEFAULTSTORYIDX);
+    this.selectRouteById(
+      'https://utrechttimemachine.nl/routes/belle-van-zuylen'
+    );
   }
 
   private initializeStoryReloading() {

@@ -102,7 +102,7 @@
               />
               <ion-card-header>
                 <ion-card-title>{{ story['title'] }}</ion-card-title>
-                <ion-card-subtitle>
+                <ion-card-subtitle *ngIf="story['time-period']">
                   {{ story['time-period']['start'].getFullYear() }} -
                   {{ story['time-period']['end'].getFullYear() }}
                 </ion-card-subtitle>
